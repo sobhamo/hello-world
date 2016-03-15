@@ -66,7 +66,7 @@
 	* 미들웨어 설치시 HDMI포트 자동으로 Disable하고 UART를 Enable 하기 때문에, HDMI를 다시 사용 할 경우 다음과 같은 절차를 따른다.
 	```
 	# dpkg -r devicemiddleware
-	# vi /boot/uEnb.txt
+	# vi /boot/uEnv.txt
 
 	##Disable HDMI (v3.8.x)
 	#cape_disable=capemgr.disable_partno=BB-BONELT-HDMI,BB-BONELT-HDMIN
@@ -176,8 +176,7 @@
   0. 센서 개발 환경
   1. 10종 센서 설명
   2. 드라이버 설치
-  3. 테스트 코드 실행방법
-  4. 부록(예제 코드)
+  3. 부록(예제 코드)
 
 ### 1. Sensor Development Environment
 1. BeagleBone Black 보드에 NeuroMeka사의 SensorCape KIT을 연결하여, 센서를 부착한다.
@@ -207,6 +206,7 @@
 ### 3. Sensor Driver Installation
 
 BBB에서 사용되는 10종 센서는 4가지 연결방식을 사용한다. 1) UART , 2) 1-WIRE , 3) GPIO , 4) I2C 각 연결 방식을 지원하도록 Device Tree Overlay라는 커널 기능을 이용하여, 원하는 포트와 핀을 원하는 형태의 인터페이스로 설정한다. 본 문서에서 설명하는 방법은 NeuroMeka에서 제공하는 SensorCape와 호환이 되는 드라이버에 대한 설명이다. 
+미들웨어 패키지가 설치된 상태에서는 드라이버 설치 과정은 무시한다.
 
 ##### 1) UART
 * BBB로 접속하여, 기본적으로 제공하는 UART5를 동작시킨다.
@@ -289,7 +289,7 @@ BBB에서 사용되는 10종 센서는 4가지 연결방식을 사용한다. 1) 
 	```
 	# ssh root@192.168.7.2
 	= BBB 접속 =
-	# ls /dev/i2c-
+	# ls /dev/i2c-1
 	/dev/i2c-1
 	```
 
