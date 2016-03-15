@@ -173,11 +173,6 @@
 
 본 챕터는 BeagleBone Black(이하 BBB)에서 동작하는 10종 센서에 대한 설치 방법 및 동작 확인 예제 코드를 제공합니다.
 
-  0. 센서 개발 환경
-  1. 10종 센서 설명
-  2. 드라이버 설치
-  3. 부록(예제 코드)
-
 ### 1. Sensor Development Environment
 1. BeagleBone Black 보드에 NeuroMeka사의 SensorCape KIT을 연결하여, 센서를 부착한다.
 ![](images/800px-Sensorcape_img.png)
