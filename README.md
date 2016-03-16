@@ -54,14 +54,20 @@
 	# service middleware restart
 	```
 
-3. 제거
+3. 구동 확인
+
+	```
+	# ps xl | grep middleware
+	```
+
+4. 제거
 	* usr/local/middleware 내부의 모든 파일이 삭제되니 필요한 경우 백업이 필요함
 
 	```
 	# dpkg -r devicemiddleware
 	```
 	
-4. UART5/HDMI 형식의 센서 사용법
+5. UART5/HDMI 형식의 센서 사용법
 	* BeagleboneBlack에서 HDMI 포트와 UART포트가 겹치는 현상이 있어 둘중에 하나만 사용이 가능하다.
 	* 미들웨어 설치시 HDMI포트 자동으로 Disable하고 UART를 Enable 하기 때문에, HDMI를 다시 사용 할 경우 다음과 같은 절차를 따른다.
 	```
