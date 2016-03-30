@@ -22,75 +22,21 @@
 <table>
 <thead><tr><th>Part</th><th>Library</th><th>Type</th><th>용도</th></tr></thead>
 <tbody>
-<tr>
-<td rowspan="7">Gateway Portal</td>
-<td>express</td>
-<td>패키지 포함</td>
-<td>프레임워크</td>
-</tr>
-<tr>
-<td>express-session</td>
-<td>패키지 포함</td>
-<td>Express 에 Session 추가</td>
-</tr>
-<tr>
-<td>body-parser</td>
-<td>패키지 포함</td>
-<td>Express 에 BodyParser 추가</td>
-</tr>
-<tr>
-<td>request</td>
-<td>패키지 포함</td>
-<td>http request 전송</td>
-</tr>
-<tr>
-<td>xml2js</td>
-<td>패키지 포함</td>
-<td>XML 파싱</td>
-</tr>
-<tr>
-<td>ping</td>
-<td>패키지 포함</td>
-<td>Ping 체크</td>
-</tr>
-<tr>
-<td>i18n</td>
-<td>패키지 포함</td>
-<td>다국어 지원</td>
-</tr>
-<tr>
-<td rowspan="4">Management Agent</td>
-<td>libcurl</td>
-<td>패키지 포함</td>
-<td>HTTP 통신</td>
-</tr>
-<tr>
-<td>libmosquitto</td>
-<td>패키지 포함</td>
-<td>MQTT 통신</td>
-</tr>
-<tr>
-<td>libxml2</td>
-<td>shared</td>
-<td>XML 데이터 처리</td>
-</tr>
-<tr>
-<td>libsqlite3</td>
-<td>shared</td>
-<td>데이터 저장</td>
-</tr>
-<tr>
-<td rowspan="2">공용</td>
-<td>libsodium</td>
-<td>shared</td>
-<td>IPC 통신</td>
-</tr>
-<tr>
-<td>lizeromq</td>
-<td>shared</td>
-<td>IPC 통신</td>
-</tr>
-</tbody></table>
+<tr><td rowspan="7">Gateway Portal</td><td>express</td><td>패키지 포함</td><td>프레임워크</td></tr>
+<tr><td>express-session</td><td>패키지 포함</td><td>Express 에 Session 추가</td></tr>
+<tr><td>body-parser</td><td>패키지 포함</td><td>Express 에 BodyParser 추가</td></tr>
+<tr><td>request</td><td>패키지 포함</td><td>http request 전송</td></tr>
+<tr><td>xml2js</td><td>패키지 포함</td><td>XML 파싱</td></tr>
+<tr><td>ping</td><td>패키지 포함</td><td>Ping 체크</td></tr>
+<tr><td>i18n</td><td>패키지 포함</td><td>다국어 지원</td></tr>
+<tr><td rowspan="4">Management Agent</td><td>libcurl</td><td>패키지 포함</td><td>HTTP 통신</td></tr>
+<tr><td>libmosquitto</td><td>패키지 포함</td><td>MQTT 통신</td></tr>
+<tr><td>libxml2</td><td>shared</td><td>XML 데이터 처리</td></tr>
+<tr><td>libsqlite3</td><td>shared</td><td>데이터 저장</td></tr>
+<tr><td rowspan="2">공용</td><td>libsodium</td><td>shared</td><td>IPC 통신</td></tr>
+<tr><td>lizeromq</td><td>shared</td><td>IPC 통신</td></tr>
+</tbody>
+</table>
 
 #### 3. 패키지 설치
 0. 데비안 패키지 파일을 다운로드 한다.
