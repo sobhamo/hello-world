@@ -268,7 +268,6 @@ SMA 는 Sensor 들을 관리하고, 데이터를 수집한다.
 ### 2. 프로세스 흐름
 ![](images/SMA_Process_Sequence.png)
 > **Service Ready Agent**(SRA) 는 SMA 로 부터 센서 관련 정보들을 전달받아, 센서별 정책에 따라 데이터를 가공하는 등의 역할을 하는 Agent 이다.
-</blockquote>
 
 * SMA 는 IPC Handler를 통하여 SRA 로부터 전달되는 Packet을 수신한다.
 * **IPC Handler**는 수신된 Packet 을 Receive Command Queue 에 Push 한다.
@@ -317,7 +316,26 @@ SMA 는 Sensor 들을 관리하고, 데이터를 수집한다.
   * RegisterFlag : SMA->SRA->MA로 센서를 등록 할지 여부
 
 * **SENSOR_CONFIGURATION_T** 구조체 구성표
-
+<table>
+<thead><tr><th>구조체 멤버</th><th>변수 타입</th><th>기타</th></tr></thead>
+<tbody>
+<tr><td>DeviceID</td><td>String</td><td>최대길이 32byte</td></tr>
+<tr><td>SensorID</td><td>String</td><td>최대길이 32byte</td></tr>
+<tr><td>SensorName</td><td>String</td><td>최대길이 64byte</td></tr>
+<tr><td>SensorType</td><td>String</td><td>최대길이 32byte</td></tr>
+<tr><td>EnableFlag</td><td>Enum</td><td>SENSOR_STATE_DISABLE = 0<br>SENSOR_STATE_ENABLE = 1</td></tr>
+<tr><td>ReadInterval</td><td>Int</td><td>seconds</td></tr>
+<tr><td>ReadMode</td><td>Enum</td><td>SENSOR_MODE_POLLING = 0<br>SENSOR_MODE_REQUEST = 1<br>SENSOR_MODE_EVENT = 2</td></tr>
+<tr><td>LastValue</td><td>String</td><td>MAX_LEN_LAST_VALUE = 32</td></tr>
+<tr><td>StartTime</td><td>Int</td><td></td></tr>
+<tr><td>EndTime</td><td>Int</td><td></td></tr>
+<tr><td>SerialNumber</td><td>String</td><td>MAX_LEN_SERIAL_NUMBER=64</td></tr>
+<tr><td>OperationType</td><td>Enum</td><td>SENSOR_ACTIVE_TYPE: 0x0001<br>SENSOR_PASSIVE_TYPE:0x0002</td></tr>
+<tr><td>MaxInterval</td><td>Int</td><td>Value < 0 은 경우 on/off 판단불가<br>양수일 경우 시간만큼 Sensor Data 변화 없을 시 off 로 전환</td></tr>
+<tr><td>ControlType</td><td>Int</td><td>1 = SP1 Control Type<br>2 = No SP1 Control Type</td></tr>
+<tr><td>RegisterFlag</td><td>Int</td><td>0 = MA에 등록하지 않음<br>1 = MA에등록<br>값이 0이면장치에 센서가 연결되어 동작하더라도 MA에는등록하지 않음</td></tr>
+</tbody>
+</table>
 
 ----------
 # BeagleBone Black 장치의 센서 드라이버 설치 가이드
