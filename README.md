@@ -19,8 +19,78 @@
 
 #### 2. 미들웨어에서 사용하는 Library 안내
 미들웨어에서 사용하는 Library 들은 다음과 같다.
-![](images/use_libs.png)
-
+<table>
+<thead><tr><th>Part</th><th>Library</th><th>Type</th><th>용도</th></tr></thead>
+<tbody>
+<tr>
+<td rowspan="7">Gateway Portal</td>
+<td>express</td>
+<td>패키지 포함</td>
+<td>프레임워크</td>
+</tr>
+<tr>
+<td>express-session</td>
+<td>패키지 포함</td>
+<td>Express 에 Session 추가</td>
+</tr>
+<tr>
+<td>body-parser</td>
+<td>패키지 포함</td>
+<td>Express 에 BodyParser 추가</td>
+</tr>
+<tr>
+<td>request</td>
+<td>패키지 포함</td>
+<td>http request 전송</td>
+</tr>
+<tr>
+<td>xml2js</td>
+<td>패키지 포함</td>
+<td>XML 파싱</td>
+</tr>
+<tr>
+<td>ping</td>
+<td>패키지 포함</td>
+<td>Ping 체크</td>
+</tr>
+<tr>
+<td>i18n</td>
+<td>패키지 포함</td>
+<td>다국어 지원</td>
+</tr>
+<tr>
+<td rowspan="4">Management Agent</td>
+<td>libcurl</td>
+<td>패키지 포함</td>
+<td>HTTP 통신</td>
+</tr>
+<tr>
+<td>libmosquitto</td>
+<td>패키지 포함</td>
+<td>MQTT 통신</td>
+</tr>
+<tr>
+<td>libxml2</td>
+<td>shared</td>
+<td>XML 데이터 처리</td>
+</tr>
+<tr>
+<td>libsqlite3</td>
+<td>shared</td>
+<td>데이터 저장</td>
+</tr>
+<tr>
+<td rowspan="2">공용</td>
+<td>libsodium</td>
+<td>shared</td>
+<td>IPC 통신</td>
+</tr>
+<tr>
+<td>lizeromq</td>
+<td>shared</td>
+<td>IPC 통신</td>
+</tr>
+</tbody></table>
 
 #### 3. 패키지 설치
 0. 데비안 패키지 파일을 다운로드 한다.
@@ -185,8 +255,72 @@
 * 대시보드에 게이트웨이/센서/액츄에이터를 다음과 같은 과정으로 추가해준다.
 ![](images/oneM2M_SP1_6.png)
 
+
 ----------
-# 센서 드라이버 설치 가이드
+# Sensor Management Agent Overview & Source
+
+본 챕터는 Sensor 와 Actuator 조회 및 제어를 담당하는 **Sensor Management Agent**(SMA) 에 대한 소개와 직접 수정을위한 가이드를 제공한다.
+
+### 1. 개요
+SMA 는 Sensor 들을 관리하고, 데이터를 수집한다.
+다양한 센서 입/출력을 처리하기 위한 Common Interface 로 개발하였다. 
+
+### 2. 프로세스 흐름
+![](images/SMA_Process_Sequence.png)
+> **Service Ready Agent**(SRA) 는 SMA 로 부터 센서 관련 정보들을 전달받아, 센서별 정책에 따라 데이터를 가공하는 등의 역할을 하는 Agent 이다.
+</blockquote>
+
+* SMA 는 IPC Handler를 통하여 SRA 로부터 전달되는 Packet을 수신한다.
+* **IPC Handler**는 수신된 Packet 을 Receive Command Queue 에 Push 한다.
+* **Command Queue** 는 처리해야 할 Command 가 있는지 확인 한 후, 처리해야 할 Command가 있음을 Command Executer 에게 알린다.
+* **Command Executer** 는 Packet Header 를 분석하여, 수행할 Command 인 경우 각 Command Process 에 수신된 Packet 을 전달하여 Command 처리를 요청한다.
+* **Command Process** 는 수신된 Packet 을 Extractor 를 통해 분석된 내용을 구조화하고, 구조화된 정보를 이용하여 Command 를 처리한다.
+* Command 를 처리할 때 만약 센서 관련 처리가 필요하다면, 이를 **Sensor Handler** 를 통해 수행한다.
+* **Sensor Handler** 에서는 처리가 필요한 센서를 찾고, 해당 센서에 대응되는 **Sensor Interface** 를 찾아 실행시키고, 그에 대한 결과값을 리턴한다. 결과값을 바탕으로 Command 를 처리하며, 이 후 Generator를 이용하여 Send Packet을 구성하여 **Command Executer** 에 전달한다.
+* **Command Executer** 는 Send Packet 을 Command Queue 에 Push 한다. IPC Handler 는 SRA 로 보낼 Packet 인 경우 Packet을 전송한다.
+
+### 3. 센서 관리 전체 구조도
+아래 그림은 센서제어를 위한 모듈의 전체 구조도이다.
+![](images/SMA_Sensor_Overview.png)
+
+* **Sensor Handler** 모듈은 센서 관리의 핵심 역활을 수행한다. 등록된 센서의 초기화, 제어, 데이터 추출, 종료 함수를 관리 및 실행한다.
+* **Sensor Interface** 에는 센서 관련 함수가 모여있으며, 각 센서별로 하나의 file 을 갖는다.
+* 초기화 시 모든 센서의 초기화 함수를 실행한다.
+* 센서의 초기화 함수에서는 자신의 제어명령이 있을 경우, 제어함수를 Control Command List 에 등록한다.
+* 각 센서의 초기화가 완료되면, 주기적으로 센서값을 읽는 함수를 알람 시그널에 등록한다.
+* 주기적으로 읽는 데이터는 **Configuration** 에 update 된다.
+* Command 에 따라 센서 제어가 필요할 경우, **Control Command List** 에서 일치하는 제어함수를 실행한다.
+* 주기적으로 해당 센서가 정상동작하는지 확인한다.
+* 프로세스가 종료될 때 모든 센서의 종료 함수를 실행한다.
+
+### 4. Sensor Configuration
+* Sensor Configuration 은 SMA 에서 동작할 센서에 대한 설정값을 저장한다.
+* 관련 코드는 `/usr/local/middleware/SMA/source/configuration/SensorConfiguration.c` 파일에 있으며,
+`/usr/local/middleware/conf/SMADeviceConf.backup` 파일이 존재하면 **SMADeviceConf.backup** 파일의 정보로 로딩된다.
+* 사용자가 관리하고자 하는 센서목록을 정하고, 이를 Sensor Configuration 에 반영하는 작업은 필수이다.
+* 설정 값을 정리하면 다음과 같다.
+
+  * DeviceID : SMA에서 자동으로 세팅하여 사용하기 때문에 필드에 존재하지만 거의 사용하지 않는다.
+  * SensorID : 센서를 구분하는 기준값이다. 10자리로 구현되어 있으며 숫자로 되어 있다. 중복되는 값이 들어가지 않도록 한다. (예)0000000001,000000002
+  * SensorName : Sensor의 모델명이다. (예) DS18B20, CM1001
+  * SensorType : Sensor의 종류를 나타낸다. (예) 온도, 습도
+  * EnableFlag : 장치가 활성되었는지 여부.
+  * ReadInterval : 센서를 읽는 주기 (초)
+  * ReadMode : 센서를 읽는 방식 (예) polling, request, event
+  * LastValue : Sensor의 마지막 데이터
+  * StartTime : 데이터에 변화가 있는 시점
+  * EndTime : 데이터에 변화가 없는 시점
+  * SerialNumber : 센서의 시리얼 넘버
+  * OperationType : 센서 구동 타입 (예) active, passive
+  * MaxInterval : 데이터 변화 없어도 허용되는 최대 시간(초)
+  * ControlType : SP1 Control Type 여부
+  * RegisterFlag : SMA->SRA->MA로 센서를 등록 할지 여부
+
+* **SENSOR_CONFIGURATION_T** 구조체 구성표
+
+
+----------
+# BeagleBone Black 장치의 센서 드라이버 설치 가이드
 
 본 챕터는 BeagleBone Black(이하 BBB)에서 동작하는 10종 센서에 대한 설치 방법 및 동작 확인 예제 코드를 제공합니다.
 
