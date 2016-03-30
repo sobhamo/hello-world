@@ -228,6 +228,7 @@ SMA 는 Sensor 들을 관리하고, 데이터를 수집한다.
 아래 그림은 센서제어를 위한 모듈의 전체 구조도이다.
 ![](images/SMA_Sensor_Overview.png)
 
+#### 3.1. Sensor Handler
 * **Sensor Handler** 모듈은 센서 관리의 핵심 역활을 수행한다. 등록된 센서의 초기화, 제어, 데이터 추출, 종료 함수를 관리 및 실행한다.
 * **Sensor Interface** 에는 센서 관련 함수가 모여있으며, 각 센서별로 하나의 file 을 갖는다.
 * 초기화 시 모든 센서의 초기화 함수를 실행한다.
@@ -238,7 +239,7 @@ SMA 는 Sensor 들을 관리하고, 데이터를 수집한다.
 * 주기적으로 해당 센서가 정상동작하는지 확인한다.
 * 프로세스가 종료될 때 모든 센서의 종료 함수를 실행한다.
 
-### 4. Sensor Configuration
+#### 3.2. Sensor Configuration
 * Sensor Configuration 은 SMA 에서 동작할 센서에 대한 설정값을 저장한다.
 * 관련 코드는 `/usr/local/middleware/SMA/source/configuration/SensorConfiguration.c` 파일에 있으며,
 `/usr/local/middleware/conf/SMADeviceConf.backup` 파일이 존재하면 **SMADeviceConf.backup** 파일의 정보로 로딩된다.
@@ -282,6 +283,111 @@ SMA 는 Sensor 들을 관리하고, 데이터를 수집한다.
 <tr><td>RegisterFlag</td><td>Int</td><td>0 = MA에 등록하지 않음<br>1 = MA에등록<br>값이 0이면장치에 센서가 연결되어 동작하더라도 MA에는등록하지 않음</td></tr>
 </tbody>
 </table>
+
+#### 3.3. Sensor Interface
+* 센서에 직접적으로 작동하는 함수를 모아놓은 파일이다. 
+* 각 센서별로 하나의 파일이 존재하며, 내부적으로 초기화 함수, 제어 함수, 데이터 추출 함수, 종료 함수가 구현된다.
+* 구현된 함수를 Sensor Handler 에 등록한다.
+
+#### 3.4. Control Command List
+* 센서의 제어명령들을 관리하는 리스트이다.
+* 링크 리스트로 구현되어 있으며, Sensor Interface 의 제어명령에 대한 함수명과 함수포인터를 저장하고 있다.
+* 제어 명령이 도착하면, 함수명을 확인하고 함수를 호출한다.
+
+#### 3.5. Command
+* SRA 에서 센서 관리에 관련된 명령이 도착하면 Command file 에서 Sensor Handler 의 함수를 호출하여, 선택된 센서의 원하는 처리를 진행한다.
+* 센서의 값을 확인하거나, 설정을 바꾸거나, 제어를 할 수 있다.
+
+
+### 4. 센서 처리 흐름
+![](images/SMA_Sensor_Sequence.png)
+
+#### 4.1 센서 초기화 및 종료
+* 메인 함수 내부에서 Sensor Handler 의 Init 함수를 처음에 호출한다.
+* 초기화가 진행될 때 Sensor Configuration 의 SensorID 로 루프를 돌면서 등록된 센서의 초기화함수를 실행한다.
+* 종료 함수를 실행하는 루틴도 초기화와 동일하다.
+
+#### 4.2 센서 데이터 추출
+* Sensor Interface 내부의 Read 함수를 통해 센서의 데이터를 추출한다. 
+* Sensor Handler 에서 알람 시그널에 등록된 센서 데이터 읽기 함수에서는 Sensor Configuration 의 Read Interval 값에 따라 센서 데이터를 추출하여 LastValue 에 저장한다. 또한 센서 정보를 요청하는 Command 가 Sensor Handler 에 함수를 이용하여 바로 센서 데이터를 추출하는 경우도 존재한다.
+* 이때 역시 센서 구분은 SensorID 로 이루어진다. 요청한 SensorID 를 기준으로 루프를 돌면서 매칭되는 센서의 데이터를 리턴한다.
+
+#### 4.3 센서 제어
+* 센서 제어는 센서 초기화 시 각 센서의 초기화 함수 내부에서 Sensor Handler 에 자신의 제어함수를 등록한다.
+* Sensor Handler 에서는 받은 제어함수 이름과 함수포인터를 Control Command List 에 삽입하여 이를 관리한다.
+* Command 에서 제어명령이 도착할 경우, Control Command List 에서 해당 제어 명령어 찾고, 함수를 실행한다.
+
+
+### 5. 폴더 구조
+![](images/SMA_Folder_Tree.png)
+
+#### 5.1 Command
+* Command 는 종류에 따라 각 파일로 존재하며, 내부적으로 명령에 맞는 작업을 수행한다. 
+* 모든 Command 는 공통적으로 Packet 내용을 분석하며, 개별적으로 센서를 컨트롤 하거나, 값을 수정하는 작업이 수행한다. 
+* Command 수행 결과에 대한 응답 Packet 을 생성하여, Command Executer 에게 전달한다.
+
+* Command List
+  * DeviceSensorCmd
+  * GetDeviceSensorCmdList
+  * GetDeviceSensorInfo
+  * GetDeviceSensorStatus
+  * ProcessExit
+  * SetTraceStatus
+  * UpdateDeviceSensorStatus
+  * UpdateLog
+
+#### 5.2 Configuration
+Sensor에 관련된 설정 값을 Default 값으로 설정하거나, 입력 받아서 값을 보관하고, 설정 값을 추가, 변경, 삭제하는 작업을 수행한다.
+
+* Component
+  * SensorConfiguration
+
+#### 5.3 Foundation
+* 프로젝트에서 사용하는 데이터 포맷에 대한 정의 및 데이터 오퍼레이션 관련 함수를 모아놓은 폴더이다. 
+* Data Composition 은 Packet 에 대한 데이터 포맷이 정의 되어 있다. 
+* Error Definition 은 에러가 정의되어 있다.
+* Foundation header는 프로젝트에서 사용될 기본 header 파일을 묶어 놓았다.
+
+* Component
+  * Data Composition
+  * Error Definition
+  * Foundation header
+
+#### 5.4 IPC Handler (module folder)
+* IPC Handler 모듈은 Packet을 주고 받는 Thread 함수가 구현되어 있으며, ZeroMQ와 Thread에 관련된 초기화 작업과 종료 작업을 처리한다. 
+* IPC 통신은 ZeroMQ 라이브러리를 사용하며, 통신 방식은 Push-Pull 방식으로 데이터를 송-수신한다.
+
+Component:
+S.R.A. Receiver : PC Handler의 Receiver는 Thread로 실행된다.
+Pull 기능을 수행하며, S.R.A.에서 Packet이 전송되는 것을 Block되어 기다리며, 
+Packet이 전송되면 Receive Command Queue에 이를 저장하고, Command Executer에 신호를 보낸다.
+S.R.A. Sender : Sender Thread는 Send Command Queue에 Packet이 들어오는 것을 Block되어 기다리며, 
+Packet이 들어왔다는 것을 감지하면, Dequeue 하여 이를 S.R.A. 쪽으로 전달한다.
+
+#### 5.5 Command Executer (module folder)
+* Component:
+  * Command Executer : Command Executer는 Receive Queue의 Packet을 받아와서 header를 분석한다. 
+  분석 결과는 Packet의 도착지, 출발지, 도착한 명령 종류, 크기에 대한 정보이며, 유효성을 검사하고, 명령 종류에 맞는 Command 파일이 실행되도록 연결한다.
+  * Command Queue : Command Queue 모듈은 Queue 저장소에 대한 관리 및 Operation 처리를 담당한다.
+  * Command Packet에 대한 데이터 포맷 정보를 갖는다. 
+  * Queue Operation 처리는 Init, Put, Get, Close 등 삽입, 삭제하는 기본적인 기능을 제공한다.
+  * Queue Element : Queue에 삽입, 삭제 되는 Element가 정의되어 있다. 
+  * 또한 Element 관련 Operation 처리를 담당한다.
+
+#### 5.6 Sensor
+* Sensor를 직접적으로 관장하는 파일집합이 존재한다. 각 파일은 센서의 이름으로 구성되며, 내부적으로 초기화, 데이터 읽기, 제어, 종료 등 센서 의존도가 높은 코드가 존재한다.
+
+* Component
+  * SensorHandler : Sensor Handler는 명령어를 통해 수행되는 작업 중 센서와 관련된 작업들을 다룬다. 
+  * 센서와 직접 연결하지 않는 이유는 다양한 센서에 대한 지원이 용이하도록 하기 위함이다. 
+  * 수많은 센서에 대해 일괄된 방식의 초기화, 접근, 종료를 가능하게 하는 것이 Sensor Handler 의 역할이다.
+  * SensorCommandList : Sensor의 제어를 위해 Sensor Command List 가 존재하며, 해당 모듈에서 제어 명령에 대한 리스트를 관리한다.
+  * 센서가 각각 초기화 시 제어 명령을 등록할 수 있다.
+
+#### 5.7 Sensor Management Agent (main)
+* 프로세스의 시작 시점이다. 
+* 각 모듈을 초기화하고, 실행 흐름을 주관하는 통신 관련 모듈 IPC Handler 와 명령어 실행 관련 모듈 Command Executer 를 Thread로 실행한다. 
+* Thread의 종료를 기다리고, 모든 Thread가 종료되면 각 모듈의 종료 루틴을 수행하고 종료한다.
 
 ----------
 # BeagleBone Black 장치의 센서 드라이버 설치 가이드
