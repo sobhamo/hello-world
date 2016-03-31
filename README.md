@@ -10,7 +10,7 @@
 	* http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 1. 인터넷 연결을 위하여 Ethernet(LAN 케이블)이나 Wi-Fi USB 동글을 장치에 연결한다.
 2. 터미널(윈도우 PC에서는 putty)을 열고 각 장치 환경에 따라 네트워크 환경을 설정한다.
-3. 처음 실행하는 BBB를 업데이트 및 업그레이드 한다.
+3. 처음 실행하는 장치를 업데이트 및 업그레이드 한다.
 
 	```
 	# apt-get update
@@ -58,7 +58,7 @@
 	```
 
 #### 4. 패키지 설치 확인
-브라우저에서 http://BBB-IP-address:8000 번으로 접속하여 다음과 같은 화면(Gateway Portal)이 나오면 모든 설치가 완료된 것이다.  
+브라우저에서 http://IP-address:8000 번으로 접속하여 다음과 같은 화면(Gateway Portal)이 나오면 모든 설치가 완료된 것이다.  
 ![](images/gpIntro.png)
 (로그인 화면에서 아이디 / 비밀번호 : thingplugadmin / adminthingplug)
 
@@ -116,7 +116,7 @@
 ![](images/tpRegi_1.png)
 
 #### 2. Gateway Portal 간편 세팅
-0. 브라우저에서 http://BBB-IP-address:8000 번으로 접속하여 로그인 한다.
+0. 브라우저에서 http://IP-address:8000 번으로 접속하여 로그인 한다.
 1. 로그인 화면에서 아이디 / 비밀번호 : thingplugadmin / adminthingplug
 
 #### 3. Gateway Portal 정보 확인 
