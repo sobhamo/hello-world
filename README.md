@@ -319,22 +319,17 @@ SMA 는 Sensor 들을 관리하고, 데이터를 수집한다.
 
 
 ### 5. 폴더 구조
-![](images/SMA_Folder_Tree.png)
+[작업중:TBD]
 
 #### 5.1 Command
-* Command 는 종류에 따라 각 파일로 존재하며, 내부적으로 명령에 맞는 작업을 수행한다. 
+* Command 는 종류에 따라 각 파일로 존재하며, 내부적으로 명령에 맞는 작업을 수행한다.
 * 모든 Command 는 공통적으로 Packet 내용을 분석하며, 개별적으로 센서를 컨트롤 하거나, 값을 수정하는 작업이 수행한다. 
 * Command 수행 결과에 대한 응답 Packet 을 생성하여, Command Executer 에게 전달한다.
 
-* Command List
-  * DeviceSensorCmd
-  * GetDeviceSensorCmdList
+* Command List(공개)
+  * DeviceSensorControl
   * GetDeviceSensorInfo
   * GetDeviceSensorStatus
-  * ProcessExit
-  * SetTraceStatus
-  * UpdateDeviceSensorStatus
-  * UpdateLog
 
 #### 5.2 Configuration
 Sensor에 관련된 설정 값을 Default 값으로 설정하거나, 입력 받아서 값을 보관하고, 설정 값을 추가, 변경, 삭제하는 작업을 수행한다.
@@ -349,45 +344,31 @@ Sensor에 관련된 설정 값을 Default 값으로 설정하거나, 입력 받�
 * Foundation header는 프로젝트에서 사용될 기본 header 파일을 묶어 놓았다.
 
 * Component
-  * Data Composition
-  * Error Definition
+  * DataComposition
+  * ErrorDefinition
   * Foundation header
 
-#### 5.4 IPC Handler (module folder)
-* IPC Handler 모듈은 Packet을 주고 받는 Thread 함수가 구현되어 있으며, ZeroMQ와 Thread에 관련된 초기화 작업과 종료 작업을 처리한다. 
-* IPC 통신은 ZeroMQ 라이브러리를 사용하며, 통신 방식은 Push-Pull 방식으로 데이터를 송-수신한다.
-
-Component:
-S.R.A. Receiver : PC Handler의 Receiver는 Thread로 실행된다.
-Pull 기능을 수행하며, S.R.A.에서 Packet이 전송되는 것을 Block되어 기다리며, 
-Packet이 전송되면 Receive Command Queue에 이를 저장하고, Command Executer에 신호를 보낸다.
-S.R.A. Sender : Sender Thread는 Send Command Queue에 Packet이 들어오는 것을 Block되어 기다리며, 
-Packet이 들어왔다는 것을 감지하면, Dequeue 하여 이를 S.R.A. 쪽으로 전달한다.
-
-#### 5.5 Command Executer (module folder)
-* Component:
-  * Command Executer : Command Executer는 Receive Queue의 Packet을 받아와서 header를 분석한다. 
-  분석 결과는 Packet의 도착지, 출발지, 도착한 명령 종류, 크기에 대한 정보이며, 유효성을 검사하고, 명령 종류에 맞는 Command 파일이 실행되도록 연결한다.
-  * Command Queue : Command Queue 모듈은 Queue 저장소에 대한 관리 및 Operation 처리를 담당한다.
-  * Command Packet에 대한 데이터 포맷 정보를 갖는다. 
-  * Queue Operation 처리는 Init, Put, Get, Close 등 삽입, 삭제하는 기본적인 기능을 제공한다.
-  * Queue Element : Queue에 삽입, 삭제 되는 Element가 정의되어 있다. 
-  * 또한 Element 관련 Operation 처리를 담당한다.
-
-#### 5.6 Sensor
-* Sensor를 직접적으로 관장하는 파일집합이 존재한다. 각 파일은 센서의 이름으로 구성되며, 내부적으로 초기화, 데이터 읽기, 제어, 종료 등 센서 의존도가 높은 코드가 존재한다.
+#### 5.4 Sensor
+* Sensor 폴더는 연결 interface 에 따라 1W/GPIO/I2C/UART/CUSTOM/UNDIFINED 각 폴더에 센서정보를 직접적으로 관장하는 파일집합이 존재한다. 
+* 각 파일은 센서의 이름으로 네이밍되며, 내부적으로 초기화, 데이터 읽기, 제어, 종료 등 센서 의존도가 높은 코드가 존재한다.
 
 * Component
-  * SensorHandler : Sensor Handler는 명령어를 통해 수행되는 작업 중 센서와 관련된 작업들을 다룬다. 
-  * 센서와 직접 연결하지 않는 이유는 다양한 센서에 대한 지원이 용이하도록 하기 위함이다. 
-  * 수많은 센서에 대해 일괄된 방식의 초기화, 접근, 종료를 가능하게 하는 것이 Sensor Handler 의 역할이다.
-  * SensorCommandList : Sensor의 제어를 위해 Sensor Command List 가 존재하며, 해당 모듈에서 제어 명령에 대한 리스트를 관리한다.
-  * 센서가 각각 초기화 시 제어 명령을 등록할 수 있다.
+  * SensorHandler : 명령어를 통해 수행되는 작업 중 센서와 관련된 작업들을 다룬다.
+   수많은 센서에 대해 일괄된 방식의 초기화, 접근, 종료를 가능하게 하는 것이 SensorHandler 의 역할이다.
+  * SensorCommandList : Sensor의 제어를 위해 존재하며, 해당 모듈에서 제어 명령에 대한 리스트를 관리한다.
+   센서 초기화 시 제어 명령을 등록할 수 있다.
 
-#### 5.7 Sensor Management Agent (main)
-* 프로세스의 시작 시점이다. 
-* 각 모듈을 초기화하고, 실행 흐름을 주관하는 통신 관련 모듈 IPC Handler 와 명령어 실행 관련 모듈 Command Executer 를 Thread로 실행한다. 
-* Thread의 종료를 기다리고, 모든 Thread가 종료되면 각 모듈의 종료 루틴을 수행하고 종료한다.
+### 6. 새로운 센서 추가하기
+* 센서의 추가/수정/삭제 처리를 위하여 SMA 의 일부 코드를 제공한다.
+* SMA 코드의 위치는 `/usr/local/middleware/SMA/` 폴더에서 확인 가능하다.
+* 센서 추가는 아래 과정으로 진행 한다.
+![](images/SMA_Sensor_add.png)
+* 추가된 파일은 Makefile 에 등록 후 `make` 명령을 통하여 빌드 하고, 새로 생성된 실행 파일을 대체하여 미들웨어를 재실행 한다.
+
+	```
+	# cp /usr/local/middleware/SMA/output/SensorManagementAgent /usr/local/middleware/
+	# service middleware restart
+	```
 
 ----------
 # BeagleBone Black 장치의 센서 드라이버 설치 가이드
