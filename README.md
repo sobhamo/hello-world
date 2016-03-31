@@ -366,7 +366,7 @@ Sensor에 관련된 설정 값을 Default 값으로 설정하거나, 입력 받�
 * 추가된 파일은 Makefile 에 등록 후 `make` 명령을 통하여 빌드 하고, 새로 생성된 실행 파일을 대체하여 미들웨어를 재실행 한다.
 
 	```
-	# cp /usr/local/middleware/SMA/output/SensorManagementAgent /usr/local/middleware/
+	# cp /usr/local/middleware/SMA/output/SensorManagementAgent /usr/local/middleware/SensorManagementAgent
 	# service middleware restart
 	```
 
