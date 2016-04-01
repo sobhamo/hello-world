@@ -14,8 +14,16 @@
 * **Gateway Portal** 은 관리자/개발자가 미들웨어 시스템을 제어하고, 각종 정보를 조회할 수 있는 사용자 인터페이스이며, Node.js 기반의 어플리케이션으로 구현되어 있다.
 
 #### 2. ThingPlug 와의 연동 구조
+ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원 하며, 정보를 실시간으로 조회 및 제어할 수 있는 SP1 과의 연동은 현재 oneM2M 방식만 지원한다.
+![](images/overview.png)
+
 
 #### 3. 지원 사양 및 하드웨어
+* 권장 사양
+  * Memory : 128 Mb 이상
+  * CPU : 200MHz 이상
+* 지원 하드웨어
+  * Raspberry Pi2, BeagleBone Black 외 ARM/Linux 디바이스
 
 #### 4. 환경 설정
 
