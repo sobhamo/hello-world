@@ -13,7 +13,11 @@
 * **Sensor Management Agent** 는 센서 데이터를 수집하고, 직접 제어를 담당하며, Service Ready Agent 와 데이터를 주고 받는다.
 * **Gateway Portal** 은 관리자/개발자가 미들웨어 시스템을 제어하고, 각종 정보를 조회할 수 있는 사용자 인터페이스이며, Node.js 기반의 어플리케이션으로 구현되어 있다.
 
-#### 2. 환경 설정
+#### 2. ThingPlug 와의 연동 구조
+
+#### 3. 지원 사양 및 하드웨어
+
+#### 4. 환경 설정
 
 0. 윈도우 사용자의 경우 아래의 URL 에서 putty 를 다운받아 설치한다.
 	* http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
@@ -47,7 +51,7 @@
 </tbody>
 </table>
 
-#### 4. 패키지 설치
+#### 5. 패키지 설치
 0. 데비안 패키지 파일을 다운로드 한다.
 
 	```
@@ -66,12 +70,12 @@
 	# gdebi devicemiddleware_arm_1.0.0_20160301.deb
 	```
 
-#### 5. 패키지 설치 확인
+#### 6. 패키지 설치 확인
 브라우저에서 http://IP-address:8000 번으로 접속하여 다음과 같은 화면(Gateway Portal)이 나오면 모든 설치가 완료된 것이다.  
 ![](images/gpIntro.png)
 (로그인 화면에서 아이디 / 비밀번호 : thingplugadmin / adminthingplug)
 
-#### 6. 사용 방법
+#### 7. 사용 방법
 0. 정지
 
 	```
@@ -116,13 +120,13 @@
 	(cape_disable 앞에 # 을 추가한 후 reboot 명령어로 재시작하면 HDMI 포트 사용이 가능해짐과 동시에 UART 사용 불가)
 
 
-#### 7. 장치 등록
+#### 8. 장치 등록
 * HTTP 연동 규격 가입자
   * [ThingPlug Device 미들웨어 oneM2M 등록 가이드](oneM2M_Guide.md)
 * TCP 연동 규격 가입자
   * [ThingPlug Device 미들웨어 GMMP 등록 가이드](GMMP_Guide.md)
 
-#### 8. 센서
+#### 9. 센서
 * 센서 가이드
   * [Sensor 연동 가이드](Sensor_Guide.md)
 * 장치별 가이드
