@@ -4,7 +4,7 @@
 ## ThingPlug를 위한 Device 미들웨어 설치 및 실행가이드
 본 챕터는 SKT ThingPlug Device 미들웨어 설치 및 실행 방법을 서술한다.
 
-#### 1. ThingPlug Device Middleware 란?
+#### 1. ThingPlug Device 미들웨어 란?
 개방형 사물인터넷 서버 플랫폼 ThingPlug 를 위한 Device 미들웨어는 ThingPlug 와의 연동을 쉽게 해주고 다양한 Device 에 적용 가능한, Device 개발자 및 서비스 개발자를 위한 소프트웨어이다.
 ![](images/mw_architect.png)
 * 미들웨어는 총 4개의 모듈과 5개의 에이전트로 구성되어 있으며, 각각의 모듈간 통신을 통해 사물과 ThingPlug 간 연동을 수행한다.
@@ -116,3 +116,14 @@
 	(cape_disable 앞에 # 을 추가한 후 reboot 명령어로 재시작하면 HDMI 포트 사용이 가능해짐과 동시에 UART 사용 불가)
 
 
+#### 7. 장치 등록
+* HTTP 연동 규격 가입자
+  * [ThingPlug Device 미들웨어 oneM2M 등록 가이드](oneM2M_Guide.md)
+* TCP 연동 규격 가입자
+  * [ThingPlug Device 미들웨어 GMMP 등록 가이드](GMMP_Guide.md)
+
+#### 8. 센서
+* 센서 가이드
+  * [Sensor 연동 가이드](Sensor_Guide.md)
+* 장치별 가이드
+  * [BeagleBone Black 장치의 센서 드라이버 설치 가이드](BBB_Sensor_Installation.md)
