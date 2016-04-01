@@ -13,8 +13,7 @@
 
 #### 3. Gateway Portal 정보 확인 
 0. 모델명, CPU, S/N, MAC 주소 등을 확인할 수 있다.
-1. MAC 주소 정보는 GMMP Gateway 등록시 필요한 정보이니 copy 해두자.
-2. 회원가입 버튼을 통하여 ThingPlug Portal로 이동 가능하다.
+1. 회원가입 버튼을 통하여 ThingPlug Portal로 이동 가능하다.
 ![](images/gpRegi_1.png)
 
 #### 4. oneM2M 등록
