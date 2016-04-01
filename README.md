@@ -127,5 +127,5 @@
   * [ThingPlug Device 미들웨어 GMMP 등록 가이드](GMMP_Guide.md)
 
 #### 9. 센서
-* [Sensor 연동 가이드](Sensor_Guide.md)
+* [센서 연동 가이드](Sensor_Guide.md)
 * [BeagleBone Black 장치의 센서 드라이버 설치 가이드](BBB_Sensor_Installation.md)
