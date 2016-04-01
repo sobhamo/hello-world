@@ -4,7 +4,16 @@
 ## ThingPlug를 위한 Device 미들웨어 설치 및 실행가이드
 본 챕터는 SKT ThingPlug Device 미들웨어 설치 및 실행 방법을 서술한다.
 
-#### 1. 환경 설정
+#### 1. ThingPlug Device Middleware 란?
+개방형 사물인터넷 서버 플랫폼 ThingPlug 를 위한 Device 미들웨어는 ThingPlug 와의 연동을 쉽게 해주고 다양한 Device 에 적용 가능한, Device 개발자 및 서비스 개발자를 위한 소프트웨어이다.
+![](images/mw_architect.png)
+* 미들웨어는 총 4개의 모듈과 5개의 에이전트로 구성되어 있으며, 각각의 모듈간 통신을 통해 사물과 ThingPlug 간 연동을 수행한다.
+* **Management Agent** 는 미들웨어 내부의 모든 명령 및 처리의 중심에서 실제적인 역할을 수행한다. User 와의 외부 Interface 는 Gateway Portal, ThingPlug 와는 Connection Ready Agent 와 연동하며, 내부 Device/Sensor 와는 Service Ready Agent 를 통해 연동한다.
+* **Service Ready Agent** 는 Sensor Management Agent 로 부터 센서 관련 정보들을 전달받아, 센서별 정책에 따라 데이터를 가공하는 역할을 한다. 가공된 센서 정보는 Management Agent 로 전달한다.
+* **Sensor Management Agent** 는 센서 데이터를 수집하고, 직접 제어를 담당하며, Service Ready Agent 와 데이터를 주고 받는다.
+* **Gateway Portal** 은 관리자/개발자가 미들웨어 시스템을 제어하고, 각종 정보를 조회할 수 있는 사용자 인터페이스이며, Node.js 기반의 어플리케이션으로 구현되어 있다.
+
+#### 2. 환경 설정
 
 0. 윈도우 사용자의 경우 아래의 URL 에서 putty 를 다운받아 설치한다.
 	* http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
@@ -17,7 +26,7 @@
 	# apt-get upgrade
 	```
 
-#### 2. 미들웨어에서 사용하는 Library 안내
+#### 3. 미들웨어에서 사용하는 Library 안내
 미들웨어에서 사용하는 Library 들은 다음과 같다.
 <table>
 <thead><tr><th>Part</th><th>Library</th><th>Type</th><th>용도</th></tr></thead>
@@ -38,7 +47,7 @@
 </tbody>
 </table>
 
-#### 3. 패키지 설치
+#### 4. 패키지 설치
 0. 데비안 패키지 파일을 다운로드 한다.
 
 	```
@@ -57,12 +66,12 @@
 	# gdebi devicemiddleware_arm_1.0.0_20160301.deb
 	```
 
-#### 4. 패키지 설치 확인
+#### 5. 패키지 설치 확인
 브라우저에서 http://IP-address:8000 번으로 접속하여 다음과 같은 화면(Gateway Portal)이 나오면 모든 설치가 완료된 것이다.  
 ![](images/gpIntro.png)
 (로그인 화면에서 아이디 / 비밀번호 : thingplugadmin / adminthingplug)
 
-#### 5. 사용 방법
+#### 6. 사용 방법
 0. 정지
 
 	```
@@ -106,4 +115,4 @@
 	```
 	(cape_disable 앞에 # 을 추가한 후 reboot 명령어로 재시작하면 HDMI 포트 사용이 가능해짐과 동시에 UART 사용 불가)
 
-----------
+
