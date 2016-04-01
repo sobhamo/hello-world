@@ -1,10 +1,10 @@
+
 ## ThingPlug Device 미들웨어 oneM2M 등록 가이드
 본 챕터는 Device 를 oneM2M 방식으로 등록하는 방법을 서술한다.
 
 #### 1. SKT ThingPlug 회원 가입
 0. thingplug.sktiot.com 접속
-1. oneM2M 구분은 디바이스 연동 
-2. 프로토콜 선택에서 HTTP 선택을 통하여 구분한다.
+1. oneM2M 은 디바이스 연동 프로토콜 선택에서 HTTP 를 선택한다.
 ![](images/tpRegi_1.png)
 
 #### 2. Gateway Portal 간편 세팅
@@ -15,7 +15,6 @@
 0. 모델명, CPU, S/N, MAC 주소 등을 확인할 수 있다.
 1. MAC 주소 정보는 GMMP Gateway 등록시 필요한 정보이니 copy 해두자.
 2. 회원가입 버튼을 통하여 ThingPlug Portal로 이동 가능하다.
-3. 
 ![](images/gpRegi_1.png)
 
 #### 4. oneM2M 등록
