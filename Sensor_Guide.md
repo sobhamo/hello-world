@@ -1,4 +1,4 @@
-# Sensor Management Agent Overview & Source
+# Sensor 연동 가이드
 
 본 챕터는 Sensor 와 Actuator 조회 및 제어를 담당하는 **Sensor Management Agent**(SMA) 에 대한 소개와 직접 수정을위한 가이드를 제공한다.
 
