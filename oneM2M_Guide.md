@@ -43,3 +43,5 @@
 
 * 등록이 성공한 디바이스는 마이페이지 > 마이 IoT 메뉴에서 아래와 같이 확인이 가능하다.
 ![](images/oneMRegi_tp_4.png)
+
+#### 5. [oneM2M-SP1 연동 가이드](oneM2M_SP1_Guide.md)
