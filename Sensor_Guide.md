@@ -7,8 +7,8 @@
 SMA 는 Sensor 들을 관리하고, 데이터를 수집한다.
 다양한 센서 입/출력을 처리하기 위한 Common Interface 로 개발하였다. 
 
-### 2. 센서 관리 전체 구조도
-아래 그림은 센서제어를 위한 모듈의 전체 구조도이다.
+### 2. SensorManagementAgent 구조도
+아래 그림은 센서 처리를 위한 SensorManagementAgent 의 전체 구조도이다.
 ![](images/SMA_Sensor_Overview.png)
 
 #### 2.1. Sensor Handler
@@ -88,10 +88,13 @@ SMA 는 Sensor 들을 관리하고, 데이터를 수집한다.
 * SMA 에서 사용하는 각종 데이터 포맷, 에러 정의 등 포함되어 있다.
 * 미공개 코드에 대한 헤더정보들도 포함되어 있다.
 
+#### 3.2 lib 폴더
+* SMA 에서 사용하는 libsmalib.a 가 포함되어 있다.
+
 #### 3.2 command 폴더
-* Command 는 종류에 따라 각 파일로 존재하며, 내부적으로 명령에 맞는 작업을 수행한다.
-* 모든 Command 는 공통적으로 Packet 내용을 분석하며, 개별적으로 센서를 컨트롤 하거나, 값을 수정하는 작업이 수행한다. 
-* Command 수행 결과에 대한 응답 Packet 을 생성하여, Command Executer 에게 전달한다.
+* command 는 종류에 따라 각 파일로 존재하며, 내부적으로 명령에 맞는 작업을 수행한다.
+* 모든 command 는 공통적으로 Packet 내용을 분석하며, 개별적으로 센서를 컨트롤 하거나, 값을 수정하는 작업이 수행한다. 
+* command 수행 결과에 대한 응답 Packet 을 생성하여, Command Executer 에게 전달한다.
 
 * 공개 Command List
   * DeviceSensorControl : 제어 Command 처리
