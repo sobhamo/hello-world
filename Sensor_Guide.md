@@ -82,6 +82,7 @@ SMA 는 Sensor 들을 관리하고, 데이터를 수집한다.
 * 센서의 값을 확인하거나, 설정을 바꾸거나, 제어를 할 수 있다.
 
 ### 3. 폴더 구조
+SensorManagementAgent 프로젝트는 미들웨어 패키지 설치 후, `/usr/local/middleware/SMA` 에서 확인 가능하다.
 ![](images/SMA_Folder.png)
 
 #### 3.1 include 폴더
