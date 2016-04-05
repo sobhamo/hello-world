@@ -91,7 +91,7 @@ SMA 는 Sensor 들을 관리하고, 데이터를 수집한다.
 #### 3.2 lib 폴더
 * SMA 에서 사용하는 libsmalib.a 가 포함되어 있다.
 
-#### 3.2 command 폴더
+#### 3.3 command 폴더
 * command 는 종류에 따라 각 파일로 존재하며, 내부적으로 명령에 맞는 작업을 수행한다.
 * 모든 command 는 공통적으로 Packet 내용을 분석하며, 개별적으로 센서를 컨트롤 하거나, 값을 수정하는 작업이 수행한다. 
 * command 수행 결과에 대한 응답 Packet 을 생성하여, Command Executer 에게 전달한다.
@@ -101,11 +101,11 @@ SMA 는 Sensor 들을 관리하고, 데이터를 수집한다.
   * GetDeviceSensorInfo : 센서 정보 처리
   * GetDeviceSensorStatus : 센서 상태 처리
 
-#### 3.3 configuration 폴더
+#### 3.4 configuration 폴더
 Sensor에 관련된 설정 값을 Default 값으로 설정하거나, 입력 받아서 값을 보관하고, 설정 값을 추가, 변경, 삭제하는 작업을 수행한다.
 (자세한 사항은 2.2 절을 참고한다.)
 
-#### 3.4 sensor 폴더
+#### 3.5 sensor 폴더
 * 연결 interface 에 따라 1W/GPIO/I2C/UART/CUSTOM/UNDIFINED 각 폴더에 센서정보를 직접적으로 관장하는 파일집합이 존재한다. 
 * 각 파일은 센서의 이름으로 네이밍되며, 내부적으로 초기화, 데이터 읽기, 제어, 종료 등 센서 의존도가 높은 코드가 존재한다.
 
