@@ -55,8 +55,8 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원 하며,
 <tr><td>libmosquitto</td><td>패키지 포함</td><td>MQTT 통신</td></tr>
 <tr><td>libxml2</td><td>shared</td><td>XML 데이터 처리</td></tr>
 <tr><td>libsqlite3</td><td>shared</td><td>데이터 저장</td></tr>
-<tr><td rowspan="2">공용</td><td>libsodium</td><td>shared</td><td>IPC 통신</td></tr>
-<tr><td>lizeromq</td><td>shared</td><td>IPC 통신</td></tr>
+<tr><td rowspan="2">공용</td><td>libsodium</td><td>패키지 포함</td><td>IPC 통신</td></tr>
+<tr><td>lizeromq</td><td>패키지 포함</td><td>IPC 통신</td></tr>
 </tbody>
 </table>
 
