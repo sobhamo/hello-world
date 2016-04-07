@@ -39,7 +39,7 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원 하며,
 	# apt-get upgrade
 	```
 
-#### 3. 미들웨어에서 사용하는 Library 안내
+#### 5. 미들웨어에서 사용하는 Library 안내
 미들웨어에서 사용하는 Library 들은 다음과 같다.
 <table>
 <thead><tr><th>Part</th><th>Library</th><th>Type</th><th>용도</th></tr></thead>
@@ -60,7 +60,7 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원 하며,
 </tbody>
 </table>
 
-#### 5. 패키지 설치
+#### 6. 패키지 설치
 0. 데비안 패키지 파일을 다운로드 한다.
 
 	```
@@ -79,12 +79,12 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원 하며,
 	# gdebi devicemiddleware_arm_1.0.0_20160301.deb
 	```
 
-#### 6. 패키지 설치 확인
+#### 7. 패키지 설치 확인
 브라우저에서 http://IP-address:8000 번으로 접속하여 다음과 같은 화면(Gateway Portal)이 나오면 모든 설치가 완료된 것이다.  
 ![](images/gpIntro.png)
 (로그인 화면에서 아이디 / 비밀번호 : thingplugadmin / adminthingplug)
 
-#### 7. 사용 방법
+#### 8. 사용 방법
 0. 정지
 
 	```
@@ -129,12 +129,12 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원 하며,
 	(cape_disable 앞에 # 을 추가한 후 reboot 명령어로 재시작하면 HDMI 포트 사용이 가능해짐과 동시에 UART 사용 불가)
 
 
-#### 8. 장치 등록
+#### 9. 장치 등록
 * HTTP 연동 규격 가입자
   * [ThingPlug Device 미들웨어 oneM2M 등록 가이드](oneM2M_Guide.md)
 * TCP 연동 규격 가입자
   * [ThingPlug Device 미들웨어 GMMP 등록 가이드](GMMP_Guide.md)
 
-#### 9. 센서
+#### 10. 센서
 * [센서 연동 가이드](Sensor_Guide.md)
 * [BeagleBone Black 장치의 센서 드라이버 설치 가이드](BBB_Sensor_Installation.md)
