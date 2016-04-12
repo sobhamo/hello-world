@@ -8,8 +8,7 @@
 ![](images/tpRegi_1.png)
 
 #### 2. Gateway Portal 간편 세팅
-0. 브라우저에서 http://IP-address:8000 번으로 접속하여 로그인 한다.
-1. 로그인 화면에서 아이디 / 비밀번호 : thingplugadmin / adminthingplug
+* 브라우저에서 http://IP-address:8000 번으로 접속하여 로그인 한다.
 
 #### 3. Gateway Portal 정보 확인 
 0. 모델명, CPU, S/N, MAC 주소 등을 확인할 수 있다.
