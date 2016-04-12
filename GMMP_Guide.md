@@ -6,11 +6,10 @@
 #### 1. SKT ThingPlug 회원 가입
 0. thingplug.sktiot.com 접속
 1. GMMP 는 디바이스 연동 프로토콜 선택에서 TCP 를 선택한다.
-![](images/tpRegi_1.png)
+![](images/tpRegi_2.png)
 
 #### 2. Gateway Portal 간편 세팅
-0. 브라우저에서 http://IP-address:8000 번으로 접속하여 로그인 한다.
-1. 로그인 화면에서 아이디 / 비밀번호 : thingplugadmin / adminthingplug
+* 브라우저에서 http://IP-address:8000 번으로 접속하여 로그인 한다.
 
 #### 3. Gateway Portal 정보 확인 
 0. 모델명, CPU, S/N, MAC 주소 등을 확인할 수 있다.
