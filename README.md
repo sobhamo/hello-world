@@ -80,9 +80,13 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원 하며,
 	```
 
 #### 7. 패키지 설치 확인
-브라우저에서 http://IP-address:8000 번으로 접속하여 다음과 같은 화면(Gateway Portal)이 나오면 모든 설치가 완료된 것이다.  
+* 브라우저에서 http://IP-address:8000 번으로 접속하여 다음과 같은 화면(Gateway Portal)이 나오면 모든 설치가 완료된 것이다.  
 ![](images/gpIntro.png)
 (로그인 화면에서 아이디 / 비밀번호 : thingplugadmin / adminthingplug)
+
+* 관리자 계정 변경하기
+  * 환경설정 > 관리자설정 메뉴에서 계정 비밀번호를 변경할 수 있다.
+![](images/gpPwd.png)
 
 #### 8. 사용 방법
 0. 정지
