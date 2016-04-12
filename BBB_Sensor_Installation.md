@@ -72,6 +72,19 @@ BBB에서 사용되는 10종 센서는 4가지 연결방식을 사용한다. 1) 
 	# reboot -f
 	```
 
+* UART5/HDMI 형식의 센서 사용시 주의사항
+
+	* BeagleboneBlack에서 HDMI 포트와 UART포트가 겹치는 현상이 있어 둘중에 하나만 사용이 가능하다.
+	* 미들웨어 설치시 HDMI포트 자동으로 Disable하고 UART를 Enable 하기 때문에, HDMI를 다시 사용 할 경우 다음과 같은 절차를 따른다.
+	```
+	# dpkg -r devicemiddleware
+	# vi /boot/uEnv.txt
+
+	##Disable HDMI (v3.8.x)
+	#cape_disable=capemgr.disable_partno=BB-BONELT-HDMI,BB-BONELT-HDMIN
+	```
+	(cape_disable 앞에 # 을 추가한 후 reboot 명령어로 재시작하면 HDMI 포트 사용이 가능해짐과 동시에 UART 사용 불가)
+
 ##### 2) 1-WIRE
 * 파일을 로드하고 이를 확인한다. BB-W1이 보이면 정상이다.
 
