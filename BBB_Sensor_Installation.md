@@ -83,7 +83,7 @@ BBB에서 사용되는 10종 센서는 4가지 연결방식을 사용한다. 1) 
 	##Disable HDMI (v3.8.x)
 	#cape_disable=capemgr.disable_partno=BB-BONELT-HDMI,BB-BONELT-HDMIN
 	```
-	(cape_disable 앞에 # 을 추가한 후 reboot 명령어로 재시작하면 HDMI 포트 사용이 가능해짐과 동시에 UART 사용 불가)
+	> cape_disable 앞에 # 을 추가한 후 reboot 명령어로 재시작하면 HDMI 포트 사용이 가능해짐과 동시에 UART 사용 불가
 
 ##### 2) 1-WIRE
 * 파일을 로드하고 이를 확인한다. BB-W1이 보이면 정상이다.
