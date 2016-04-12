@@ -128,3 +128,14 @@ Sensor에 관련된 설정 값을 Default 값으로 설정하거나, 입력 받�
 	# cp /usr/local/middleware/SMA/output/SensorManagementAgent /usr/local/middleware/SensorManagementAgent
 	# service middleware start
 	```
+
+### 5. Sensor Configuration Overriding 방법
+위 2.2 절에서 언급한 Sensor Configuration 은 아래 두가지 방법을 통하여 Overriding 이 가능하다.
+
+0. **SMADeviceConf.backup** 파일을 수정 후 미들웨어 재시작 하는 방법
+1. **Gateway Portal** 의 **시스템 설정** 메뉴를 이용하여 파일을 변경하는 방법
+  * 아래 그림의 Change Sensor Config File 항목에서 변경 가능하다.
+  * 해당 파일의 root 폴더는 `/usr/local/middleware/conf` 이며, 입력란에 입력시 해당 root 경로는 제외하고 입력해야 한다.
+  * 파일 확장자는 체크하지 않는다.
+  * **예시)** 적용하고자 하는 파일의 위치가 `/usr/local/middleware/conf/Sensor.conf` 일 경우, **Sensor.conf** 만 입력 후 **적용 및 재시작** 해준다.
+![](images/sensorConf.png)
