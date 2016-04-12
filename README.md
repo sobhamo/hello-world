@@ -84,7 +84,7 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원 하며,
 ![](images/gpIntro.png)
 > 로그인 화면에서 아이디 / 비밀번호 : thingplugadmin / adminthingplug
 
-* 관리자 계정 변경하기
+* 관리자 계정 비밀번호 변경하기
 ![](images/gpPwd.png)
 > 환경설정 > 관리자설정 메뉴에서 계정 비밀번호를 변경할 수 있다.
 
