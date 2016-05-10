@@ -7,7 +7,7 @@
 
 
 #### 1.1. **등록**
-* nodeCreate
+* **nodeCreate**
   * Device로부터 node 등록을 요청받는 인터페이스.
 	```xml
 *   Trying 61.250.21.212...
@@ -52,7 +52,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 </m2m:nod>
 	```
 
-* remoteCSECreate 
+* **remoteCSECreate**
   * Device로부터 remoteCSE 등록을 요청받는 인터페이스.
 	```xml
 *   Trying 61.250.21.212...
@@ -108,7 +108,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	```
 
 
-* containerCreate 
+* **containerCreate**
   * remoteCSE 등록 완료 후 Device로부터 remoteCSE GW 와 Sensor 들의 container 생성을 요청받는 인터페이스
   * 온도센서를 샘플로 함
 	```xml
@@ -159,7 +159,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 </m2m:cnt>
 	```
 
-* mgmtCmdCreate 
+* **mgmtCmdCreate**
   * remoteCSE 등록 완료 후 Device로부터 remoteCSE의 mgmtCmd 등록을 요청받는 인터페이스
   * remoteCSE 등록 후 Device로부터 mgmtCmd 등록 요청을 받으면 dKey로 device에 대해 인증 성공하면 mgmtCmd를 생성한 후 생성 결과를 반환한다.
   * 7colorRGBLed를 샘플로 함
@@ -212,7 +212,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 #### 1.2. **주기보고**
 
-* contentInstanceCreate
+* **contentInstanceCreate**
   * remoteCSE-container 등록 완료 후 Device로부터 container의 contentInstance 생성을 요청받는 인터페이스.
   * 온도센서를 샘플로 함
 
@@ -269,7 +269,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 #### 2. 제어 및 조회하기
 다음은 actuator에 대한 제어와 제어에 대한 결과보고(sp1 방식 기준)와 Tool 을 통한 조회 및 제어 방법에 대한 설명이다.
 
-* 제어하기
+* **제어하기**
   * 제어를 위한 actuator 는 mgmtCmd 와 함께 container 를 함께 등록한다.
   * 하나의 actuator에 대해서 command를 받을 수 있는 mgmtCmd와 더불어, command 결과를 올릴 수 있는 container를 함께 등록한다.
   * 다음은 7colorRGBLed 를 원격에서 제어할때의 요청과 결과에 대한 데이터이다.
@@ -308,7 +308,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	```
 
   
-* 제어결과
+* **제어결과**
   * 제어 결과는 등록된 container 의 contentInstance 를 통하여 결과를 업로드 한다.
   * 다음은 7colorRGBLed를 red 색상으로 제어한 후 결과보고이다.
 
@@ -359,7 +359,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 </m2m:cin>
 	```
 
-* Web API testing tool 을 이용한 조회 및 제어
+* **Web API testing tool 을 이용한 조회 및 제어**
   * DHC 나 Postman 등 tool 을 활용하여 조회 및 제어가 가능하다.
   * 다음은 Postman 을 이용하여 온도센서의 최신 데이터를 조회한 결과이다.
   * URL 이나 조회에 필요한 헤더 정보부분에 값이 잘못입력되는경우 404 Not Found 나 400 Bad Request 가 발생할 수 있으니 유의하자.
