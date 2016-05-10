@@ -23,7 +23,7 @@ Content-Length: 193
 <?xml version="1.0" encoding="UTF-8"?>
 <m2m:nod xmlns:m2m="http://www.onem2m.org/xml/protocols"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <ni>1.2.481.1.999.130.3000005</ni>
+	<ni>1.2.481.1.999.130.3000005</ni>
 </m2m:nod>
 
 HTTP/1.1 201 Created
@@ -38,21 +38,73 @@ Date: Mon, 09 May 2016 07:16:56 GMT
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <m2m:nod xmlns:m2m="http://www.onem2m.org/xml/protocols"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <ty>14</ty>
-  <ri>ND00000000000000001021</ri>
-  <rn>1.2.481.1.999.130.3000005</rn>
-  <pi>ThingPlug</pi>
-  <ct>2016-05-09T16:16:56+09:00</ct>
-  <lt>2016-05-09T16:16:56+09:00</lt>
-  <lbl></lbl>
-  <acpi></acpi>
-  <at></at>
-  <aa></aa>
-  <ni>1.2.481.1.999.130.3000005</ni>
+	<ty>14</ty>
+	<ri>ND00000000000000001021</ri>
+	<rn>1.2.481.1.999.130.3000005</rn>
+	<pi>ThingPlug</pi>
+	<ct>2016-05-09T16:16:56+09:00</ct>
+	<lt>2016-05-09T16:16:56+09:00</lt>
+	<lbl></lbl>
+	<acpi></acpi>
+	<at></at>
+	<aa></aa>
+	<ni>1.2.481.1.999.130.3000005</ni>
 </m2m:nod>
 	```
 
+  * remoteCSE CREATE
 
+	```xml
+*   Trying 61.250.21.212...
+* Connected to onem2m.sktiot.com (61.250.21.212) port 9000 (#0)
+> POST /ThingPlug HTTP/1.1
+Host: onem2m.sktiot.com:9000
+Accept: application/xml
+Content-Type: application/vnd.onem2m-res+xml;ty=16
+X-M2M-RI: 783715
+X-M2M-Origin: 1.2.481.1.999.130.3000005
+passCode: ******
+X-M2M-NM: 1.2.481.1.999.130.3000005
+Content-Length: 292
+<?xml version="1.0" encoding="UTF-8"?>
+<m2m:csr xmlns:m2m="http://www.onem2m.org/xml/protocols"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<cst>1</cst>
+	<poa>MQTT|1.2.481.1.999.130.3000005</poa>
+	<csi>1.2.481.1.999.130.3000005</csi>
+	<rr>true</rr>
+	<nl>ND00000000000000001021</nl>
+</m2m:csr>
+
+HTTP/1.1 201 Created
+Server: Apache-Coyote/1.1
+Set-Cookie: JSESSIONID=143E3C68954CD258653E58689949FCEA; Path=/; HttpOnly
+X-M2M-RI: 78371548f298f8-a800-4d5b-bef0-fdcc732b2fd1
+X-M2M-RSC: 2001
+Content-Location: /ThingPlug/remoteCSE-1.2.481.1.999.130.3000005
+dKey: OGs2RjJYZitiS1hqcmJjSHFNTG5hR1pQRXNkK2FCNStHcUxlL21Rd3FackI1S0tBNW1pNVFrckVSY0QxaVMrcw==
+Content-Type: application/vnd.onem2m-res+xml;charset=UTF-8
+Content-Length: 535
+Date: Mon, 09 May 2016 07:17:15 GMT
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<m2m:csr xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ty>16</ty>
+<ri>RC00000000000000001050</ri>
+<rn>1.2.481.1.999.130.3000005</rn>
+<pi>ThingPlug</pi>
+<ct>2016-05-09T16:17:14+09:00</ct>
+<lt>2016-05-09T16:17:14+09:00</lt>
+<lbl></lbl>
+<acpi>AP00000000000000002130</acpi>
+<at></at>
+<aa></aa>
+<cst>1</cst>
+<poa>MQTT|1.2.481.1.999.130.3000005</poa>
+<csi>1.2.481.1.999.130.3000005</csi>
+<rr>true</rr>
+<nl>ND00000000000000001021</nl>
+</m2m:csr>
+	```
 * 주기보고
 * 
 
