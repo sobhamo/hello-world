@@ -364,3 +364,4 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   * URL 이나 조회에 필요한 헤더 정보부분에 값이 잘못입력되는경우 404 Not Found 나 400 Bad Request 가 발생할 수 있으니 유의하자.
   * 자세한 내용은 최신 **oneM2M 인터페이스 정의서**를 참고한다.
 ![](images/postman_getci.png)
+> 정상 처리된 경우 우측 중앙에 200 OK 와 하단 Body 부분을 통하여 서버로부터 전달받은 센서의 시간과 온도정보를 확인할 수 있다.
