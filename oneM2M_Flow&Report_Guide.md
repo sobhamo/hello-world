@@ -311,6 +311,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 * 제어결과
   * 제어 결과는 등록된 container 의 contentInstance 를 통하여 결과를 업로드 한다.
   * 다음은 7colorRGBLed를 red 색상으로 제어한 후 결과보고이다.
+
 	```xml
 > POST /ThingPlug/remoteCSE-1.2.481.1.999.130.3000005/container-7colorRGBLed_10 HTTP/1.1
 Host: onem2m.sktiot.com:9000
@@ -365,6 +366,16 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   * 정상 처리된 경우 우측 중앙에 200 OK 와 하단 Body 부분을 통하여 서버로부터 전달받은 센서의 시간과 온도정보를 확인할 수 있다.
   * 자세한 내용은 최신 **oneM2M 인터페이스 정의서**를 참고한다.
 ![](images/postman_getci.png)
+  * 다음은 Postman 을 이용하여 7colorRGBLed actuator 를 제어한 결과이다.
+  * 서버로 제어요청이 정상적으로 전달된 경우 우측 중앙에 200 OK 와 하단 Body 부분을 통하여 서버에 전달된 제어요청 내용을 확인할 수 있다.
+![](images/postman_put.png)
+  * 제어명령을 white 로 요청하려면 요청 Body 정보는 아래와 같은 형태로 처리한다.
 
-
-
+	```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<m2m:mgc
+xmlns:m2m="http://www.onem2m.org/xml/protocols"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<exra>{"id":"123456789","cmd":"white","options":{}}</exra>
+</m2m:mgc>
+	```
