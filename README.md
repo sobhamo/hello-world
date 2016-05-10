@@ -129,3 +129,6 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원 하며,
 #### 10. 센서
 * [센서 연동 가이드](Sensor_Guide.md)
 * [BeagleBone Black 장치의 센서 드라이버 설치 가이드](BBB_Sensor_Installation.md)
+
+#### 11. oneM2M
+* [oneM2M 등록과 주기보고 및 제어하기](oneM2M_Flow&Report_Guide.md)
