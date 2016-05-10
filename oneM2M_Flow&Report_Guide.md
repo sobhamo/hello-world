@@ -7,9 +7,9 @@
 
 
 * **등록**
-  * node CREATE
-
-	```c
+  * nodeCreate
+  Device로부터 node 등록을 요청받는 인터페이스.
+	```xml
 *   Trying 61.250.21.212...
 * Connected to onem2m.sktiot.com (61.250.21.212) port 9000 (#0)
 > POST /ThingPlug HTTP/1.1
@@ -52,8 +52,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 </m2m:nod>
 	```
 
-  * remoteCSE CREATE
-
+  * remoteCSECreate 
+  Device로부터 remoteCSE 등록을 요청받는 인터페이스.
 	```xml
 *   Trying 61.250.21.212...
 * Connected to onem2m.sktiot.com (61.250.21.212) port 9000 (#0)
@@ -105,6 +105,57 @@ Date: Mon, 09 May 2016 07:17:15 GMT
 <nl>ND00000000000000001021</nl>
 </m2m:csr>
 	```
+
+
+  * containerCreate-rc
+  remoteCSE 등록 완료 후 Device로부터 remoteCSE의 container 생성을 요청받는 인터페이스
+	```xml
+*   Trying 61.250.21.212...
+* Connected to onem2m.sktiot.com (61.250.21.212) port 9000 (#0)
+> POST /ThingPlug/remoteCSE-1.2.481.1.999.130.3000005 HTTP/1.1
+Host: onem2m.sktiot.com:9000
+Accept: application/xml
+Content-Type: application/vnd.onem2m-res+xml;ty=3
+X-M2M-RI: 480863
+X-M2M-Origin: 1.2.481.1.999.130.3000005
+dKey: OGs2RjJYZitiS1hqcmJjSHFNTG5hR1pQRX****
+X-M2M-NM: beagleboneblack
+locale: en
+Content-Length: 159
+<?xml version="1.0" encoding="UTF-8"?>
+<m2m:cnt xmlns:m2m="http://www.onem2m.org/xml/protocols"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+</m2m:cnt>
+
+HTTP/1.1 201 Created
+Server: Apache-Coyote/1.1
+Set-Cookie: JSESSIONID=9039790E2F31CD73693CEC1CFACAE978; Path=/; HttpOnly
+X-M2M-RI: 4808635e3edbc9-1354-4346-b334-38a6af169e8c
+X-M2M-RSC: 2001
+Content-Location: /ThingPlug/remoteCSE-1.2.481.1.999.130.3000005/container-beagleboneblack
+Content-Type: application/vnd.onem2m-res+xml;charset=UTF-8
+Content-Length: 434
+Date: Mon, 09 May 2016 07:17:31 GMT
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<m2m:cnt xmlns:m2m="http://www.onem2m.org/xml/protocols"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ty>3</ty>
+<ri>CT00000000000000002297</ri>
+<rn>beagleboneblack</rn>
+<pi>RC00000000000000001050</pi>
+<ct>2016-05-09T16:17:32+09:00</ct>
+<lt>2016-05-09T16:17:32+09:00</lt>
+<lbl></lbl>
+<at></at>
+<aa></aa>
+<st>0</st>
+<cr>RC00000000000000001050</cr>
+<cni>0</cni>
+<cbs>0</cbs>
+</m2m:cnt>
+	```
+
+
 * 주기보고
 * 
 
