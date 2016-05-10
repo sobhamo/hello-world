@@ -360,16 +360,16 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	```
 
 * Web API testing tool 을 이용한 조회 및 제어
-  * DHC 나 Postman 등 tool 을 활용한 조회 및 제어 가능하다.
+  * DHC 나 Postman 등 tool 을 활용하여 조회 및 제어가 가능하다.
   * 다음은 Postman 을 이용하여 온도센서의 최신 데이터를 조회한 결과이다.
   * URL 이나 조회에 필요한 헤더 정보부분에 값이 잘못입력되는경우 404 Not Found 나 400 Bad Request 가 발생할 수 있으니 유의하자.
   * 정상 처리된 경우 우측 중앙에 200 OK 와 하단 Body 부분을 통하여 서버로부터 전달받은 센서의 시간과 온도정보를 확인할 수 있다.
   * 자세한 내용은 최신 **oneM2M 인터페이스 정의서**를 참고한다.
 ![](images/postman_getci.png)
-  * 다음은 Postman 을 이용하여 7colorRGBLed actuator 를 제어한 결과이다.
+  * 다음은 Postman 을 이용하여 ThingPlug 서버에 7colorRGBLed actuator 의 제어를 요청한 결과이다.
   * 서버로 제어요청이 정상적으로 전달된 경우 우측 중앙에 200 OK 와 하단 Body 부분을 통하여 서버에 전달된 제어요청 내용을 확인할 수 있다.
 ![](images/postman_put.png)
-  * 제어명령을 white 로 요청하려면 요청 Body 정보는 아래와 같은 형태로 처리한다.
+  * 제어명령을 white 로 요청하려면 요청 Body 정보는 아래와 같은 형태로 입력하면 된다.
 
 	```xml
 <?xml version="1.0" encoding="UTF-8"?>
