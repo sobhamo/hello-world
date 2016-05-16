@@ -210,7 +210,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 </m2m:mgc>
 	```
 
-#### 1.2. **주기보고**
+#### 1.2. **MQTT Subscribe**
+mgmtCmd 가 등록이 되면, ThingPlug 로부터의 Push 를 통한 제어를 처리할 수 있도록 MQTT Subscribe 를 진행한다.  
+다음은 MQTT Subscribe 를 위한 정보이다.  
+
+0. MQTT Host : onem2m.sktiot.com
+1. MQTT Port : 1883
+2. MQTT Topic prefix : /oneM2M/req/ThingPlug/
+3. MQTT Topic : prefix + OID (예 : /oneM2M/req/ThingPlug/1.2.481.1.999.130.3000005)
+4. MQTT Keepalive : 120 sec
+
+#### 1.3. **주기보고**
 
 * **contentInstanceCreate**
   * remoteCSE-container 등록 완료 후 Device로부터 container의 contentInstance 생성을 요청받는 인터페이스.
@@ -295,11 +305,11 @@ HTTP/1.1 200 OK
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <ty>12</ty>
 <ri>MC00000000000000000855</ri>
-<rn>1.2.481.1.999.130.3000001_7colorRGBLed_10</rn>
+<rn>1.2.481.1.999.130.3000005_7colorRGBLed_10</rn>
 <pi>ThingPlug</pi>
 <ct>2016-02-03T17:36:57+09:00</ct>
 <lt>2016-05-10T14:34:56+09:00</lt>
-<lbl>1.2.481.1.999.130.3000001</lbl>
+<lbl>1.2.481.1.999.130.3000005</lbl>
 <et>9999-12-31T00:00:00+00:00</et>
 <cmt>cmt</cmt>
 <exra>{"id":"o6qscy84l","cmd":"red","options":{}}</exra>
@@ -307,7 +317,35 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 </m2m:mgc>
 	```
 
-  
+  * 다음은 위 제어요청을 통하여 실제로  Device 로 전달된 MQTT Push 메시지이다.
+	```xml
+<m2m:req xmlns:m2m="http://www.onem2m.org/xml/protocols" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.onem2m.org/xml/protocols
+CDT-requestPrimitive-v1_0_0.xsd">
+<op>1</op>
+<cty>application/vnd.onem2m-prsp+xml;charset=UTF-8</cty>
+<nm>1.2.481.1.999.130.3000005_7colorRGBLed_10</nm>
+<fr>ThingPlug</fr>
+<pc>
+<exin>
+<ty>8</ty>
+<ri>EI00000000000000050366</ri>
+<rn>EI00000000000000050366</rn>
+<pi>MC00000000000000000855</pi>
+<ct>2016-05-16T15:35:07+09:00</ct>
+<lt>2016-05-16T15:35:07+09:00</lt>
+<lbl>1.2.481.1.999.130.3000005</lbl>
+<et>2016-06-16T01:00:00+09:00</et>
+<exs>1</exs>
+<ext>ND00000000000000000526</ext>
+<exra>{"id":o6qscy84l","cmd":"red","options":{}}</exra>
+<cmt>cmt</cmt>
+</exin>
+</pc>
+</m2m:req>
+	```
+
 * **제어결과**
   * 제어 결과는 등록된 container 의 contentInstance 를 통하여 결과를 업로드 한다.
   * 다음은 7colorRGBLed를 red 색상으로 제어한 후 결과보고이다.
