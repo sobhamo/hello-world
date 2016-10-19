@@ -72,9 +72,9 @@ Library
 	+ SPT_DEBUG_ENABLE
 		define 됐을 경우 debug log 활성화 됨
 
-sample
+Sample
 ---
- 1. Library import
+ 1. Code import
 	+ 'Src' directory에 sample code 추가
  2. Configuration.h 수정
 	+ MAC_ADDRESS
