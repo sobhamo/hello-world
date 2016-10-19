@@ -6,6 +6,9 @@ mbed (+TLS)
 1. Main board
 	+ STMicroelectronics Nucleo-64 F411RE
 	![NUCLEO-F411RE.jpg](images/NUCLEO-F411RE.jpg "" "width:50%;")
+		+ CPU : 100MHz ARM 32-bit Cortex-M4 with FPU
+		+ RAM : 128KB
+		+ Flash memory : 512KB
 2. Ethernet board
 	+ WIZnet W5500
     ![w5500_ethernet_shield.jpg](images/w5500_ethernet_shield.jpg "" "width:50%;")
@@ -15,7 +18,7 @@ mbed (+TLS)
 	+ RAM : 128KB 이상
 	+ Flash memory : 512KB 이상
 5. Footprint
-	+ 110KB (TLS library 포함)
+	+ Binary file size : 110KB (TLS library 포함)
 
 IDE
 ---
@@ -55,7 +58,7 @@ Library
 	+ Import Wizard의 Upload tab에서 화면 아래의 '파일 선택' 버튼을 눌러 zip 파일 선택 후 'Import!' 버튼 클릭
 	+ import 된 library 파일을 project root에 위치 시킴
  2. oneM2MConfig.h 수정
-	+ SPT_DEBUG_ENABLE
+	+ __SPT_DEBUG_ENABLE__
 		define 됐을 경우 debug log 활성화 됨
 
 Sample
@@ -66,9 +69,15 @@ Sample
 	+ import 된 library 파일을 project root에 위치 시킴
 	+ MiddlewareMini.cpp 파일 삭제
  2. Configuration.h 수정
-	+ MAC_ADDRESS
+	+ __MAC_ADDRESS__
 		사용할 mac address 지정(다른 device와 겹치면 안됨)
-	+ MQTT_ENABLE_SERVER_CERT_AUTH
+	+ __MQTT_ENABLE_SERVER_CERT_AUTH__
 		0:Normal socket 사용, 1:TLS socket 사용
+	+ __THINGPLUG_USER_NAME__
+		ThingPlug 계정의 UKEY
+	+ __THINGPLUG_PASSWORD__
+		ThingPlug 계정의 Password
+	+ __ONEM2M_NODEID__
+		ThingPlug 계정에 등록된 Device ID
  3. serial port speed 변경
 	+ SDKVerification.cpp 파일에서 main() 함수의 pc.baud(115200); 수정
