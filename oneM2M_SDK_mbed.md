@@ -58,7 +58,7 @@ Library
 	+ SPT_DEBUG_ENABLE
 		define 됐을 경우 debug log 활성화 됨
 
-sample
+Sample
 ---
  1. Code import
 	+ sample code를 zip 파일로 압축
