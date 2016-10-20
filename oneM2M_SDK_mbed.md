@@ -12,13 +12,9 @@ mbed (+TLS)
 2. Ethernet board
 	+ WIZnet W5500
     ![w5500_ethernet_shield.jpg](images/w5500_ethernet_shield.jpg "" "width:50%;")
-3. CPU 최소 사양
-	+ 100MHz ARM 32-bit Cortex-M4 with FPU 이상
-4. RAM & Flash memory 최소 사양
-	+ RAM : 128KB 이상
-	+ Flash memory : 512KB 이상
-5. Footprint
+3. Footprint
 	+ Binary file size : 110KB (TLS library 포함)
+	+ Heap memory usage : 72KB (heap 전체 size를 128KB로 보고 main function 종료 직전 남아있는 heap을 malloc으로 측정)
 
 IDE
 ---
