@@ -24,13 +24,11 @@ IDE
 2. STM32CubeMX
  1. Main board device driver와 FreeRTOS를 포함한 project templete을 생성할 수 있음
 	+ download - http://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-configurators-and-code-generators/stm32cubemx.html
-	+ 설치 시 아래와 같은 오류 발생 시 command line에서 다음 명령으로 실행
-			java -jar '설치파일명'
+	+ 설치 시 아래와 같은 오류 발생 시 command line에서 다음 명령으로 실행 (java -jar '설치파일명')
 		![Java_Runtime_Environment_error.png](images/FreeRTOS/Java_Runtime_Environment_error.png "" "width:50%;")
  2. 설치 후 실행해서 New Project 선택
 	![STM32CubeMX_excute.png](images/FreeRTOS/STM32CubeMX_excute.png "" "width:50%;")
-	+ 실행 시 아래와 같은 오류 발생 시 command line에서 다음 명령으로 실행
-			java -jar '실행파일명'
+	+ 실행 시 아래와 같은 오류 발생 시 command line에서 다음 명령으로 실행 (java -jar '실행파일명')
 		![Java_Runtime_Environment_error2.png](images/FreeRTOS/Java_Runtime_Environment_error2.png "" "width:50%;")
  3. Board Selector 탭에서 Vendor:STMicroelectronics, Type of Board:Nucleo64, MCU Series:STM32F4로 설정한 다음 아래 오른쪽 목록에서 NUCLEO-F411RE 선택하고 아래 OK 버튼 클릭
 	![STM32CubeMX_new_project.png](images/FreeRTOS/STM32CubeMX_new_project.png "" "width:50%;")
@@ -96,25 +94,19 @@ Library
  1. Library import
 	+ project root에 oneM2M library 추가
  2. oneM2MConfig.h 수정
-	+ __SPT_DEBUG_ENABLE__
-		define 됐을 경우 debug log 활성화 됨
+	+ __SPT_DEBUG_ENABLE__ : define 됐을 경우 debug log 활성화 됨
 
 Sample
 ---
  1. Code import
 	+ 'Src' directory에 sample code 추가
  2. Configuration.h 수정
-	+ __MAC_ADDRESS__
-		사용할 mac address 지정(다른 device와 겹치면 안됨)
-	+ __MQTT_ENABLE_SERVER_CERT_AUTH__
-		0:Normal socket 사용, 1:TLS socket 사용
-	+ __THINGPLUG_USER_NAME__
-		ThingPlug 계정의 UKEY
-	+ __THINGPLUG_PASSWORD__
-		ThingPlug 계정의 Password
-	+ __ONEM2M_NODEID__
-		ThingPlug 계정에 등록된 Device ID
+	+ __MAC_ADDRESS__ : 사용할 mac address 지정(다른 device와 겹치면 안됨)
+	+ __MQTT_ENABLE_SERVER_CERT_AUTH__ : 0(Normal socket 사용), 1(TLS socket 사용)
+	+ __THINGPLUG_USER_NAME__ : ThingPlug 계정의 UKEY
+	+ __THINGPLUG_PASSWORD__ : ThingPlug 계정의 Password
+	+ __ONEM2M_NODEID__ : ThingPlug 계정에 등록된 Device ID
  3. 'main.c' 파일 수정
 	+ main() 함수에 WIZnet library 초기화 등의 code 추가
 	+ serial port speed 변경
-		main.c 파일에서 MX_USART2_UART_Init() 함수의 huart2.Init.BaudRate = 115200; 수정
+		+ main.c 파일에서 MX_USART2_UART_Init() 함수의 huart2.Init.BaudRate = 115200; 수정
