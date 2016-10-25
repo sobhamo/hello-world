@@ -18,27 +18,27 @@ ARDUINO
 
 Source Tree
 ---
-+ Arduino (project root)
-	+ examples
++ __Arduino__ (project root)
+	+ __examples__
 		+ __ArduinoMiddleware__ (Middleware)
 			+ ArduinoMiddleware.ino ( Arduino Sketch File )
-			+ src
+			+ __src__
 			  + __MA__ (ManagementAgent)
 			  + __SRA__ (ServiceReadyAgent)
 			  + __SMA__ (SensorManagementAgent)
 		+ __SDKVerification__ (SDK example)
 			+ SDKVerfication.ino (sdk test source)
 			+ Configuration.h (config file)
-	+ src (oneM2M SDK source)
+	+ __src__ (oneM2M SDK source)
 		+ __MQTT__ (Arduino MQTT Library)
 		+ include (header files)
 		+ net (MQTT interface source)
 		+ __oneM2M_V1__ (oneM2M v1 sdk source)
 		+ __oneM2M_V1_12__ (oneM2M v1.12 sdk source)
-	+ libraries (Essential Arduino Libraries)
-		+ Time (Arduino Time library)
-		+ LCD (Arduino LCD library)
-	+ docs (SDK Documents) <now empty>
+	+ __libraries__ (Essential Arduino Libraries)
+		+ __Time__ (Arduino Time library)
+		+ __LCD__ (Arduino LCD library)
+	+ __docs__ (SDK Documents) <now empty>
 
 Project build
 ===
