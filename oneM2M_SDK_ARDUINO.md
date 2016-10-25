@@ -1,4 +1,4 @@
-mbed (+TLS)
+ARDUINO
 ===
 
 지원 사양
