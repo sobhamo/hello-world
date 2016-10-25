@@ -4,14 +4,13 @@ ARDUINO
 지원 사양
 ---
 1. Main board
-	+ Arduino 101 (USA ONLY) & Genuino 101 (OUTSIDE USA)
-	![NUCLEO-F411RE.jpg](images/ "" "width:50%;")
+	+ Arduino 101 (USA ONLY) & Genuino 101 (OUTSIDE USA) ![genuino101.jpg](images/genuino101.jpg "" "width:50%;")
 		+ CPU : 32MHz Intel Curie
 		+ RAM : 24KB
 		+ Flash memory : 196KB
 2. Ethernet board
 	+ Arduino Ethernet Shield R3 
-    ![w5500_ethernet_shield.jpg](images/ "" "width:50%;")
+    ![ArduinoEthernetShield_R3_Front_450px.jpg](images/ArduinoEthernetShield_R3_Front_450px.jpg "" "width:50%;")
 3. Footprint
 	+ Binary file size : 93KB 
 	+ Heap memory usage : 21KB
