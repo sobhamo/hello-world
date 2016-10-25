@@ -137,6 +137,7 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원한다.
 
 #### 12. SDK
 * [oneM2M SDK](oneM2M_SDK.md)
+* [oneM2M SDK-linux](oneM2M_SDK_linux.md)
 * [oneM2M SDK-ARDUINO](oneM2M_SDK_ARDUINO.md)
 * [oneM2M SDK-mbed](oneM2M_SDK_mbed.md)
 * [oneM2M SDK-FreeRTOS](oneM2M_SDK_FreeRTOS.md)
