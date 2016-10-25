@@ -9,7 +9,9 @@ ARDUINO
 		+ RAM : 24KB
 		+ Flash memory : 196KB
 2. Ethernet board
-	+ Arduino Ethernet Shield R3 ![ArduinoEthernetShield_R3_Front_450px.jpg](images/ArduinoEthernetShield_R3_Front_450px.jpg "" "width:50%;")
+	+ Arduino Ethernet Shield R3 
+	+ 
+	![ArduinoEthernetShield_R3_Front_450px.jpg](images/ArduinoEthernetShield_R3_Front_450px.jpg "" "width:50%;")
 3. Footprint
 	+ Binary file size : 93KB 
 	+ Heap memory usage : 21KB
