@@ -24,11 +24,17 @@ IDE
 2. STM32CubeMX
  1. Main board device driver와 FreeRTOS를 포함한 project templete을 생성할 수 있음
 	+ download - http://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-configurators-and-code-generators/stm32cubemx.html
-	+ 설치 시 아래와 같은 오류 발생 시 command line에서 다음 명령으로 실행 (java -jar '설치파일명')
+	+ 설치 시 아래와 같은 오류 발생 시 command line에서 다음 명령으로 실행
+		```
+		> java -jar '설치파일명'
+		```
 		![Java_Runtime_Environment_error.png](images/FreeRTOS/Java_Runtime_Environment_error.png "" "width:50%;")
  2. 설치 후 실행해서 New Project 선택
 	![STM32CubeMX_excute.png](images/FreeRTOS/STM32CubeMX_excute.png "" "width:50%;")
-	+ 실행 시 아래와 같은 오류 발생 시 command line에서 다음 명령으로 실행 (java -jar '실행파일명')
+	+ 실행 시 아래와 같은 오류 발생 시 command line에서 다음 명령으로 실행
+		```
+	    > java -jar '실행파일명'
+	    ```
 		![Java_Runtime_Environment_error2.png](images/FreeRTOS/Java_Runtime_Environment_error2.png "" "width:50%;")
  3. Board Selector 탭에서 Vendor:STMicroelectronics, Type of Board:Nucleo64, MCU Series:STM32F4로 설정한 다음 아래 오른쪽 목록에서 NUCLEO-F411RE 선택하고 아래 OK 버튼 클릭
 	![STM32CubeMX_new_project.png](images/FreeRTOS/STM32CubeMX_new_project.png "" "width:50%;")
@@ -48,6 +54,40 @@ IDE
  8. 참고 site
 	+ http://igotit.tistory.com/entry/STM32-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%ED%99%95%EB%B3%B4%EB%B0%A9%EB%B2%95%EB%B0%8F-%ED%99%9C%EC%9A%A9%EB%B2%95-%EA%B0%80%EC%9D%B4%EB%93%9CSTM32CubeMX
 	+ http://igotit.tistory.com/159
+
+Directory
+---
++ __FreeRTOS__ (project root)
+	+ __Drivers__
+		+ __CMSIS__
+		+ __STM32F4xx_HAL_Driver__ (Nucleo F411RE driver)
+	+ __Inc__ (FreeRTOS 및 WIZnet driver configuration headers)
+	+ __Library__ (libraries)
+		+ __Ethernet_WIZnet__ (WIZnet library)
+			+ __Ethernet__ (WIZnet driver 및 socket source)
+			+ __Internet__ (internet 통신 source)
+				+ __DHCP__ (DHCP 통신 처리)
+				+ __DNS__ (DNS 통신 처리)
+				+ __SNTP__ (SNTP 통신 처리)
+		+ __mbedtls_2_3_0__ (mbed TLS library)
+			+ __include__ (library headers)
+			+ __library__ (TLS library source)
+		+ __Mqtt_Paho__ (mqtt library, TLS library 및 WIZnet socket 연결)
+			+ __MQTTPacket__ (MQTT packet 처리 source)
+		+ __oneM2M__ (oneM2M library)
+			+ __include__ (library headers)
+			+ __src__ (oneM2M library source)
+				+ __net__ (MQTT handler)
+				+ __oneM2M_V1__ (ThingPlug oneM2M v1 API)
+				+ __oneM2M_V1_12__ (ThingPlug oneM2M v1.12 API)
+	+ __Middlewares__
+		+ __Third_Party__
+			+ __FreeRTOS__ (FreeRTOS source)
+	+ __Src__ (FreeRTOS main)
+		+ __oneM2M__ (test sample)
+			+ __MA__ (test MA module)
+			+ __SMA__ (test SMA module)
+			+ __SRA__ (test SRA module)
 
 Library
 ---

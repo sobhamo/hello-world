@@ -18,8 +18,49 @@ mbed (+TLS)
 
 IDE
 ---
-1. mbed compiler
+1. IDE homepage
 	+ https://developer.mbed.org
+2. 회원 가입 및 로그인
+3. 단말 조회
+	+ 오른쪽 상단의 입력상자에 __'F411RE'__ 입력
+	![mbed_search_device.png](images/mbed/mbed_search_device.png "" "width:50%;")
+	+ 검색 결과의 'NUCLEO-F411RE | mbed' 선택
+	+ 우측의 'Add to your mbed Compiler' 클릭
+	![mbed_add_device.png](images/mbed/mbed_add_device.png "" "width:50%;")
+	+ 버튼이 'Open mbed Compiler'로 바뀌면 클릭
+4. Project 생성
+	+ Template을 'Empty Program'으로 선택하고 Program Name에 project명 입력
+	![mbed_create_new_program.png](images/mbed/mbed_create_new_program.png "" "width:50%;")
+
+Directory
+---
++ __mbed__ (project root)
+	+ __Library__ (libraries)
+		+ __mbedtls_2_3_0__ (mbed TLS library)
+			+ __include__ (library headers)
+			+ __library__ (TLS library source)
+		+ __MQTT__ (mqtt library)
+			+ __Extend__ (mqtt library 확장, TLS library 및 WIZnet socket 연결)
+			+ __FP__
+			+ __MQTTPacket__ (MQTT packet 처리 source)
+		+ __oneM2M__ (oneM2M library)
+			+ __include__ (library headers)
+			+ __src__ (oneM2M library source)
+				+ __net__ (MQTT handler)
+				+ __oneM2M_V1__ (ThingPlug oneM2M v1 API)
+				+ __oneM2M_V1_12__ (ThingPlug oneM2M v1.12 API)
+		+ __WIZnet_Library__ (WIZnet library)
+			+ __WIZnetInterface__ (WIZnet board interface)
+				+ __DHCPClient__ (DHCP 통신 처리)
+				+ __DNSClient__ (DNS 통신 처리)
+				+ __Socket__ (socket source)
+				+ __WIZnet__ (WIZnet driver)
+	+ __mbed__ (mbed source)
+		+ __TARGET_NUCLEO_F411RE__ (Nucleo F411RE driver)
+	+ __Src__ (test sample)
+		+ __MA__ (test MA module)
+		+ __SMA__ (test SMA module)
+		+ __SRA__ (test SRA module)
 
 Library
 ---
