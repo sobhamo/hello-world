@@ -3,8 +3,8 @@
 본 챕터는 Device 를 oneM2M 방식으로 등록하는 방법을 서술한다.
 
 #### 1. SKT ThingPlug 회원 가입
-0. thingplug.sktiot.com 접속
-1. oneM2M 은 디바이스 연동 프로토콜 선택에서 HTTP 를 선택한다.
+0. thingplugdev.sktiot.com 접속
+1. oneM2M 은 디바이스 연동 프로토콜 선택에서 HTTP(MQTT도 포함됨)를 선택한다.
 ![](images/tpRegi_1.png)
 
 #### 2. Gateway Portal 간편 세팅
