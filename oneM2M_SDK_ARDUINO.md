@@ -87,6 +87,7 @@ SDK 예제 코드 실행하기
 사진
 7. oneM2M 동작 테스트가 시작된다.
 8. 결과
+https://github.com/sobhamo/hello-world/blob/master/images/sdkverification_v1_log.txt
 
 SDK를 이용한 ArduinoMiddleware 실행하기
 ---
@@ -99,3 +100,4 @@ SDK를 이용한 ArduinoMiddleware 실행하기
 사진
 7. oneM2M 동작 테스트가 시작된다.
 8. 결과
+https://github.com/sobhamo/hello-world/blob/master/images/arduinomiddleware_v1_log.txt
