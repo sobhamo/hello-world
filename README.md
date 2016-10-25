@@ -52,7 +52,7 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원한다.
 <tr><td>ping</td><td>패키지 포함</td><td>Ping 체크</td></tr>
 <tr><td>i18n</td><td>패키지 포함</td><td>다국어 지원</td></tr>
 <tr><td rowspan="4">Management Agent</td><td>libcurl</td><td>패키지 포함</td><td>미들웨어 업그레이드</td></tr>
-<tr><td>libpaho-mqtt3as.a</td><td>패키지 포함</td><td>MQTT TLS 통신</td></tr>
+<tr><td>libpaho-mqtt3as</td><td>패키지 포함</td><td>MQTT TLS 통신</td></tr>
 <tr><td>libsqlite3</td><td>shared</td><td>데이터 저장</td></tr>
 </tbody>
 </table>
