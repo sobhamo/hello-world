@@ -50,7 +50,7 @@ IDE 설정
 	+ Windowns
 	+ Mac
 	+ Linux
-	+ 사진
+	![arduinodownload.png](images/arduinodownload.png "" "width:50%;")
 3. Download & Install
 	+ next
 	+ 사진
