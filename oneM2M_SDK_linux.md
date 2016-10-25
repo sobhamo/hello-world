@@ -43,7 +43,7 @@ Configuration 설정(oneM2M/samples/Configuration.h)
 
 2. oneM2M V1.12 정보 입력(부산 스마트 시티)
 	+ __MQTT_ENABLE_SERVER_CERT_AUTH__ : 0(Normal socket 사용), 1(TLS socket 사용:서버 미지원)
-	+ __MQTT_HOST__ : ThingPlug 서버 주소
+	+ __MQTT_HOST__ : 부산스마트시티 서버 주소
 	+ __ACCOUNT_USER__ : 부산스마트시티 계정의 ID
 	+ __ACCOUNT_PASSWORD__ : 부산스마트시티 계정의 Password
 	+ __ONEM2M_CB__ : CSEBase ID
