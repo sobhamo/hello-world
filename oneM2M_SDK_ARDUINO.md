@@ -13,7 +13,7 @@ mbed (+TLS)
 	+ Arduino Ethernet Shield R3 
     ![w5500_ethernet_shield.jpg](images/ "" "width:50%;")
 3. Footprint
-	+ Binary(HEX) file size : 225KB 
+	+ Binary file size : 93KB 
 	+ Heap memory usage : 21KB
 
 Source Tree
@@ -47,87 +47,66 @@ IDE 설정
 ---
 1. IDE homepage
 	+ https://www.arduino.cc/
+	+ 사진
 2. Download page
 	+ Windowns
 	+ Mac
 	+ Linux
-![arduino download](path "" "width:50%;")
+	+ 사진
 3. Download & Install
 	+ next
-4. Project 생성
-	+ Template을 'Empty Program'으로 선택하고 Program Name에 project명 입력
-	![mbed_create_new_program.png](images/mbed/mbed_create_new_program.png "" "width:50%;")
+	+ 사진
+4. Build & Monitoring
+	+ 컴파일
+	+ 업로드
+	+ 모니터로 확인
+5. Installing Additional Arduino Libraries
+    + https://www.arduino.cc/en/Guide/Libraries
+    + 라이브러리 설치에 대한 자세한 설명은 공식사이트를 참고한다.
 
-Library import
+SDK 설치하기
 ---
-1. mbed
- 1. Library import
-	+ Import Wizard의 Library tab에서 'mbed' 검색
-	+ Author가 'mbed official'인 mbed library import
-2. project root에 'Library' directory 생성
-3. WIZnet_Library
- 1. Library import
-	+ Import Wizard의 Library tab에서 'wiznet' 검색
-	+ Author가 'Team WIZnet'인 WIZnet_Library library를 Library directory 하위에 import
- 2. MQTT library와 중복되는 code 수정
-	+ 'WIZnet' directory의 W5500.h 파일의 enum Command의 각 항목 앞에 __CMD___를 붙임 (ex. OPEN -> CMD_OPEN)
-	+ 위의 enum Command를 사용하는 code 부분 모두 수정
-4. MQTT
- 1. Library import
-	+ Import Wizard의 Library tab에서 'mqtt' 검색
-	+ Author가 'Team MQTT'인 MQTT library를 Library directory 하위에 import
- 2. Extend code 추가
-	+ Source Tree의 'Library/MQTT/Extend' directory를 zip 파일로 압축
-	+ Import Wizard의 Upload tab에서 화면 아래의 '파일 선택' 버튼을 눌러 zip 파일 선택 후 'Import!' 버튼 클릭
-	+ import 된 Extend directory를 MQTT directory의 하위로 이동
-5. mbedtls
- 1. Library download
-	+ https://tls.mbed.org/
- 2. Library import
-	+ mbedtls library에서 'include', 'library' directory를 'mbedtls_2_3_0.zip' 파일로 압축
-	+ Import Wizard의 Upload tab에서 화면 아래의 '파일 선택' 버튼을 눌러 zip 파일 선택 후 'Import!' 버튼 클릭
-	+ import 된 library 파일을 Library directory 하위에 위치시킴
- 3. config.h 변경
-	+ Source Tree의 '/Library/mbedtls_2_3_0/SSL_Config.h' 파일을 mbedtls library directory 아래의 include directory에 있는 config.h 파일에 덮어씀
-6. oneM2M
- 1. Library import
-	+ Source Tree의 '/Library/oneM2M' directory를 zip 파일로 압축
-	+ Import Wizard의 Upload tab에서 화면 아래의 '파일 선택' 버튼을 눌러 zip 파일 선택 후 'Import!' 버튼 클릭
-	+ import 된 library 파일을 Library directory 하위에 위치시킴
- 2. oneM2MConfig.h 수정
-	+ __DEBUG_ENABLE__ : define 됐을 경우 debug log 활성화 됨
+1. oneM2M 라이브러리를 다운로드 받는다.
+2. 압축을 해제한다.
+3. IDE가 설치되면, 각 피씨환경의 홈 폴더에 Arduino 폴더가 생긴다.
+4. Arduino/libraries 에 oneM2M SDK 폴더를 복사한다.
+5. oneM2M/libraries 에 있는 모든 라이브러리를 Arduino/libraries 폴더로 복사한다.
+6. SDK 설치가 완료되었다.
 
-Sample code import
+SDK 빌드하기
 ---
-1. Code import
-	+ Source Tree의 'Src' directory를 zip 파일로 압축
-	+ Import Wizard의 Upload tab에서 화면 아래의 '파일 선택' 버튼을 눌러 zip 파일 선택 후 'Import!' 버튼 클릭
-	+ import 된 sample 파일을 project root에 위치시킴
-2. '/Src/Configuration.h' 수정
-	+ __MAC_ADDRESS__ : 사용할 mac address 지정(다른 device와 겹치면 안됨)
-	+ __ONEM2M_V1_12__ : define 됐을 경우 oneM2M v1.12가 활성화 됨
-	+ __MQTT_ENABLE_SERVER_CERT_AUTH__ : 0(Normal socket 사용), 1(TLS socket 사용)
-	+ __ACCOUNT_USER__ : ThingPlug 계정의 UKEY
-	+ __ACCOUNT_PASSWORD__ : ThingPlug 계정의 Password
-	+ __ONEM2M_NODEID__ : ThingPlug 계정에 등록된 Device ID
-3. '/Src/oneM2M_main.cpp' 수정
- 1. serial port speed 변경
-	+ SDKVerification.cpp 파일에서 main() 함수의 pc.baud(115200); 수정
- 2. 실행 대상 변경
-	1. SDK verification을 실행할 경우
-		+ main() function 내의 SDKVerificationMain(); 활성화
-	2. MA를 실행할 경우
-		+ main() function 내의 MARun(); 활성화
+1. Arduino IDE를 실행시킨다.
+2. 상단 메뉴에 스케치->컴파일을 선택한다.
+3. 상단 메뉴에 툴->보드, 포트를 Genuino 101/연결된 포트로 설정한다.
+4. 상단 메뉴에 스케치-> 업로드를 선택한다.
+5. 성공시 아래 콘솔창에 메시지가 출력된다
+_______________________________________________
+스케치는 프로그램 저장 공간 81,688 바이트(52%)를 사용. 최대 155,648 바이트.
 
-Build & Run
+Starting download script...
+
+SUCCESS: Sketch will execute in about 5 seconds.
+_______________________________________________
+SDK 예제 코드 실행하기
 ---
-1. Build
-	+ 화면 상단의 'Compile' 버튼 클릭
-	![mbed_compile.png](images/mbed/mbed_compile.png "" "width:50%;")
-2. Run
-	+ build 후 다운로드 된 .bin 파일을 윈도우 탐색기에서 'NODE_F411RE'로 연결된 device drive에 복사
-	![mbed_run.png](images/mbed/mbed_run.png "" "width:50%;")
-3. 실행 로그 확인
-	+ Serial 통신 프로그램(ex. Putty, Tera Term 등)을 사용해서 프로그램 로그 확인
-	(※ sample code의 oneM2M_main.cpp 파일에서 지정한 speed와 맞춰 환경을 설정해야 글자가 깨져 보이지 않음)
-	![serial_log.png](images/serial_log.png "" "width:50%;")
+1. Arduino IDE를 실행한다.
+2. 상단 메뉴에 파일->예제->oneM2M->SDKVerification 선택한다.
+3. 상단 메뉴에 스케치->컴파일을 선택한다.
+4. 상단 메뉴에 툴->보드, 포트를 Genuino 101/연결된 포트로 설정한다.
+5. 상단 메뉴에 스케치-> 업로드를 선택한다.
+6. 업로드가 완료되면 상단 메뉴에 툴->시리얼 모니터를 선택한다.
+사진
+7. oneM2M 동작 테스트가 시작된다.
+8. 결과
+
+SDK를 이용한 ArduinoMiddleware 실행하기
+---
+1. Arduino IDE를 실행한다.
+2. 상단 메뉴에 파일->예제->oneM2M->ArduinoMiddleware 선택한다.
+3. 상단 메뉴에 스케치->컴파일을 선택한다.
+4. 상단 메뉴에 툴->보드, 포트를 Genuino 101/연결된 포트로 설정한다.
+5. 상단 메뉴에 스케치-> 업로드를 선택한다.
+6. 업로드가 완료되면 상단 메뉴에 툴->시리얼 모니터를 선택한다.
+사진
+7. oneM2M 동작 테스트가 시작된다.
+8. 결과
