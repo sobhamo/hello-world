@@ -1,27 +1,4 @@
 Transmit NTP Request
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Receive NTP Response
 tpMQTTSetCallbacks
 MQTTCreate
@@ -419,9 +396,4 @@ MessageArrivedCallback
 MQTTDestory
 MQTTDisconnect
 MQTTDisconnected : 0
-MQTTDestory
-MQTTDestory
-MQTTDestory
-MQTTDestory
-MQTTDestory
 
