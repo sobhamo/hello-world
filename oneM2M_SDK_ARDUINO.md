@@ -80,13 +80,12 @@ SDK 빌드하기
 3. 상단 메뉴에 툴->보드, 포트를 Genuino 101/연결된 포트로 설정한다.
 4. 상단 메뉴에 스케치-> 업로드를 선택한다.
 5. 성공시 아래 콘솔창에 메시지가 출력된다
-_______________________________________________
-스케치는 프로그램 저장 공간 81,688 바이트(52%)를 사용. 최대 155,648 바이트.
+---
+ 스케치는 프로그램 저장 공간 81,688 바이트(52%)를 사용. 최대 155,648 바이트.
+ Starting download script...
+ SUCCESS: Sketch will execute in about 5 seconds.
+---
 
-Starting download script...
-
-SUCCESS: Sketch will execute in about 5 seconds.
-_______________________________________________
 SDK 예제 코드 실행하기
 ---
 1. Arduino IDE를 실행한다.
