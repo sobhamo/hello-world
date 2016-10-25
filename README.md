@@ -10,12 +10,12 @@
 * 미들웨어는 총 3개의 모듈과 5개의 에이전트로 구성되어 있으며, 각각의 모듈간 통신을 통해 사물과 ThingPlug 간 연동을 수행한다.
 * **Management Agent** 는 미들웨어 내부의 모든 명령 및 처리의 중심에서 실제적인 역할을 수행한다. User 와의 외부 Interface 는 Gateway Portal, ThingPlug 와는 Connection Ready Agent 와 연동하며, 내부 Device/Sensor 와는 Service Ready Agent 를 통해 연동한다.
 * **Connection Ready Agent** 는 GMMP Protocol 과 oneM2M Protocol 을 모두 지원하며, ThingPlug 서버와 통신을 담당한다. oneM2M 의 경우 MQTT(S) 방식을 사용하고, GMMP 는 TCP/IP 방식을 사용한다.
-* **Service Ready Agent** 는 Sensor Management Agent 로 부터 센서 관련 정보들을 전달받아, 센서별 정책에 따라 데이터를 가공하는 역할을 한다. 가공된 센서 정보는 Management Agent 로 전달한다.
-* **Sensor Management Agent** 는 센서 데이터를 수집하고, 직접 제어를 담당하며, Service Ready Agent 와 데이터를 주고 받는다.
+* **Service Ready Agent** 는 Sensor Management Agent 로 부터 전달받은 센서 관련 정보들을, 센서별 정책에 따라서 데이터를 가공하는 역할을 한다. 가공된 센서 정보는 Management Agent 로 전달한다.
+* **Sensor Management Agent** 는 센서 데이터를 수집하고, 직접 제어를 담당하며, Management Agent 와 데이터를 주고 받는다.
 * **Gateway Portal** 은 관리자/개발자가 미들웨어 시스템을 제어하고, 각종 정보를 조회할 수 있는 사용자 인터페이스이며, Node.js 기반의 어플리케이션으로 구현되어 있다.
 
 #### 2. ThingPlug 와의 연동 구조
-ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원한다.   
+ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원한다.
 ![](images/v1_overview.png)
 
 
@@ -51,12 +51,9 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원한다.
 <tr><td>xml2js</td><td>패키지 포함</td><td>XML 파싱</td></tr>
 <tr><td>ping</td><td>패키지 포함</td><td>Ping 체크</td></tr>
 <tr><td>i18n</td><td>패키지 포함</td><td>다국어 지원</td></tr>
-<tr><td rowspan="4">Management Agent</td><td>libcurl</td><td>패키지 포함</td><td>HTTP 통신</td></tr>
-<tr><td>libmosquitto</td><td>패키지 포함</td><td>MQTT 통신</td></tr>
-<tr><td>libxml2</td><td>shared</td><td>XML 데이터 처리</td></tr>
+<tr><td rowspan="4">Management Agent</td><td>libcurl</td><td>패키지 포함</td><td>미들웨어 업그레이드</td></tr>
+<tr><td>libpaho-mqtt3as.a</td><td>패키지 포함</td><td>MQTT TLS 통신</td></tr>
 <tr><td>libsqlite3</td><td>shared</td><td>데이터 저장</td></tr>
-<tr><td rowspan="2">공용</td><td>libsodium</td><td>패키지 포함</td><td>IPC 통신</td></tr>
-<tr><td>lizeromq</td><td>패키지 포함</td><td>IPC 통신</td></tr>
 </tbody>
 </table>
 
@@ -71,18 +68,22 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원한다.
 
 	* 일반적으로 dpkg 명령을 통하여 패키지를 설치한다.
 	```
-	# dpkg -i devicemiddleware_arm_1.0.0_20160301.deb
+	# dpkg -i devicemiddleware_ARM_1.0.0_1610251611.deb
 	```
 	* Library dependencies 등의 문제가 발생할 경우 gdebi 를 이용하여 패키지를 설치한다.
 	```
 	# apt-get install gdebi
-	# gdebi devicemiddleware_arm_1.0.0_20160301.deb
+	# gdebi devicemiddleware_ARM_1.0.0_1610251611.deb
 	```
 
 #### 7. 패키지 설치 확인
 * 브라우저에서 http://IP-address:8000 번으로 접속하여 다음과 같은 화면(Gateway Portal)이 나오면 모든 설치가 완료된 것이다.  
 ![](images/gpIntro.png)
-> 로그인 화면에서 아이디 / 비밀번호 : thingplugadmin / adminthingplug
+> 로그인 화면에서 아이디 / 비밀번호 : thingplugadmin / [mac-address(:제외)]
+
+* 최초 로그인시에 계정 등록이 필요하다.
+![](images/v1_gp_changeAccount.png)
+> 안내에따라 원하는 아이디와 비밀번호를 적용한다.
 
 * 관리자 계정 비밀번호 변경하기
 ![](images/gpPwd.png)
@@ -114,7 +115,7 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원한다.
 	```
 
 4. 제거
-	* usr/local/middleware 내부의 모든 파일이 삭제되니 필요한 경우 백업이 필요함
+	* 제거 후 usr/local/middleware 내부의 resource.db 파일, log 폴더가 남겨지며, conf 폴더의 파일들은 tmp 폴더로 복사되어 남겨진다.
 
 	```
 	# dpkg -r devicemiddleware
