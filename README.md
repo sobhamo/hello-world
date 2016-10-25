@@ -6,7 +6,7 @@
 
 #### 1. ThingPlug Device 미들웨어 란?
 개방형 사물인터넷 서버 플랫폼 ThingPlug 를 위한 Device 미들웨어는 ThingPlug 와의 연동을 쉽게 해주고 다양한 Device 에 적용 가능한, Device 개발자 및 서비스 개발자를 위한 소프트웨어이다.
-![](images/mw_architect.png)
+![](images/v1_mw_architect.png)
 * 미들웨어는 총 3개의 모듈과 5개의 에이전트로 구성되어 있으며, 각각의 모듈간 통신을 통해 사물과 ThingPlug 간 연동을 수행한다.
 * **Management Agent** 는 미들웨어 내부의 모든 명령 및 처리의 중심에서 실제적인 역할을 수행한다. User 와의 외부 Interface 는 Gateway Portal, ThingPlug 와는 Connection Ready Agent 와 연동하며, 내부 Device/Sensor 와는 Service Ready Agent 를 통해 연동한다.
 * **Connection Ready Agent** 는 GMMP Protocol 과 oneM2M Protocol 을 모두 지원하며, ThingPlug 서버와 통신을 담당한다. oneM2M 의 경우 MQTT(S) 방식을 사용하고, GMMP 는 TCP/IP 방식을 사용한다.
@@ -16,7 +16,7 @@
 
 #### 2. ThingPlug 와의 연동 구조
 ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원한다.   
-![](images/overview.png)
+![](images/v1_overview.png)
 
 
 #### 3. 지원 사양 및 하드웨어
