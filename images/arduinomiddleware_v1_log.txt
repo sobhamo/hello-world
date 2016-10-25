@@ -1,0 +1,128 @@
+MA Start
+waiting for sync
+Transmit NTP Request
+Receive NTP Response
+10 31 28 25 10 2016
+tpMQTTSetCallbacks
+tpMQTTSetCallbacks
+MQTTCreate
+0 << retry
+19267 << randNubmer
+arduino_client_id_19267 << ClientID
+MQTTConnected
+MQTT Request subscibe topic : /oneM2M/req/+/1.2.481.1.999.198.000101
+OnSubscribe
+MQTT Request subscibe topic : /oneM2M/resp/1.2.481.1.999.198.000101/+
+OnSubscribe
+MQTTSubscribed
+PROCESS_NODE_CREATE
+MQTTPublishMessage
+MQTT publish topic :/oneM2M/req/1.2.481.1.999.198.000101/ThingPlug
+payload : <m2m:req xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><cty>application/vnd.onem2m-prsp+xml</cty><op>1</op><to>/ThingPlug/v1_0</to><ty>14</ty><ri>1234</ri><fr>1.2.481.1.999.198.000101</fr><nm>1.2.481.1.999.198.000101</nm><pc><nod><ni>1.2.481.1.999.198.000101</ni><mga>MQTT|1.2.481.1.999.198.000101</mga></nod></pc></m2m:req>
+MQTT publish Success
+MQTTMessageDelivered
+tpSDKCreate
+CHECK
+MessageArrivedCallback
+mMessageCallback START
+MQTTMessageArrived
+<m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><ri>1234</ri><rsc>2001</rsc><cty>application/vnd.onem2m-res+xml;charset=UTF-8</cty><pc><nod><ty>14</ty><ri>ND00000000000000001429</ri><rn>1.2.481.1.999.198.000101</rn><pi>CB00000000000000000007</pi><ct>2016-10-25T19:31:34+09:00</ct><lt>2016-10-25T19:31:34+09:00</lt><ni>1.2.481.1.999.198.000101</ni><mga>MQTT|1.2.481.1.999.198.000101</mga></nod></pc></m2m:rsp>
+PROCESS_REMOTECSE_CREATE
+MQTTPublishMessage
+MQTT publish topic :/oneM2M/req/1.2.481.1.999.198.000101/ThingPlug
+payload : <m2m:req xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><cty>application/vnd.onem2m-prsp+xml</cty><op>1</op><to>/ThingPlug/v1_0</to><ty>16</ty><ri>1234</ri><fr>1.2.481.1.999.198.000101</fr><passCode>123456</passCode><nm>1.2.481.1.999.198.000101</nm><pc><csr><cst>3</cst><csi>1.2.481.1.999.198.000101</csi><poa>MQTT|1.2.481.1.999.198.000101</poa><rr>true</rr><nl>ND00000000000000001429</nl></csr></pc></m2m:req>
+MQTT publish Success
+MQTTMessageDelivered
+mMessageCallback END
+CHECK
+MessageArrivedCallback
+mMessageCallback START
+MQTTMessageArrived
+<m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><ri>1234</ri><rsc>2001</rsc><dKey>T3BHbitlODRpVXJEbVF5cHhLdVFZVElWRk1Sd2EwMEplWlJaaFVzV0hJZHVlb0x1dktnMnJEZDhjbE92Y0cxeA==</dKey><cty>application/vnd.onem2m-res+xml;charset=UTF-8</cty><pc><csr><ty>16</ty><ri>RC00000000000000003932</ri><rn>1.2.481.1.999.198.000101</rn><pi>CB00000000000000000007</pi><ct>2016-10-25T19:31:36+09:00</ct><lt>2016-10-25T19:31:36+09:00</lt><acpi>AP00000000000000001863</acpi><cst>3</cst><poa>MQTT|1.2.481.1.999.198.000101</poa><csi>1.2.481.1.999.198.000101</csi><rr>true</rr><nl>ND00000000000000001429</nl></csr></pc></m2m:rsp>
+PROCESS_CONTAINER_CREATE
+MQTTPublishMessage
+MQTT publish topic :/oneM2M/req/1.2.481.1.999.198.000101/ThingPlug
+payload : <m2m:req xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><cty>application/vnd.onem2m-prsp+xml</cty><op>1</op><to>/ThingPlug/v1_0/remoteCSE-1.2.481.1.999.198.000101</to><ty>3</ty><ri>1234</ri><fr>1.2.481.1.999.198.000101</fr><nm>1.2.481.1.999.198.000101_container_01</nm><dKey>T3BHbitlODRpVXJEbVF5cHhLdVFZVElWRk1Sd2EwMEplWlJaaFVzV0hJZHVlb0x1dktnMnJEZDhjbE92Y0cxeA==</dKey><pc><cnt><lbl>con</lbl></cnt></pc></m2m:req>
+MQTT publish Success
+MQTTMessageDelivered
+mMessageCallback END
+CHECK
+MessageArrivedCallback
+mMessageCallback START
+MQTTMessageArrived
+<m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><ri>1234</ri><rsc>2001</rsc><cty>application/vnd.onem2m-res+xml;charset=UTF-8</cty><pc><cnt><ty>3</ty><ri>CT00000000000000002432</ri><rn>1.2.481.1.999.198.000101_container_01</rn><pi>RC00000000000000003932</pi><ct>2016-10-25T19:31:39+09:00</ct><lt>2016-10-25T19:31:39+09:00</lt><lbl>con</lbl><st>0</st><cr>RC00000000000000003932</cr><cni>0</cni><cbs>0</cbs></cnt></pc></m2m:rsp>
+PROCESS_CONTENTINSTANCE_CREATE
+SMAGetData  = <26.26>
+SMAGetData  = <48>
+SMAGetData  = <267>
+SMAGetData  = <1>
+MQTTPublishMessage
+MQTT publish topic :/oneM2M/req/1.2.481.1.999.198.000101/ThingPlug
+payload : <m2m:req xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><cty>application/vnd.onem2m-prsp+xml</cty><op>1</op><to>/ThingPlug/v1_0/remoteCSE-1.2.481.1.999.198.000101/container-1.2.481.1.999.198.000101_container_01</to><ty>4</ty><ri>1234</ri><fr>1.2.481.1.999.198.000101</fr><dKey>T3BHbitlODRpVXJEbVF5cHhLdVFZVElWRk1Sd2EwMEplWlJaaFVzV0hJZHVlb0x1dktnMnJEZDhjbE92Y0cxeA==</dKey><pc><cin><cnf>Lora/Sensor</cnf><con>0203100a1903030a1f2823020a4226013025020b362f0101</con></cin></pc></m2m:req>
+MQTT publish Success
+MQTTMessageDelivered
+mMessageCallback END
+CHECK
+MessageArrivedCallback
+mMessageCallback START
+MQTTMessageArrived
+<m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><ri>1234</ri><rsc>2001</rsc><cty>application/vnd.onem2m-res+xml;charset=UTF-8</cty><pc><cin><ty>4</ty><ri>CI00000000000013145554</ri><rn>CI00000000000013145554</rn><pi>CT00000000000000002432</pi><ct>2016-10-25T19:31:41+09:00</ct><lt>2016-10-25T19:31:41+09:00</lt><et>2016-11-24T19:31:41+09:00</et><st>1</st><cr>RC00000000000000003932</cr><cnf>Lora/Sensor</cnf><cs>48</cs><con>0203100a1903030a1f2823020a4226013025020b362f0101</con></cin></pc></m2m:rsp>
+PROCESS_MGMTCMD_CREATE
+MQTTPublishMessage
+MQTT publish topic :/oneM2M/req/1.2.481.1.999.198.000101/ThingPlug
+payload : <m2m:req xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><cty>application/vnd.onem2m-prsp+xml</cty><op>1</op><to>/ThingPlug/v1_0</to><ty>12</ty><ri>1234</ri><fr>1.2.481.1.999.198.000101</fr><nm>1.2.481.1.999.198.000101_DevReset</nm><dKey>T3BHbitlODRpVXJEbVF5cHhLdVFZVElWRk1Sd2EwMEplWlJaaFVzV0hJZHVlb0x1dktnMnJEZDhjbE92Y0cxeA==</dKey><pc><mgc><cmt>DevReset</cmt><exe>false</exe><ext>ND00000000000000001429</ext><lbl>1.2.481.1.999.198.000101</lbl></mgc></pc></m2m:req>
+MQTT publish Success
+MQTTMessageDelivered
+PROCESS_MGMTCMD_CREATE
+MQTTPublishMessage
+MQTT publish topic :/oneM2M/req/1.2.481.1.999.198.000101/ThingPlug
+payload : <m2m:req xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><cty>application/vnd.onem2m-prsp+xml</cty><op>1</op><to>/ThingPlug/v1_0</to><ty>12</ty><ri>1234</ri><fr>1.2.481.1.999.198.000101</fr><nm>1.2.481.1.999.198.000101_RepPerChange</nm><dKey>T3BHbitlODRpVXJEbVF5cHhLdVFZVElWRk1Sd2EwMEplWlJaaFVzV0hJZHVlb0x1dktnMnJEZDhjbE92Y0cxeA==</dKey><pc><mgc><cmt>RepPerChange</cmt><exe>false</exe><ext>ND00000000000000001429</ext><lbl>1.2.481.1.999.198.000101</lbl></mgc></pc></m2m:req>
+MessageArrivedCallback
+mMessageCallback START
+MQTTMessageArrived
+<m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><ri>1234</ri><rsc>4105</rsc><cty>application/vnd.onem2m-res+xml;charset=UTF-8</cty><RSM>Already registered MgmtCmd.</RSM><pc><mgc><ty>12</ty><ri>MC00000000000000002881</ri><rn>1.2.481.1.999.198.000101_DevReset</rn><pi>CB00000000000000000007</pi><ct>2016-10-17T10:24:48+09:00</ct><lt>2016-10-17T10:24:48+09:00</lt><lbl>1.2.481.1.999.198.000101</lbl><cmt>DevReset</cmt><exe>false</exe><ext>ND00000000000000001174</ext></mgc></pc></m2m:rsp>
+mMessageCallback END
+MQTT publish Success
+MQTTMessageDelivered
+PROCESS_MGMTCMD_CREATE
+MQTTPublishMessage
+MQTT publish topic :/oneM2M/req/1.2.481.1.999.198.000101/ThingPlug
+payload : <m2m:req xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><cty>application/vnd.onem2m-prsp+xml</cty><op>1</op><to>/ThingPlug/v1_0</to><ty>12</ty><ri>1234</ri><fr>1.2.481.1.999.198.000101</fr><nm>1.2.481.1.999.198.000101_RepImmediate</nm><dKey>T3BHbitlODRpVXJEbVF5cHhLdVFZVElWRk1Sd2EwMEplWlJaaFVzV0hJZHVlb0x1dktnMnJEZDhjbE92Y0cxeA==</dKey><pc><mgc><cmt>RepImmediate</cmt><exe>false</exe><ext>ND00000000000000001429</ext><lbl>1.2.481.1.999.198.000101</lbl></mgc></pc></m2m:req>
+MessageArrivedCallback
+mMessageCallback START
+MQTTMessageArrived
+<m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><ri>1234</ri><rsc>4105</rsc><cty>application/vnd.onem2m-res+xml;charset=UTF-8</cty><RSM>Already registered MgmtCmd.</RSM><pc><mgc><ty>12</ty><ri>MC00000000000000002091</ri><rn>1.2.481.1.999.198.000101_RepPerChange</rn><pi>CB00000000000000000007</pi><ct>2016-09-23T10:17:13+09:00</ct><lt>2016-09-23T10:17:13+09:00</lt><cmt>RepPerChange</cmt><exe>false</exe><ext>ND00000000000000000803</ext></mgc></pc></m2m:rsp>
+mMessageCallback END
+MQTT publish Success
+MQTTMessageDelivered
+PROCESS_MGMTCMD_CREATE
+MQTTPublishMessage
+MQTT publish topic :/oneM2M/req/1.2.481.1.999.198.000101/ThingPlug
+payload : <m2m:req xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><cty>application/vnd.onem2m-prsp+xml</cty><op>1</op><to>/ThingPlug/v1_0</to><ty>12</ty><ri>1234</ri><fr>1.2.481.1.999.198.000101</fr><nm>1.2.481.1.999.198.000101_TakePhoto</nm><dKey>T3BHbitlODRpVXJEbVF5cHhLdVFZVElWRk1Sd2EwMEplWlJaaFVzV0hJZHVlb0x1dktnMnJEZDhjbE92Y0cxeA==</dKey><pc><mgc><cmt>TakePhoto</cmt><exe>false</exe><ext>ND00000000000000001429</ext><lbl>1.2.481.1.999.198.000101</lbl></mgc></pc></m2m:req>
+MessageArrivedCallback
+mMessageCallback START
+MQTTMessageArrived
+<m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><ri>1234</ri><rsc>4105</rsc><cty>application/vnd.onem2m-res+xml;charset=UTF-8</cty><RSM>Already registered MgmtCmd.</RSM><pc><mgc><ty>12</ty><ri>MC00000000000000002879</ri><rn>1.2.481.1.999.198.000101_RepImmediate</rn><pi>CB00000000000000000007</pi><ct>2016-10-17T10:01:25+09:00</ct><lt>2016-10-17T10:01:25+09:00</lt><lbl>1.2.481.1.999.198.000101</lbl><cmt>RepImmediate</cmt><exe>false</exe><ext>ND00000000000000001174</ext></mgc></pc></m2m:rsp>
+mMessageCallback END
+MQTT publish Success
+MQTTMessageDelivered
+PROCESS_MGMTCMD_CREATE
+MQTTPublishMessage
+MQTT publish topic :/oneM2M/req/1.2.481.1.999.198.000101/ThingPlug
+payload : <m2m:req xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><cty>application/vnd.onem2m-prsp+xml</cty><op>1</op><to>/ThingPlug/v1_0</to><ty>12</ty><ri>1234</ri><fr>1.2.481.1.999.198.000101</fr><nm>1.2.481.1.999.198.000101_LEDControl</nm><dKey>T3BHbitlODRpVXJEbVF5cHhLdVFZVElWRk1Sd2EwMEplWlJaaFVzV0hJZHVlb0x1dktnMnJEZDhjbE92Y0cxeA==</dKey><pc><mgc><cmt>LEDControl</cmt><exe>false</exe><ext>ND00000000000000001429</ext><lbl>1.2.481.1.999.198.000101</lbl></mgc></pc></m2m:req>
+MessageArrivedCallback
+mMessageCallback START
+MQTTMessageArrived
+<m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><ri>1234</ri><rsc>4105</rsc><cty>application/vnd.onem2m-res+xml;charset=UTF-8</cty><RSM>Already registered MgmtCmd.</RSM><pc><mgc><ty>12</ty><ri>MC00000000000000002880</ri><rn>1.2.481.1.999.198.000101_TakePhoto</rn><pi>CB00000000000000000007</pi><ct>2016-10-17T10:01:25+09:00</ct><lt>2016-10-17T10:01:25+09:00</lt><lbl>1.2.481.1.999.198.000101</lbl><cmt>TakePhoto</cmt><exe>false</exe><ext>ND00000000000000001174</ext></mgc></pc></m2m:rsp>
+mMessageCallback END
+MQTT publish Success
+MQTTMessageDelivered
+mMessageCallback END
+CHECK
+MessageArrivedCallback
+mMessageCallback START
+MQTTMessageArrived
+<m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><ri>1234</ri><rsc>4105</rsc><cty>application/vnd.onem2m-res+xml;charset=UTF-8</cty><RSM>Already registered MgmtCmd.</RSM><pc><mgc><ty>12</ty><ri>MC00000000000000002611</ri><rn>1.2.481.1.999.198.000101_LEDControl</rn><pi>CB00000000000000000007</pi><ct>2016-10-10T17:20:19+09:00</ct><lt>2016-10-10T17:20:19+09:00</lt><lbl>1.2.481.1.999.198.000101</lbl><cmt>LEDControl</cmt><exe>false</exe><ext>ND00000000000000000933</ext></mgc></pc></m2m:rsp>
+mMessageCallback END
+CHECK
+MessageArrivedCallback
