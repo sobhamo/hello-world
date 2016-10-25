@@ -9,8 +9,7 @@ ARDUINO
 		+ RAM : 24KB
 		+ Flash memory : 196KB
 2. Ethernet board
-	+ Arduino Ethernet Shield R3 
-    ![ArduinoEthernetShield_R3_Front_450px.jpg](images/ArduinoEthernetShield_R3_Front_450px.jpg "" "width:50%;")
+	+ Arduino Ethernet Shield R3 ![ArduinoEthernetShield_R3_Front_450px.jpg](images/ArduinoEthernetShield_R3_Front_450px.jpg "" "width:50%;")
 3. Footprint
 	+ Binary file size : 93KB 
 	+ Heap memory usage : 21KB
@@ -46,7 +45,7 @@ IDE 설정
 ---
 1. IDE homepage
 	+ https://www.arduino.cc/
-	+ 사진
+	![arduinocchomepage.png](images/arduinocchomepage.png "" "width:50%;")
 2. Download page
 	+ Windowns
 	+ Mac
