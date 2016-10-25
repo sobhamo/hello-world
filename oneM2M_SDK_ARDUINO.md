@@ -46,19 +46,16 @@ IDE 설정
 1. IDE homepage
 	+ https://www.arduino.cc/
 	![arduinocchomepage.png](images/arduinocchomepage.png "" "width:50%;")
-2. Download page
+2. Download & Install
 	+ Windowns
 	+ Mac
 	+ Linux
 	![arduinodownload.png](images/arduinodownload.png "" "width:50%;")
-3. Download & Install
-	+ next
-	+ 사진
-4. Build & Monitoring
+3. Build & Monitoring
 	+ 컴파일
 	+ 업로드
 	+ 모니터로 확인
-5. Installing Additional Arduino Libraries
+4. Installing Additional Arduino Libraries
     + https://www.arduino.cc/en/Guide/Libraries
     + 라이브러리 설치에 대한 자세한 설명은 공식사이트를 참고한다.
 
