@@ -115,7 +115,7 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원한다.
 	```
 
 4. 제거
-	* 제거 후 usr/local/middleware 내부의 resource.db 파일, log 폴더가 남겨지며, conf 폴더의 파일들은 tmp 폴더로 복사되어 남겨진다.
+	* 제거 후 usr/local/middleware 내부의 resource.db 파일, log 폴더가 남겨지며, conf 폴더의 파일들은 /tmp/middleware_backup 폴더로 복사되어 남겨진다.
 
 	```
 	# dpkg -r devicemiddleware
