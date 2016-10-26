@@ -12,7 +12,35 @@ SMA 는 Sensor 들을 관리하고, 데이터를 수집한다.
 ![](images/SMA_Sensor_Overview.png)
 
 #### 2.1. Sensor Manager
-**Sensor Manager** 모듈은 센서 관리의 핵심 역활을 수행한다. 수행하는 기능은 다음과 같다.
+**Sensor Manager** 모듈은 센서 관리의 핵심 역활을 수행한다. 이 모듈에서는 하나의 센서를 하나의 구조체로 관리한다. 센서 구조체는 다음과 같다.
+```
+typedef struct tagSensorOperations {
+    int (*Close) (void); // 종료 함수
+    int (*Read) (char *data, int *length); // 데이터 읽기 함수
+    char* (*Control) (char *command, int length); // 제어 함수
+}SENSOR_OPERATIONS_T;
+
+typedef struct tagSensor {
+    // User Setup Sensor Configurations
+    char mID[MAX_STR_LEN]; // 센서 아이디
+    char mName[MAX_STR_LEN]; // 센서 이름
+    char mType[MAX_STR_LEN]; // 센서 타입
+    char mReadInterval[MAX_STR_LEN]; // 데이터 읽기 주기
+    int mMaxInterval; // 데이터가 불편하는 최대 주기
+    unsigned short mOperationType; // 동작 타입
+    unsigned short mControlType; // 제어 타입
+
+    // Auto Setup Sensor Configurations
+    char mValue[MAX_STR_LEN]; // 저장된 데이터
+    int mStartTime; // 저장된 데이터 마지막 업데이트 시간
+    unsigned short mStatus; // 센서 on/off
+
+    // Sensor Operations
+    SENSOR_OPERATIONS_T mOperations; // 종료 , 읽기, 제어 함수 
+    pthread_mutex_t mReadMutex;
+}SENSOR_T;
+```
+수행하는 기능은 다음과 같다.
 
 * 센서 등록
 * 센서 초기화
