@@ -58,7 +58,7 @@ typedef struct tagSensor {
 - 센서 Read 함수를 통해 데이터를 얻는다. 센서 구조체에 연결된다. 타이머를 통해 주기적으로 Read 함수가 불리게 되며, 이를 센서 구조체에 저장한다.
 
 ##### 2.1.4. 센서 제어
-- 센서 제어는 2가지로 구현되어 있다. GMMP/ONEM2M 방식과 SP1 방식이다. GMMP/ONEM2M은 SensorCommandList 모듈에 제어명령 및 제어 함수를 등록하고,이를 실행한다. 제어 함수가 별도 리스트로 관리된다. SP1 방식은 Sensor Interface 중 Control 함수를 만들고 제어 명령 시 Control 함수가 실행된다. 등록된 센서의 구조체에서 제어함수가 관리된다. (SensorCommandList 자세한 설명은 2.4를 참고한다.)
+- 센서 제어는 2가지로 구현되어 있다. GMMP/ONEM2M 방식과 SP1 방식이다. GMMP/ONEM2M은 SensorCommandList 모듈에서 제어를 등록 및 실행한다. 즉, 제어명령 및 함수가 별도 리스트로 관리된다. SP1 방식은 Sensor Interface 중 Control 함수를 만들고 제어 명령 시 Control 함수가 실행된다. 센서 구조체에서 제어함수가 관리된다. (SensorCommandList 자세한 설명은 2.4를 참고한다.)
 
 ##### 2.1.5. 센서 종료
 - 센서 구조체에 종료 함수가 연결되어 있으며, 센서 종료 시 필요한 작업이 수행된다. SMA가 종료될 시 실행된다.
