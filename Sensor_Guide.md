@@ -80,21 +80,14 @@ typedef struct tagSensor {
 <table>
 <thead><tr><th>구조체 멤버</th><th>변수 타입</th><th>기타</th></tr></thead>
 <tbody>
-<tr><td>DeviceID</td><td>String</td><td>최대길이 32byte</td></tr>
+<tr><td>SensorType</td><td>String</td><td>최대길이 32byte</td></tr>
 <tr><td>SensorID</td><td>String</td><td>최대길이 32byte</td></tr>
 <tr><td>SensorName</td><td>String</td><td>최대길이 64byte</td></tr>
-<tr><td>SensorType</td><td>String</td><td>최대길이 32byte</td></tr>
-<tr><td>EnableFlag</td><td>Enum</td><td>SENSOR_STATE_DISABLE = 0<br>SENSOR_STATE_ENABLE = 1</td></tr>
 <tr><td>ReadInterval</td><td>Int</td><td>seconds</td></tr>
-<tr><td>ReadMode</td><td>Enum</td><td>SENSOR_MODE_POLLING = 0<br>SENSOR_MODE_REQUEST = 1<br>SENSOR_MODE_EVENT = 2</td></tr>
-<tr><td>LastValue</td><td>String</td><td>MAX_LEN_LAST_VALUE = 32</td></tr>
-<tr><td>StartTime</td><td>Int</td><td></td></tr>
-<tr><td>EndTime</td><td>Int</td><td></td></tr>
-<tr><td>SerialNumber</td><td>String</td><td>MAX_LEN_SERIAL_NUMBER=64</td></tr>
 <tr><td>OperationType</td><td>Enum</td><td>SENSOR_ACTIVE_TYPE: 0x0001<br>SENSOR_PASSIVE_TYPE:0x0002</td></tr>
-<tr><td>MaxInterval</td><td>Int</td><td>Value < 0 은 경우 on/off 판단불가<br>양수일 경우 시간만큼 Sensor Data 변화 없을 시 off 로 전환</td></tr>
+없을 시 off 로 전환</td></tr>
+<tr><td>MaxInterval</td><td>Int</td><td>Value < 0 은 경우 on/off 판단불가<br>양수일 경우 시간만큼 Sensor Data 변화 
 <tr><td>ControlType</td><td>Int</td><td>1 = SP1 Control Type<br>2 = No SP1 Control Type</td></tr>
-<tr><td>RegisterFlag</td><td>Int</td><td>0 = MA에 등록하지 않음<br>1 = MA에등록<br>값이 0이면장치에 센서가 연결되어 동작하더라도 MA에는등록하지 않음</td></tr>
 </tbody>
 </table>
 
