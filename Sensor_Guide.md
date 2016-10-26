@@ -68,13 +68,13 @@ typedef struct tagSensor {
 * /usr/local/middleware/conf/iot_sensor.conf 정보가 로딩된다.
 * 사용자가 관리하고자 하는 센서목록을 정하고, 이를 Sensor Configuration 에 반영하는 작업은 필수이다.
 설정 값을 정리하면 다음과 같다.
-    * SensorType : Sensor의 종류를 나타낸다. (예) 온도, 습도
-    * SensorID : 센서를 구분하는 기준값이다. 10자리로 구현되어 있으며 숫자로 되어 있다. 중복되는 값이 들어가지 않도록 한다. (예)0001,0002
-    * SensorName : Sensor의 모델명이다. (예) DS18B20, CM1001
-    * ReadInterval : 센서를 읽는 주기 (밀리초)
+    * SensorType : 센서의 종류 (예) 온도, 습도
+    * SensorID : 같은 종류의 센서를 구분하기 위한 ID 값
+    * SensorName : 센서의 모델명 (예) DS18B20, CM1001 [중요!! 센서를 구분하는 기준이된다.]
+    * ReadInterval : 센서를 읽는 주기 (초)
     * OperationType : 센서 구동 타입 (예) series,event 
-    * MaxInterval : 데이터 변화 없어도 허용되는 최대 시간(초), 0초이면 무한대로 판단 
-    * ControlType :  센서 제어 가능 여부
+    * MaxInterval : 데이터 변화 없어도 허용되는 최대 시간(초), 0초이면 무한대로 판단
+    * ControlType : 센서 제어 가능 여부
 
 * **SENSOR_CONFIGURATION_T** 구조체 구성표
 <table>
