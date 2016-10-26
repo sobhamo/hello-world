@@ -83,10 +83,10 @@ typedef struct tagSensor {
 <tr><td>SensorType</td><td>String</td><td>최대길이 32byte</td></tr>
 <tr><td>SensorID</td><td>String</td><td>최대길이 32byte</td></tr>
 <tr><td>SensorName</td><td>String</td><td>최대길이 64byte</td></tr>
-<tr><td>ReadInterval</td><td>Int</td><td>milliseconds</td></tr>
-<tr><td>OperationType</td><td>Enum</td><td>DM_SENSOR_EVENT_TYPE : 0x0001<br>DM_SENSOR_SERIES_TYPE:0x0002</td></tr>
-<tr><td>MaxInterval</td><td>Int</td><td>seconds</td></tr>
-<tr><td>ControlType</td><td>Int</td><td>DM_SENSOR_HAS_CONTROL_TYPE : 0x0001<br>DM_SENSOR_NO_CONTROL_TYPE : 0x0002</td></tr>
+<tr><td>ReadInterval</td><td>Integer</td><td>milliseconds</td></tr>
+<tr><td>OperationType</td><td>Integer</td><td>DM_SENSOR_EVENT_TYPE : 0x0001<br>DM_SENSOR_SERIES_TYPE:0x0002</td></tr>
+<tr><td>MaxInterval</td><td>Integer</td><td>seconds</td></tr>
+<tr><td>ControlType</td><td>Integer</td><td>DM_SENSOR_HAS_CONTROL_TYPE : 0x0001<br>DM_SENSOR_NO_CONTROL_TYPE : 0x0002</td></tr>
 </tbody>
 </table>
 
