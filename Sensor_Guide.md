@@ -64,27 +64,18 @@ typedef struct tagSensor {
 - 센서 구조체에 종료 함수가 연결되어 있으며, 센서 종료 시 필요한 작업이 수행된다. SMA가 종료될 시 실행된다.
 
 #### 2.2. Sensor Configuration
-* Sensor Configuration 은 SMA 에서 동작할 센서에 대한 설정값을 저장한다.
-* 관련 코드는 `/usr/local/middleware/SMA/source/configuration/SensorConfiguration.c` 파일에 있으며,
-`/usr/local/middleware/conf/SMADeviceConf.backup` 파일이 존재하면 **SMADeviceConf.backup** 파일의 정보로 로딩된다.
+* Sensor Configuration 은 SMA 에서 등록될 센서에 대한 설정값을 저장한다.
+* /usr/local/middleware/conf/iot_sensor.conf 정보가 로딩된다.
 * 사용자가 관리하고자 하는 센서목록을 정하고, 이를 Sensor Configuration 에 반영하는 작업은 필수이다.
-* 설정 값을 정리하면 다음과 같다.
-
-  * DeviceID : SMA에서 자동으로 세팅하여 사용하기 때문에 필드에 존재하지만 거의 사용하지 않는다.
-  * SensorID : 센서를 구분하는 기준값이다. 10자리로 구현되어 있으며 숫자로 되어 있다. 중복되는 값이 들어가지 않도록 한다. (예)0000000001,000000002
-  * SensorName : Sensor의 모델명이다. (예) DS18B20, CM1001
-  * SensorType : Sensor의 종류를 나타낸다. (예) 온도, 습도
-  * EnableFlag : 장치가 활성되었는지 여부.
-  * ReadInterval : 센서를 읽는 주기 (초)
-  * ReadMode : 센서를 읽는 방식 (예) polling, request, event
-  * LastValue : Sensor의 마지막 데이터
-  * StartTime : 데이터에 변화가 있는 시점
-  * EndTime : 데이터에 변화가 없는 시점
-  * SerialNumber : 센서의 시리얼 넘버
-  * OperationType : 센서 구동 타입 (예) active, passive
-  * MaxInterval : 데이터 변화 없어도 허용되는 최대 시간(초)
-  * ControlType : SP1 Control Type 여부
-  * RegisterFlag : SMA->SRA->MA로 센서를 등록 할지 여부
+설정 값을 정리하면 다음과 같다.
+#type,id,name,readinterval,operationtype,maxinterval,controltype
+    * SensorType : Sensor의 종류를 나타낸다. (예) 온도, 습도
+    * SensorID : 센서를 구분하는 기준값이다. 10자리로 구현되어 있으며 숫자로 되어 있다. 중복되는 값이 들어가지 않도록 한다. (예)0000000001,000000002
+    * SensorName : Sensor의 모델명이다. (예) DS18B20, CM1001
+    * ReadInterval : 센서를 읽는 주기 (초)
+    * OperationType : 센서 구동 타입 (예) serial,event 
+    * MaxInterval : 데이터 변화 없어도 허용되는 최대 시간(초) 
+    * ControlType : SP1 Control Type 여부
 
 * **SENSOR_CONFIGURATION_T** 구조체 구성표
 <table>
