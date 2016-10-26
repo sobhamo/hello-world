@@ -72,9 +72,9 @@ typedef struct tagSensor {
     * SensorID : 센서를 구분하는 기준값이다. 10자리로 구현되어 있으며 숫자로 되어 있다. 중복되는 값이 들어가지 않도록 한다. (예)0001,0002
     * SensorName : Sensor의 모델명이다. (예) DS18B20, CM1001
     * ReadInterval : 센서를 읽는 주기 (밀리초)
-    * OperationType : 센서 구동 타입 (예) serial,event 
+    * OperationType : 센서 구동 타입 (예) series,event 
     * MaxInterval : 데이터 변화 없어도 허용되는 최대 시간(초), 0초이면 무한대로 판단 
-    * ControlType : SP1 Control Type 여부
+    * ControlType :  센서 제어 가능 여부
 
 * **SENSOR_CONFIGURATION_T** 구조체 구성표
 <table>
@@ -84,9 +84,9 @@ typedef struct tagSensor {
 <tr><td>SensorID</td><td>String</td><td>최대길이 32byte</td></tr>
 <tr><td>SensorName</td><td>String</td><td>최대길이 64byte</td></tr>
 <tr><td>ReadInterval</td><td>Int</td><td>milliseconds</td></tr>
-<tr><td>OperationType</td><td>Enum</td><td>SENSOR_ACTIVE_TYPE: 0x0001<br>SENSOR_PASSIVE_TYPE:0x0002</td></tr>
+<tr><td>OperationType</td><td>Enum</td><td>DM_SENSOR_EVENT_TYPE : 0x0001<br>DM_SENSOR_SERIES_TYPE:0x0002</td></tr>
 <tr><td>MaxInterval</td><td>Int</td><td>seconds</td></tr>
-<tr><td>ControlType</td><td>Int</td><td>1 = SP1 Control Type<br>2 = No SP1 Control Type</td></tr>
+<tr><td>ControlType</td><td>Int</td><td>DM_SENSOR_HAS_CONTROL_TYPE : 0x0001<br>DM_SENSOR_NO_CONTROL_TYPE : 0x0002</td></tr>
 </tbody>
 </table>
 
