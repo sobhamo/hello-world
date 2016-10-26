@@ -26,7 +26,7 @@ typedef struct tagSensor {
     char mName[MAX_STR_LEN]; // 센서 이름
     char mType[MAX_STR_LEN]; // 센서 타입
     char mReadInterval[MAX_STR_LEN]; // 데이터 읽기 주기
-    int mMaxInterval; // 데이터가 불편하는 최대 주기
+    int mMaxInterval; // 데이터가 불변하는 최대 주기
     unsigned short mOperationType; // 동작 타입
     unsigned short mControlType; // 제어 타입
 
