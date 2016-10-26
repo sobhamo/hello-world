@@ -85,7 +85,6 @@ typedef struct tagSensor {
 <tr><td>SensorName</td><td>String</td><td>최대길이 64byte</td></tr>
 <tr><td>ReadInterval</td><td>Int</td><td>seconds</td></tr>
 <tr><td>OperationType</td><td>Enum</td><td>SENSOR_ACTIVE_TYPE: 0x0001<br>SENSOR_PASSIVE_TYPE:0x0002</td></tr>
-없을 시 off 로 전환</td></tr>
 <tr><td>MaxInterval</td><td>Int</td><td>데이터 변화 없어도 허용되는 최대 시간(초), 0초이면 무한대로 판단</td></tr>
 <tr><td>ControlType</td><td>Int</td><td>1 = SP1 Control Type<br>2 = No SP1 Control Type</td></tr>
 </tbody>
