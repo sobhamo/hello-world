@@ -11,7 +11,7 @@ SMA 는 Sensor 들을 관리하고, 데이터를 수집한다.
 아래 그림은 센서 처리를 위한 SensorManagementAgent 의 전체 구조도이다.
 ![](images/SMA_Sensor_Overview.png)
 
-#### 2.1. Sensor Handler
+#### 2.1. Sensor Manager
 * **Sensor Handler** 모듈은 센서 관리의 핵심 역활을 수행한다. 등록된 센서의 초기화, 제어, 데이터 추출, 종료 함수를 관리 및 실행한다.
 * **Sensor Interface** 에는 센서 관련 함수가 모여있으며, 각 센서별로 하나의 file 을 갖는다.
 * 초기화 시 모든 센서의 초기화 함수를 실행한다.
