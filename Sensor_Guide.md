@@ -82,7 +82,7 @@ typedef struct tagSensor {
 <tbody>
 <tr><td>SensorType</td><td>String</td><td>최대길이 32byte</td></tr>
 <tr><td>SensorID</td><td>String</td><td>최대길이 32byte</td></tr>
-<tr><td>SensorName</td><td>String</td><td>최대길이 64byte</td></tr>
+<tr><td>SensorName</td><td>String</td><td>최대길이 64byte [Primary Key] </td></tr>
 <tr><td>ReadInterval</td><td>Integer</td><td>milliseconds</td></tr>
 <tr><td>OperationType</td><td>Integer</td><td>DM_SENSOR_EVENT_TYPE : 0x0001<br>DM_SENSOR_SERIES_TYPE:0x0002</td></tr>
 <tr><td>MaxInterval</td><td>Integer</td><td>seconds</td></tr>
