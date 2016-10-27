@@ -72,6 +72,14 @@ SDK를 사용한 예제들은 다음과 같다.
 	+ __SRA__ (미들웨어의 SensorManagementAgent 역할)
 	+ __SMA__ (미들웨어의 ServiceReadyAgent 역할)
 
-SRA와 SMA 의 구체적인 내용은 다음과 같다.
+
+MA : from Registration to Deregistration
+---
+디바이스 등록부터 해지까지 다음 Sequence Diagram 구조로 동작한다.
+![](images/sdk_ma.png)
+
+SRA & SMA
+---
 * [SRA](SDK_SRA.md) 
 * [SMA](SDK_SMA.md)
+
