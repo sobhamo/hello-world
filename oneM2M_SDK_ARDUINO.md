@@ -85,9 +85,9 @@ SDK 예제 코드 실행하기
 5. 상단 메뉴에 스케치-> 업로드를 선택한다.
 6. 업로드가 완료되면 상단 메뉴에 툴->시리얼 모니터를 선택한다.
 7. oneM2M 동작 테스트가 시작된다.
-8. 결과
+8. 결과 (Teraterm screenshot)
 
-![MATest.png](images/MATest.png "" "width:50%;")
+![MATest.png](images/MATest.png "" "width:30%;")
 
 SDK를 이용한 ArduinoMiddleware 실행하기
 ---
@@ -98,6 +98,6 @@ SDK를 이용한 ArduinoMiddleware 실행하기
 5. 상단 메뉴에 스케치-> 업로드를 선택한다.
 6. 업로드가 완료되면 상단 메뉴에 툴->시리얼 모니터를 선택한다.
 7. oneM2M 동작 테스트가 시작된다.
-8. 결과
+8. 결과 (Teraterm screenshot)
 
-![SDKTest.png](images/SDKTest.png "" "width:50%;")
+![SDKTest.png](images/SDKTest.png "" "width:30%;")
