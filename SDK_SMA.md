@@ -28,3 +28,8 @@ SMAGetData(sensorType, &output);
 printf("temperature: %s\n", output);
 free(output);
 ```
+5. 내부에서 사용되는 private 함수 정리
+
+함수명 | 기능
+---|---
+SMAGetSensorIndex | 구분문자열을 기준으로 센서 번호를 리턴함
