@@ -21,8 +21,8 @@ Source Tree
 ---
 + __Arduino__ (project root)
 	+ __examples__
-		+ __ArduinoMiddleware__ (Middleware)
-			+ ArduinoMiddleware.ino ( Arduino Sketch File )
+		+ __ThingPlug_oneM2M_SDK__ (Middleware)
+			+ ThingPlug_oneM2M_SDK.ino ( Arduino Sketch File )
 			+ __src__
 			  + __MA__ (ManagementAgent)
 			  + __SRA__ (ServiceReadyAgent)
