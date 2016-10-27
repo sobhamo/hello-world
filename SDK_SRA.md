@@ -6,6 +6,7 @@
         * SRA.c (정책에 따라 데이터를 변환시키는 함수가 구현되어 있다.)
         * List.c ( 리스트 자료구조 )
         * TLVMaker.c ( Tag:Length:Value 변환 모듈 )
+        * GetTime.cpp ( NTP 서버 연결 및 시간 관련 함수가 구현되어 있다.)
 ## 3. 주요 함수
     * void SRADataConvert(int event, void *data)
     * 데이터 변환을 할 때 사용하는 함수이다.
