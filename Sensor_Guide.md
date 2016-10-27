@@ -106,7 +106,24 @@ typedef struct tagSensor {
 
 ### 3. 폴더 구조
 SensorManagementAgent 프로젝트는 미들웨어 패키지 설치 후, `/usr/local/middleware/SMA` 에서 확인 가능하다.
-![](images/SMA_Folder.png)
+
+* SMA
+    * Makefile.mini
+    * __comon__ ( list, debug, security 등 공용 모듈 )
+        *  __aes__ ( 암호화 관련 모듈 )
+        *  __json__ ( json format 관련 모듈 )
+    * __inc__ ( header files) 
+    * __lib__ ( SMA library file )
+    * __src__ ( source folder )
+        * SensorCommandList.c : 센서 제어 명령 관리 리스트
+        * SensorManager.c : 센서 관리 모듈
+        * Timer.c : 타이머 모듈
+        * __1W__  : 와이어 센서
+        * __CUSTOM__  : 사용자 정의 센서
+        * __GPIO__ : GPIO 센서
+        * __UART__  : UART 센서
+        * __UNDEFINED__ : 정의되지 않은 센서
+        * __I2C__  : I2C 센서
 
 #### 3.1 include 폴더
 * SMA 에서 사용하는 각종 데이터 포맷, 에러 정의 등 포함되어 있다.
