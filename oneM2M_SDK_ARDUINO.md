@@ -3,11 +3,11 @@ ARDUINO
 
 지원 사양
 ---
-1. 시스템 권장 사양
+1. 최소 동작 환경
 	* CPU : 32MHz
 	* RAM : 24KB
 	* Flash memory : 126KB
-2. Main board (guaranteed)
+2. 테스트 환경
 	+ Arduino 101 (USA ONLY) & Genuino 101 (OUTSIDE USA) ![genuino101.jpg](images/genuino101.jpg "" "width:50%;")
 		+ CPU : 32MHz Intel Curie
 		+ RAM : 24KB
