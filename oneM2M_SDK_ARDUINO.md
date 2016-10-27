@@ -4,7 +4,7 @@ ARDUINO
 지원 사양
 ---
 1. 시스템 권장 사양
-    	* CPU : 32MHz Intel Curie
+	* CPU : 32MHz Intel Curie
 	* RAM : 32KB
 	* Flash memory : 126KB
 2. Main board (guaranteed)
