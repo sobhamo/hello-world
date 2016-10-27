@@ -5,7 +5,7 @@ ARDUINO
 ---
 1. 시스템 권장 사양
 	* CPU : 32MHz
-	* RAM : 32KB
+	* RAM : 24KB
 	* Flash memory : 126KB
 2. Main board (guaranteed)
 	+ Arduino 101 (USA ONLY) & Genuino 101 (OUTSIDE USA) ![genuino101.jpg](images/genuino101.jpg "" "width:50%;")
