@@ -4,6 +4,7 @@ mbed (+TLS)
 동작 환경
 ---
 1. 최소 동작 환경
+	+ CPU : 50MHz 이상
 	+ RAM : 64KB 이상
 	+ Flash memory : 256KB 이상
 2. 테스트 환경
@@ -43,9 +44,9 @@ Source Tree
 	+ __mbed__ (mbed source)
 		+ __TARGET_NUCLEO_F411RE__ (Nucleo F411RE driver)
 	+ __Src__ (test sample)
-		+ __MA__ (test management agent module)
-		+ __SMA__ (test sensor management agent module)
-		+ __SRA__ (test service ready agent module)
+		+ __MA__ (ManagementAgent)
+		+ __SMA__ (SensorManagementAgent)
+		+ __SRA__ (ServiceReadyAgent)
 
 Project build
 ===

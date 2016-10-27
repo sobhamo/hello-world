@@ -4,6 +4,7 @@ FreeRTOS (+TLS)
 지원 사양
 ---
 1. Footprint
+	+ CPU : 50MHz 이상
 	+ RAM : 64KB 이상
 	+ Flash memory : 256KB 이상
 2. 테스트 환경
@@ -47,9 +48,9 @@ Source Tree
 			+ __FreeRTOS__ (FreeRTOS source)
 	+ __Src__ (FreeRTOS main)
 		+ __oneM2M__ (test sample)
-			+ __MA__ (test management agent module)
-			+ __SMA__ (test sensor management agent module)
-			+ __SRA__ (test service ready agent module)
+			+ __MA__ (ManagementAgent)
+			+ __SMA__ (SensorManagementAgent)
+			+ __SRA__ (ServiceReadyAgent)
 
 Project build
 ===
