@@ -87,7 +87,7 @@ SDK 예제 코드 실행하기
 7. oneM2M 동작 테스트가 시작된다.
 8. 결과
 
-![arduinoMA.png](images/arduinoMA.png "" "width:50%;")
+![MATest.png](images/MATest.png "" "width:50%;")
 
 SDK를 이용한 ArduinoMiddleware 실행하기
 ---
@@ -100,4 +100,4 @@ SDK를 이용한 ArduinoMiddleware 실행하기
 7. oneM2M 동작 테스트가 시작된다.
 8. 결과
 
-![arduinoSDK.png](images/arduinoSDK.png "" "width:50%;")
+![SDKTest.png](images/SDKTest.png "" "width:50%;")
