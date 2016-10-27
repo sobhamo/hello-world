@@ -3,18 +3,19 @@ FreeRTOS (+TLS)
 
 지원 사양
 ---
-1. Main board
+1. Footprint
+	+ Heap memory : 24KB 이상 (Heap memory usage : 15KB (thread 종료 전 xPortGetMinimumEverFreeHeapSize() function으로 측정))
+	+ Flash memory : 128KB 이상 (Binary file size : 114KB (TLS library 포함))
+2. 테스트 환경
+ 1. Main board
 	+ STMicroelectronics Nucleo-64 F411RE
 	![NUCLEO-F411RE.jpg](images/NUCLEO-F411RE.jpg "" "width:50%;")
 		+ CPU : 100MHz ARM 32-bit Cortex-M4 with FPU
 		+ RAM : 128KB
 		+ Flash memory : 512KB
-2. Ethernet board
+ 2. Ethernet board
 	+ WIZnet W5500
     ![w5500_ethernet_shield.jpg](images/w5500_ethernet_shield.jpg "" "width:50%;")
-3. Footprint
-	+ Binary file size : 114KB (TLS library 포함)
-	+ Heap memory usage : 15KB (thread 종료 전 xPortGetMinimumEverFreeHeapSize() function으로 측정)
 
 Source Tree
 ---
@@ -46,9 +47,9 @@ Source Tree
 			+ __FreeRTOS__ (FreeRTOS source)
 	+ __Src__ (FreeRTOS main)
 		+ __oneM2M__ (test sample)
-			+ __MA__ (test MA module)
-			+ __SMA__ (test SMA module)
-			+ __SRA__ (test SRA module)
+			+ __MA__ (test management agent module)
+			+ __SMA__ (test sensor management agent module)
+			+ __SRA__ (test service ready agent module)
 
 Project build
 ===
@@ -70,8 +71,8 @@ IDE 설정
 	![STM32CubeMX_excute.png](images/FreeRTOS/STM32CubeMX_excute.png "" "width:50%;")
 	+ 실행 시 아래와 같은 오류 발생 시 command line에서 다음 명령으로 실행
 		~~~
-	    > java -jar '실행파일명'
-	    ~~~
+		> java -jar '실행파일명'
+		~~~
 		![Java_Runtime_Environment_error2.png](images/FreeRTOS/Java_Runtime_Environment_error2.png "" "width:50%;")
  3. Board Selector 탭에서 Vendor:STMicroelectronics, Type of Board:Nucleo64, MCU Series:STM32F4로 설정한 다음 아래 오른쪽 목록에서 NUCLEO-F411RE 선택하고 아래 OK 버튼 클릭
 	![STM32CubeMX_new_project.png](images/FreeRTOS/STM32CubeMX_new_project.png "" "width:50%;")
@@ -142,6 +143,13 @@ Library import
 	+ Source Tree의 '/Library/oneM2M' directory를 '/Library' directory에 복사
  2. oneM2MConfig.h 수정
 	+ __DEBUG_ENABLE__ : define 됐을 경우 debug log 활성화 됨
+7. Library path 설정
+ 1. include path 설정
+	메뉴 > 프로젝트 > 특성 > C/C++ General > Includes tab
+	![TrueSTUDIO_setting_include.png](images/FreeRTOS/TrueSTUDIO_setting_include.png "" "width:50%;")
+ 2. source path 설정
+	메뉴 > 프로젝트 > 특성 > C/C++ General > Source Location tab
+	![TrueSTUDIO_setting_source.png](images/FreeRTOS/TrueSTUDIO_setting_source.png "" "width:50%;")
 
 Sample code import
 ---

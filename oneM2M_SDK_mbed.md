@@ -1,20 +1,21 @@
 mbed (+TLS)
 ===
 
-지원 사양
+동작 환경
 ---
-1. Main board
+1. 최소 동작 환경
+	+ Heap memory : 24KB 이상 (Heap memory usage : 12KB (mbed compiler site에서 code compile 후 표시되는 summary 참조))
+	+ Flash memory : 128KB 이상 (Binary file size : 113KB (TLS library 포함))
+2. 테스트 환경 
+ 1. Main board
 	+ STMicroelectronics Nucleo-64 F411RE
 	![NUCLEO-F411RE.jpg](images/NUCLEO-F411RE.jpg "" "width:50%;")
 		+ CPU : 100MHz ARM 32-bit Cortex-M4 with FPU
 		+ RAM : 128KB
 		+ Flash memory : 512KB
-2. Ethernet board
+ 2. Ethernet board
 	+ WIZnet W5500
     ![w5500_ethernet_shield.jpg](images/w5500_ethernet_shield.jpg "" "width:50%;")
-3. Footprint
-	+ Binary file size : 113KB (TLS library 포함)
-	+ Heap memory usage : 12KB (mbed compiler site에서 code compile 후 표시되는 summary 참조)
 
 Source Tree
 ---
@@ -42,9 +43,9 @@ Source Tree
 	+ __mbed__ (mbed source)
 		+ __TARGET_NUCLEO_F411RE__ (Nucleo F411RE driver)
 	+ __Src__ (test sample)
-		+ __MA__ (test MA module)
-		+ __SMA__ (test SMA module)
-		+ __SRA__ (test SRA module)
+		+ __MA__ (test management agent module)
+		+ __SMA__ (test sensor management agent module)
+		+ __SRA__ (test service ready agent module)
 
 Project build
 ===
