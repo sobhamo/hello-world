@@ -10,7 +10,7 @@
 #ifndef _CONFIGURATION_H_
 #define _CONFIGURATION_H_
 
-#define ONEM2M_V1_12
+//#define ONEM2M_V1_12
 
 #ifdef ONEM2M_V1_12
 
