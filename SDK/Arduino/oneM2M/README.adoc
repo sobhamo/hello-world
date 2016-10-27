@@ -1,0 +1,10 @@
+= WiFi Library for Arduino =
+
+With the Arduino WiFi Shield, this library allows an Arduino board to connect to the internet.
+
+For more information about this library please visit us at
+http://www.sktelecom.com
+
+== License ==
+
+Copyright (c) 2011-2014 Arduino LLC. All right reserved.
