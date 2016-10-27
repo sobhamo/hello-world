@@ -57,3 +57,10 @@ SRADataConvert( IOT_GET_GPS_TLV, (void*) &gps);
 printf("tlv :<%s>\n", gps.tlv);
 free(gps.tlv);
 ```
+
+5. 내부에서 사용되는 private 함수 정리
+
+함수명 | 기능
+---|---
+GetPolicyIndex | 구분문자열을 기준으로 정책 번호를 리턴함
+SRASetValueToTLV | 정책 번호를 기준으로 데이터를 가공 (예 : "temperature" 27.123 -> 2713)
