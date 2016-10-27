@@ -63,3 +63,4 @@ free(gps.tlv);
 ---|---
 GetPolicyIndex | 구분문자열을 기준으로 정책 번호를 리턴함
 SRASetValueToTLV | 정책 번호를 기준으로 데이터를 가공 (예 : "temperature" 27.123 -> 2713)
+시간 관련 함수들 | NTP서버에서 시간을 얻어오는 함수 (예 : getYear(), getMonth() ...)
