@@ -19,6 +19,7 @@ IOT_GET_TIME_TLV | Time TLV 데이터 (단순리턴)
 IOT_GET_GPS_TLV | GPS TLV 데이터 (단순리턴)
  
 4. 사용 방법
+* Raw 데이터를 TLV로 변환하는 방법 :
 ```
 // raw2lora 구조체 정의 (SRA.h)
 raw2tlv temp;
@@ -29,14 +30,18 @@ SRADataConvert( IOT_RAW_TO_TLV, (void*) &temp);
 
 printf("tlv :<%s>\n", temp.tlv);
 free(temp.tlv);
-------------------------------------------------------------------
+```
+* 시간정보를 TLV로 얻는 방법 (주의!내부 NTP 이용) :
+```
 timetlv time;
 
 SRADataConvert( IOT_GET_TIME_TLV, (void*) &time);
 
 printf("tlv :<%s>\n", time.tlv);
 free(time.tlv);
-------------------------------------------------------------------
+```
+* GPS TLV 변환 방법 :
+```
 gpstlv gps; 
 // T타워 : 북위, 동경
 gps.north[0] = 0xb2;
