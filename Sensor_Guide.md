@@ -155,7 +155,7 @@ SensorManagementAgent 프로젝트는 미들웨어 패키지 설치 후, `/usr/l
 * SMA 코드의 위치는 `/usr/local/middleware/SMA/` 폴더에서 확인 가능하다.
 * 센서 추가는 아래 과정으로 진행 한다.
 ![](images/SMA_Sensor_add.png)
-* 추가된 파일은 Makefile 에 등록 후 `make` 명령을 통하여 빌드 하고, 새로 생성된 실행 파일을 대체하여 미들웨어를 재실행 한다.
+* 추가된 파일은 Makefile 에 등록 후 `make -f Makefile.mini` 명령을 통하여 빌드 하고, 새로 생성된 실행 파일을 대체하여 미들웨어를 재실행 한다.
 
 	```
 	# service middleware stop
