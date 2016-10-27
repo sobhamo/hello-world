@@ -87,7 +87,7 @@ SDK 예제 코드 실행하기
 7. oneM2M 동작 테스트가 시작된다.
 8. 결과
 arduinomiddlewarelog.png
-![arduinomiddlewarelog.png](images/arduinomiddlewarelog.png "" "width:50%;")
+![arduinoMA.png](images/arduinoMA.png "" "width:50%;")
 
 SDK를 이용한 ArduinoMiddleware 실행하기
 ---
@@ -99,4 +99,4 @@ SDK를 이용한 ArduinoMiddleware 실행하기
 6. 업로드가 완료되면 상단 메뉴에 툴->시리얼 모니터를 선택한다.
 7. oneM2M 동작 테스트가 시작된다.
 8. 결과
-![logv1.png](images/logv1.png "" "width:50%;")
+![arduinoSDKVeri.png](images/arduinoSDKVeri.png "" "width:50%;")
