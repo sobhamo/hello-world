@@ -1,12 +1,12 @@
-1. SRA 의 역활
+## 1. SRA 의 역활
     * IoT 기기들의 다양한 데이터를 원하는 형태로 변환하는 것에 있다. 
     * 데이터 변환에 대한 정책을 관리한다. 
-2. SRA 폴더 구조
+## 2. SRA 폴더 구조
     * SRA ( root )
         * SRA.c (정책에 따라 데이터를 변환시키는 함수가 구현되어 있다.)
         * List.c ( 리스트 자료구조 )
         * TLVMaker.c ( Tag:Length:Value 변환 모듈 )
-3. 주요 함수
+## 3. 주요 함수
     * void SRADataConvert(int event, void *data)
     * 데이터 변환을 할 때 사용하는 함수이다.
     * event는 데이터 변환의 종류를 정의한다.
@@ -17,8 +17,8 @@ event | 데이터 변환 종류 설정
 IOT_RAW_TO_TLV | Raw 데이터에서 TLV 데이터
 IOT_GET_TIME_TLV | Time TLV 데이터 (단순리턴)
 IOT_GET_GPS_TLV | GPS TLV 데이터 (단순리턴)
- 
-4. 사용 방법
+
+## 4. 사용 방법
 
 * Raw 데이터를 TLV로 변환하는 방법 :
 ```
@@ -57,8 +57,7 @@ SRADataConvert( IOT_GET_GPS_TLV, (void*) &gps);
 printf("tlv :<%s>\n", gps.tlv);
 free(gps.tlv);
 ```
-
-5. 내부에서 사용되는 private 함수 정리
+## 5. 내부에서 사용되는 private 함수 정리
 
 함수명 | 기능
 ---|---
