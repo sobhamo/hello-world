@@ -166,10 +166,10 @@ SensorManagementAgent 프로젝트는 미들웨어 패키지 설치 후, `/usr/l
 ### 5. Sensor Configuration Overriding 방법
 위 2.2 절에서 언급한 Sensor Configuration 은 아래 두가지 방법을 통하여 Overriding 이 가능하다.
 
-0. **SMADeviceConf.backup** 파일을 수정 후 미들웨어 재시작 하는 방법
-1. **Gateway Portal** 의 **시스템 설정** 메뉴를 이용하여 파일을 변경하는 방법
-  * 아래 그림의 Change Sensor Config File 항목에서 변경 가능하다.
-  * 해당 파일의 root 폴더는 `/usr/local/middleware/conf` 이며, 입력란에 입력시 해당 root 경로는 제외하고 입력해야 한다.
-  * 파일 확장자는 체크하지 않는다.
-  * **예시)** 적용하고자 하는 파일의 위치가 `/usr/local/middleware/conf/Sensor.conf` 일 경우, **Sensor.conf** 만 입력 후 **적용 및 재시작** 해준다.
+1. iot_sensor.conf 파일을 수정 후 미들웨어 재시작 하는 방법
+2. Gateway Portal 의 시스템 설정 메뉴를 이용하여 파일을 변경하는 방법
+* Gateway Portal 화면에서 연결조회->센서 페이지로 이동한다.
+* 각 필드를 새로 생성하거나 수정 삭제한다.
+* 마지막으로 적용을 누르고 15초 후 재로그인하면 새로운 센서 설정이 저장되어 있다.
+* !!!주의!!! 센서 이름으로 센서 드라이버를 찾기 때문에 해당 필드를 정확하게 입력해야한다. !!!주의!!!
 ![](images/SensorConf_01.png)
