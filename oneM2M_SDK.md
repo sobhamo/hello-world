@@ -33,3 +33,7 @@ oneM2M_V1 | ThingPlug oneM2M v1 관련 소스 폴더
 oneM2M_V1_12 | ThingPlug oneM2M v1.12 관련 소스 폴더
 net | MQTT/TLS 관련 소스들 폴더
 
+API Documentation
+---
+* [Download](SDK/docs/ThingPlug_oneM2M_SDK_API-20161025.docx)
+
