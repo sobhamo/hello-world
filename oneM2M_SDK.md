@@ -52,3 +52,11 @@ API Documentation
 ---
 * [Download](https://github.com/sobhamo/hello-world/raw/master/SDK/docs/ThingPlug_oneM2M_SDK_API-20161025.docx)
 
+Supported Devices
+---
+지원 가능한 디바이스별 자세한 내용은 다음과 같다.
+
+* [ARM/Linux](oneM2M_SDK_linux.md)
+* [ARDUINO](oneM2M_SDK_ARDUINO.md)
+* [mbed](oneM2M_SDK_mbed.md)
+* [FreeRTOS](oneM2M_SDK_FreeRTOS.md)
