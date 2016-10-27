@@ -6,20 +6,21 @@ Linux (+TLS)
 1. 지원 보드
 	+ Raspberry PI 2/3, BeagleBone-Black, etc 
 
-2. H/W 요구사항
-	+ Binary file size : 560KB (TLS 포함)
-	+ Heap memory usage : 1.9MB
-	+ CPU : 100Mh
+2. 최소 동작 환경
+	+ CPU : 100MHz
+	+ RAM : 5MB
+	+ Flash memory : 5MB
 
 Source Tree
 ---
+* [Source](https://github.com/sobhamo/hello-world/tree/master/SDK/linux)
 + __oneM2M__ (ThingPlug oneM2M SDK root folder)
 	+ __docs__ (SDK API documentation)
 	+ __samples__ (Samples including makefiles for build)
-		+ __MA__ (test MA module)
-		+ __SMA__ (test SMA module)
-		+ __SRA__ (test SRA module)
-	+ __lib__ (external libraries - paho)
+		+ __MA__ (ManagementAgent)
+		+ __SMA__ (SensorManagementAgent)
+		+ __SRA__ (ServiceReadyAgent)
+		+ __lib__ (external libraries - paho)
 	+ __include__ (Header files of the ThingPlug oneM2M SDK)
 	+ __src__ (Source files of the ThingPlug oneM2M SDK)
 		+ __oneM2M_V1__ (Source files of the ThingPlug oneM2M V1 SDK)
@@ -41,11 +42,11 @@ Configuration 설정(oneM2M/samples/Configuration.h)
 	+ __ACCOUNT_PASSWORD__ : ThingPlug 계정의 UKey
 	+ __ONEM2M_NODEID__ : ThingPlug 계정에 등록할 Device ID
 
-2. oneM2M V1.12 정보 입력(부산 스마트 시티)
+2. oneM2M V1.12 정보 입력
 	+ __MQTT_ENABLE_SERVER_CERT_AUTH__ : 0(Normal socket 사용), 1(TLS socket 사용:서버 미지원)
-	+ __MQTT_HOST__ : 부산스마트시티 서버 주소
-	+ __ACCOUNT_USER__ : 부산스마트시티 계정의 ID
-	+ __ACCOUNT_PASSWORD__ : 부산스마트시티 계정의 Password
+	+ __MQTT_HOST__ : ThingPlug 서버 주소
+	+ __ACCOUNT_USER__ :  ThingPlug 계정의 ID
+	+ __ACCOUNT_PASSWORD__ : ThingPlug 계정의 Password
 	+ __ONEM2M_CB__ : CSEBase ID
 	+ __ONEM2M_TO__ : To URL
 	+ __APP_AEID__ : App AE ID
