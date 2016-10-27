@@ -100,4 +100,4 @@ SDK를 이용한 ArduinoMiddleware 실행하기
 7. oneM2M 동작 테스트가 시작된다.
 8. 결과
 
-![arduinoSDKVeri.png](images/arduinoSDKVeri.png "" "width:50%;")
+![rduinoSDK.png](images/rduinoSDK.png "" "width:50%;")
