@@ -144,13 +144,14 @@ Library import
 	+ Source Tree의 '/Library/oneM2M' directory를 '/Library' directory에 복사
  2. oneM2MConfig.h 수정
 	+ __DEBUG_ENABLE__ : define 됐을 경우 debug log 활성화 됨
+	+ __IMPORT_TLS_LIB__ : define 됐을 경우 TLS library가 포함됨
+	+ __MAC_ADDRESS__ : 사용할 mac address 지정(다른 device와 겹치면 안됨)
 
 Sample code import
 ---
 1. Code import
 	+ Source Tree의 '/Src/oneM2M' directory를 '/Src' directory에 복사
 2. '/Src/oneM2M/Configuration.h' 수정
-	+ __MAC_ADDRESS__ : 사용할 mac address 지정(다른 device와 겹치면 안됨)
 	+ __ONEM2M_V1_12__ : define 됐을 경우 oneM2M v1.12가 활성화 됨
 	+ __MQTT_ENABLE_SERVER_CERT_AUTH__ : 0(Normal socket 사용), 1(TLS socket 사용)
 	+ __ACCOUNT_USER__ : ThingPlug 계정의 UKEY
