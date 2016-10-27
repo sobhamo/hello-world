@@ -38,7 +38,6 @@ Source Tree
 		+ __oneM2M_V1_12__ (oneM2M v1.12 sdk source)
 	+ __libraries__ (Essential Arduino Libraries)
 		+ __Time__ (Arduino Time library)
-	+ __docs__ (SDK Documents) <now empty>
 
 Project build
 ===
