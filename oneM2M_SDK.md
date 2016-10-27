@@ -50,7 +50,7 @@ __FreeRTOS__ |	__O__ | paho | mbed TLS
 
 API Documentation
 ---
-* [Download](https://github.com/sobhamo/hello-world/raw/master/SDK/docs/ThingPlug_oneM2M_SDK_API-20161025.docx)
+* [Download](https://github.com/sobhamo/hello-world/raw/master/SDK/linux/docs/ThingPlug_oneM2M_SDK_API-20161025.docx)
 
 Samples
 ---
