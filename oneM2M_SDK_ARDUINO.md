@@ -75,7 +75,7 @@ Starting download script...
 SUCCESS: Sketch will execute in about 5 seconds.
 ```
 
-SDK 예제 코드 실행하기
+SDK 테스트 코드 실행하기
 ---
 1. Arduino IDE를 실행한다.
 2. 상단 메뉴에 파일->예제->oneM2M->SDKVerification 선택한다.
@@ -86,12 +86,12 @@ SDK 예제 코드 실행하기
 7. oneM2M 동작 테스트가 시작된다.
 8. 결과 (Teraterm screenshot)
 
-![MATest.png](images/MATest.png)
+![SDKTest.png](images/SDKTest.png)
 
-SDK를 이용한 ArduinoMiddleware 실행하기
+ThingPlug_oneM2M_SDK 실행하기
 ---
 1. Arduino IDE를 실행한다.
-2. 상단 메뉴에 파일->예제->oneM2M->ArduinoMiddleware 선택한다.
+2. 상단 메뉴에 파일->예제->oneM2M->ThingPlug_oneM2M_SDK 선택한다.
 3. 상단 메뉴에 스케치->컴파일을 선택한다.
 4. 상단 메뉴에 툴->보드, 포트를 Genuino 101/연결된 포트로 설정한다.
 5. 상단 메뉴에 스케치-> 업로드를 선택한다.
@@ -99,4 +99,5 @@ SDK를 이용한 ArduinoMiddleware 실행하기
 7. oneM2M 동작 테스트가 시작된다.
 8. 결과 (Teraterm screenshot)
 
-![SDKTest.png](images/SDKTest.png)
+![MATest.png](images/MATest.png)
+
