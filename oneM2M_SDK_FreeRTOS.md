@@ -169,16 +169,16 @@ Sample code import
 Library path 설정
 ---
 1. include path 설정
-	메뉴 > 프로젝트 > 특성 > C/C++ General > Includes tab
+	+ 메뉴 > 프로젝트 > 특성 > C/C++ General > Includes tab
 	![TrueSTUDIO_setting_include.png](images/FreeRTOS/TrueSTUDIO_setting_include.png "" "width:50%;")
 2. source path 설정
-	메뉴 > 프로젝트 > 특성 > C/C++ General > Source Location tab
+	+ 메뉴 > 프로젝트 > 특성 > C/C++ General > Source Location tab
 	![TrueSTUDIO_setting_source.png](images/FreeRTOS/TrueSTUDIO_setting_source.png "" "width:50%;")
 
 Build & Run
 ---
 1. Build
-	메뉴 > 프로젝트 > Build Project
+	+ 메뉴 > 프로젝트 > Build Project
 	![TrueSTUDIO_compile.png](images/FreeRTOS/TrueSTUDIO_compile.png "" "width:50%;")
 2. Run
 	+ build 후 '/Debug' directory에 생성 된 .elf 파일을 사용해서 다음 명령으로 .bin 생성
