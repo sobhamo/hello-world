@@ -172,4 +172,4 @@ SensorManagementAgent 프로젝트는 미들웨어 패키지 설치 후, `/usr/l
   * 해당 파일의 root 폴더는 `/usr/local/middleware/conf` 이며, 입력란에 입력시 해당 root 경로는 제외하고 입력해야 한다.
   * 파일 확장자는 체크하지 않는다.
   * **예시)** 적용하고자 하는 파일의 위치가 `/usr/local/middleware/conf/Sensor.conf` 일 경우, **Sensor.conf** 만 입력 후 **적용 및 재시작** 해준다.
-![](images/sensorConf.png)
+![](images/ChangeSensorConf_01.png)
