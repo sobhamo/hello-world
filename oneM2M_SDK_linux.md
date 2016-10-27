@@ -42,11 +42,11 @@ Configuration 설정(oneM2M/samples/Configuration.h)
 	+ __ACCOUNT_PASSWORD__ : ThingPlug 계정의 UKey
 	+ __ONEM2M_NODEID__ : ThingPlug 계정에 등록할 Device ID
 
-2. oneM2M V1.12 정보 입력(부산 스마트 시티)
+2. oneM2M V1.12 정보 입력
 	+ __MQTT_ENABLE_SERVER_CERT_AUTH__ : 0(Normal socket 사용), 1(TLS socket 사용:서버 미지원)
-	+ __MQTT_HOST__ : 부산스마트시티 서버 주소
-	+ __ACCOUNT_USER__ : 부산스마트시티 계정의 ID
-	+ __ACCOUNT_PASSWORD__ : 부산스마트시티 계정의 Password
+	+ __MQTT_HOST__ : ThingPlug 서버 주소
+	+ __ACCOUNT_USER__ :  ThingPlug 계정의 ID
+	+ __ACCOUNT_PASSWORD__ : ThingPlug 계정의 Password
 	+ __ONEM2M_CB__ : CSEBase ID
 	+ __ONEM2M_TO__ : To URL
 	+ __APP_AEID__ : App AE ID
