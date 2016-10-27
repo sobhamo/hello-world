@@ -140,15 +140,15 @@ SensorManagementAgent 프로젝트는 미들웨어 패키지 설치 후, `/usr/l
   * DeviceSensorControl : 제어 Command 처리
   * GetDeviceSensorInfo : 센서 정보 처리
   * GetDeviceSensorStatus : 센서 상태 처리
-
-#### 3.4 sensor 폴더들
-* 연결 interface 에 따라 1W/GPIO/I2C/UART/CUSTOM/UNDIFINED 각 폴더에 센서정보를 직접적으로 관장하는 파일집합이 존재한다.
-* 각 파일은 기기 모델명으로 명명되며 초기화, 데이터 읽기, 제어, 종료 등 센서 의존도가 높은 코드가 존재한다.
-
-#### 3.5 구성 파일
+  
+#### 3.4 구성 파일
 * SensorManager : 명령어를 통해 수행되는 작업 중 센서와 관련된 작업들을 다룬다. 센서들에 대해 일괄된 방식의 초기화, 접근, 종료를 하는 것이 SensorManager의 역할이다.
 * SensorCommandList : Sensor의 제어를 위해 존재하며, 해당 모듈에서 제어 명령에 대한 리스트를 관리한다. 센서 초기화 시 제어 명령을 등록할 수 있다.
 * Timer : 밀리초 단위로 센서로 부터 값을 읽을 때 사용되는 타이머가 구현되어 있다.
+
+#### 3.5 sensor 폴더들
+* 연결 interface 에 따라 1W/GPIO/I2C/UART/CUSTOM/UNDIFINED 각 폴더에 센서정보를 직접적으로 관장하는 파일집합이 존재한다.
+* 각 파일은 기기 모델명으로 명명되며 초기화, 데이터 읽기, 제어, 종료 등 센서 의존도가 높은 코드가 존재한다.
 
 ### 4. 새로운 센서 추가하기
 * 센서의 추가/수정/삭제 처리를 위하여 SMA 의 일부 코드를 제공한다.
