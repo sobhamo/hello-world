@@ -4,8 +4,8 @@ FreeRTOS (+TLS)
 지원 사양
 ---
 1. Footprint
-	+ Heap memory : 24KB 이상 (Heap memory usage : 15KB (thread 종료 전 xPortGetMinimumEverFreeHeapSize() function으로 측정))
-	+ Flash memory : 128KB 이상 (Binary file size : 114KB (TLS library 포함))
+	+ RAM : 64KB 이상
+	+ Flash memory : 256KB 이상
 2. 테스트 환경
  1. Main board
 	+ STMicroelectronics Nucleo-64 F411RE

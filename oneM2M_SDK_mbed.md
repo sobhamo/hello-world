@@ -4,8 +4,8 @@ mbed (+TLS)
 동작 환경
 ---
 1. 최소 동작 환경
-	+ Heap memory : 24KB 이상 (Heap memory usage : 12KB (mbed compiler site에서 code compile 후 표시되는 summary 참조))
-	+ Flash memory : 128KB 이상 (Binary file size : 113KB (TLS library 포함))
+	+ RAM : 64KB 이상
+	+ Flash memory : 256KB 이상
 2. 테스트 환경
  1. Main board
 	+ STMicroelectronics Nucleo-64 F411RE
