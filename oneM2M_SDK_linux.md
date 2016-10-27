@@ -6,10 +6,10 @@ Linux (+TLS)
 1. 지원 보드
 	+ Raspberry PI 2/3, BeagleBone-Black, etc 
 
-2. H/W 요구사항
-	+ Binary file size : 560KB (TLS 포함)
-	+ Heap memory usage : 1.9MB
-	+ CPU : 100Mh
+2. 최소 동작 환경
+	+ CPU : 100MHz
+	+ RAM : 5MB
+	+ Flash memory : 5MB
 
 Source Tree
 ---
