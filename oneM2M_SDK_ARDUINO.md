@@ -3,18 +3,19 @@ ARDUINO
 
 지원 사양
 ---
-1. Main board
+1. 시스템 권장 사양
+    	* CPU : 32MHz Intel Curie
+	* RAM : 32KB
+	* Flash memory : 126KB
+2. Main board (guaranteed)
 	+ Arduino 101 (USA ONLY) & Genuino 101 (OUTSIDE USA) ![genuino101.jpg](images/genuino101.jpg "" "width:50%;")
 		+ CPU : 32MHz Intel Curie
 		+ RAM : 24KB
 		+ Flash memory : 196KB
-2. Ethernet board
+3. Ethernet board
 	+ Arduino Ethernet Shield R3 
 	+ 
 	![ArduinoEthernetShield_R3_Front_450px.jpg](images/ArduinoEthernetShield_R3_Front_450px.jpg "" "width:50%;")
-3. Footprint
-	+ Binary file size : 93KB 
-	+ Heap memory usage : 21KB
 
 Source Tree
 ---
@@ -60,7 +61,7 @@ SDK 설치하기
 2. 압축을 해제한다.
 3. IDE가 설치되면, 각 피씨환경의 홈 폴더에 Arduino 폴더가 생긴다.
 4. Arduino/libraries 에 oneM2M SDK 폴더를 복사한다.
-5. oneM2M/libraries 에 있는 모든 라이브러리를 Arduino/libraries 폴더로 복사한다.
+5. oneM2M/libraries/[essential libraries]를 Arduino/libraries 폴더로 복사한다.
 6. SDK 설치가 완료되었다.
 
 SDK 빌드하기
