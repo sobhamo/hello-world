@@ -38,7 +38,6 @@ Source Tree
 		+ __oneM2M_V1_12__ (oneM2M v1.12 sdk source)
 	+ __libraries__ (Essential Arduino Libraries)
 		+ __Time__ (Arduino Time library)
-		+ __LCD__ (Arduino LCD library)
 	+ __docs__ (SDK Documents) <now empty>
 
 Project build
@@ -85,7 +84,6 @@ SDK 예제 코드 실행하기
 4. 상단 메뉴에 툴->보드, 포트를 Genuino 101/연결된 포트로 설정한다.
 5. 상단 메뉴에 스케치-> 업로드를 선택한다.
 6. 업로드가 완료되면 상단 메뉴에 툴->시리얼 모니터를 선택한다.
-사진
 7. oneM2M 동작 테스트가 시작된다.
 8. 결과
 arduinomiddlewarelog.png
@@ -99,7 +97,6 @@ SDK를 이용한 ArduinoMiddleware 실행하기
 4. 상단 메뉴에 툴->보드, 포트를 Genuino 101/연결된 포트로 설정한다.
 5. 상단 메뉴에 스케치-> 업로드를 선택한다.
 6. 업로드가 완료되면 상단 메뉴에 툴->시리얼 모니터를 선택한다.
-사진
 7. oneM2M 동작 테스트가 시작된다.
 8. 결과
 ![logv1.png](images/logv1.png "" "width:50%;")
