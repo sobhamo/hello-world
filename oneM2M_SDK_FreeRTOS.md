@@ -143,13 +143,6 @@ Library import
 	+ Source Tree의 '/Library/oneM2M' directory를 '/Library' directory에 복사
  2. oneM2MConfig.h 수정
 	+ __DEBUG_ENABLE__ : define 됐을 경우 debug log 활성화 됨
-7. Library path 설정
- 1. include path 설정
-	메뉴 > 프로젝트 > 특성 > C/C++ General > Includes tab
-	![TrueSTUDIO_setting_include.png](images/FreeRTOS/TrueSTUDIO_setting_include.png "" "width:50%;")
- 2. source path 설정
-	메뉴 > 프로젝트 > 특성 > C/C++ General > Source Location tab
-	![TrueSTUDIO_setting_source.png](images/FreeRTOS/TrueSTUDIO_setting_source.png "" "width:50%;")
 
 Sample code import
 ---
@@ -166,17 +159,26 @@ Sample code import
 	+ Source Tree의 '/Src/main.c' 파일과 비교해서 main() 함수에 WIZnet library 초기화 등의 code 추가
 	+ serial port speed 변경
 		+ '/Src/main.c' 파일에서 MX_USART2_UART_Init() 함수의 huart2.Init.BaudRate = 115200; 수정
-4. '/Src/oneM2M/oneM2M_main.cpp' 수정
+4. '/Src/oneM2M/ThingPlug_oneM2M_SDK.cpp' 수정
  1. 실행 대상 변경
 	1. SDK verification을 실행할 경우
-		+ oneM2M_main() function 내의 SDKVerificationMain(); 활성화
+		+ ThingPlug_oneM2M_SDK() function 내의 SDKVerificationMain(); 활성화
 	2. MA를 실행할 경우
-		+ oneM2M_main() function 내의 MARun(); 활성화
+		+ ThingPlug_oneM2M_SDK() function 내의 MARun(); 활성화
+
+Library path 설정
+---
+1. include path 설정
+	메뉴 > 프로젝트 > 특성 > C/C++ General > Includes tab
+	![TrueSTUDIO_setting_include.png](images/FreeRTOS/TrueSTUDIO_setting_include.png "" "width:50%;")
+2. source path 설정
+	메뉴 > 프로젝트 > 특성 > C/C++ General > Source Location tab
+	![TrueSTUDIO_setting_source.png](images/FreeRTOS/TrueSTUDIO_setting_source.png "" "width:50%;")
 
 Build & Run
 ---
 1. Build
-	+ 메뉴의 '프로젝트>Build Project' 버튼 클릭
+	메뉴 > 프로젝트 > Build Project
 	![TrueSTUDIO_compile.png](images/FreeRTOS/TrueSTUDIO_compile.png "" "width:50%;")
 2. Run
 	+ build 후 '/Debug' directory에 생성 된 .elf 파일을 사용해서 다음 명령으로 .bin 생성

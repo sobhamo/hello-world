@@ -6,7 +6,7 @@ mbed (+TLS)
 1. 최소 동작 환경
 	+ Heap memory : 24KB 이상 (Heap memory usage : 12KB (mbed compiler site에서 code compile 후 표시되는 summary 참조))
 	+ Flash memory : 128KB 이상 (Binary file size : 113KB (TLS library 포함))
-2. 테스트 환경 
+2. 테스트 환경
  1. Main board
 	+ STMicroelectronics Nucleo-64 F411RE
 	![NUCLEO-F411RE.jpg](images/NUCLEO-F411RE.jpg "" "width:50%;")
@@ -118,7 +118,7 @@ Sample code import
 	+ __ACCOUNT_USER__ : ThingPlug 계정의 UKEY
 	+ __ACCOUNT_PASSWORD__ : ThingPlug 계정의 Password
 	+ __ONEM2M_NODEID__ : ThingPlug 계정에 등록된 Device ID
-3. '/Src/oneM2M_main.cpp' 수정
+3. '/Src/ThingPlug_oneM2M_SDK.cpp' 수정
  1. serial port speed 변경
 	+ SDKVerification.cpp 파일에서 main() 함수의 pc.baud(115200); 수정
  2. 실행 대상 변경
@@ -137,5 +137,5 @@ Build & Run
 	![mbed_run.png](images/mbed/mbed_run.png "" "width:50%;")
 3. 실행 로그 확인
 	+ Serial 통신 프로그램(ex. Putty, Tera Term 등)을 사용해서 프로그램 로그 확인
-	(※ sample code의 oneM2M_main.cpp 파일에서 지정한 speed와 맞춰 환경을 설정해야 글자가 깨져 보이지 않음)
+	(※ sample code의 ThingPlug_oneM2M_SDK.cpp 파일에서 지정한 speed와 맞춰 환경을 설정해야 글자가 깨져 보이지 않음)
 	![serial_log.png](images/serial_log.png "" "width:50%;")
