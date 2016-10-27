@@ -47,9 +47,9 @@ IDE 설정
 ---
 1. IDE homepage
 	+ https://www.arduino.cc/
-	![arduinocchomepage.png](images/arduinocchomepage.png "" "width:50%;")
+	![arduinocchomepage.png](images/arduinocchomepage.png)
 2. Download & Install
-	![arduinodownload.png](images/arduinodownload.png "" "width:50%;")
+	![arduinodownload.png](images/arduinodownload.png)
 3. Installing Additional Arduino Libraries
     + https://www.arduino.cc/en/Guide/Libraries
     + 라이브러리 설치에 대한 자세한 설명은 공식사이트를 참고한다.
@@ -87,7 +87,7 @@ SDK 예제 코드 실행하기
 7. oneM2M 동작 테스트가 시작된다.
 8. 결과 (Teraterm screenshot)
 
-![MATest.png](images/MATest.png "" "width:30%;")
+![MATest.png](images/MATest.png)
 
 SDK를 이용한 ArduinoMiddleware 실행하기
 ---
@@ -100,4 +100,4 @@ SDK를 이용한 ArduinoMiddleware 실행하기
 7. oneM2M 동작 테스트가 시작된다.
 8. 결과 (Teraterm screenshot)
 
-![SDKTest.png](images/SDKTest.png "" "width:30%;")
+![SDKTest.png](images/SDKTest.png)
