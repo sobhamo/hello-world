@@ -35,5 +35,5 @@ net | MQTT/TLS 관련 소스들 폴더
 
 API Documentation
 ---
-* [Download](SDK/docs/ThingPlug_oneM2M_SDK_API-20161025.docx)
+* [Download](https://github.com/sobhamo/hello-world/raw/master/SDK/docs/ThingPlug_oneM2M_SDK_API-20161025.docx)
 
