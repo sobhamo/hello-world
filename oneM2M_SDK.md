@@ -1,4 +1,3 @@
-
 ThingPlug onM2M SDK
 ===
 본 챕터는 SKT ThingPlug oneM2M SDK 구조와 API 및 사용법에 대하여 서술한다.
@@ -32,6 +31,20 @@ src | 전체 소스 폴더
 oneM2M_V1 | ThingPlug oneM2M v1 관련 소스 폴더
 oneM2M_V1_12 | ThingPlug oneM2M v1.12 관련 소스 폴더
 net | MQTT/TLS 관련 소스들 폴더
+
+Library
+---
+MQTT TLS 지원을 위하여 라이브러리를 사용한다. 
+지원 환경 | TLS 지원 | MQTT 라이브러리 | TLS 라이브러리
+------------ | ------------- | ------------- | -------------
+__ARM/Linux__ | __O__ | paho | OpenSSL | 
+__ARDUINO__ | __X__ | paho ||
+__mbed__ |	__O__ | paho | mbed TLS
+__FreeRTOS__ |	__O__ | paho | mbed TLS
+* [paho Homepage](https://eclipse.org/paho/)
+* [OpenSSL Homepage](https://www.openssl.org/)
+* [mbedTLS Homepage](https://tls.mbed.org/)
+
 
 API Documentation
 ---
