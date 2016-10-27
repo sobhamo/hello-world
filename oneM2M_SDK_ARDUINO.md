@@ -13,8 +13,7 @@ ARDUINO
 		+ RAM : 24KB
 		+ Flash memory : 196KB
 3. Ethernet board
-	+ Arduino Ethernet Shield R3 
-	+ 
+	+ Arduino Ethernet Shield R3 	
 	![ArduinoEthernetShield_R3_Front_450px.jpg](images/ArduinoEthernetShield_R3_Front_450px.jpg "" "width:50%;")
 
 Source Tree
