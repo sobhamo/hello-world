@@ -60,3 +60,18 @@ Supported Devices
 * [ARDUINO](oneM2M_SDK_ARDUINO.md)
 * [mbed](oneM2M_SDK_mbed.md)
 * [FreeRTOS](oneM2M_SDK_FreeRTOS.md)
+
+Samples
+---
+SDK를 사용한 예제들은 다음과 같다.
+
+* __SDKVerification.c__ or __SDKVerification.ino__ : oneM2M API 전체를 검증한다.
+
+* __ThingPlug_oneM2M_SDK.c__ or __ThingPlug_oneM2M_SDK.ino__ : 좀 더 실질적인 사용예제로 등록작업 위주로 되어있다.
+	+ __MA__ (미들웨어의 ManagementAgent 역할)
+	+ __SRA__ (미들웨어의 SensorManagementAgent 역할)
+	+ __SMA__ (미들웨어의 ServiceReadyAgent 역할)
+
+SRA와 SMA 의 구체적인 내용은 다음과 같다.
+* [SRA](SDK_SRA.md) 
+* [SMA](SDK_SMA.md)
