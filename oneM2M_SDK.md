@@ -1,4 +1,4 @@
-ThingPlug onM2M SDK
+ThingPlug oneM2M SDK
 ===
 본 챕터는 SKT ThingPlug oneM2M SDK 구조와 API 및 사용법에 대하여 서술한다.
 
