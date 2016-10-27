@@ -19,6 +19,7 @@ IOT_GET_TIME_TLV | Time TLV 데이터 (단순리턴)
 IOT_GET_GPS_TLV | GPS TLV 데이터 (단순리턴)
  
 4. 사용 방법
+
 * Raw 데이터를 TLV로 변환하는 방법 :
 ```
 // raw2lora 구조체 정의 (SRA.h)
