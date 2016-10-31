@@ -61,7 +61,7 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원한다.
 0. 데비안 패키지 파일을 다운로드 한다.
 
 	```
-	# wget https://[TBD]
+	# wget https://github.com/sobhamo/hello-world/raw/master/pkg/devicemiddleware_ARM_1.0.0_1610311711.deb
 	```
 
 1. 데비안 패키지를 설치한다.(반드시 root 계정을 이용해야 한다.)	
