@@ -78,7 +78,7 @@ Supported Devices
 지원 가능한 디바이스별 자세한 내용은 다음과 같다.
 
 * [ARM/Linux](linux)
-* [ARDUINO](ARDUINO)
+* [ARDUINO](Arduino)
 * [mbed](mbed)
 * [FreeRTOS](FreeRTOS)
 
