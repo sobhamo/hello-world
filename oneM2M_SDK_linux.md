@@ -71,7 +71,7 @@ SDKVerification 빌드(oneM2M/samples/SDKVerification.c)
 	# output/SDKVerification
 	```
 
-LinuxMain 빌드(oneM2M/samples/LinuxMain.c)
+ThingPlug_oneM2M_SDK 빌드(oneM2M/samples/ThingPlug_oneM2M_SDK.c)
 ---
 1. 빌드
 
@@ -88,6 +88,6 @@ LinuxMain 빌드(oneM2M/samples/LinuxMain.c)
 3. 실행
 
 	```
-	# output/LinuxMain
+	# output/ThingPlug_oneM2M_SDK
 	```
 	
