@@ -68,18 +68,18 @@ IDE 설정
 		~~~
 		> java -jar '설치파일명'
 		~~~
-		![Java_Runtime_Environment_error.png](images/FreeRTOS/Java_Runtime_Environment_error.png "" "width:50%;")
+		![Java_Runtime_Environment_error.png](images/Java_Runtime_Environment_error.png "" "width:50%;")
  2. 설치 후 실행해서 New Project 선택
-	![STM32CubeMX_excute.png](images/FreeRTOS/STM32CubeMX_excute.png "" "width:50%;")
+	![STM32CubeMX_excute.png](images/STM32CubeMX_excute.png "" "width:50%;")
 	+ 실행 시 아래와 같은 오류 발생 시 command line에서 다음 명령으로 실행
 		~~~
 		> java -jar '실행파일명'
 		~~~
-		![Java_Runtime_Environment_error2.png](images/FreeRTOS/Java_Runtime_Environment_error2.png "" "width:50%;")
+		![Java_Runtime_Environment_error2.png](images/Java_Runtime_Environment_error2.png "" "width:50%;")
  3. Board Selector 탭에서 Vendor:STMicroelectronics, Type of Board:Nucleo64, MCU Series:STM32F4로 설정한 다음 아래 오른쪽 목록에서 NUCLEO-F411RE 선택하고 아래 OK 버튼 클릭
-	![STM32CubeMX_new_project.png](images/FreeRTOS/STM32CubeMX_new_project.png "" "width:50%;")
+	![STM32CubeMX_new_project.png](images/STM32CubeMX_new_project.png "" "width:50%;")
  4. 메뉴에서 Help > Install New Libraries를 선택한 후 STM32CubeF4 Releases의 Firmware Package for Family STM32F4를 선택한 다음 Install Now 버튼 클릭
-	![STM32CubeMX_install_library.png](images/FreeRTOS/STM32CubeMX_install_library.png "" "width:50%;")
+	![STM32CubeMX_install_library.png](images/STM32CubeMX_install_library.png "" "width:50%;")
 	+ library 설치 실패 시 수동 설치 방법
 		+ download - http://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-embedded-software/stm32cubef4.html
 		+ 위의 library 설치 팝업에서 하단의 From Local... 버튼 클릭 후 다운로드 받은 파일 선택
@@ -87,9 +87,9 @@ IDE 설정
 	+ '/Middlewares/FREERTOS'의 'Enabled' 체크
 	+ '/Peripherals/SPI2'의 'Mode'를 'Full-Duplex Master'로 설정
 	+ '/Peripherals/USART2'의 'Mode를 'Asynchronous'로 설정
-	![STM32CubeMX_freeRTOS.png](images/FreeRTOS/STM32CubeMX_freeRTOS.png "" "width:50%;")
+	![STM32CubeMX_freeRTOS.png](images/STM32CubeMX_freeRTOS.png "" "width:50%;")
  6. 메뉴에서 Project > Generate Code를 선택한 후 'Project Name', 'Project Location'을 입력하고 'Toolchain / IDE'를 TrueSTUDIO로 설정 후 OK 버튼 클릭
-	![STM32CubeMX_project_settings.png](images/FreeRTOS/STM32CubeMX_project_settings.png "" "width:50%;")
+	![STM32CubeMX_project_settings.png](images/STM32CubeMX_project_settings.png "" "width:50%;")
  7. 생성된 project template을 TrueSTUDIO에서 로드
  8. 참고 site
 	+ http://igotit.tistory.com/entry/STM32-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%ED%99%95%EB%B3%B4%EB%B0%A9%EB%B2%95%EB%B0%8F-%ED%99%9C%EC%9A%A9%EB%B2%95-%EA%B0%80%EC%9D%B4%EB%93%9CSTM32CubeMX
@@ -173,16 +173,16 @@ Library path 설정
 ---
 1. include path 설정
 	+ 메뉴 > 프로젝트 > 특성 > C/C++ General > Includes tab
-	![TrueSTUDIO_setting_include.png](images/FreeRTOS/TrueSTUDIO_setting_include.png "" "width:50%;")
+	![TrueSTUDIO_setting_include.png](images/TrueSTUDIO_setting_include.png "" "width:50%;")
 2. source path 설정
 	+ 메뉴 > 프로젝트 > 특성 > C/C++ General > Source Location tab
-	![TrueSTUDIO_setting_source.png](images/FreeRTOS/TrueSTUDIO_setting_source.png "" "width:50%;")
+	![TrueSTUDIO_setting_source.png](images/TrueSTUDIO_setting_source.png "" "width:50%;")
 
 Build & Run
 ---
 1. Build
 	+ 메뉴 > 프로젝트 > Build Project
-	![TrueSTUDIO_compile.png](images/FreeRTOS/TrueSTUDIO_compile.png "" "width:50%;")
+	![TrueSTUDIO_compile.png](images/TrueSTUDIO_compile.png "" "width:50%;")
 2. Run
 	+ build 후 '/Debug' directory에 생성 된 .elf 파일을 사용해서 다음 명령으로 .bin 생성
 	~~~
