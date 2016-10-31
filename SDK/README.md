@@ -4,7 +4,7 @@ ThingPlug onM2M SDK
 
 Architect
 ---
-![](/hello-world/images/sdk_architect.png)
+![](../images/sdk_architect.png)
 
 SDK Source Tree
 ---
