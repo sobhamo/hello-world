@@ -139,4 +139,4 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원한다.
 
 
 #### 12. SDK
-* [oneM2M SDK](oneM2M_SDK.md)
+* [oneM2M SDK](SDK)
