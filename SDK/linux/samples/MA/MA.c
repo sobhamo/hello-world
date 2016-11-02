@@ -351,22 +351,8 @@ static void ProcessCMD(char* payload, int payloadLen) {
 		SKTDebugPrint(LOG_LEVEL_INFO, "cmt RepPerChange"); 
 	} else if(strcmp(cmt, CMT_TAKEPHOTO) == 0) {
 		SKTDebugPrint(LOG_LEVEL_INFO, "cmt TakePhoto");
-	} else if(strcmp(cmt, CMT_DEVRESET) == 0) {
-	
+	} else if(strcmp(cmt, CMT_DEVRESET) == 0) {	
 		SKTDebugPrint(LOG_LEVEL_INFO, "cmt DevReset");
-
-		
-		char to[512] = "";	
-		snprintf(to, sizeof(to), TO_MGMTCMDRESULT, ONEM2M_TO, ONEM2M_NODEID, CMT_DEVRESET, resourceid);  
-		SKTDebugPrint(LOG_LEVEL_INFO, "to : %s", to);
-		
-		  oneM2M_mgmtCmdResult mgmtCmdResult;	 
-		  memset(&mgmtCmdResult, 0, sizeof(mgmtCmdResult));  
-		  mgmtCmdResult.ni = ONEM2M_NODEID;   
-		  mgmtCmdResult.dKey = mDeviceKey;	
-		  mgmtCmdResult.exr = "0";	 
-		  mgmtCmdResult.exs = "3";	//3 SUCCESS  
-		  tp_oneM2M_V1_Request(execInstance, UPDATE, to, "1234", (void *)&mgmtCmdResult);	
 	} else if(strcmp(cmt, CMT_LEDCONTROL) == 0) {
 		SKTDebugPrint(LOG_LEVEL_INFO, "cmt LEDControl");
 	} else if(strcmp(cmt, CMT_REPIMMEDIATE) == 0) {
