@@ -71,9 +71,9 @@ typedef struct tagSensor {
     * SensorType : 센서의 종류 (예) 온도, 습도
     * SensorID : 같은 종류의 센서를 구분하기 위한 ID 값
     * SensorName : 센서의 모델명 (예) DS18B20, CM1001 [중요!! 센서를 구분하는 기준이된다.]
-    * ReadInterval : 센서를 읽는 주기 (밀리초)
+    * ReadInterval : 센서를 읽는 주기 (milliseconds)
     * OperationType : 센서 구동 타입 (예) series,event 
-    * MaxInterval : 데이터 변화 없어도 허용되는 최대 시간(초), 0초이면 무한대로 판단
+    * MaxInterval : 데이터 변화 없어도 허용되는 최대 시간(seconds), 0초이면 무한대로 판단
     * ControlType : 센서 제어 가능 여부
 
 * **SENSOR_CONFIGURATION_T** 구조체 구성표
