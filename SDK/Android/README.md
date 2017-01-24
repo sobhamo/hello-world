@@ -10,7 +10,7 @@ ThingPlug oneM2M SDK for Android
 * **[Device & Service App Guide](https://github.com/sobhamo/hello-world/blob/master/SDK/Android/Sample_App.md)** - Device & Service App 설명
 
 ## Requirements
-* AndroidStudio
+* **[AndroidStudio](https://developer.android.com/studio/index.html)**
 * **[API Level](https://developer.android.com/guide/topics/manifest/uses-sdk-element.html)**
 
 	```
