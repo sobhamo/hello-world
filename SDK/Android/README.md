@@ -32,7 +32,7 @@ __Simple XML__ | XML Serialization & Parsing | **[Simple XML Homepage](http://si
 SDK 사용을 위하여 다음 설명된 과정을 순서대로 진행한다.
 
 ### Setting for MQTT connection
-MQTT broker 와의 연결을 위한 정보를 설정한다.
+MQTT server 와의 연결을 위한 정보를 설정한다.
 ```
 MQTTClient mqttClient = MQTTClient.Builder builder = new MQTTClient.Builder(context)
 	.baseUrl(server)
@@ -61,11 +61,11 @@ MQTTConfiguration config = new MQTTConfiguration(appEUI,
 ------------ | -------------
 __appEUI__ | AppEUI
 __toBase__ | to 필드 시작 URL
-__deviceResourceID__ | 장치 고유 ID(ex : MAC-address) 
+__deviceResourceID__ | 장치 고유 ID (ex : MAC-address) 
 __clientId__ | MQTT 연결 ID
 
 ### Connects to an MQTT server
-생성된 MQTTClient 를 통하여 MQTT 서버에 연결하고 각종 이벤트 처리를 위한 리스너를 등록한다.
+생성된 `MQTTClient` 를 통하여 MQTT 서버에 연결하고 각종 이벤트 처리를 위한 리스너를 등록한다.
 ```
 IMQTT mqttService = mqttClient.connect(IMQTT.class, config, new Binder(), new MQTTProcessor.MQTTListener() {
                     @Override
@@ -118,8 +118,8 @@ IMQTT mqttService = mqttClient.connect(IMQTT.class, config, new Binder(), new MQ
 파라미터 | 설명
 ------------ | -------------
 __IMQTT.class__ | MQTT 서비스 객체
-__config__ | 생성된 MQTTConfiguration 객체
-__Binder__ | 메시지 바인딩을 위한 Binder 객체
+__config__ | 생성된 `MQTTConfiguration` 객체
+__Binder__ | 메시지 바인딩을 위한 `Binder` 객체
 __MQTTProcessor.MQTTListener__ | MQTT 이벤트 리스너
 
 
