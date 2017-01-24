@@ -67,7 +67,7 @@ __clientId__ | MQTT 연결 ID
 ### Connects to an MQTT server
 MQTT 서버에 연결하고 각종 이벤트 리스너를 등록한다.
 ```
-IMQTT mqttService = MQTTClient.connect(IMQTT.class, config, mBinder, new MQTTProcessor.MQTTListener() {
+IMQTT mqttService = MQTTClient.connect(IMQTT.class, config, new Binder(), new MQTTProcessor.MQTTListener() {
                     @Override
                     public void onPush(execInstanceControl control) {
                         Log.e(TAG, "push!");
@@ -119,7 +119,6 @@ IMQTT mqttService = MQTTClient.connect(IMQTT.class, config, mBinder, new MQTTPro
 ------------ | -------------
 __IMQTT.class__ | MQTT 서비스 객체
 __config__ | 생성된 MQTTConfiguration 객체
-__mBinder__ | 장치 고유 ID(ex : MAC-address) 
 __MQTTProcessor.MQTTListener__ | MQTT 이벤트 리스너
 
 
