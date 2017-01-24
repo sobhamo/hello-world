@@ -128,7 +128,7 @@ SKT ThingPlug 서버와 oneM2M 통신을 위한 API 는 `tp.skt.onem2m.api.oneM2
 
 함수 | 설명
 ------------ | -------------
-__getInstance()__ | Singletone 객체를 가져온다.
+__getInstance__ | Singletone 객체를 가져온다.
 __tpRegisterDevice__ | 장치를 등록한다. (node 와 remoteCSE 를 등록한다.)
 __tpRegisterContainer__ | 센서를 등록한다. (container 를 등록한다.)
 __tpRegisterMgmtCmd__ | 제어를 등록한다. (mgmtCmd 를 등록한다.)
