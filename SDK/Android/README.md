@@ -1,4 +1,3 @@
-
 ThingPlug oneM2M SDK for Android
 ===
 본 챕터는 SKT ThingPlug Android oneM2M SDK API 및 사용법에 대하여 서술한다.
@@ -10,13 +9,25 @@ ThingPlug oneM2M SDK for Android
 * **[Service App Sample](https://github.com/sobhamo1/SDK)** - 상태조회, 제어요청을 목적으로 동작하는 App
 * **[Device & Service App Guide](https://github.com/sobhamo/hello-world/blob/master/SDK/Android/Sample_App.md)** - Device & Service App 설명
 
+## Requirements
+* AndroidStudio
+* **[API Level](https://developer.android.com/guide/topics/manifest/uses-sdk-element.html)**
+
+	```
+	    defaultConfig {
+			minSdkVersion 18
+			targetSdkVersion 24
+		}
+	```
+
 ## Library
 다음 라이브러리들을 사용한다.
 
-분류 | 라이브러리 이름 | 홈페이지
+라이브러리 | 기능 | 홈페이지
 ------------ | ------------- | -------------
-__MQTT__ | paho | **[paho Homepage](https://eclipse.org/paho/)**
-__XML__ | Simple XML | **[Simple XML Homepage](http://simple.sourceforge.net/)**
+__paho__ | MQTT | **[paho Homepage](https://eclipse.org/paho/)**
+__Simple XML__ | XML Serialization & Parsing | **[Simple XML Homepage](http://simple.sourceforge.net/)**
 
+## Getting Started Using the SDK
 
 
