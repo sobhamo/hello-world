@@ -122,4 +122,16 @@ __config__ | 생성된 `MQTTConfiguration` 객체
 __Binder__ | 메시지 바인딩을 위한 `Binder` 객체
 __MQTTProcessor.MQTTListener__ | MQTT 이벤트 리스너
 
+### oneM2M API 
+SKT ThingPlug 서버와 oneM2M 통신을 위한 API 는 `tp.skt.onem2m.api.oneM2MAPI.java` 파일에 주로 정의되어있다.
+해당 클래스는 Java Singletone 패턴으로 되어있어서 `oneM2MAPI.getInstance()` 형태로 객체를 가져와 사용한다.
 
+함수 | 설명
+------------ | -------------
+__getInstance()__ | Singletone 객체를 가져온다.
+__tpRegisterDevice__ | 장치를 등록한다. (node 와 remoteCSE 를 등록한다.)
+__tpRegisterContainer__ | 센서를 등록한다. (container 를 등록한다.)
+__tpRegisterMgmtCmd__ | 제어를 등록한다. (mgmtCmd 를 등록한다.)
+__tpAddData__ | 센서정보를 추가한다. (contentInstance 의 content(con) 에 담을 정보를 추가한다.)
+__tpReport__ | 센서정보를 등록한다. (contentInstance 를 등록한다.)
+__tpResult__ | 제어결과를 업데이트한다. (execInstance 를 업데이트한다.)
