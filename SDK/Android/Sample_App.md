@@ -29,20 +29,20 @@ Project에 oneM2M SDK 연결
 ---
 1. Project에 oneM2M 모듈 추가
 	- Menu > File > Project Structure... 선택
-		- <img src="images/sample_app/oneM2M_import.png" width="25%">
+		- <img src="images/sample_app/oneM2M_import.png">
 	- Popup 좌상단의 '+' 버튼 클릭
-		- <img src="images/sample_app/oneM2M_import1.png" width="25%">
+		- <img src="images/sample_app/oneM2M_import1.png">
 	- 'Import Gradle Project' 선택
-		- <img src="images/sample_app/oneM2M_import2.png" width="25%">
+		- <img src="images/sample_app/oneM2M_import2.png">
 	- SDK folder에 있는 onem2m folder 선택 후 'Finish' 버튼 클릭
-		- <img src="images/sample_app/oneM2M_import3.png" width="25%">
+		- <img src="images/sample_app/oneM2M_import3.png">
 2. SDK를 사용할 모듈에 onem2m 모듈 연결
 	- 'Dependencies' tab에서 우측 '+' 버튼 클릭 후 'Module dependency' 선택
-		- <img src="images/sample_app/oneM2M_import4.png" width="25%">
+		- <img src="images/sample_app/oneM2M_import4.png">
 	- 'onem2m' 모듈 선택 후 'OK' 버튼 클릭
-		- <img src="images/sample_app/oneM2M_import5.png" width="25%">
+		- <img src="images/sample_app/oneM2M_import5.png">
 	- 'onem2m' 모듈 이 추가됐는지 확인
-		- <img src="images/sample_app/oneM2M_import6.png" width="25%">
+		- <img src="images/sample_app/oneM2M_import6.png">
 
 Device App.
 ---
