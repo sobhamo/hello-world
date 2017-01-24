@@ -29,7 +29,7 @@ Project에 oneM2M SDK 연결
 ---
 1. Project에 oneM2M 모듈 추가
 	- Menu > File > Project Structure... 선택
-  <img src="images/sample_app/oneM2M_import.png" width="25%">
+		<img src="images/sample_app/oneM2M_import.png" width="25%">
 	- Popup 좌상단의 '+' 버튼 클릭
 		- <img src="images/sample_app/oneM2M_import1.png" width="25%">
 	- 'Import Gradle Project' 선택
