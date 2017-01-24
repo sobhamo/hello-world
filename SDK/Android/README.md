@@ -10,7 +10,7 @@ ThingPlug oneM2M SDK for Android
 * **[Device & Service App Guide](https://github.com/sobhamo/hello-world/blob/master/SDK/Android/Sample_App.md)** - Device & Service App 설명
 
 ## Requirements
-* AndroidStudio
+* **[AndroidStudio](https://developer.android.com/studio/index.html)**
 * **[API Level](https://developer.android.com/guide/topics/manifest/uses-sdk-element.html)**
 
 ```
@@ -119,5 +119,7 @@ IMQTT mqttService = MQTTClient.connect(IMQTT.class, config, mBinder, new MQTTPro
 ------------ | -------------
 __IMQTT.class__ | MQTT 서비스 객체
 __config__ | 생성된 MQTTConfiguration 객체
-__mBinder__ | 
+__mBinder__ | 장치 고유 ID(ex : MAC-address) 
 __MQTTProcessor.MQTTListener__ | MQTT 이벤트 리스너
+
+
