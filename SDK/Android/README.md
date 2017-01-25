@@ -173,7 +173,7 @@ public void registerDevice() {
 ### Error Code
 [`MQTTCallback`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/net/mqtt/MQTTCallback.html) 을 통해 발생한 응답의 성공 실패 여부를 확인하는 코드는 [`tp.skt.onem2m.binder.mqtt_v1_1.Definitions.java`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/binder/mqtt_v1_1/Definitions.html) 에 정의되어 있으며 다음과 같다.
 
-서버와의 커뮤니케이션관련 오류는 paho 라이브러리내 `org.eclipse.paho.client.mqttv3.MqtttException.java` 에 정의되어 있으며 본 문서에는 포함하지 않는다.
+서버와의 커뮤니케이션관련 오류는 paho 라이브러리내 [`org.eclipse.paho.client.mqttv3.MqtttException.java`](https://www.eclipse.org/paho/files/javadoc/org/eclipse/paho/client/mqttv3/MqttException.html) 에 정의되어 있으며 본 문서에는 포함하지 않는다.
 ```java
 public @interface ResponseStatusCode {
 	int ACCEPTED = 1000;
