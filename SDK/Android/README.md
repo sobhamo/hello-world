@@ -136,7 +136,7 @@ __tpAddData__ | 센서정보를 추가한다. (contentInstance 의 content(con) 
 __tpReport__ | 센서정보를 등록한다. (contentInstance 를 등록한다.)
 __tpResult__ | 제어결과를 업데이트한다. (execInstance 를 업데이트한다.)
 
-`tpRegisterDevice` 함수의 사용예시는 다음과 같으며, 성공 실패 여부는 `MQTTCallback`에 등록된 `onResponse` 와 `onFailure' 이벤트 함수로 확인할 수 있다.
+`tpRegisterDevice` 함수의 사용예시는 다음과 같으며, 성공 실패 여부는 `MQTTCallback`에 등록된 `onResponse` 와 `onFailure` 이벤트 함수로 확인할 수 있다.
 다른 oneM2M API 함수들도 비슷한 형태로 사용 가능하다.
 ```
 public void registerDevice() {
