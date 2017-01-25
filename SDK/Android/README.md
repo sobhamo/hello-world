@@ -65,7 +65,7 @@ __deviceResourceID__ | 장치 고유 ID (ex : MAC-address)
 __clientId__ | MQTT 연결 ID
 
 ### Connects to an MQTT server
-생성된 `MQTTClient` 를 통하여 MQTT 서버에 연결하고 각종 이벤트 처리를 위한 **[리스너](http://sobhamo.github.io/hello-world/tp/skt/onem2m/api/MQTTProcessor.MQTTListener.html)**를 등록한다.
+생성된 **[`MQTTClient`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/net/mqtt/MQTTClient.html)** 를 통하여 MQTT 서버에 연결하고 각종 이벤트 처리를 위한 **[`MQTTProcessor.MQTTListener`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/api/MQTTProcessor.MQTTListener.html)**를 등록한다.
 ```java
 IMQTT mqttService = mqttClient.connect(IMQTT.class, config, new Binder(), new MQTTProcessor.MQTTListener() {
                     @Override
@@ -118,12 +118,12 @@ IMQTT mqttService = mqttClient.connect(IMQTT.class, config, new Binder(), new MQ
 파라미터 | 설명
 ------------ | -------------
 __IMQTT.class__ | MQTT 서비스 객체
-__config__ | 생성된 `MQTTConfiguration` 객체
-__Binder__ | 메시지 바인딩을 위한 `Binder` 객체
+__config__ | 생성된 [`MQTTConfiguration`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/net/mqtt/MQTTConfiguration.html) 객체
+__Binder__ | 메시지 바인딩을 위한 [`Binder`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/binder/mqtt_v1_1/Binder.html) 객체
 __MQTTProcessor.MQTTListener__ | MQTT 이벤트 리스너
 
 ### oneM2M API 
-SKT ThingPlug 서버와 oneM2M 통신을 위한 API 는 `tp.skt.onem2m.api.oneM2MAPI.java` 파일에 주로 정의되어있다.
+SKT ThingPlug 서버와 oneM2M 통신을 위한 API 는 **[`tp.skt.onem2m.api.oneM2MAPI.java`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/api/oneM2MAPI.html)** 파일에 주로 정의되어있다.
 해당 클래스는 Java Singletone 패턴으로 되어있어서 `oneM2MAPI.getInstance()` 형태로 객체를 가져와 사용한다.
 
 함수 | 설명
@@ -136,7 +136,7 @@ __tpAddData__ | 센서정보를 추가한다. (contentInstance 의 content(con) 
 __tpReport__ | 센서정보를 등록한다. (contentInstance 를 등록한다.)
 __tpResult__ | 제어결과를 업데이트한다. (execInstance 를 업데이트한다.)
 
-`tpRegisterDevice` 함수의 사용예시는 다음과 같으며, 성공 실패 여부는 `MQTTCallback`에 등록된 `onResponse` 와 `onFailure` 이벤트 함수로 확인할 수 있다.
+`tpRegisterDevice` 함수의 사용예시는 다음과 같으며, 성공 실패 여부는 [`MQTTCallback`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/net/mqtt/MQTTCallback.html)에 등록된 `onResponse` 와 `onFailure` 이벤트 함수로 확인할 수 있다.
 다른 oneM2M API 함수들도 비슷한 형태로 사용 가능하다.
 ```java
 public void registerDevice() {
@@ -156,7 +156,7 @@ public void registerDevice() {
 ```
 
 ### Error Code
-`MQTTCallback` 을 통해 발생한 응답의 성공 실패 여부를 확인하는 코드는 `tp.skt.onem2m.binder.mqtt_v1_1.Definitions.java` 에 정의되어 있으며 다음과 같다.
+[`MQTTCallback`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/net/mqtt/MQTTCallback.html) 을 통해 발생한 응답의 성공 실패 여부를 확인하는 코드는 [`tp.skt.onem2m.binder.mqtt_v1_1.Definitions.java`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/binder/mqtt_v1_1/Definitions.html) 에 정의되어 있으며 다음과 같다.
 
 서버와의 커뮤니케이션관련 오류는 paho 라이브러리내 `org.eclipse.paho.client.mqttv3.MqtttException.java` 에 정의되어 있으며 본 문서에는 포함하지 않는다.
 ```java
