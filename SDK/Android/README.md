@@ -33,7 +33,7 @@ SDK 사용을 위하여 다음 설명된 과정을 순서대로 진행한다.
 
 ### Setting for MQTT connection
 MQTT server 와의 연결을 위한 정보를 설정한다.
-```
+```java
 MQTTClient mqttClient = MQTTClient.Builder builder = new MQTTClient.Builder(context)
 	.baseUrl(server)
 	.clientId(id)
@@ -51,7 +51,7 @@ __setLog__ | SDK 로그 Enable or Disable
 
 ### Configuration for Message
 통신 메시지에 사용되어질 정보를 설정한다.
-```
+```java
 MQTTConfiguration config = new MQTTConfiguration(appEUI,
                 toBase,
                 deviceResourceID,
@@ -66,7 +66,7 @@ __clientId__ | MQTT 연결 ID
 
 ### Connects to an MQTT server
 생성된 `MQTTClient` 를 통하여 MQTT 서버에 연결하고 각종 이벤트 처리를 위한 리스너를 등록한다.
-```
+```java
 IMQTT mqttService = mqttClient.connect(IMQTT.class, config, new Binder(), new MQTTProcessor.MQTTListener() {
                     @Override
                     public void onPush(execInstanceControl control) {
@@ -138,7 +138,7 @@ __tpResult__ | 제어결과를 업데이트한다. (execInstance 를 업데이�
 
 `tpRegisterDevice` 함수의 사용예시는 다음과 같으며, 성공 실패 여부는 `MQTTCallback`에 등록된 `onResponse` 와 `onFailure` 이벤트 함수로 확인할 수 있다.
 다른 oneM2M API 함수들도 비슷한 형태로 사용 가능하다.
-```
+```java
 public void registerDevice() {
         oneM2MAPI.getInstance().tpRegisterDevice(mqttService, passcode,
                 cseType, requestRechability, new MQTTCallback<remoteCSEResponse>() {
@@ -159,7 +159,7 @@ public void registerDevice() {
 `MQTTCallback` 을 통해 발생한 응답의 성공 실패 여부를 확인하는 코드는 `tp.skt.onem2m.binder.mqtt_v1_1.Definitions.java` 에 정의되어 있으며 다음과 같다.
 
 서버와의 커뮤니케이션관련 오류는 paho 라이브러리내 `org.eclipse.paho.client.mqttv3.MqtttException.java` 에 정의되어 있으며 본 문서에는 포함하지 않는다.
-```
+```java
 public @interface ResponseStatusCode {
 	int ACCEPTED = 1000;
 	int OK = 2000;
