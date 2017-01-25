@@ -136,7 +136,7 @@ __tpAddData__ | 센서정보를 추가한다. (contentInstance 의 content(con) 
 __tpReport__ | 센서정보를 등록한다. (contentInstance 를 등록한다.)
 __tpResult__ | 제어결과를 업데이트한다. (execInstance 를 업데이트한다.)
 
-`tpRegisterDevice` 사용예시는 다음과 같으며, 성공 실패 여부는 `MQTTCallback`에 등록된 `onResponse` 와 `onFailure' 이벤트 함수로 확인할 수 있다.
+`tpRegisterDevice` 함수의 사용예시는 다음과 같으며, 성공 실패 여부는 `MQTTCallback`에 등록된 `onResponse` 와 `onFailure' 이벤트 함수로 확인할 수 있다.
 다른 oneM2M API 함수들도 비슷한 형태로 사용 가능하다.
 ```
 public void registerDevice() {
@@ -157,6 +157,7 @@ public void registerDevice() {
 
 ### Error Code
 `MQTTCallback` 을 통해 발생한 응답의 성공 실패 여부를 확인하는 코드는 `tp.skt.onem2m.binder.mqtt_v1_1.Definitions.java` 에 정의되어 있으며 다음과 같다.
+
 서버와의 커뮤니케이션관련 오류는 paho 라이브러리내 `org.eclipse.paho.client.mqttv3.MqtttException.java` 에 정의되어 있으며 본 문서에는 포함하지 않는다.
 ```
 public @interface ResponseStatusCode {
