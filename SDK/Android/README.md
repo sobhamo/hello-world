@@ -65,7 +65,7 @@ __deviceResourceID__ | 장치 고유 ID (ex : MAC-address)
 __clientId__ | MQTT 연결 ID
 
 ### Connects to an MQTT server
-생성된 `MQTTClient` 를 통하여 MQTT 서버에 연결하고 각종 이벤트 처리를 위한 리스너를 등록한다.
+생성된 `MQTTClient` 를 통하여 MQTT 서버에 연결하고 각종 이벤트 처리를 위한 **[리스너](http://sobhamo.github.io/hello-world/tp/skt/onem2m/api/MQTTProcessor.MQTTListener.html)**를 등록한다.
 ```java
 IMQTT mqttService = mqttClient.connect(IMQTT.class, config, new Binder(), new MQTTProcessor.MQTTListener() {
                     @Override
