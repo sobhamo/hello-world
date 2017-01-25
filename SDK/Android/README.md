@@ -34,12 +34,13 @@ SDK 사용을 위하여 다음 설명된 과정을 순서대로 진행한다.
 ### Setting for MQTT connection
 MQTT server 와의 연결을 위한 정보를 설정한다.
 ```java
-MQTTClient mqttClient = MQTTClient.Builder builder = new MQTTClient.Builder(context)
+MQTTClient.Builder builder = new MQTTClient.Builder(context)
 	.baseUrl(server)
 	.clientId(id)
 	.userName(user)
 	.password(pass)
-	.setLog(true).build();
+	.setLog(true);
+MQTTClient mqttClient = builder.build();
 ```
 함수 | 파라미터
 ------------ | -------------
