@@ -49,6 +49,19 @@ __userName__ | MQTT 연결 user name
 __password__ | MQTT 연결 password
 __setLog__ | SDK 로그 Enable or Disable
 
+### TLS
+TLS 사용을 위해서는 서버주소앞에 `ssl://` 을 포함하면 된다. 포트번호가 `8883`인 경우 생략 가능하다.
+사용예시는 다음과 같다.
+```
+ssl://thingplugtest.skitiot.com
+```
+TLS 사용하지 않을 경우 서버주소앞이 `tcp://` 을 포함하면 된다. 포트번호가 `1883`인 경우 생략 가능하다.
+사용예시는 다음과 같다.
+```
+tcp://thingplugtest.skitiot.com
+```
+
+
 ### Configuration for Message
 통신 메시지에 사용되어질 정보를 설정한다.
 ```java
