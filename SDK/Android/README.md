@@ -128,10 +128,73 @@ SKT ThingPlug 서버와 oneM2M 통신을 위한 API 는 `tp.skt.onem2m.api.oneM2
 
 함수 | 설명
 ------------ | -------------
-__getInstance__ | Singletone 객체를 가져온다.
+__getInstance()__ | Singletone 객체를 가져온다.
 __tpRegisterDevice__ | 장치를 등록한다. (node 와 remoteCSE 를 등록한다.)
 __tpRegisterContainer__ | 센서를 등록한다. (container 를 등록한다.)
 __tpRegisterMgmtCmd__ | 제어를 등록한다. (mgmtCmd 를 등록한다.)
 __tpAddData__ | 센서정보를 추가한다. (contentInstance 의 content(con) 에 담을 정보를 추가한다.)
 __tpReport__ | 센서정보를 등록한다. (contentInstance 를 등록한다.)
 __tpResult__ | 제어결과를 업데이트한다. (execInstance 를 업데이트한다.)
+
+`tpRegisterDevice` 사용예시는 다음과 같으며, 성공 실패 여부는 `MQTTCallback`에 등록된 `onResponse` 와 `onFailure' 이벤트 함수로 확인할 수 있다.
+다른 oneM2M API 함수들도 비슷한 형태로 사용 가능하다.
+```
+public void registerDevice() {
+        oneM2MAPI.getInstance().tpRegisterDevice(mqttService, passcode,
+                cseType, requestRechability, new MQTTCallback<remoteCSEResponse>() {
+                    @Override
+                    public void onResponse(remoteCSEResponse response) {
+						Log.e(TAG, "node & remoteCSE CREATE success!");
+                    }
+
+                    @Override
+                    public void onFailure(int errorCode, String message) {
+						Log.e(TAG, "fail!");
+                    }
+                });
+    }
+```
+
+### Error Code
+`MQTTCallback` 을 통해 발생한 응답의 성공 실패 여부를 확인하는 코드는 `tp.skt.onem2m.binder.mqtt_v1_1.Definitions.java` 에 정의되어 있으며 다음과 같다.
+서버와의 커뮤니케이션관련 오류는 paho 라이브러리내 `org.eclipse.paho.client.mqttv3.MqtttException.java` 에 정의되어 있으며 본 문서에는 포함하지 않는다.
+```
+public @interface ResponseStatusCode {
+	int ACCEPTED = 1000;
+	int OK = 2000;
+	int CREATED = 2001;
+	int DELETED = 2002;
+	int CHANGED = 2004;
+	int BAD_REQUEST = 4000;
+	int NOT_FOUND = 4004;
+	int OPERATION_NOT_ALLOWED = 4005;
+	int REQUEST_TIMEOUT = 4008;
+	int SUBSCRIPTION_CREATOR_HAS_NO_PRIVILEGE = 4101;
+	int CONTENTS_UNACCEPTABLE = 4102;
+	int ACCESS_DENIED = 4103;
+	int GROUP_REQUEST_IDENTIFIER_EXISTS = 4104;
+	int CONFLICT = 4105;
+	int INTERNAL_SERVER_ERROR = 5000;
+	int NOT_IMPLEMENTED = 5001;
+	int TARGET_NOT_REACHABLE = 5103;
+	int NO_PRIVILEGE = 5105;
+	int ALREADY_EXISTS = 5106;
+	int TARGET_NOT_SUBSCRIBABLE = 5203;
+	int SUBSCRIPTION_VERIFICATION_INITIATION_FAILED = 5204;
+	int SUBSCRIPTION_HOST_HAS_NO_PRIVILEGE = 5205;
+	int NON_BLOCKING_REQUEST_NOT_SUPPORTED = 5206;
+	int EXTENAL_OBJECT_NOT_REACHABLE = 6003;
+	int EXTENAL_OBJECT_NOT_FOUND = 6005;
+	int MAX_NUMBERF_OF_MEMBER_EXCEEDED = 6010;
+	int MEMBER_TYPE_INCONSISTENT = 6011;
+	int MGMT_SESSION_CANNOT_BE_ESTABLISHED = 6020;
+	int MGMT_SESSION_ESTABLISHMENT_TIMEOUT = 6021;
+	int INVALID_CMDTYPE = 6022;
+	int INSUFFICIENT_ARGUMENTS = 6023;
+	int MGMT_CONVERSION_ERROR = 6024;
+	int MGMT_CANCELATION_FAILURE = 6025;
+	int ALREADY_COMPLETE = 6028;
+	int COMMAND_NOT_CANCELLABLE = 6029;
+	int INTERNAL_SDK_ERROR = 9999;
+}
+```
