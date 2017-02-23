@@ -1,0 +1,8 @@
+tp.skt.onem2m.annotation
+tp.skt.onem2m.api
+tp.skt.onem2m.binder.mqtt_v1_1
+tp.skt.onem2m.binder.mqtt_v1_1.control
+tp.skt.onem2m.binder.mqtt_v1_1.request
+tp.skt.onem2m.binder.mqtt_v1_1.response
+tp.skt.onem2m.common
+tp.skt.onem2m.net.mqtt
