@@ -141,16 +141,105 @@ __tpAddData__ | 센서정보를 추가한다. (contentInstance 의 content(con) 
 __tpReport__ | 센서정보를 등록한다. (contentInstance 를 등록한다.)
 __tpResult__ | 제어결과를 업데이트한다. (execInstance 를 업데이트한다.)
 > 각 함수별 파라미터 설명은 **[`tp.skt.onem2m.api.oneM2MAPI.java`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/api/oneM2MAPI.html)** 에서 확인
-## 기기 등록
+
+### 기기 등록
 기기등록을 위한 `tpRegisterDevice` 함수의 사용예시는 다음과 같으며, 성공 실패 여부는 **[`MQTTCallback`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/net/mqtt/MQTTCallback.html)**에 등록된 `onResponse` 와 `onFailure` 이벤트 함수로 확인할 수 있다.
 
 ```java
 public void registerDevice() {
-        oneM2MAPI.getInstance().tpRegisterDevice(mqttService, passcode,
-                cseType, requestRechability, new MQTTCallback<remoteCSEResponse>() {
+	oneM2MAPI.getInstance().tpRegisterDevice(mqttService, passcode,
+			cseType, requestRechability, new MQTTCallback<remoteCSEResponse>() {
+				@Override
+				public void onResponse(remoteCSEResponse response) {
+					Log.e(TAG, "node & remoteCSE CREATE success!");
+				}
+
+				@Override
+				public void onFailure(int errorCode, String message) {
+					Log.e(TAG, "fail!");
+				}
+			});
+}
+```
+
+### 센서 등록
+센서등록을 위한 `tpRegisterContainer` 함수의 사용예시는 다음과 같다.
+
+```java
+private void registerSensor() {
+	oneM2MAPI.getInstance().tpRegisterContainer(mqttService, containerName,
+			deviceKey, new MQTTCallback<containerResponse>() {
+				@Override
+				public void onResponse(containerResponse response) {
+					Log.e(TAG, "success!");
+				}
+
+				@Override
+				public void onFailure(int errorCode, String message) {
+					Log.e(TAG, "fail!");
+				}
+			});
+}	
+```
+
+### 액츄에이터 등록
+제어가 가능한 액츄에이터등록을 위한 `tpRegisterMgmtCmd` 함수의 사용예시는 다음과 같다.
+
+```java
+private void registerControl() {
+	oneM2MAPI.getInstance().tpRegisterMgmtCmd(mqttService, mgmtCmdName,
+			deviceKey, cmdType, execEnable, execTarget, new MQTTCallback<mgmtCmdResponse>() {
+				@Override
+				public void onResponse(mgmtCmdResponse response) {
+					Log.e(TAG, "success!");
+				}
+
+				@Override
+				public void onFailure(int errorCode, String message) {
+					Log.e(TAG, "fail!");
+				}
+			});
+}
+```
+
+### 센서 상태 보고
+센서 상태 보고를 위한 `tpAddData`와 `tpReport` 함수의 사용예시는 다음과 같다.
+
+```java
+private void report() {
+	oneM2MAPI.getInstance().tpRegisterMgmtCmd(mqttService, mgmtCmdName,
+			deviceKey, cmdType, execEnable, execTarget, new MQTTCallback<mgmtCmdResponse>() {
+				@Override
+				public void onResponse(mgmtCmdResponse response) {
+					Log.e(TAG, "success!");
+				}
+
+				@Override
+				public void onFailure(int errorCode, String message) {
+					Log.e(TAG, "fail!");
+				}
+			});
+}
+```
+
+### 제어 결과 보고
+제어 결과 보고를 위한 `tpResult` 함수의 사용예시는 다음과 같다.
+
+```java
+/**
+ * control result
+ * 
+ * @param mgmtCmdName : mgmtCmd Name
+ * @param resourceId  : execInstance resource Id
+ * @param execResult  : execute result code
+ * @param execStatus  : execute status code
+ */
+public void controlResult(String mgmtCmdName, String resourceId, String execResult, String execStatus) {
+        oneM2MAPI.getInstance().tpResult(mqttService, mgmtCmdName,
+                deviceKey, resourceId, execResult, execStatus, new MQTTCallback<execInstanceResponse>() {
                     @Override
-                    public void onResponse(remoteCSEResponse response) {
-						Log.e(TAG, "node & remoteCSE CREATE success!");
+                    public void onResponse(execInstanceResponse response) {
+                        Log.e(TAG, "success!");
                     }
 
                     @Override
@@ -160,6 +249,7 @@ public void registerDevice() {
                 });
     }
 ```
+> execResult 와 execStatus 코드는 **[ThingPlug_API_Document_v1_2.pdf](https://lora.sktiot.com/api/common/file/download?fileId=00EHVA8TRRAME2403FEA)** 문서 6.5.3 절에서 확인 가능하다.
 
 ### Error Code
 **[`MQTTCallback`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/net/mqtt/MQTTCallback.html)** 을 통해 발생한 응답의 성공 실패 여부를 확인하는 코드는 **[`tp.skt.onem2m.binder.mqtt_v1_1.Definitions.java`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/binder/mqtt_v1_1/Definitions.html)** 에 정의되어 있으며 다음과 같다.
