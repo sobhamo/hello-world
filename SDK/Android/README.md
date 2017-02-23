@@ -2,26 +2,15 @@ ThingPlug oneM2M SDK for Android
 ===
 본 챕터는 SKT ThingPlug Android oneM2M SDK API 및 사용법에 대하여 서술한다.
 
-## Resources
-* **[API Documentation](http://sobhamo.github.io/hello-world/)** - SDK API 다큐먼트
-* **[Simple App Sample](https://github.com/sobhamo1/SDK)** - Simple SDK 사용 App
-* **[Device App Sample](https://github.com/sobhamo1/SDK)** - 디바이스 등록, 주기보고, 제어처리 목적으로 동작하는 App 
-* **[Service App Sample](https://github.com/sobhamo1/SDK)** - 상태조회, 제어요청을 목적으로 동작하는 App
-* **[Device & Service App Guide](https://github.com/sobhamo/hello-world/blob/master/SDK/Android/Sample_App.md)** - Device & Service App 설명
+## Overview
+ThingPlug oneM2M SDK for Android는 ThingPlug에 연동하고자 하는 device 개발자 및 application 개발자를 위한 Android기반 SDK이다. ThingPlug서버와의 통신에는 oneM2M 국제표준에 기반한 MQTT 프로토콜을 따르고 있으며, 보안강화를 위해 TLS를 사용할 수 있도록 구성되어 있다.
 
-## Requirements
-* **[AndroidStudio](https://developer.android.com/studio/index.html)**
-* **[API Level](https://developer.android.com/guide/topics/manifest/uses-sdk-element.html)**
-
-```
-defaultConfig {
-	minSdkVersion 18
-	targetSdkVersion 24
-}
-```
+## Features
+본 SDK에서 제공되는 API를 사용하면 oneM2M 국제표준의 세부 규격을 모르더라도 손쉽게 ThingPlug와의 통신을 구현할 수 있다. 모든 내용은 소스코드 형태로 배포되며, SDK 뿐만 아니라 SDK를 활용한 기본 기능 시험을 위한 Simple Test App, Device 역할을 하는 Test App, 그리고 Service Application 역할을 하는 Test App을 같이 배포하고 있다.
 
 ## Library
-다음 라이브러리들을 사용한다.
+본 SDK에서의 ThingPlug와의 통신은 모두 MQTT를 통해서 이루어진다. 
+MQTT client 기능은 오픈소스 프로젝트인 paho를 사용하고 있으며, XML Serialization 과 Parsing 을 위하여 Simple XML 을 사용한다.
 
 라이브러리 | 기능 | 홈페이지
 ------------ | ------------- | -------------
@@ -151,9 +140,10 @@ __tpRegisterMgmtCmd__ | 제어를 등록한다. (mgmtCmd 를 등록한다.)
 __tpAddData__ | 센서정보를 추가한다. (contentInstance 의 content(con) 에 담을 정보를 추가한다.)
 __tpReport__ | 센서정보를 등록한다. (contentInstance 를 등록한다.)
 __tpResult__ | 제어결과를 업데이트한다. (execInstance 를 업데이트한다.)
+> 각 함수별 파라미터 설명은 **[`tp.skt.onem2m.api.oneM2MAPI.java`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/api/oneM2MAPI.html)** 에서 확인
+## 기기 등록
+기기등록을 위한 `tpRegisterDevice` 함수의 사용예시는 다음과 같으며, 성공 실패 여부는 **[`MQTTCallback`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/net/mqtt/MQTTCallback.html)**에 등록된 `onResponse` 와 `onFailure` 이벤트 함수로 확인할 수 있다.
 
-`tpRegisterDevice` 함수의 사용예시는 다음과 같으며, 성공 실패 여부는 **[`MQTTCallback`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/net/mqtt/MQTTCallback.html)**에 등록된 `onResponse` 와 `onFailure` 이벤트 함수로 확인할 수 있다.
-다른 oneM2M API 함수들도 비슷한 형태로 사용 가능하다.
 ```java
 public void registerDevice() {
         oneM2MAPI.getInstance().tpRegisterDevice(mqttService, passcode,
@@ -213,5 +203,23 @@ public @interface ResponseStatusCode {
 	int ALREADY_COMPLETE = 6028;
 	int COMMAND_NOT_CANCELLABLE = 6029;
 	int INTERNAL_SDK_ERROR = 9999;
+}
+```
+
+## Resources
+* **[API Documentation](http://sobhamo.github.io/hello-world/)** - SDK API 다큐먼트
+* **[Simple App Sample](https://github.com/sobhamo1/SDK)** - Simple SDK 사용 App
+* **[Device App Sample](https://github.com/sobhamo1/SDK)** - 디바이스 등록, 주기보고, 제어처리 목적으로 동작하는 App 
+* **[Service App Sample](https://github.com/sobhamo1/SDK)** - 상태조회, 제어요청을 목적으로 동작하는 App
+* **[Device & Service App Guide](https://github.com/sobhamo/hello-world/blob/master/SDK/Android/Sample_App.md)** - Device & Service App 설명
+
+## Requirements
+* **[AndroidStudio](https://developer.android.com/studio/index.html)**
+* **[API Level](https://developer.android.com/guide/topics/manifest/uses-sdk-element.html)**
+
+```
+defaultConfig {
+	minSdkVersion 18
+	targetSdkVersion 24
 }
 ```
