@@ -206,21 +206,43 @@ private void registerControl() {
 센서 상태 보고를 위한 `tpAddData`와 `tpReport` 함수의 사용예시는 다음과 같다.
 
 ```java
-private void report() {
-	oneM2MAPI.getInstance().tpRegisterMgmtCmd(mqttService, mgmtCmdName,
-			deviceKey, cmdType, execEnable, execTarget, new MQTTCallback<mgmtCmdResponse>() {
+/**
+ * conent value add
+ * 
+ * @param value : sensor status
+ */
+private void addStatus(String value) {
+	oneM2MAPI.getInstance().tpAddData(value);
+}
+
+/**
+ * report conent values
+ * 
+ * @param containerName : container Name
+ * @param contentInfo   : content type
+ * @param content       : content
+ * @param useAddedData  : use Added data flag
+ */
+private void report(String containerName, String contentInfo, String content, boolean useAddedData) {
+	oneM2MAPI.getInstance().tpReport(mqttService, containerName,
+			deviceKey, contentInfo, content, useAddedData, new MQTTCallback<contentInstanceResponse>() {
 				@Override
-				public void onResponse(mgmtCmdResponse response) {
-					Log.e(TAG, "success!");
+				public void onResponse(contentInstanceResponse response) {
+					MainActivity.this.sensorInfo = response;
+					showResponseMessage("contentInstance CREATE", response);
 				}
 
 				@Override
 				public void onFailure(int errorCode, String message) {
-					Log.e(TAG, "fail!");
+					Log.e(TAG, errorCode + " : " + message);
+					showToast("fail - " + errorCode + ":" + message, Toast.LENGTH_LONG);
 				}
 			});
 }
 ```
+> `tpAddData` 함수를 통하여 여러 센서의 정보를 수집할 수 있다. 
+> 이 경우 `tpReport` 함수의 useAddedData 파라미터를 true 로 설정하고, content 파라미터를 null 로 설정하면 그동안 `tpAddData` 함수를 통하여 수집된 content 정보가 서버로 전달된다.
+> `tpAddData` 함수를 사용하지 않을 경우 useAddedData 파라미터를 false 로 설정하고, content 파라미터에 값을 입력하면 된다.
 
 ### 제어 결과 보고
 제어 결과 보고를 위한 `tpResult` 함수의 사용예시는 다음과 같다.
@@ -235,21 +257,21 @@ private void report() {
  * @param execStatus  : execute status code
  */
 public void controlResult(String mgmtCmdName, String resourceId, String execResult, String execStatus) {
-        oneM2MAPI.getInstance().tpResult(mqttService, mgmtCmdName,
-                deviceKey, resourceId, execResult, execStatus, new MQTTCallback<execInstanceResponse>() {
-                    @Override
-                    public void onResponse(execInstanceResponse response) {
-                        Log.e(TAG, "success!");
-                    }
+	oneM2MAPI.getInstance().tpResult(mqttService, mgmtCmdName,
+			deviceKey, resourceId, execResult, execStatus, new MQTTCallback<execInstanceResponse>() {
+				@Override
+				public void onResponse(execInstanceResponse response) {
+					Log.e(TAG, "success!");
+				}
 
-                    @Override
-                    public void onFailure(int errorCode, String message) {
-						Log.e(TAG, "fail!");
-                    }
-                });
-    }
+				@Override
+				public void onFailure(int errorCode, String message) {
+					Log.e(TAG, "fail!");
+				}
+			});
+}
 ```
-> execResult 와 execStatus 코드는 **[ThingPlug_API_Document_v1_2.pdf](https://lora.sktiot.com/api/common/file/download?fileId=00EHVA8TRRAME2403FEA)** 문서 6.5.3 절에서 확인 가능하다.
+> execResult 와 execStatus 코드는 **[ThingPlug_API_Document_v1_2.pdf]https://lora.sktiot.com/api/common/file/download?fileId=00EHVA8TRRAME2403FEA** 문서 6.5.3 절에서 확인 가능하다.
 
 ### Error Code
 **[`MQTTCallback`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/net/mqtt/MQTTCallback.html)** 을 통해 발생한 응답의 성공 실패 여부를 확인하는 코드는 **[`tp.skt.onem2m.binder.mqtt_v1_1.Definitions.java`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/binder/mqtt_v1_1/Definitions.html)** 에 정의되어 있으며 다음과 같다.
