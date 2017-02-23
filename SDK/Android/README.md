@@ -338,9 +338,9 @@ public @interface ResponseStatusCode {
 
 ## Resources
 * **[API Documentation](http://sobhamo.github.io/hello-world/)** - SDK API 다큐먼트
-* **[Simple App Sample](https://github.com/sobhamo1/SDK)** - Simple SDK 사용 App
-* **[Device App Sample](https://github.com/sobhamo1/SDK)** - 디바이스 등록, 주기보고, 제어처리 목적으로 동작하는 App 
-* **[Service App Sample](https://github.com/sobhamo1/SDK)** - 상태조회, 제어요청을 목적으로 동작하는 App
+* **[Simple App Sample](https://github.com/sobhamo/hello-world/tree/master/SDK/Android/SDK)** - Simple SDK 사용 App
+* **[Device App Sample](https://github.com/sobhamo/hello-world/tree/master/SDK/Android/com.skt.androidSDK_device)** - 디바이스 등록, 주기보고, 제어처리 목적으로 동작하는 App 
+* **[Service App Sample](https://github.com/sobhamo/hello-world/tree/master/SDK/Android/com.skt.androidSDK_service)** - 상태조회, 제어요청을 목적으로 동작하는 App
 * **[Device & Service App Guide](https://github.com/sobhamo/hello-world/blob/master/SDK/Android/Sample_App.md)** - Device & Service App 설명
 
 ## Requirements
