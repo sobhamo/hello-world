@@ -146,7 +146,14 @@ __tpResult__ | 제어결과를 업데이트한다. (execInstance 를 업데이�
 기기등록을 위한 `tpRegisterDevice` 함수의 사용예시는 다음과 같으며, 성공 실패 여부는 **[`MQTTCallback`](http://sobhamo.github.io/hello-world/tp/skt/onem2m/net/mqtt/MQTTCallback.html)**에 등록된 `onResponse` 와 `onFailure` 이벤트 함수로 확인할 수 있다.
 
 ```java
-public void registerDevice() {
+/**
+ * register device
+ * 
+ * @param passcode           : passcode
+ * @param cseType            : cseType
+ * @param requestRechability : requestRechability
+ */
+public void registerDevice(String passcode, String cseType, String requestRechability) {
 	oneM2MAPI.getInstance().tpRegisterDevice(mqttService, passcode,
 			cseType, requestRechability, new MQTTCallback<remoteCSEResponse>() {
 				@Override
@@ -166,7 +173,12 @@ public void registerDevice() {
 센서등록을 위한 `tpRegisterContainer` 함수의 사용예시는 다음과 같다.
 
 ```java
-private void registerSensor() {
+/**
+ * register sensor
+ * 
+ * @param containerName : container name
+ */
+private void registerSensor(String containerName) {
 	oneM2MAPI.getInstance().tpRegisterContainer(mqttService, containerName,
 			deviceKey, new MQTTCallback<containerResponse>() {
 				@Override
@@ -186,7 +198,15 @@ private void registerSensor() {
 제어가 가능한 액츄에이터등록을 위한 `tpRegisterMgmtCmd` 함수의 사용예시는 다음과 같다.
 
 ```java
-private void registerControl() {
+/**
+ * register control
+ * 
+ * @param mgmtCmdName : mgmtCmd name
+ * @param cmdType     : cmdType
+ * @param execEnable  : execute enable
+ * @param execTarget  : node link
+ */
+private void registerControl(String mgmtCmdName, String cmdType, String execEnable, String execTarget) {
 	oneM2MAPI.getInstance().tpRegisterMgmtCmd(mqttService, mgmtCmdName,
 			deviceKey, cmdType, execEnable, execTarget, new MQTTCallback<mgmtCmdResponse>() {
 				@Override
