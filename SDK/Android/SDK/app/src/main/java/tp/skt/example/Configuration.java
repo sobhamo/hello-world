@@ -12,8 +12,8 @@ public class Configuration {
 
     public static final String CSEBASE = "ThingPlug";
     public static final String ONEM2M_TO = "/ThingPlug/v1_0";
-    public static final String ONEM2M_NODEID = "1.2.481.1.999.205.000100";
-    public static final String ONEM2M_PASSCODE = "123456";
+    public static final String ONEM2M_NODEID = "";
+    public static final String ONEM2M_PASSCODE = "";
 
     public static final String CONTAINER_NAME = "Android";
     public static final String MGMTCMD_NAME = ONEM2M_NODEID + "_DevReset";
@@ -27,6 +27,6 @@ public class Configuration {
     public static final String CMT_TAKEPHOTO = "TakePhoto";
     public static final String CMT_LEDCONTROL = "LEDControl";
 
-    public static final String ACCOUNT_ID = "demoday";
-    public static final String UKEY = "eThFNmhvZkJFdzBNSmZpRFJabjZLVXV6NjhreHNEWExMZXlxMmxMT0o4NFVoeVFUWDY2R0M1bFpLd0s4WXRKZw==";
+    public static final String ACCOUNT_ID = "";
+    public static final String UKEY = "";
 }
