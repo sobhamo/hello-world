@@ -1,5 +1,9 @@
-Android SDK Sample App.
+Device App & Service App Guide
 ===
+SKT ThingPlug Android oneM2M SDK 를 활용하여 개발되어진 Device 앱과 Service 앱에 대한 설명이다.
+
+## Overview
+![](images/sample_app/Android_SDK_overview.png)
 
 감지 센서 목록
 ---
