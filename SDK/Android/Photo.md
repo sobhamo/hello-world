@@ -20,10 +20,10 @@ Using Google Drive API
 ![](images/api_active_3.png)
 
 * 위 작업이 완료되면 생성된 키로 정보 입력 후 **Next**
-![](generate_signed_apk_1.png)
+![](images/generate_signed_apk_1.png)
 
 * **Destination Folder** 및 **Build Type** 선택 후 **Finish**
-![](generate_signed_apk_2.png)
+![](images/generate_signed_apk_2.png)
 
 * 저장위치에 생성된 APK 를 사용한다.
 
