@@ -22,7 +22,6 @@ Using Google Drive API
 * 위 작업이 완료되면 생성된 키로 정보 입력 후 **Next**
 ![](images/generate_signed_apk_1.png)
 
-
 * **Destination Folder** 및 **Build Type** 선택 후 **Finish**
 ![](images/generate_signed_apk_2.png)
 
