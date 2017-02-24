@@ -29,6 +29,8 @@ SKT ThingPlug Android oneM2M SDK 를 활용하여 개발되어진 Device 앱과 
 2. LED : off, red, green, blue, magenta, cyan, yellow, white
 3. Camera : back, front
 
+> 카메라로 촬영한 사진 확인을 위해서는 **[링크](https://github.com/sobhamo/hello-world/blob/master/SDK/Android/Photo.md)**의 과정을 진행하여야 한다.
+
 Project에 oneM2M SDK 연결
 ---
 1. Project에 oneM2M 모듈 추가
