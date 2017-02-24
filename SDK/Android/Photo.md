@@ -23,7 +23,6 @@ Using Google Drive API
 ![](images/generate_signed_apk_1.png)
 
 * **Destination Folder** 및 **Build Type** 선택 후 **Finish**
-
 ![](images/generate_signed_apk_2.png)
 
 * 저장위치에 생성된 APK 를 사용한다.
