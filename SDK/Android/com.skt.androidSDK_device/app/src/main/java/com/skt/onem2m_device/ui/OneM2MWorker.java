@@ -426,16 +426,18 @@ public class OneM2MWorker {
      */
     public void unregisterDevice() {
         if (mqttService == null || MQTTClient == null || MQTTClient.isMQTTConnected() == false) {
+            Log.e(TAG, "No MQTT instances!");
             return;
         }
         String dKey = UserInfo.getInstance(context).loadDeviceKey();
         if (TextUtils.isEmpty(dKey) == true) {
+            Log.e(TAG, "No dKey Found!");
             return;
         }
 
         try {
             mgmtCmd mgmtCmdDelete = new mgmtCmd.Builder(Definitions.Operation.Delete).
-                    nm(Const.MGMTCMD_NAME).
+                    nm(device.getRn() + "_" + Const.MGMTCMD_NAME).
                     dKey(dKey).build();
 
             mqttService.publish(mgmtCmdDelete, new MQTTCallback<mgmtCmdResponse>() {

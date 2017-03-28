@@ -40,9 +40,9 @@ public class TLVBuilder {
         formatter.format("%02x", length);
         if (length > 0) {
             switch (length) {
-                case 1:     formatter.format("%02x", ByteSwapper.swap((byte) value));   break;
-                case 2:     formatter.format("%04x", ByteSwapper.swap((short) value));  break;
-                case 4:     formatter.format("%08x", ByteSwapper.swap(value));          break;
+                case 1:     formatter.format("%02x", Utils.swap((byte) value));   break;
+                case 2:     formatter.format("%04x", Utils.swap((short) value));  break;
+                case 4:     formatter.format("%08x", Utils.swap(value));          break;
             }
         }
         return this;
@@ -80,45 +80,45 @@ public class TLVBuilder {
 
             // write length, value
             switch(type.getValueTLVTypes()[loop1]) {
-                case 0x04:      formatter.format("%02x", 2);    formatter.format("%04x", ByteSwapper.swap((short) (values[loop1] * 100)));      break;          // battery temperature
-                case 0x05:      formatter.format("%02x", 1);    formatter.format("%02x", ByteSwapper.swap((byte) values[loop1]));               break;          // battery level
+                case 0x04:      formatter.format("%02x", 2);    formatter.format("%04x", Utils.swap((short) (values[loop1] * 100)));      break;          // battery temperature
+                case 0x05:      formatter.format("%02x", 1);    formatter.format("%02x", Utils.swap((byte) values[loop1]));               break;          // battery level
 
-                case 0x11:      formatter.format("%02x", 2);    formatter.format("%04x", ByteSwapper.swap((short) (values[loop1] * 100)));      break;          // temperature
-                case 0x12:      formatter.format("%02x", 2);    formatter.format("%04x", ByteSwapper.swap((short) (values[loop1] * 100)));      break;          // humidity
-                case 0x13:      formatter.format("%02x", 2);    formatter.format("%04x", ByteSwapper.swap((short) (values[loop1] * 100)));      break;          // noise
+                case 0x11:      formatter.format("%02x", 2);    formatter.format("%04x", Utils.swap((short) (values[loop1] * 100)));      break;          // temperature
+                case 0x12:      formatter.format("%02x", 2);    formatter.format("%04x", Utils.swap((short) (values[loop1] * 100)));      break;          // humidity
+                case 0x13:      formatter.format("%02x", 2);    formatter.format("%04x", Utils.swap((short) (values[loop1] * 100)));      break;          // noise
 
-                case 0x20:      formatter.format("%02x", 4);    formatter.format("%08x", ByteSwapper.swap((int) (values[loop1] * 100000)));     break;          // latitude
-                case 0x21:      formatter.format("%02x", 4);    formatter.format("%08x", ByteSwapper.swap((int) (values[loop1] * 100000)));     break;          // longitude
-                case 0x22:      formatter.format("%02x", 2);    formatter.format("%04x", ByteSwapper.swap((short) values[loop1]));              break;          // altitude
-                case 0x24:      formatter.format("%02x", 2);    formatter.format("%04x", ByteSwapper.swap((short) (values[loop1] * 10)));       break;          // air pressure
-                case 0x25:      formatter.format("%02x", 2);    formatter.format("%04x", ByteSwapper.swap((short) values[loop1]));              break;          // light
-                case 0x27:      formatter.format("%02x", 1);    formatter.format("%02x", ByteSwapper.swap((byte) values[loop1]));               break;          // buzzer
-                case 0x28:      formatter.format("%02x", 1);    formatter.format("%02x", ByteSwapper.swap((byte) values[loop1]));               break;          // led
+                case 0x20:      formatter.format("%02x", 4);    formatter.format("%08x", Utils.swap((int) (values[loop1] * 100000)));     break;          // latitude
+                case 0x21:      formatter.format("%02x", 4);    formatter.format("%08x", Utils.swap((int) (values[loop1] * 100000)));     break;          // longitude
+                case 0x22:      formatter.format("%02x", 2);    formatter.format("%04x", Utils.swap((short) values[loop1]));              break;          // altitude
+                case 0x24:      formatter.format("%02x", 2);    formatter.format("%04x", Utils.swap((short) (values[loop1] * 10)));       break;          // air pressure
+                case 0x25:      formatter.format("%02x", 2);    formatter.format("%04x", Utils.swap((short) values[loop1]));              break;          // light
+                case 0x27:      formatter.format("%02x", 1);    formatter.format("%02x", Utils.swap((byte) values[loop1]));               break;          // buzzer
+                case 0x28:      formatter.format("%02x", 1);    formatter.format("%02x", Utils.swap((byte) values[loop1]));               break;          // led
 
-                case 0x31:      formatter.format("%02x", 2);    formatter.format("%04x", ByteSwapper.swap((short) values[loop1]));              break;          // proximity
-                case 0x34:      formatter.format("%02x", 1);    formatter.format("%02x", ByteSwapper.swap((byte) values[loop1]));               break;          // camera
-                case 0x38:      formatter.format("%02x", 8);    formatter.format("%04x", ByteSwapper.swap((short) 0));
-                                                                formatter.format("%04x", ByteSwapper.swap((short) (values[loop1] * 100)));
-                                                                formatter.format("%04x", ByteSwapper.swap((short) (values[loop1 + 1] * 100)));
-                                                                formatter.format("%04x", ByteSwapper.swap((short) (values[loop1 + 2] * 100)));  return this;    // accelerometer
-                case 0x39:      formatter.format("%02x", 8);    formatter.format("%04x", ByteSwapper.swap((short) 0));
-                                                                formatter.format("%04x", ByteSwapper.swap((short) values[loop1]));
-                                                                formatter.format("%04x", ByteSwapper.swap((short) values[loop1 + 1]));
-                                                                formatter.format("%04x", ByteSwapper.swap((short) values[loop1 + 2]));          return this;    // orientation
-                case 0x3A:      formatter.format("%02x", 8);    formatter.format("%04x", ByteSwapper.swap((short) 0));
-                                                                formatter.format("%04x", ByteSwapper.swap((short) (values[loop1] * 100)));
-                                                                formatter.format("%04x", ByteSwapper.swap((short) (values[loop1 + 1] * 100)));
-                                                                formatter.format("%04x", ByteSwapper.swap((short) (values[loop1 + 2] * 100)));  return this;    // gravity
-                case 0x3B:      formatter.format("%02x", 8);    formatter.format("%04x", ByteSwapper.swap((short) 0));
-                                                                formatter.format("%04x", ByteSwapper.swap((short) (values[loop1] * 100)));
-                                                                formatter.format("%04x", ByteSwapper.swap((short) (values[loop1 + 1] * 100)));
-                                                                formatter.format("%04x", ByteSwapper.swap((short) (values[loop1 + 2] * 100)));  return this;    // gyroscope
-                case 0x3C:      formatter.format("%02x", 8);    formatter.format("%04x", ByteSwapper.swap((short) 0));
-                                                                formatter.format("%04x", ByteSwapper.swap((short) (values[loop1] * 100)));
-                                                                formatter.format("%04x", ByteSwapper.swap((short) (values[loop1 + 1] * 100)));
-                                                                formatter.format("%04x", ByteSwapper.swap((short) (values[loop1 + 2] * 100)));  return this;    // magnetic field
-                case 0x3D:      formatter.format("%02x", 1);    formatter.format("%02x", ByteSwapper.swap((byte) values[loop1]));               break;          // step detector
-                case 0x3E:      formatter.format("%02x", 2);    formatter.format("%04x", ByteSwapper.swap((short) values[loop1]));              break;          // step count
+                case 0x31:      formatter.format("%02x", 2);    formatter.format("%04x", Utils.swap((short) values[loop1]));              break;          // proximity
+                case 0x34:      formatter.format("%02x", 1);    formatter.format("%02x", Utils.swap((byte) values[loop1]));               break;          // camera
+                case 0x38:      formatter.format("%02x", 8);    formatter.format("%04x", Utils.swap((short) 0));
+                                                                formatter.format("%04x", Utils.swap((short) (values[loop1] * 100)));
+                                                                formatter.format("%04x", Utils.swap((short) (values[loop1 + 1] * 100)));
+                                                                formatter.format("%04x", Utils.swap((short) (values[loop1 + 2] * 100)));  return this;    // accelerometer
+                case 0x39:      formatter.format("%02x", 8);    formatter.format("%04x", Utils.swap((short) 0));
+                                                                formatter.format("%04x", Utils.swap((short) values[loop1]));
+                                                                formatter.format("%04x", Utils.swap((short) values[loop1 + 1]));
+                                                                formatter.format("%04x", Utils.swap((short) values[loop1 + 2]));          return this;    // orientation
+                case 0x3A:      formatter.format("%02x", 8);    formatter.format("%04x", Utils.swap((short) 0));
+                                                                formatter.format("%04x", Utils.swap((short) (values[loop1] * 100)));
+                                                                formatter.format("%04x", Utils.swap((short) (values[loop1 + 1] * 100)));
+                                                                formatter.format("%04x", Utils.swap((short) (values[loop1 + 2] * 100)));  return this;    // gravity
+                case 0x3B:      formatter.format("%02x", 8);    formatter.format("%04x", Utils.swap((short) 0));
+                                                                formatter.format("%04x", Utils.swap((short) (values[loop1] * 100)));
+                                                                formatter.format("%04x", Utils.swap((short) (values[loop1 + 1] * 100)));
+                                                                formatter.format("%04x", Utils.swap((short) (values[loop1 + 2] * 100)));  return this;    // gyroscope
+                case 0x3C:      formatter.format("%02x", 8);    formatter.format("%04x", Utils.swap((short) 0));
+                                                                formatter.format("%04x", Utils.swap((short) (values[loop1] * 100)));
+                                                                formatter.format("%04x", Utils.swap((short) (values[loop1 + 1] * 100)));
+                                                                formatter.format("%04x", Utils.swap((short) (values[loop1 + 2] * 100)));  return this;    // magnetic field
+                case 0x3D:      formatter.format("%02x", 1);    formatter.format("%02x", Utils.swap((byte) values[loop1]));               break;          // step detector
+                case 0x3E:      formatter.format("%02x", 2);    formatter.format("%04x", Utils.swap((short) values[loop1]));              break;          // step count
             }
         }
         return this;
@@ -190,40 +190,40 @@ public class TLVBuilder {
             int valueNumbers = 1;
 
             switch (type) {
-                case 0x04:  sensorType = SensorType.BATTERY;                intValues[0] = ByteSwapper.swap((short) Long.parseLong(value, 16)) / 100f;                              break;  // battery temperature
-                case 0x05:  sensorType = SensorType.BATTERY;                intValues[0] = ByteSwapper.swap((byte) Long.parseLong(value, 16));              valueBeginIndex = 1;    break;  // battery level
+                case 0x04:  sensorType = SensorType.BATTERY;                intValues[0] = Utils.swap((short) Long.parseLong(value, 16)) / 100f;                              break;  // battery temperature
+                case 0x05:  sensorType = SensorType.BATTERY;                intValues[0] = Utils.swap((byte) Long.parseLong(value, 16));              valueBeginIndex = 1;    break;  // battery level
 
-                case 0x11:  sensorType = SensorType.AMBIENT_TEMPERATURE;    intValues[0] = ByteSwapper.swap((short) Long.parseLong(value, 16)) / 100f;                              break;  // temperature
-                case 0x12:  sensorType = SensorType.RELATIVE_HUMIDITY;      intValues[0] = ByteSwapper.swap((short) Long.parseLong(value, 16)) / 100f;                              break;  // humidity
-                case 0x13:  sensorType = SensorType.NOISE;                  intValues[0] = ByteSwapper.swap((short) Long.parseLong(value, 16)) / 100f;                              break;  // noise
+                case 0x11:  sensorType = SensorType.AMBIENT_TEMPERATURE;    intValues[0] = Utils.swap((short) Long.parseLong(value, 16)) / 100f;                              break;  // temperature
+                case 0x12:  sensorType = SensorType.RELATIVE_HUMIDITY;      intValues[0] = Utils.swap((short) Long.parseLong(value, 16)) / 100f;                              break;  // humidity
+                case 0x13:  sensorType = SensorType.NOISE;                  intValues[0] = Utils.swap((short) Long.parseLong(value, 16)) / 100f;                              break;  // noise
 
-                case 0x20:  sensorType = SensorType.GPS;                    intValues[0] = ByteSwapper.swap((int) Long.parseLong(value, 16)) / 100000f;                             break;  // latitude
-                case 0x21:  sensorType = SensorType.GPS;                    intValues[0] = ByteSwapper.swap((int) Long.parseLong(value, 16)) / 100000f;     valueBeginIndex = 1;    break;  // longitude
-                case 0x22:  sensorType = SensorType.GPS;                    intValues[0] = ByteSwapper.swap((short) Long.parseLong(value, 16));             valueBeginIndex = 2;    break;  // altitude
-                case 0x24:  sensorType = SensorType.PRESSURE;               intValues[0] = ByteSwapper.swap((short) Long.parseLong(value, 16)) / 10f;                               break;  // air pressure
-                case 0x25:  sensorType = SensorType.LIGHT;                  intValues[0] = ByteSwapper.swap((short) Long.parseLong(value, 16));                                     break;  // light
-                case 0x27:  sensorType = SensorType.BUZZER;                 intValues[0] = ByteSwapper.swap((byte) Long.parseLong(value, 16));                                      break;  // buzzer
-                case 0x28:  sensorType = SensorType.LED;                    intValues[0] = ByteSwapper.swap((byte) Long.parseLong(value, 16));                                      break;  // led
+                case 0x20:  sensorType = SensorType.GPS;                    intValues[0] = Utils.swap((int) Long.parseLong(value, 16)) / 100000f;                             break;  // latitude
+                case 0x21:  sensorType = SensorType.GPS;                    intValues[0] = Utils.swap((int) Long.parseLong(value, 16)) / 100000f;     valueBeginIndex = 1;    break;  // longitude
+                case 0x22:  sensorType = SensorType.GPS;                    intValues[0] = Utils.swap((short) Long.parseLong(value, 16));             valueBeginIndex = 2;    break;  // altitude
+                case 0x24:  sensorType = SensorType.PRESSURE;               intValues[0] = Utils.swap((short) Long.parseLong(value, 16)) / 10f;                               break;  // air pressure
+                case 0x25:  sensorType = SensorType.LIGHT;                  intValues[0] = Utils.swap((short) Long.parseLong(value, 16));                                     break;  // light
+                case 0x27:  sensorType = SensorType.BUZZER;                 intValues[0] = Utils.swap((byte) Long.parseLong(value, 16));                                      break;  // buzzer
+                case 0x28:  sensorType = SensorType.LED;                    intValues[0] = Utils.swap((byte) Long.parseLong(value, 16));                                      break;  // led
 
-                case 0x31:  sensorType = SensorType.PROXIMITY;              intValues[0] = ByteSwapper.swap((short) Long.parseLong(value, 16));                                     break;  // proximity
-                case 0x34:  sensorType = SensorType.CAMERA;                 intValues[0] = ByteSwapper.swap((byte) Long.parseLong(value, 16));                                      break;  // camera
-                case 0x38:  sensorType = SensorType.ACCELEROMETER;          intValues[0] = ByteSwapper.swap((short) Long.parseLong(value.substring(4, 8), 16)) / 100f;
-                                                                            intValues[1] = ByteSwapper.swap((short) Long.parseLong(value.substring(8, 12), 16)) / 100f;
-                                                                            intValues[2] = ByteSwapper.swap((short) Long.parseLong(value.substring(12, 16), 16)) / 100f;    valueNumbers = 3;   break;  // accelerometer
-                case 0x39:  sensorType = SensorType.ORIENTATION;            intValues[0] = ByteSwapper.swap((short) Long.parseLong(value.substring(4, 8), 16));
-                                                                            intValues[1] = ByteSwapper.swap((short) Long.parseLong(value.substring(8, 12), 16));
-                                                                            intValues[2] = ByteSwapper.swap((short) Long.parseLong(value.substring(12, 16), 16));           valueNumbers = 3;   break;  // orientation
-                case 0x3A:  sensorType = SensorType.GRAVITY;                intValues[0] = ByteSwapper.swap((short) Long.parseLong(value.substring(4, 8), 16)) / 100f;
-                                                                            intValues[1] = ByteSwapper.swap((short) Long.parseLong(value.substring(8, 12), 16)) / 100f;
-                                                                            intValues[2] = ByteSwapper.swap((short) Long.parseLong(value.substring(12, 16), 16)) / 100f;    valueNumbers = 3;   break;  // gravity
-                case 0x3B:  sensorType = SensorType.GYROSCOPE;              intValues[0] = ByteSwapper.swap((short) Long.parseLong(value.substring(4, 8), 16)) / 100f;
-                                                                            intValues[1] = ByteSwapper.swap((short) Long.parseLong(value.substring(8, 12), 16)) / 100f;
-                                                                            intValues[2] = ByteSwapper.swap((short) Long.parseLong(value.substring(12, 16), 16)) / 100f;    valueNumbers = 3;   break;  // gyroscope
-                case 0x3C:  sensorType = SensorType.MAGNETIC_FIELD;         intValues[0] = ByteSwapper.swap((short) Long.parseLong(value.substring(4, 8), 16)) / 100f;
-                                                                            intValues[1] = ByteSwapper.swap((short) Long.parseLong(value.substring(8, 12), 16)) / 100f;
-                                                                            intValues[2] = ByteSwapper.swap((short) Long.parseLong(value.substring(12, 16), 16)) / 100f;    valueNumbers = 3;   break;  // magnetic field
-                case 0x3D:  sensorType = SensorType.STEP_DETECTOR;          intValues[0] = ByteSwapper.swap((byte) Long.parseLong(value, 16));                                      break;  // step detector
-                case 0x3E:  sensorType = SensorType.STEP_COUNTER;           intValues[0] = ByteSwapper.swap((short) Long.parseLong(value, 16));                                     break;  // step count
+                case 0x31:  sensorType = SensorType.PROXIMITY;              intValues[0] = Utils.swap((short) Long.parseLong(value, 16));                                     break;  // proximity
+                case 0x34:  sensorType = SensorType.CAMERA;                 intValues[0] = Utils.swap((byte) Long.parseLong(value, 16));                                      break;  // camera
+                case 0x38:  sensorType = SensorType.ACCELEROMETER;          intValues[0] = Utils.swap((short) Long.parseLong(value.substring(4, 8), 16)) / 100f;
+                                                                            intValues[1] = Utils.swap((short) Long.parseLong(value.substring(8, 12), 16)) / 100f;
+                                                                            intValues[2] = Utils.swap((short) Long.parseLong(value.substring(12, 16), 16)) / 100f;    valueNumbers = 3;   break;  // accelerometer
+                case 0x39:  sensorType = SensorType.ORIENTATION;            intValues[0] = Utils.swap((short) Long.parseLong(value.substring(4, 8), 16));
+                                                                            intValues[1] = Utils.swap((short) Long.parseLong(value.substring(8, 12), 16));
+                                                                            intValues[2] = Utils.swap((short) Long.parseLong(value.substring(12, 16), 16));           valueNumbers = 3;   break;  // orientation
+                case 0x3A:  sensorType = SensorType.GRAVITY;                intValues[0] = Utils.swap((short) Long.parseLong(value.substring(4, 8), 16)) / 100f;
+                                                                            intValues[1] = Utils.swap((short) Long.parseLong(value.substring(8, 12), 16)) / 100f;
+                                                                            intValues[2] = Utils.swap((short) Long.parseLong(value.substring(12, 16), 16)) / 100f;    valueNumbers = 3;   break;  // gravity
+                case 0x3B:  sensorType = SensorType.GYROSCOPE;              intValues[0] = Utils.swap((short) Long.parseLong(value.substring(4, 8), 16)) / 100f;
+                                                                            intValues[1] = Utils.swap((short) Long.parseLong(value.substring(8, 12), 16)) / 100f;
+                                                                            intValues[2] = Utils.swap((short) Long.parseLong(value.substring(12, 16), 16)) / 100f;    valueNumbers = 3;   break;  // gyroscope
+                case 0x3C:  sensorType = SensorType.MAGNETIC_FIELD;         intValues[0] = Utils.swap((short) Long.parseLong(value.substring(4, 8), 16)) / 100f;
+                                                                            intValues[1] = Utils.swap((short) Long.parseLong(value.substring(8, 12), 16)) / 100f;
+                                                                            intValues[2] = Utils.swap((short) Long.parseLong(value.substring(12, 16), 16)) / 100f;    valueNumbers = 3;   break;  // magnetic field
+                case 0x3D:  sensorType = SensorType.STEP_DETECTOR;          intValues[0] = Utils.swap((byte) Long.parseLong(value, 16));                                      break;  // step detector
+                case 0x3E:  sensorType = SensorType.STEP_COUNTER;           intValues[0] = Utils.swap((short) Long.parseLong(value, 16));                                     break;  // step count
             }
 
             if (sensorType != SensorType.NONE) {
