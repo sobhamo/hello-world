@@ -75,6 +75,9 @@ typedef struct tagSensor {
     * OperationType : 센서 구동 타입 (예) series,event 
     * MaxInterval : 데이터 변화 없어도 허용되는 최대 시간(seconds), 0초이면 무한대로 판단
     * ControlType : 센서 제어 가능 여부
+    * TTV_Type : 센서 구분자
+    * TTV_Datatype :  센서 데이터 정의
+    * TTV_Name : 센서 이름 정의
 
 * **SENSOR_CONFIGURATION_T** 구조체 구성표
 <table>
@@ -163,13 +166,4 @@ SensorManagementAgent 프로젝트는 미들웨어 패키지 설치 후, `/usr/l
 	# service middleware start
 	```
 
-### 5. Sensor Configuration Overriding 방법
-위 2.2 절에서 언급한 Sensor Configuration 은 아래 두가지 방법을 통하여 Overriding 이 가능하다.
 
-1. iot_sensor.conf 파일을 수정 후 미들웨어 재시작 하는 방법
-2. Gateway Portal 의 시스템 설정 메뉴를 이용하여 파일을 변경하는 방법
-	* Gateway Portal 화면에서 연결조회->센서 페이지로 이동한다.
-	* 각 필드를 새로 생성하거나 수정 삭제한다.
-	* 마지막으로 적용을 누르고 15초 후 재로그인하면 새로운 센서 설정이 저장되어 있다.
-	* __!!!주의!!! 센서 이름으로 센서 드라이버를 찾기 때문에 'driver' 필드에 센서 이름을 정확하게 입력해야한다.__
-![](images/gp_sensor.png)
