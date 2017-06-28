@@ -76,8 +76,8 @@ typedef struct tagSensor {
     * MaxInterval : 데이터 변화 없어도 허용되는 최대 시간(seconds), 0초이면 무한대로 판단
     * ControlType : 센서 제어 가능 여부
     * TTV_Type : 센서 구분자
-    * TTV_Datatype :  센서 데이터 정의
-    * TTV_Name : 센서 이름 정의
+    * TTV_Datatype :  센서 데이터 정의
+    * TTV_Name : 센서 이름 정의
 
 * **SENSOR_CONFIGURATION_T** 구조체 구성표
 <table>
