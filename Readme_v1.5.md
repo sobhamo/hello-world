@@ -1,32 +1,32 @@
 
-#### 2016년 10월 25일 - Version: 1.0.0
+#### 2017년 6월 28일 - Version: 1.5.0
 
 ## ThingPlug를 위한 Device 미들웨어 설치 및 실행가이드
 본 챕터는 SKT ThingPlug Device 미들웨어 설치 및 실행 방법을 서술한다.
 
-#### 1. ThingPlug Device 미들웨어 란?
+#### ThingPlug Device 미들웨어 란?
 개방형 사물인터넷 서버 플랫폼 ThingPlug 를 위한 Device 미들웨어는 ThingPlug 와의 연동을 쉽게 해주고 다양한 Device 에 적용 가능한, Device 개발자 및 서비스 개발자를 위한 소프트웨어이다.
 ![](images_v1.5/v1.5_mw_architect.jpg)
 * 미들웨어는 총 3개의 모듈과 5개의 에이전트로 구성되어 있으며, 각각의 모듈간 통신을 통해 사물과 ThingPlug 간 연동을 수행한다.
-* **Management Agent** 는 미들웨어 내부의 모든 명령 및 처리의 중심에서 실제적인 역할을 수행한다. User 와의 외부 Interface 는 Gateway Portal, ThingPlug 와는 Connection Ready Agent 와 연동하며, 내부 Device/Sensor 와는 Service Ready Agent 를 통해 연동한다.
-* **Connection Ready Agent** 는 GMMP Protocol 과 oneM2M Protocol 을 모두 지원하며, ThingPlug 서버와 통신을 담당한다. oneM2M 의 경우 MQTT(S) 방식을 사용하고, GMMP 는 TCP/IP 방식을 사용한다.
-* **Service Ready Agent** 는 Sensor Management Agent 로 부터 전달받은 센서 관련 정보들을, 센서별 정책에 따라서 데이터를 가공하는 역할을 한다. 가공된 센서 정보는 Management Agent 로 전달한다.
+* **Management Agent** 는 미들웨어 내부의 모든 명령 및 처리의 중심에서 실제적인 역할을 수행한다. User 와의 외부 Interface 를 담당하는 Gateway Portal 과 연동하며, Connection Ready Agent와 Service Ready Agent 를 포함한다.
+	+ **Connection Ready Agent** 는 GMMP Protocol 과 oneM2M Protocol 을 모두 지원하며, ThingPlug 서버와 통신을 담당한다. oneM2M 의 경우 MQTT(S) 방식을 사용하고, GMMP 는 TCP/IP 방식을 사용한다.
+	+ **Service Ready Agent** 는 Sensor Management Agent 로 부터 전달받은 센서 관련 정보들을, 센서별 정책에 따라서 데이터를 가공하는 역할을 한다. 가공된 센서 정보는 Management Agent 로 전달한다.
 * **Sensor Management Agent** 는 센서 데이터를 수집하고, 직접 제어를 담당하며, Management Agent 와 데이터를 주고 받는다.
 * **Gateway Portal** 은 관리자/개발자가 미들웨어 시스템을 제어하고, 각종 정보를 조회할 수 있는 사용자 인터페이스이며, Node.js 기반의 어플리케이션으로 구현되어 있다.
 
-#### 2. ThingPlug 와의 연동 구조
+#### ThingPlug 와의 연동 구조
 ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원한다.
 ![](images_v1.5/v1.5_overview.png)
 
 
-#### 3. 지원 사양 및 하드웨어
+#### 지원 사양 및 하드웨어
 * 권장 사양
   * Memory : 128 Mb 이상
   * CPU : 200MHz 이상
 * 지원 하드웨어
   * Raspberry Pi2/3, BeagleBone Black 외 ARM/Linux 디바이스
 
-#### 4. 환경 설정
+#### 환경 설정
 
 0. 윈도우 사용자의 경우 아래의 URL 에서 putty 를 다운받아 설치한다.
 	* http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
