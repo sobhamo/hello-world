@@ -171,10 +171,7 @@
 
 * **제어 위젯 등록하기**
   * Service > 대시보드 메뉴의 **+위젯추가** 버튼을 클릭하여 등록한다.
-![](images_v1.5/control_create.png)
+  ![](images_v1.5/control_create.png)
 
   * 제어결과는 위젯을 통하여 확인할 수 있다.
-  
-![](images_v1.5/control_result.png?style=centerme)
-<div style="text-align:center"><img src ="images_v1.5/control_result.png" /></div>
-<div><img align="center" src="images_v1.5/control_result.png"></div>
+  ![](images_v1.5/control_result.png)
