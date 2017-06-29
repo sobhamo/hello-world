@@ -1,279 +1,169 @@
 ## oneM2M 등록과 주기보고 및 제어하기
-본 챕터는 SKT ThingPlug Device 미들웨어를 통한 oneM2M 등록과정과 주기보고 및 제어하기에 대하여 서술한다.
+본 챕터는 SKT ThingPlug Device 미들웨어를 통한 기기 등록과정과 주기보고 및 제어하기에 대하여 서술한다.
 
-#### 1. 등록과 주기보고
-등록과 주기보고는 아래 그림에서 좌측부터 우측으로 진행된다.
-![](images/Regi&ReportFlow.png)
+#### 등록과 주기보고
+기기등록부터 주기보고까지 진행순서이다.
+![](images_v1.5/registerFlow.png)
 
 
-#### 1.1. **등록**
-* **nodeCreate**
-  * Device로부터 node 등록을 요청받는 인터페이스.
+#### **등록**
+* **AE Create**
+  * 기기 등록
 	```xml
-*   Trying 61.250.21.212...
-* Connected to onem2m.sktiot.com (61.250.21.212) port 9000 (#0)
-> POST /ThingPlug HTTP/1.1
-Host: onem2m.sktiot.com:9000
-Accept: application/xml
-Content-Type: application/vnd.onem2m-res+xml;ty=14
-X-M2M-RI: 744653
-X-M2M-Origin: 1.2.481.1.999.130.3000005
-X-M2M-NM: 1.2.481.1.999.130.3000005
-Content-Length: 193
-<?xml version="1.0" encoding="UTF-8"?>
-<m2m:nod xmlns:m2m="http://www.onem2m.org/xml/protocols"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<ni>1.2.481.1.999.130.3000005</ni>
-</m2m:nod>
-
-HTTP/1.1 201 Created
-Server: Apache-Coyote/1.1
-Set-Cookie: JSESSIONID=0939F0F442FD552733BAE20494CBA2E8; Path=/; HttpOnly
-X-M2M-RI: 74465340a4f732-8d02-407a-923d-39e83a57bfe7
-X-M2M-RSC: 2001
-Content-Location: /ThingPlug/node-1.2.481.1.999.130.3000005
-Content-Type: application/vnd.onem2m-res+xml;charset=UTF-8
-Content-Length: 414
-Date: Mon, 09 May 2016 07:16:56 GMT
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<m2m:nod xmlns:m2m="http://www.onem2m.org/xml/protocols"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<ty>14</ty>
-	<ri>ND00000000000000001021</ri>
-	<rn>1.2.481.1.999.130.3000005</rn>
-	<pi>ThingPlug</pi>
-	<ct>2016-05-09T16:16:56+09:00</ct>
-	<lt>2016-05-09T16:16:56+09:00</lt>
-	<lbl></lbl>
-	<acpi></acpi>
-	<at></at>
-	<aa></aa>
-	<ni>1.2.481.1.999.130.3000005</ni>
-</m2m:nod>
+	<?xml version="1.0" encoding="UTF-8"?>
+	<m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd">
+	<op>1</op>
+	<fr>S</fr>
+	<to>/~/middleware/v1_0</to>
+	<ty>2</ty>
+	<rqi>12345</rqi>
+	<pc>
+		<m2m:ae rn="device01">
+			<api>[CREDENTIAL-ID]</api>
+			<poa>mqtt://oneM2M/req_msg/middleware/sptektest1_device01</poa>
+			<rr>true</rr>
+			<ni>device01</ni>
+			<mga>mqtt://sptektest1_device01</mga>
+		</m2m:ae>
+	</pc>
+	</m2m:rqp>
+	
+	<m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>2001</rsc><rqi>12345</rqi>
+	<pc>
+		<m2m:ae rn="ae-device01">
+			<ty>2</ty>
+			<ri>AE00000000000000000416</ri>
+			<pi>CB00000000000000000056</pi>
+			<ct>20170524T015218</ct>
+			<lt>20170524T015218</lt>
+			<acpi>AP00000000000000003663</acpi>
+			<et>99991231T000000</et>
+			<api>[CREDENTIAL-ID]</api>
+			<aei>S000000000087020984416</aei>
+			<poa>mqtt://oneM2M/req_msg/middleware/sptektest1_device01</poa>
+			<rr>true</rr>
+			<nl>ND00000000000000001979</nl>
+			<ni>device01</ni>
+			<mga>mqtt://sptektest1_device01</mga>
+		</m2m:ae>
+	</pc>
+	</m2m:rsp>
 	```
+	
 
-* **remoteCSECreate**
-  * Device로부터 remoteCSE 등록을 요청받는 인터페이스.
+
+* **container Create**
+  * 센서를 위한 container 등록
 	```xml
-*   Trying 61.250.21.212...
-* Connected to onem2m.sktiot.com (61.250.21.212) port 9000 (#0)
-> POST /ThingPlug HTTP/1.1
-Host: onem2m.sktiot.com:9000
-Accept: application/xml
-Content-Type: application/vnd.onem2m-res+xml;ty=16
-X-M2M-RI: 783715
-X-M2M-Origin: 1.2.481.1.999.130.3000005
-passCode: ******
-X-M2M-NM: 1.2.481.1.999.130.3000005
-Content-Length: 292
-<?xml version="1.0" encoding="UTF-8"?>
-<m2m:csr xmlns:m2m="http://www.onem2m.org/xml/protocols"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<cst>1</cst>
-	<poa>MQTT|1.2.481.1.999.130.3000005</poa>
-	<csi>1.2.481.1.999.130.3000005</csi>
-	<rr>true</rr>
-	<nl>ND00000000000000001021</nl>
-</m2m:csr>
-
-HTTP/1.1 201 Created
-Server: Apache-Coyote/1.1
-Set-Cookie: JSESSIONID=143E3C68954CD258653E58689949FCEA; Path=/; HttpOnly
-X-M2M-RI: 78371548f298f8-a800-4d5b-bef0-fdcc732b2fd1
-X-M2M-RSC: 2001
-Content-Location: /ThingPlug/remoteCSE-1.2.481.1.999.130.3000005
-dKey: OGs2RjJYZitiS1hqcmJjSHFNTG5hR1pQ***
-Content-Type: application/vnd.onem2m-res+xml;charset=UTF-8
-Content-Length: 535
-Date: Mon, 09 May 2016 07:17:15 GMT
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<m2m:csr xmlns:m2m="http://www.onem2m.org/xml/protocols"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<ty>16</ty>
-<ri>RC00000000000000001050</ri>
-<rn>1.2.481.1.999.130.3000005</rn>
-<pi>ThingPlug</pi>
-<ct>2016-05-09T16:17:14+09:00</ct>
-<lt>2016-05-09T16:17:14+09:00</lt>
-<lbl></lbl>
-<acpi>AP00000000000000002130</acpi>
-<at></at>
-<aa></aa>
-<cst>1</cst>
-<poa>MQTT|1.2.481.1.999.130.3000005</poa>
-<csi>1.2.481.1.999.130.3000005</csi>
-<rr>true</rr>
-<nl>ND00000000000000001021</nl>
-</m2m:csr>
-	```
-
-
-* **containerCreate**
-  * remoteCSE 등록 완료 후 Device로부터 remoteCSE GW 와 Sensor 들의 container 생성을 요청받는 인터페이스
-  * 온도센서를 샘플로 함
-	```xml
-*   Trying 61.250.21.212...
-* Connected to onem2m.sktiot.com (61.250.21.212) port 9000 (#0)
-> POST /ThingPlug/remoteCSE-1.2.481.1.999.130.3000005 HTTP/1.1
-Host: onem2m.sktiot.com:9000
-Accept: application/xml
-Content-Type: application/vnd.onem2m-res+xml;ty=3
-X-M2M-RI: 804980
-X-M2M-Origin: 1.2.481.1.999.130.3000005
-dKey: OGs2RjJYZitiS1hqcmJjSHFNTG5hR1pQ***
-X-M2M-NM: temperature_2
-locale: en
-Content-Length: 201
-<?xml version="1.0" encoding="UTF-8"?>
-<m2m:cnt xmlns:m2m="http://www.onem2m.org/xml/protocols"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<containerType>temperature</containerType>
-</m2m:cnt>
-
-HTTP/1.1 201 Created
-Server: Apache-Coyote/1.1
-Set-Cookie: JSESSIONID=1FF263CBE82F50D36265C0BB532EC677; Path=/; HttpOnly
-X-M2M-RI: 804980d9c88ab6-48f6-4a27-b589-0571412433d9
-X-M2M-RSC: 2001
-Content-Location: /ThingPlug/remoteCSE-1.2.481.1.999.130.3000005/container-temperature_2
-Content-Type: application/vnd.onem2m-res+xml;charset=UTF-8
-Content-Length: 474
-Date: Mon, 09 May 2016 07:18:01 GMT
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<m2m:cnt xmlns:m2m="http://www.onem2m.org/xml/protocols"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<?xml version="1.0" encoding="UTF-8"?>
+	<m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd">
+	<op>1</op>
+	<fr>S000000000087020984416</fr>
+	<to>/~/middleware/v1_0/ae-device01</to>
 	<ty>3</ty>
-	<ri>CT00000000000000002299</ri>
-	<rn>temperature_2</rn>
-	<pi>RC00000000000000001050</pi>
-	<ct>2016-05-09T16:18:01+09:00</ct>
-	<lt>2016-05-09T16:18:01+09:00</lt>
-	<lbl></lbl>
-	<at></at>
-	<aa></aa>
-	<st>0</st>
-	<cr>RC00000000000000001050</cr>
-	<cni>0</cni>
-	<cbs>0</cbs>
-	<containerType>temperature</containerType>
-</m2m:cnt>
+	<rqi>12345</rqi>
+	<pc>
+		<m2m:cnt rn="LoRa">
+		</m2m:cnt>
+	</pc>
+	</m2m:rqp>
+	
+	<m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<rsc>2001</rsc>
+	<rqi>12345</rqi>
+	<pc>
+		<m2m:cnt rn="cnt-LoRa">
+			<ty>3</ty>
+			<ri>CT00000000000000003997</ri>
+			<pi>AE00000000000000000416</pi>
+			<ct>20170524T015218</ct>
+			<lt>20170524T015218</lt>
+			<et>99991231T000000</et>
+			<st>0</st>
+			<cr>S000000000087020984416</cr>
+			<cni>0</cni>
+			<cbs>0</cbs>
+		</m2m:cnt>
+	</pc>
+	</m2m:rsp>
 	```
 
-* **mgmtCmdCreate**
-  * remoteCSE 등록 완료 후 Device로부터 remoteCSE의 mgmtCmd 등록을 요청받는 인터페이스
-  * remoteCSE 등록 후 Device로부터 mgmtCmd 등록 요청을 받으면 dKey로 device에 대해 인증 성공하면 mgmtCmd를 생성한 후 생성 결과를 반환한다.
-  * 7colorRGBLed를 샘플로 함
+* **mgmtCmd Create**
+  * 제어를 위한 mgmtCmd 등록
 	```xml
-*   Trying 61.250.21.212...
-* Connected to onem2m.sktiot.com (61.250.21.212) port 9000 (#0)
-> POST /ThingPlug HTTP/1.1
-Host: onem2m.sktiot.com:9000
-Accept: application/xml
-Content-Type: application/vnd.onem2m-res+xml;ty=12
-X-M2M-RI: 318239
-X-M2M-Origin: 1.2.481.1.999.130.3000005
-dKey: OGs2RjJYZitiS1hqcmJjSHFNTG5hR1pQ***
-X-M2M-NM: 1.2.481.1.999.130.3000005_7colorRGBLed_10
-locale: en
-Content-Length: 276
-<?xml version="1.0" encoding="UTF-8"?>
-<m2m:mgc xmlns:m2m="http://www.onem2m.org/xml/protocols"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<et>9999-12-31T00:00:00+00:00</et>
-<lbl>1.2.481.1.999.130.3000005</lbl>
-<cmt>cmt</cmt>
-<ext>ND00000000000000001021</ext>
-</m2m:mgc>
+	<?xml version="1.0" encoding="UTF-8"?>
+	<m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd">
+	<op>1</op>
+	<fr>S000000000087020984416</fr>
+	<to>/~/middleware/v1_0</to>
+	<ty>12</ty>
+	<rqi>12345</rqi>
+	<pc>
+		<m2m:mgc rn="device01">
+			<cmt>1</cmt>
+			<ext>ND00000000000000001979</ext>
+		</m2m:mgc>
+	</pc>
+	</m2m:rqp>
 
-HTTP/1.1 201 Created
-Server: Apache-Coyote/1.1
-Set-Cookie: JSESSIONID=ED19E31448D868D232B03888E384B6D1; Path=/; HttpOnly
-X-M2M-RI: 318239f88fd9bb-f001-40e8-9416-a3be4c81ab58
-X-M2M-RSC: 2001
-Content-Location: /ThingPlug/mgmtCmd-1.2.481.1.999.130.3000005_7colorRGBLed_10
-Content-Type: application/vnd.onem2m-res+xml;charset=UTF-8
-Content-Length: 471
-Date: Mon, 09 May 2016 07:18:15 GMT
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<m2m:mgc xmlns:m2m="http://www.onem2m.org/xml/protocols"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<ty>12</ty>
-<ri>MC00000000000000002226</ri>
-<rn>1.2.481.1.999.130.3000005_7colorRGBLed_10</rn>
-<pi>ThingPlug</pi>
-<ct>2016-05-09T16:18:15+09:00</ct>
-<lt>2016-05-09T16:18:15+09:00</lt>
-<lbl>1.2.481.1.999.130.3000005</lbl>
-<et>9999-12-31T00:00:00+00:00</et>
-<cmt>cmt</cmt>
-<ext>ND00000000000000001021</ext>
-</m2m:mgc>
+	<m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<rsc>2001</rsc>
+	<rqi>12345</rqi>
+	<pc>
+		<m2m:mgc rn="mgc-device01">
+			<ty>12</ty>
+			<ri>MC00000000000000003586</ri>
+			<pi>CB00000000000000000056</pi>
+			<ct>20170524T015218</ct>
+			<lt>20170524T015218</lt>
+			<et>99991231T000000</et>
+			<cmt>1</cmt>
+			<exe>false</exe>
+			<ext>ND00000000000000001979</ext>
+		</m2m:mgc>
+	</pc>
+	</m2m:rsp>
 	```
 
-#### 1.2. **MQTT Subscribe**
-mgmtCmd 가 등록이 되면, ThingPlug 로부터의 Push 를 통한 제어를 처리할 수 있도록 MQTT Subscribe 를 진행한다.  
-다음은 MQTT Subscribe 를 위한 정보이다.  
+#### **주기보고**
 
-0. MQTT Host : onem2m.sktiot.com
-1. MQTT Port : 1883
-2. MQTT Topic prefix : /oneM2M/req/ThingPlug/
-3. MQTT Topic : prefix + OID (예 : /oneM2M/req/ThingPlug/1.2.481.1.999.130.3000005)
-4. MQTT Keepalive : 120 sec
-
-#### 1.3. **주기보고**
-
-* **contentInstanceCreate**
-  * remoteCSE-container 등록 완료 후 Device로부터 container의 contentInstance 생성을 요청받는 인터페이스.
-  * 온도센서를 샘플로 함
-
+* **contentInstance Create**
+  * container의 contentInstance 등록
 	```xml
-*   Trying 61.250.21.212...
-* Connected to onem2m.sktiot.com (61.250.21.212) port 9000 (#0)
-> POST /ThingPlug/remoteCSE-1.2.481.1.999.130.3000005/container-temperature_2 HTTP/1.1
-Host: onem2m.sktiot.com:9000
-Accept: application/xml
-Content-Type: application/vnd.onem2m-res+xml;ty=4
-X-M2M-RI: 940032
-X-M2M-Origin: 1.2.481.1.999.130.3000005
-dKey: OGs2RjJYZitiS1hqcmJjSHFNTG5hR1pQ***
-locale: en
-Content-Length: 248
-<?xml version="1.0" encoding="UTF-8"?>
-<m2m:cin xmlns:m2m="http://www.onem2m.org/xml/protocols"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<cnf>text/x-json</cnf>
-<lbl>con</lbl>
-<con>{ "time": 1462778231741, "value": "27.9" }</con>
-</m2m:cin>
-
-HTTP/1.1 201 Created
-Server: Apache-Coyote/1.1
-Set-Cookie: JSESSIONID=ECEE6F067DEB369C360277A319EFDE83; Path=/; HttpOnly
-X-M2M-RI: 9400322300d2f7-c898-4f97-afdc-6da6c2ba8ba6
-X-M2M-RSC: 2001
-Content-Location: /ThingPlug/remoteCSE-1.2.481.1.999.130.3000005/container-temperature_2/contentInstance-CI00000000000032145034
-Content-Type: application/vnd.onem2m-res+xml;charset=UTF-8
-Content-Length: 540
-Date: Mon, 09 May 2016 07:18:53 GMT
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<m2m:cin xmlns:m2m="http://www.onem2m.org/xml/protocols"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<ty>4</ty>
-<ri>CI00000000000032145034</ri>
-<rn>CI00000000000032145034</rn>
-<pi>CT00000000000000002299</pi>
-<ct>2016-05-09T16:18:53+09:00</ct>
-<lt>2016-05-09T16:18:53+09:00</lt>
-<lbl>con</lbl>
-<et>2016-06-09T01:00:00+09:00</et>
-<at></at>
-<aa></aa>
-<st>2</st>
-<cr>RC00000000000000001050</cr>
-<cnf>text/x-json</cnf>
-<cs>42</cs>
-<con>{ "time": 1462778231741, "value": "27.9" }</con>
-</m2m:cin>
+	<?xml version="1.0" encoding="UTF-8"?>
+	<m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd">
+	<op>1</op>
+	<fr>S000000000087020984416</fr>
+	<to>/~/middleware/v1_0/ae-device01/cnt-LoRa</to>
+	<ty>4</ty>
+	<rqi>12345</rqi>
+	<pc>
+		<m2m:cin>
+			<cnf>ttv</cnf>
+			<con>120a41dc7efa3104016333050025</con>
+		</m2m:cin>
+	</pc>
+	</m2m:rqp>
+	
+	<m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<rsc>2001</rsc>
+	<rqi>12345</rqi>
+	<pc>
+		<m2m:cin rn="cin-CI00000000000076394900">
+			<ty>4</ty>
+			<ri>CI00000000000076394900</ri>
+			<pi>CT00000000000000003997</pi>
+			<ct>20170524T015219</ct>
+			<lt>20170524T015219</lt>
+			<et>20170623T015219</et>
+			<st>1</st>
+			<cr>S000000000087020984416</cr>
+			<cnf>ttv</cnf>
+			<cs>2</cs>
+			<con>120a41dc7efa3104016333050025</con>
+		</m2m:cin>
+	</pc>
+	</m2m:rsp>
 	```
 
 #### 2. 제어 및 조회하기
