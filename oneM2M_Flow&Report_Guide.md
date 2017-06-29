@@ -175,5 +175,6 @@
 
   * 제어결과는 위젯을 통하여 확인할 수 있다.
   
-![](images_v1.5/control_result.png)
+![](images_v1.5/control_result.png?style=centerme)
 <div style="text-align:center"><img src ="images_v1.5/control_result.png" /></div>
+<div><img align="center" src="images_v1.5/control_result.png"></div>
