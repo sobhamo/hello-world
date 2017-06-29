@@ -15,7 +15,7 @@
 * **Gateway Portal** 은 관리자/개발자가 미들웨어 시스템을 제어하고, 각종 정보를 조회할 수 있는 사용자 인터페이스이며, Node.js 기반의 어플리케이션으로 구현되어 있다.
 
 #### ThingPlug 와의 연동 구조
-ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원한다.
+ThingPlug 와의 Protocol 은 oneM2M 방식을 지원하며, 대시보드와 Gateway Portal 을 통하여 모니터링할 수 있다.
 ![](images_v1.5/v1.5_overview.png)
 
 #### 지원 사양 및 하드웨어
@@ -59,24 +59,24 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원한다.
 * 데비안 패키지 파일을 다운로드 한다.
 
 	```
-	# wget https://github.com/sobhamo/hello-world/raw/master/pkg/devicemiddleware_ARM_1.0.0_1611021741.deb
+	# wget (TBD)
 	```
 
 * 데비안 패키지를 설치한다.(반드시 root 계정을 이용해야 한다.)	
 
 	* 일반적으로 dpkg 명령을 통하여 패키지를 설치한다.
 	```
-	# dpkg -i devicemiddleware_ARM_1.0.0_1610251611.deb
+	# dpkg -i devicemiddleware_ARM_1.5.0_1706251611.deb
 	```
 	* Library dependencies 등의 문제가 발생할 경우 gdebi 를 이용하여 패키지를 설치한다.
 	```
 	# apt-get install gdebi
-	# gdebi devicemiddleware_ARM_1.0.0_1610251611.deb
+	# gdebi devicemiddleware_ARM_1.5.0_1706251611.deb
 	```
 
 #### 패키지 설치 확인
 * 브라우저에서 http://IP-address:8000 번으로 접속하여 다음과 같은 화면(Gateway Portal)이 나오면 모든 설치가 완료된 것이다.  
-![](images/gpIntro.png)
+![](images_v1.5/v1.5_gpIntro.png)
 > 로그인 화면에서 아이디 / 비밀번호 : thingplugadmin / [mac-address(:제외)]
 
 * 최초 로그인시에 계정 등록이 필요하다.
