@@ -18,7 +18,9 @@
 #### 기기 등록 완료
 * 등록이 정상적으로 완료되면 **Step03 디바이스 설정완료** 로 이동된다.
 * 서비스 시작하기를 클릭한다.
+
 ![](images_v1.5/registerCompleted.png)
 
 * 등록이 성공한 기기는 ThingPlug Portal `Develop > 디바이스 연동 > 디바이스 관리` 메뉴에서 아래와 같이 확인이 가능하다.
+
 ![](images_v1.5/checkResult.png)
