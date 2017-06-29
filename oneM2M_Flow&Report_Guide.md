@@ -174,4 +174,5 @@
   ![](images_v1.5/control_create.png)
 
   * 제어결과는 위젯을 통하여 확인할 수 있다.
+  
   ![](images_v1.5/control_result.png)
