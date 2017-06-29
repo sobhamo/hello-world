@@ -8,8 +8,8 @@
 
 #### 기기 등록
 *  **Step02 디바이스 설정** 화면에서 기기를 등록한다.
-*  서비스 ID 는 ThingPlug Portal 에서 `회원가입 > 서비스 매니저 가입하기 > 서비스 정보 입력 > 서비스 ID` 로 설정한다.
-*  디바이스 ID 는 ThingPlug Portal 에서 `Develop > 디바이스 연동 > 디바이스 관리 > 디바이스 등록 > 디바이스 아이디` 로 설정한다.
+*  서비스 ID 는 ThingPlug Portal `회원가입 > 서비스 매니저 가입하기 > 서비스 정보 입력 > 서비스 ID` 로 설정한다.
+*  디바이스 ID 는 ThingPlug Portal `Develop > 디바이스 연동 > 디바이스 관리 > 디바이스 등록 > 디바이스 아이디` 로 설정한다.
 *  ThingPlug ID 는 ThingPlug Portal `로그인 아이디` 로 설정한다.
 *  Credential ID 는 ThingPlug Portal `My page > 회원정보수정 > Credential ID` 로 설정한다.
 
