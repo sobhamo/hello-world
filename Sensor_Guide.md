@@ -78,7 +78,7 @@ typedef struct tagSensor {
     * MaxInterval : 데이터 변화 없어도 허용되는 최대 시간(seconds), 0초이면 무한대로 판단
     * ControlType : 센서 제어 가능 여부
     * TTV_Type : 센서 구분자
-    * TTV_Datatype :  센서 데이터 정의 (https://thingplug.net/IoTPortal/download/allList 서비스플랫폼 데이터포맷정의서 pdf)
+    * TTV_Datatype :  센서 데이터 정의 (https://thingplug.net : Support -> Download -> 서비스플랫폼 데이터포맷정의서 pdf)
     * TTV_Name : 센서 이름 정의
 
 * **SENSOR_CONFIGURATION_T** 구조체 구성표
@@ -195,7 +195,9 @@ humidity,0004,HTU21D,11234,2,3600,2,0x12,0x0a,HUMI
 
 ![](images/thingplug_sensor_ckeck_002.png)
 
-데이터 타입은 URL을 확인하여 설정파일에 대응되는 데이터 타입(0x0a => float)으로 설정한다.
+데이터 타입은 (https://thingplug.net : Support -> Download) 서비스플랫폼 데이터포맷정의서를 확인하여 
+
+설정파일에 대응되는 데이터 타입(0x0a => float)으로 설정한다.
 
 포탈에서 Service->대시보드 로 이동한다. 위젯 추가를 한다. 테이블 위젯을 선택한다.
 
@@ -210,9 +212,6 @@ humidity,0004,HTU21D,11234,2,3600,2,0x12,0x0a,HUMI
 ![](images/thingplug_sensor_ckeck_005.png)
 
 
-
-
-
 ## 3. 센서 제어방법을 설명한다. 
 
 센서 설정 중 LED가 제어대상이다.
@@ -223,11 +222,15 @@ humidity,0004,HTU21D,11234,2,3600,2,0x12,0x0a,HUMI
 
 BBB LED센서는 위와 같이 제어가 수행된다.
 
-포탈에서 Service->대시보드 로 이동한다. 위젯 추가를 한다. 제어 위젯을 선택한다.
+포탈에서 Service->대시보드 로 이동한다. 위젯 추가를 한다. 
+
+제어 위젯을 선택한다.
 
 ![](images/thingplug_sensor_ckeck_007.png)
 
-예시와 같이 등록을 반복하면 아래와 같이 제어 위젯을 설정할 수 있다. 버튼을 누르면 제어가 실행된다.
+예시와 같이 등록을 반복하면 아래와 같이 제어 위젯을 설정할 수 있다. 
+
+버튼을 누르면 제어가 실행된다.
 
 ![](images/thingplug_sensor_ckeck_008.png)
 
