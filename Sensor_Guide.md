@@ -69,7 +69,7 @@ typedef struct tagSensor {
 * 사용자가 관리하고자 하는 센서목록을 정하고, 이를 Sensor Configuration 에 반영하는 작업은 필수이다.
 설정 값을 정리하면 다음과 같다
 
-	* $ALL : { DeviceName } : oneM2M Container 커테이너 생성 이름으로 사용
+	* $ALL : { DeviceName } : oneM2M Container 컨테이너 생성 이름으로 사용
 	* SensorType : 센서의 종류 (예) 온도, 습도
     * SensorID : 같은 종류의 센서를 구분하기 위한 ID 값
     * SensorName : 센서의 모델명 (예) DS18B20, CM1001 [중요!! 센서를 구분하는 기준이된다.]
@@ -77,8 +77,8 @@ typedef struct tagSensor {
     * OperationType : 센서 구동 타입 (예) series,event 
     * MaxInterval : 데이터 변화 없어도 허용되는 최대 시간(seconds), 0초이면 무한대로 판단
     * ControlType : 센서 제어 가능 여부
-    * TTV_Type : 센서 구분자
-    * TTV_Datatype :  센서 데이터 정의 (https://thingplug.net : Support -> Download -> 서비스플랫폼 데이터포맷정의서 pdf)
+    * TTV_Type : 센서 구분자
+    * TTV_Datatype :  센서 데이터 정의 (https://thingplug.net : Support -> Download -> 서비스플랫폼 데이터포맷정의서 pdf)
     * TTV_Name : 센서 이름 정의
 
 * **SENSOR_CONFIGURATION_T** 구조체 구성표
