@@ -13,7 +13,7 @@ ThingPlug oneM2M SDK for Android는 ThingPlug에 연동하고자 하는 device �
 
 ```
 defaultConfig {
-	minSdkVersion 18
+	minSdkVersion 15
 	targetSdkVersion 24
 }
 ```
@@ -111,13 +111,13 @@ TLS 사용을 위해서는 MQTT broker 주소앞에 `ssl://` 을 포함하면 �
 
 TLS 사용 시, ThingPlug의 MQTT broker 주소는 다음과 같습니다.
 ```
-ssl://thingplugtest.skitiot.com
+ssl://thingplug.net
 ```
 TLS를 사용하지 않을 경우, MQTT broker 주소앞에 `tcp://` 를 포함하면 됩니다. 포트번호가 `1883`인 경우 생략 가능합니다.
 
 TLS 미사용 시, ThingPlug의 MQTT broker 주소는 다음과 같습니다.
 ```
-tcp://thingplugtest.skitiot.com
+tcp://thingplug.net
 ```
 
 
@@ -125,17 +125,19 @@ tcp://thingplugtest.skitiot.com
 MQTT 메시지에 사용되어질 정보를 MQTTConfiguration을 통해 설정해야 합니다.
 
 ```java
-MQTTConfiguration config = new MQTTConfiguration(appEUI,
-                toBase,
-                deviceResourceID,
+config = new MQTTConfiguration(serviceId,
+                deviceId,
+                accountId,
+                credentialId,
                 clientId);
 ```
 파라미터 | 설명
 ------------ | -------------
-__appEUI__ | AppEUI
-__toBase__ | to 필드 시작 URL
-__deviceResourceID__ | 장치 고유 ID (ex : MAC-address) 
-__clientId__ | MQTT 연결 clientID
+__serviceId__ | 서비스 ID
+__deviceId__ | 디바이스 ID
+__accountId__ | thingplug 계정 ID 
+__credentialId__ | thingplug 계정 Credential-ID 
+__clientId__ | MQTT 연결을 위한 Client-ID 
 
 ### Connects to an MQTT server
 MQTT 서버에 연결 후, 각종 이벤트 처리를 위한 MQTTProcessor.MQTTListener를 등록해야 합니다.
@@ -144,8 +146,13 @@ MQTT 서버에 연결 후, 각종 이벤트 처리를 위한 MQTTProcessor.MQTTL
 IMQTT mqttService = mqttClient.connect(IMQTT.class, config, new Binder(), new MQTTProcessor.MQTTListener() {
         @Override
         public void onPush(execInstanceControl control) {
-            Log.e(TAG, "push!");
+            Log.e(TAG, "push control!");
         }
+		
+		@Override
+		public void onPush(notification sensorInfo) {
+			Log.e(TAG, "push notificatioin!");
+		}
 
         @Override
         public void onDisconnected() {
@@ -197,19 +204,20 @@ __Binder__ | 메시지 바인딩을 위한 `Binder` 객체
 __MQTTProcessor.MQTTListener__ | MQTT 이벤트 리스너
 
 ### oneM2M API 
-SKT ThingPlug 서버와 oneM2M 통신을 위한 API 는 `tp.skt.onem2m.api.oneM2MAPI.java` 파일에 주로 정의되어 있습니다.
-해당 클래스는 Java Singletone 패턴으로 되어있어서 `oneM2MAPI.getInstance()` 형태로 객체를 가져와 사용하면 됩니다.
+SKT ThingPlug 서버와 oneM2M 통신을 위한 API 는 `tp.skt.onem2m_v1_14.api.oneM2MAPI_V1_14.java` 파일에 주로 정의되어 있습니다.
+해당 클래스는 Java Singletone 패턴으로 되어있어서 `oneM2MAPI_V1_14.getInstance()` 형태로 객체를 가져와 사용하면 됩니다.
 
 함수 | 설명
 ------------ | -------------
 __getInstance()__ | Singletone 객체를 가져온다.
-__tpRegisterDevice__ | 장치를 등록한다. (node 와 remoteCSE 를 등록한다.)
+__tpRegisterDevice__ | 장치를 등록한다. (AE 를 등록한다.)
 __tpRegisterContainer__ | 센서를 등록한다. (container 를 등록한다.)
 __tpRegisterMgmtCmd__ | 제어명령을 등록한다. (mgmtCmd 를 등록한다.)
 __tpAddData__ | 센서정보를 추가한다. (contentInstance 의 content(con) 에 담을 정보를 추가한다.)
 __tpReport__ | 센서정보를 등록한다. (contentInstance 를 등록한다.)
 __tpResult__ | 제어결과를 업데이트한다. (execInstance 를 업데이트한다.)
-> 각 함수별 파라미터 설명은 `tp.skt.onem2m.api.oneM2MAPI.java`에서 확인
+__tpRegisterContainerSubscription__ | 센서정보 노티를 등록한다. (subscription 을 등록한다.)
+> 각 함수별 파라미터 설명은 `tp.skt.onem2m.api.oneM2MAPI_V1_14.java`에서 확인
 
 ### 기기 등록
 기기등록을 위한 `tpRegisterDevice` 함수의 사용예시는 다음과 같으며, 성공 실패 여부는 `MQTTCallback`에 등록된 `onResponse` 와 `onFailure` 이벤트 함수로 확인할 수 있습니다.
@@ -217,17 +225,16 @@ __tpResult__ | 제어결과를 업데이트한다. (execInstance 를 업데이�
 ```java
 /**
  * register device
- * 
- * @param passcode           : passcode
- * @param cseType            : cseType
- * @param requestRechability : requestRechability
+ *
+ * @param deviceId           :	device ID
+ * @param requestRechability :  requestRechability
  */
-public void registerDevice(String passcode, String cseType, String requestRechability) {
-	oneM2MAPI.getInstance().tpRegisterDevice(mqttService, passcode,
-			cseType, requestRechability, new MQTTCallback<remoteCSEResponse>() {
+public void registerDevice(String deviceId, String requestRechability) {
+	oneM2MAPI_V1_14.getInstance().tpRegisterDevice(mqttService, deviceId, 
+			requestRechability, new MQTTCallback<AEResponse>() {
 				@Override
-				public void onResponse(remoteCSEResponse response) {
-					Log.e(TAG, "node & remoteCSE CREATE success!");
+				public void onResponse(AEResponse response) {
+					Log.e(TAG, "AE CREATE success!");
 				}
 
 				@Override
@@ -245,11 +252,12 @@ public void registerDevice(String passcode, String cseType, String requestRechab
 /**
  * register sensor
  * 
+ * @param aei : AE-ID
  * @param containerName : container name
  */
-private void registerSensor(String containerName) {
-	oneM2MAPI.getInstance().tpRegisterContainer(mqttService, containerName,
-			deviceKey, new MQTTCallback<containerResponse>() {
+private void registerSensor(String aei, String containerName) {
+	oneM2MAPI_V1_14.getInstance().tpRegisterContainer(mqttService, aei, 
+			containerName, new MQTTCallback<containerResponse>() {
 				@Override
 				public void onResponse(containerResponse response) {
 					Log.e(TAG, "success!");
@@ -270,14 +278,14 @@ private void registerSensor(String containerName) {
 /**
  * register control
  * 
- * @param mgmtCmdName : mgmtCmd name
- * @param cmdType     : cmdType
- * @param execEnable  : execute enable
- * @param execTarget  : node link
+ * @param aei			: AE-ID
+ * @param mgmtCmdName	: mgmtCmd name
+ * @param cmdType		: cmdType			
+ * @param execTarget	: node link 
  */
-private void registerControl(String mgmtCmdName, String cmdType, String execEnable, String execTarget) {
-	oneM2MAPI.getInstance().tpRegisterMgmtCmd(mqttService, mgmtCmdName,
-			deviceKey, cmdType, execEnable, execTarget, new MQTTCallback<mgmtCmdResponse>() {
+private void registerControl(String aei, String mgmtCmdName, String cmdType, String execTarget) {
+	oneM2MAPI_V1_14.getInstance().tpRegisterMgmtCmd(mqttService, aei, mgmtCmdName,
+			cmdType, execTarget, new MQTTCallback<mgmtCmdResponse>() {
 				@Override
 				public void onResponse(mgmtCmdResponse response) {
 					Log.e(TAG, "success!");
@@ -301,20 +309,21 @@ private void registerControl(String mgmtCmdName, String cmdType, String execEnab
  * @param value : sensor status
  */
 private void addStatus(String value) {
-	oneM2MAPI.getInstance().tpAddData(value);
+	oneM2MAPI_V1_14.getInstance().tpAddData(value);
 }
 
 /**
  * report conent values
  * 
+ * @param aei			: AE-ID
  * @param containerName : container Name
  * @param contentInfo   : content type
  * @param content       : content
  * @param useAddedData  : use Added data flag
  */
-private void report(String containerName, String contentInfo, String content, boolean useAddedData) {
-	oneM2MAPI.getInstance().tpReport(mqttService, containerName,
-			deviceKey, contentInfo, content, useAddedData, new MQTTCallback<contentInstanceResponse>() {
+private void report(String aei, String containerName, String contentInfo, String content, boolean useAddedData) {
+	oneM2MAPI_V1_14.getInstance().tpReport(mqttService, aei, containerName,
+			contentInfo, content, useAddedData, new MQTTCallback<contentInstanceResponse>() {
 				@Override
 				public void onResponse(contentInstanceResponse response) {
 					Log.e(TAG, "success!");
@@ -338,14 +347,14 @@ private void report(String containerName, String contentInfo, String content, bo
 /**
  * control result
  * 
- * @param mgmtCmdName : mgmtCmd Name
- * @param resourceId  : execInstance resource Id
- * @param execResult  : execute result code
- * @param execStatus  : execute status code
+ * @param aei			: AE-ID
+ * @param mgmtCmdName	: mgmtCmd Name
+ * @param resourceId	: execInstance resource Id
+ * @param execResult	: execute result code
  */
-public void controlResult(String mgmtCmdName, String resourceId, String execResult, String execStatus) {
-	oneM2MAPI.getInstance().tpResult(mqttService, mgmtCmdName,
-			deviceKey, resourceId, execResult, execStatus, new MQTTCallback<execInstanceResponse>() {
+public void controlResult(String aei, String mgmtCmdName, String resourceId, String execResult) {
+	oneM2MAPI_V1_14.getInstance().tpResult(mqttService, aei, mgmtCmdName,
+			resourceId, execResult, new MQTTCallback<execInstanceResponse>() {
 				@Override
 				public void onResponse(execInstanceResponse response) {
 					Log.e(TAG, "success!");
