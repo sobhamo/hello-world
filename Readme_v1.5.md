@@ -135,4 +135,4 @@ ThingPlug 와의 Protocol 은 oneM2M 방식을 지원하며, 대시보드와 Gat
 
 #### SDK
 * [oneM2M SDK](SDK)
-* [oneM2M SDK for Android](https://github.com/sobhamo/hello-world/tree/master/SDK/Android)
+* [oneM2M SDK for Android](https://github.com/sobhamo/hello-world/tree/master/SDK_V1_14/Android)
