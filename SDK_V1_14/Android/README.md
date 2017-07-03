@@ -148,11 +148,11 @@ IMQTT mqttService = mqttClient.connect(IMQTT.class, config, new Binder(), new MQ
         public void onPush(execInstanceControl control) {
             Log.e(TAG, "push control!");
         }
-		
-		@Override
-		public void onPush(notification sensorInfo) {
-			Log.e(TAG, "push notificatioin!");
-		}
+
+        @Override
+        public void onPush(notification sensorInfo) {
+            Log.e(TAG, "push notificatioin!");
+        }
 
         @Override
         public void onDisconnected() {
@@ -252,7 +252,7 @@ public void registerDevice(String deviceId, String requestRechability) {
 /**
  * register sensor
  * 
- * @param aei : AE-ID
+ * @param aei           : AE-ID
  * @param containerName : container name
  */
 private void registerSensor(String aei, String containerName) {
@@ -278,10 +278,10 @@ private void registerSensor(String aei, String containerName) {
 /**
  * register control
  * 
- * @param aei			: AE-ID
- * @param mgmtCmdName	: mgmtCmd name
- * @param cmdType		: cmdType			
- * @param execTarget	: node link 
+ * @param aei           : AE-ID
+ * @param mgmtCmdName   : mgmtCmd name
+ * @param cmdType       : cmdType			
+ * @param execTarget    : node link 
  */
 private void registerControl(String aei, String mgmtCmdName, String cmdType, String execTarget) {
 	oneM2MAPI_V1_14.getInstance().tpRegisterMgmtCmd(mqttService, aei, mgmtCmdName,
@@ -315,7 +315,7 @@ private void addStatus(String value) {
 /**
  * report conent values
  * 
- * @param aei			: AE-ID
+ * @param aei           : AE-ID
  * @param containerName : container Name
  * @param contentInfo   : content type
  * @param content       : content
@@ -347,10 +347,10 @@ private void report(String aei, String containerName, String contentInfo, String
 /**
  * control result
  * 
- * @param aei			: AE-ID
- * @param mgmtCmdName	: mgmtCmd Name
- * @param resourceId	: execInstance resource Id
- * @param execResult	: execute result code
+ * @param aei           : AE-ID
+ * @param mgmtCmdName   : mgmtCmd Name
+ * @param resourceId    : execInstance resource Id
+ * @param execResult    : execute result code
  */
 public void controlResult(String aei, String mgmtCmdName, String resourceId, String execResult) {
 	oneM2MAPI_V1_14.getInstance().tpResult(mqttService, aei, mgmtCmdName,
