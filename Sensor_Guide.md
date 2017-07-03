@@ -68,7 +68,9 @@ typedef struct tagSensor {
 * /usr/local/middleware/conf/iot_sensor.conf 정보가 로딩된다.
 * 사용자가 관리하고자 하는 센서목록을 정하고, 이를 Sensor Configuration 에 반영하는 작업은 필수이다.
 설정 값을 정리하면 다음과 같다.
-    * SensorType : 센서의 종류 (예) 온도, 습도
+
+    * $ALL : { DeviceName } : oneM2M Container 커테이너 생성 이름으로 사용
+    * SensorType : 센서의 종류 (예) 온도, 습도
     * SensorID : 같은 종류의 센서를 구분하기 위한 ID 값
     * SensorName : 센서의 모델명 (예) DS18B20, CM1001 [중요!! 센서를 구분하는 기준이된다.]
     * ReadInterval : 센서를 읽는 주기 (milliseconds)
@@ -185,29 +187,40 @@ humidity,0004,HTU21D,11234,2,3600,2,0x12,0x0a,HUMI
 포탈에서 Service->서비스관리->메타데이터관리 로 이동한다.
 ![](images/thingplug_sensor_ckeck_001.png)
 
+센서설정파일의 마지막 3개의 값이 type,datatype,name을 사용한다.
+
+예시에서는 description에 name을 사용하였지만, 사용자 임의 설정이 가능하다.
+
 온도, 습도, 조도에 대한 메타데이터를 등록한다.
+
 ![](images/thingplug_sensor_ckeck_002.png)
 
-센서 설정 파일 예시에서 각 센서별 마지막 3개의 값이 각 type,datatype,name을 사용한다.
-예시에서는 description에 name을 사용하였지만, 사용자 임의 설정이 가능하다.
 데이터 타입은 URL을 확인하여 설정파일에 대응되는 데이터 타입(0x0a => float)으로 설정한다.
-![](images/thingplug_sensor_ckeck_003.png)
 
 포탈에서 Service->대시보드 로 이동한다. 위젯 추가를 한다. 테이블 위젯을 선택한다.
+
+![](images/thingplug_sensor_ckeck_003.png)
+
 ![](images/thingplug_sensor_ckeck_004.png)
 
 예시는 테이블 위젯에 대한 내용이다. 
+
 ![](images/thingplug_sensor_ckeck_005.png)
 
 테이블에 센서 값들이 확인된다.
+
 ![](images/thingplug_sensor_ckeck_006.png)
 
 센서 제어방법을 설명한다. 센서 설정 중 LED가 제어대상이다.
+
 제어에 대한 명세는 센서 드라이버가 구현하기에 따라 다르며, 현재는 BBB LED센서 기준으로 진행한다.
+
 BBB LED센서는 다음과 같이 제어가 수행된다.
+
 ![](images/thingplug_sensor_ckeck_007.png)
 
 포탈에서 Service->대시보드 로 이동한다. 위젯 추가를 한다. 제어 위젯을 선택한다.
+
 ![](images/thingplug_sensor_ckeck_008.png)
 
 예시와 같이 등록을 반복하면 아래와 같이 제어 위젯을 설정할 수 있다. 버튼을 누르면 제어가 실행된다.
