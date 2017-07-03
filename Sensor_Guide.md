@@ -187,7 +187,7 @@ humidity,0004,HTU21D,11234,2,3600,2,0x12,0x0a,HUMI
 포탈에서 Service->서비스관리->메타데이터관리 로 이동한다.
 ![](images/thingplug_sensor_ckeck_001.png)
 
-센서설정파일의 마지막 3개의 값이 type,datatype,name을 사용한다.
+센서설정파일의 마지막 3개의 값이 ttv_type,ttv_datatype,ttv_name을 사용한다.
 
 예시에서는 description에 name을 사용하였지만, 사용자 임의 설정이 가능하다.
 
