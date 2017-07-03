@@ -1,4 +1,4 @@
-ThingPlug oneM2M SDK for Android
+ThingPlug oneM2M v1.14 SDK for Android
 ===
 
 ## Overview
