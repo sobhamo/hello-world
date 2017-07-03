@@ -67,10 +67,10 @@ typedef struct tagSensor {
 * Sensor Configuration 은 SMA 에서 등록될 센서에 대한 설정값을 저장한다.
 * /usr/local/middleware/conf/iot_sensor.conf 정보가 로딩된다.
 * 사용자가 관리하고자 하는 센서목록을 정하고, 이를 Sensor Configuration 에 반영하는 작업은 필수이다.
-설정 값을 정리하면 다음과 같다.
+설정 값을 정리하면 다음과 같다
 
-    * $ALL : { DeviceName } : oneM2M Container 커테이너 생성 이름으로 사용
-    * SensorType : 센서의 종류 (예) 온도, 습도
+	* $ALL : { DeviceName } : oneM2M Container 커테이너 생성 이름으로 사용
+	* SensorType : 센서의 종류 (예) 온도, 습도
     * SensorID : 같은 종류의 센서를 구분하기 위한 ID 값
     * SensorName : 센서의 모델명 (예) DS18B20, CM1001 [중요!! 센서를 구분하는 기준이된다.]
     * ReadInterval : 센서를 읽는 주기 (milliseconds)
@@ -201,28 +201,34 @@ humidity,0004,HTU21D,11234,2,3600,2,0x12,0x0a,HUMI
 
 ![](images/thingplug_sensor_ckeck_003.png)
 
+테이블 위젯 설정은 다음과 같다.
+
 ![](images/thingplug_sensor_ckeck_004.png)
-
-예시는 테이블 위젯에 대한 내용이다. 
-
-![](images/thingplug_sensor_ckeck_005.png)
 
 테이블에 센서 값들이 확인된다.
 
-![](images/thingplug_sensor_ckeck_006.png)
+![](images/thingplug_sensor_ckeck_005.png)
 
-센서 제어방법을 설명한다. 센서 설정 중 LED가 제어대상이다.
+
+
+
+
+## 3. 센서 제어방법을 설명한다. 
+
+센서 설정 중 LED가 제어대상이다.
 
 제어에 대한 명세는 센서 드라이버가 구현하기에 따라 다르며, 현재는 BBB LED센서 기준으로 진행한다.
 
-BBB LED센서는 다음과 같이 제어가 수행된다.
+![](images/thingplug_sensor_ckeck_006.png)
 
-![](images/thingplug_sensor_ckeck_007.png)
+BBB LED센서는 위와 같이 제어가 수행된다.
 
 포탈에서 Service->대시보드 로 이동한다. 위젯 추가를 한다. 제어 위젯을 선택한다.
 
-![](images/thingplug_sensor_ckeck_008.png)
+![](images/thingplug_sensor_ckeck_007.png)
 
 예시와 같이 등록을 반복하면 아래와 같이 제어 위젯을 설정할 수 있다. 버튼을 누르면 제어가 실행된다.
+
+![](images/thingplug_sensor_ckeck_008.png)
 
 
