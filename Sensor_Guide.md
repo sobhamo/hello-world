@@ -169,4 +169,47 @@ SensorManagementAgent 프로젝트는 미들웨어 패키지 설치 후, `/usr/l
 	# service middleware start
 	```
 
+# 예시) middleware 센서 설정 및 Thingplug.net 확인
+
+## 1. middleware에 센서 설정 파일 예시
+온도, 습도, 조도에 대한 설정 예시입니다. 세부사항은 2.2. Sensor Configuration 확인
+```
+$ALL:TTV
+temperature,0002,DS18B20,5432,2,3600,2,0x11,0x0a,TEMP
+light,0003,BH1750,2123,2,3600,2,0x25,0x05,LIGHT
+humidity,0004,HTU21D,11234,2,3600,2,0x12,0x0a,HUMI
+7colorRGBLed,0010,RGB_LED,4454,1,0,2,0x88,0x04,LED
+```
+## 2. Thingplug.net 에서 센서 확인하기
+
+포탈에서 Service->서비스관리->메타데이터관리 로 이동한다.
+![](images/thingplug_sensor_ckeck_001.png)
+
+온도, 습도, 조도에 대한 메타데이터를 등록한다.
+![](images/thingplug_sensor_ckeck_002.png)
+
+센서 설정 파일 예시에서 각 센서별 마지막 3개의 값이 각 type,datatype,name을 사용한다.
+예시에서는 description에 name을 사용하였지만, 사용자 임의 설정이 가능하다.
+데이터 타입은 URL을 확인하여 설정파일에 대응되는 데이터 타입(0x0a => float)으로 설정한다.
+![](images/thingplug_sensor_ckeck_003.png)
+
+포탈에서 Service->대시보드 로 이동한다. 위젯 추가를 한다. 테이블 위젯을 선택한다.
+![](images/thingplug_sensor_ckeck_004.png)
+
+예시는 테이블 위젯에 대한 내용이다. 
+![](images/thingplug_sensor_ckeck_005.png)
+
+테이블에 센서 값들이 확인된다.
+![](images/thingplug_sensor_ckeck_006.png)
+
+센서 제어방법을 설명한다. 센서 설정 중 LED가 제어대상이다.
+제어에 대한 명세는 센서 드라이버가 구현하기에 따라 다르며, 현재는 BBB LED센서 기준으로 진행한다.
+BBB LED센서는 다음과 같이 제어가 수행된다.
+![](images/thingplug_sensor_ckeck_007.png)
+
+포탈에서 Service->대시보드 로 이동한다. 위젯 추가를 한다. 제어 위젯을 선택한다.
+![](images/thingplug_sensor_ckeck_008.png)
+
+예시와 같이 등록을 반복하면 아래와 같이 제어 위젯을 설정할 수 있다. 버튼을 누르면 제어가 실행된다.
+
 
