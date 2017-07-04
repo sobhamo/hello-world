@@ -42,7 +42,7 @@ ThingPlug oneM2M SDK는 소스코드 형태로 제공되며 Application에서의
 	<br/><img src="images/oneM2M_import1.png"/>
 	- `Import .JAR/.AAR Package` 선택
 	<br/><img src="images/oneM2M_import2.png"/>
-	- `SDK-release.aar' 파일 선택 후 `Finish` 
+	- `SDK-release.aar` 파일 선택 후 `Finish` 
 	<br/><img src="images/oneM2M_import3.png"/>
 2. SDK 를 사용할 모듈에 oneM2M SDK 모듈 연결
 	- `build.gradle(Module: app)` 선택
