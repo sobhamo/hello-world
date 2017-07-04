@@ -36,55 +36,72 @@ ThingPlug oneM2M SDK는 소스코드 형태로 제공되며 Application에서의
 여기서 제공되는 Sample App 프로젝트들에는 이미 SDK가 포함되어 있습니다.
 
 1. Project에 oneM2M 모듈 추가
-	- Menu > File > Project Structure... 선택
+	- `Menu > File > Project Structure` 선택
 	<br/><img src="images/oneM2M_import.png"/>
-	- Popup 좌상단의 '+' 버튼 클릭
+	- 좌상단의 '+' 버튼 클릭
 	<br/><img src="images/oneM2M_import1.png"/>
-	- 'Import Gradle Project' 선택
+	- `Import .JAR/.AAR Package` 선택
 	<br/><img src="images/oneM2M_import2.png"/>
-	- SDK folder에 있는 onem2m folder 선택 후 'Finish' 버튼 클릭
+	- `SDK-release.aar' 파일 선택 후 `Finish`
 	<br/><img src="images/oneM2M_import3.png"/>
-2. SDK를 사용할 모듈에 onem2m 모듈 연결
-	- 'Dependencies' tab에서 우측 '+' 버튼 클릭 후 'Module dependency' 선택
+2. SDK 를 사용할 모듈에 oneM2M SDK 모듈 연결
+	- `build.gradle(Module: app)` 선택
 	<br/><img src="images/oneM2M_import4.png"/>
-	- 'onem2m' 모듈 선택 후 'OK' 버튼 클릭
-	<br/><img src="images/oneM2M_import5.png"/>
-	- 'onem2m' 모듈 이 추가됐는지 확인
-	<br/><img src="images/oneM2M_import6.png"/>
+	- `dependencies` 에 아래 내용을 추가
+	
+	```
+	// oneM2M-SDK
+    compile project(':SDK-release')
+    // mqtt
+    compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.0.2'
+    compile('org.eclipse.paho:org.eclipse.paho.android.service:1.0.2') {
+        exclude module: 'support-v4'
+    }
+    // xml
+    compile('org.simpleframework:simple-xml:2.7.+') {
+        exclude module: 'stax'
+        exclude module: 'stax-api'
+        exclude module: 'xpp3'
+    }
+    // json
+    compile 'com.google.code.gson:gson:2.7'
+    // annotation
+    compile 'com.android.support:support-annotations:23.0.0'
+	```	
 
 ### oneM2M SDK import
 
-    import tp.skt.onem2m.api.IMQTT;
-    import tp.skt.onem2m.api.MQTTProcessor;
-    import tp.skt.onem2m.api.oneM2MAPI;
-    import tp.skt.onem2m.binder.mqtt_v1_1.Binder;
-    import tp.skt.onem2m.binder.mqtt_v1_1.Definitions;
-    import tp.skt.onem2m.binder.mqtt_v1_1.Definitions.Operation;
-    import tp.skt.onem2m.binder.mqtt_v1_1.control.execInstanceControl;
-    import tp.skt.onem2m.binder.mqtt_v1_1.request.AE;
-    import tp.skt.onem2m.binder.mqtt_v1_1.request.CSEBase;
-    import tp.skt.onem2m.binder.mqtt_v1_1.request.areaNwkInfo;
-    import tp.skt.onem2m.binder.mqtt_v1_1.request.container;
-    import tp.skt.onem2m.binder.mqtt_v1_1.request.contentInstance;
-    import tp.skt.onem2m.binder.mqtt_v1_1.request.execInstance;
-    import tp.skt.onem2m.binder.mqtt_v1_1.request.locationPolicy;
-    import tp.skt.onem2m.binder.mqtt_v1_1.request.mgmtCmd;
-    import tp.skt.onem2m.binder.mqtt_v1_1.request.node;
-    import tp.skt.onem2m.binder.mqtt_v1_1.request.remoteCSE;
-    import tp.skt.onem2m.binder.mqtt_v1_1.response.AEResponse;
-    import tp.skt.onem2m.binder.mqtt_v1_1.response.CSEBaseResponse;
-    import tp.skt.onem2m.binder.mqtt_v1_1.response.ResponseBase;
-    import tp.skt.onem2m.binder.mqtt_v1_1.response.areaNwkInfoResponse;
-    import tp.skt.onem2m.binder.mqtt_v1_1.response.containerResponse;
-    import tp.skt.onem2m.binder.mqtt_v1_1.response.contentInstanceResponse;
-    import tp.skt.onem2m.binder.mqtt_v1_1.response.execInstanceResponse;
-    import tp.skt.onem2m.binder.mqtt_v1_1.response.locationPolicyResponse;
-    import tp.skt.onem2m.binder.mqtt_v1_1.response.mgmtCmdResponse;
-    import tp.skt.onem2m.binder.mqtt_v1_1.response.nodeResponse;
-    import tp.skt.onem2m.binder.mqtt_v1_1.response.remoteCSEResponse;
-    import tp.skt.onem2m.net.mqtt.MQTTCallback;
-    import tp.skt.onem2m.net.mqtt.MQTTClient;
-    import tp.skt.onem2m.net.mqtt.MQTTConfiguration;
+    import tp.skt.onem2m_v1_14.api.IMQTT;
+    import tp.skt.onem2m_v1_14.api.MQTTProcessor;
+    import tp.skt.onem2m_v1_14.api.oneM2MAPI_V1_14;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.Binder;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.Definitions;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.Definitions.Operation;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.control.execInstanceControl;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.AE;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.CSEBase;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.areaNwkInfo;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.container;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.contentInstance;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.execInstance;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.locationPolicy;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.mgmtCmd;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.node;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.remoteCSE;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.AEResponse;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.CSEBaseResponse;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.ResponseBase;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.areaNwkInfoResponse;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.containerResponse;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.contentInstanceResponse;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.execInstanceResponse;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.locationPolicyResponse;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.mgmtCmdResponse;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.nodeResponse;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.remoteCSEResponse;
+    import tp.skt.onem2m_v1_14.net.mqtt.MQTTCallback;
+    import tp.skt.onem2m_v1_14.net.mqtt.MQTTClient;
+    import tp.skt.onem2m_v1_14.net.mqtt.MQTTConfiguration;
     
 
 ### Setting for MQTT connection
