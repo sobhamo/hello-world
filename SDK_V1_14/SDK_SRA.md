@@ -3,13 +3,13 @@
     * 데이터 변환에 대한 정책을 관리한다. 
 
 ## 2. SRA 폴더 구조
-    * SRA ( root )
-        * SRA.c.h ( 입력 파라메타 기반으로 ttv byte를 생성한다 )
-        * List.c.h ( 리스트 자료구조 )
-        * TTVManager.c.h ( TTV Byte 변환 모듈 )
-        * TTVBuilder.c.h ( TTV Data 변환 모듈 )
-        * TTVDatatype.h ( Datatype 정의 )
-        * TTVDefinitions.h ( TTV 규격 정의 )
+   * SRA ( root )
+   * SRA.c.h ( 입력 파라메타 기반으로 ttv byte를 생성한다 )
+   * List.c.h ( 리스트 자료구조 )
+   * TTVManager.c.h ( TTV Byte 변환 모듈 )
+   * TTVBuilder.c.h ( TTV Data 변환 모듈 )
+   * TTVDatatype.h ( Datatype 정의 )
+   * TTVDefinitions.h ( TTV 규격 정의 )
 
 ## 3. 주요 함수
     * void SRAGetTTV(char **out_buf, char type, char datatype, char *value )
