@@ -76,33 +76,18 @@ ThingPlug oneM2M SDK는 소스코드 형태로 제공되며 Application에서의
     import tp.skt.onem2m_v1_14.api.oneM2MAPI_V1_14;
     import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.Binder;
     import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.Definitions;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.Definitions.Operation;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.control.execInstanceControl;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.push.execInstanceControl;
+    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.push.notification;
     import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.AE;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.CSEBase;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.areaNwkInfo;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.container;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.contentInstance;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.execInstance;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.locationPolicy;
     import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.mgmtCmd;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.node;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.remoteCSE;
     import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.AEResponse;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.CSEBaseResponse;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.ResponseBase;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.areaNwkInfoResponse;
     import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.containerResponse;
     import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.contentInstanceResponse;
     import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.execInstanceResponse;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.locationPolicyResponse;
     import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.mgmtCmdResponse;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.nodeResponse;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.remoteCSEResponse;
     import tp.skt.onem2m_v1_14.net.mqtt.MQTTCallback;
     import tp.skt.onem2m_v1_14.net.mqtt.MQTTClient;
     import tp.skt.onem2m_v1_14.net.mqtt.MQTTConfiguration;
-    
 
 ### Setting for MQTT connection
 MQTT server 와의 연결을 위한 정보를 MQTTClient를 통해 설정해야 합니다.
