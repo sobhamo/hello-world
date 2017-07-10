@@ -8,29 +8,30 @@
   * 인터페이스	: USB 2.0
 ## 지원사양
   1. Footprint
-    * CPU : 50MHz 이상
-    * RAM : 64KB 이상
-    * Flash memory : 256KB 이상
+    + CPU : 50MHz 이상
+    + RAM : 64KB 이상
+    + Flash memory : 256KB 이상
   2. Main Board
     * S7G2 Renesas Synergy™ S7 MCU 32-Bit ARM® Cortex®-M4 Embedded Evaluation Board
     ![image.png](images/renesas_s7g2.png)
 ## Source Tree
-	* ThreadX (project root)
-		* Debug ( elf 파일 및 컴파일 결과물 )
-		* script ( ld 파일 )
-		* src (FreeRTOS 및 WIZnet driver configuration headers)
-			* mbedtls ( tls library )
-			* MQTT ( mqtt library )
-			* oneM2M ( oneM2M library )
-				* net (MQTT handler)
-				* Versions (ThingPlug oneM2M v1.14 API)
-			* sample
-				* MA (ManagementAgent)
-				* SMA (SensorManagementAgent)
-				* SRA (ServiceReadyAgent)
-			* synergy_gen ( auto generated source code )
-		* synergy ( board & driver source )
-		* synergy_cfg ( board & driver configuration source )
+
++ ThreadX (project root)
+	+ Debug ( elf 파일 및 컴파일 결과물 )
+		+ script ( ld 파일 )
+		+ src (FreeRTOS 및 WIZnet driver configuration headers)
+			+ mbedtls ( tls library )
+			+ MQTT ( mqtt library )
+			+ oneM2M ( oneM2M library )
+				+ net (MQTT handler)
+				+ Versions (ThingPlug oneM2M v1.14 API)
+			+ sample
+				+ MA (ManagementAgent)
+				+ SMA (SensorManagementAgent)
+				+ SRA (ServiceReadyAgent)
+			+ synergy_gen ( auto generated source code )
+		+ synergy ( board & driver source )
+		+ synergy_cfg ( board & driver configuration source )
 # Project build
 ## IDE Setting & Build & Run
 1. https://synergygallery.renesas.com -> 개발툴 -> e2studio ISDE -> 다운로드
