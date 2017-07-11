@@ -41,8 +41,7 @@
 			+ __include__ (library headers)
 			+ __src__ (oneM2M library source)
 				+ __net__ (MQTT handler)
-				+ __oneM2M_V1__ (ThingPlug oneM2M v1 API)
-				+ __oneM2M_V1_12__ (ThingPlug oneM2M v1.12 API)
+				+ __oneM2M_V1_14__ (ThingPlug oneM2M v1.12 API)
 	+ __Middlewares__
 		+ __Third_Party__
 			+ __FreeRTOS__ (FreeRTOS source)
