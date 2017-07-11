@@ -73,7 +73,9 @@
 8. 메뉴바->실행->재게를 누르면 프로그램이 동작한다.
 9. 실행 로그 확인
 	+ Serial 통신 프로그램(ex. Putty, Tera Term 등)을 사용해서 프로그램 로그 확인
-	(※ sample code의 main.c 파일에서 지정한 speed와 맞춰 환경을 설정해야 글자가 깨져 보이지 않음)
+	
+	(※ sample code의 main.c 파일에서 지정한 bit rate 맞춰 환경설정해야 글자가 깨져 보이지 않음)
+	
 	![serial_log.png](/SDK_V1_14/images/serial_log.png)
 
 Copyright (c) 2017 SK Telecom Co., Ltd. All Rights Reserved.
