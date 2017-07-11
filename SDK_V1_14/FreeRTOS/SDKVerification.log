@@ -1,0 +1,252 @@
+[1970-01-01 00:00:03] [..\Library\oneM2M\src\net\MQTT_handler.c] [162] [INFO]: IP address is 192.168.0.17
+[1970-01-01 00:00:03] [..\Library\oneM2M\src\net\MQTT_handler.c] [163] [INFO]: MAC address is 00 08 DC 00 00 00
+[1970-01-01 00:00:03] [..\Library\oneM2M\src\net\MQTT_handler.c] [164] [INFO]: Gateway address is 192.168.0.1
+[1970-01-01 00:00:03] [..\Library\oneM2M\src\net\MQTT_handler.c] [165] [INFO]: Subnet Mask is 255.255.255.0
+[1970-01-01 00:00:03] [..\Library\oneM2M\src\net\MQTT_handler.c] [166] [INFO]: DNS Server is 8.8.8.8
+[1970-01-01 00:00:03] [..\Library\oneM2M\src\net\MQTT_handler.c] [237] [INFO]: MQTT Connected
+[1970-01-01 00:00:03] [..\Src\oneM2M\SDKVerification.c] [414] [INFO]: MQTTConnected
+[1970-01-01 00:00:03] [..\Library\oneM2M\src\net\MQTT_handler.c] [248] [INFO]: MQTT Request Subscribe topic : /oneM2M/req_msg/middleware/sptektest1_device01
+[1970-01-01 00:00:03] [..\Library\oneM2M\src\net\MQTT_handler.c] [248] [INFO]: MQTT Request Subscribe topic : /oneM2M/resp/sptektest1_device01/middleware
+[1970-01-01 00:00:03] [..\Src\oneM2M\SDKVerification.c] [418] [INFO]: MQTTSubscribed
+[1970-01-01 00:00:03] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [118] [INFO]: ty : 5, op : 2, fr : S, to : /~/middleware/v1_0
+[1970-01-01 00:00:03] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [182] [INFO]: GenerateRequestId : 100001
+
+[1970-01-01 00:00:03] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [301] [INFO]:
+ <payload> <?xml version="1.0" encoding="UTF-8"?><m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>2</op><fr>S</fr><to>/~/middleware/v1_0</to><rqi>100001</rqi></m2m:rqp>
+[1970-01-01 00:00:03] [..\Library\oneM2M\src\net\MQTT_handler.c] [294] [INFO]: handleMQTTPublishMessage()
+[1970-01-01 00:00:03] [..\Src\oneM2M\SDKVerification.c] [431] [INFO]: MQTTMessageDelivered
+[1970-01-01 00:00:03] [..\Src\oneM2M\SDKVerification.c] [564] [INFO]: tpSDKCreate result : 0
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\net\MQTT_handler.c] [347] [INFO]: handleMQTTYield()
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <443>
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>2000</rsc><rqi>100001</rqi><pc><m2m:cb rn="v1_0"><ty>5</ty><ri>CB00000000000000000056</ri><ct>20170510T005742</ct><lt>20170525T042933</lt><et>30</et><acpi>AP00000000000000003630</acpi><csi>/middleware</csi><srt>1 2 3 4 5 8 12 14 16 23</srt><poa>http://127.0.0.1:9000/middleware/v1_0</poa><isp>true</isp></m2m:cb></pc></m2m:rsp>
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: rsc
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: 2000
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [118] [INFO]: ty : 2, op : 1, fr : S, to : /~/middleware/v1_0
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [182] [INFO]: GenerateRequestId : 100002
+
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [301] [INFO]:
+ <payload> <?xml version="1.0" encoding="UTF-8"?><m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>1</op><fr>S</fr><to>/~/middleware/v1_0</to><ty>2</ty><rqi>100002</rqi><pc><m2m:ae rn="device01"><api>OVpJcnExclNzdThFelBCUitNSU1Rd1lZZlZkTXJyNHdLejRCb0FtNFpSQ1dnRWVYVU52ZVZaT2tvZXNUc2JmYw==</api><poa>mqtt://oneM2M/req_msg/middleware/sptektest1_device01</poa><rr>true</rr><ni>device01</ni><mga>mqtt://sptektest1_device01</mga></m2m:ae></pc></m2m:rqp>
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\net\MQTT_handler.c] [294] [INFO]: handleMQTTPublishMessage()
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [431] [INFO]: MQTTMessageDelivered
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <668>
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>2001</rsc><rqi>100002</rqi><pc><m2m:ae rn="ae-device01"><ty>2</ty><ri>AE00000000000000000736</ri><pi>CB00000000000000000056</pi><ct>20170711T081408</ct><lt>20170711T081408</lt><acpi>AP00000000000000003983</acpi><et>99991231T000000</et><api>OVpJcnExclNzdThFelBCUitNSU1Rd1lZZlZkTXJyNHdLejRCb0FtNFpSQ1dnRWVYVU52ZVZaT2tvZXNUc2JmYw==</api><aei>S000000000061474937736</aei><poa>mqtt://oneM2M/req_msg/middleware/sptektest1_device01</poa><rr>true</rr><nl>ND00000000000000002232</nl><ni>device01</ni><mga>mqtt://sptektest1_device01</mga></m2m:ae></pc></m2m:rsp>
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: rsc
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: 2001
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: aei
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: S000000000061474937736
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: nl
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: ND00000000000000002232
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [118] [INFO]: ty : 3, op : 1, fr : S000000000061474937736, to : /~/middleware/v1_0/ae-device01
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [182] [INFO]: GenerateRequestId : 100003
+
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [301] [INFO]:
+ <payload> <?xml version="1.0" encoding="UTF-8"?><m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>1</op><fr>S000000000061474937736</fr><to>/~/middleware/v1_0/ae-device01</to><ty>3</ty><rqi>100003</rqi><pc><m2m:cnt rn="TTV"></m2m:cnt></pc></m2m:rqp>
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\net\MQTT_handler.c] [294] [INFO]: handleMQTTPublishMessage()
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [431] [INFO]: MQTTMessageDelivered
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <403>
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>2001</rsc><rqi>100003</rqi><pc><m2m:cnt rn="cnt-TTV"><ty>3</ty><ri>CT00000000000000004229</ri><pi>AE00000000000000000736</pi><ct>20170711T081408</ct><lt>20170711T081408</lt><et>99991231T000000</et><st>0</st><cr>S000000000061474937736</cr><cni>0</cni><cbs>0</cbs></m2m:cnt></pc></m2m:rsp>
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: rsc
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: 2001
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [118] [INFO]: ty : 12, op : 1, fr : S000000000061474937736, to : /~/middleware/v1_0
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [182] [INFO]: GenerateRequestId : 100004
+
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [301] [INFO]:
+ <payload> <?xml version="1.0" encoding="UTF-8"?><m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>1</op><fr>S000000000061474937736</fr><to>/~/middleware/v1_0</to><ty>12</ty><rqi>100004</rqi><pc><m2m:mgc rn="device01"><cmt>1</cmt><ext>ND00000000000000002232</ext></m2m:mgc></pc></m2m:rqp>
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\net\MQTT_handler.c] [294] [INFO]: handleMQTTPublishMessage()
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [431] [INFO]: MQTTMessageDelivered
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <405>
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>2001</rsc><rqi>100004</rqi><pc><m2m:mgc rn="mgc-device01"><ty>12</ty><ri>MC00000000000000003828</ri><pi>CB00000000000000000056</pi><ct>20170711T081408</ct><lt>20170711T081408</lt><et>99991231T000000</et><cmt>1</cmt><exe>false</exe><ext>ND00000000000000002232</ext></m2m:mgc></pc></m2m:rsp>
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: rsc
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: 2001
+[1970-01-01 00:00:04] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [118] [INFO]: ty : 23, op : 1, fr : S000000000061474937736, to : /~/middleware/v1_0/ae-device01/cnt-TTV
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [182] [INFO]: GenerateRequestId : 100005
+
+[1970-01-01 00:00:04] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [301] [INFO]:
+ <payload> <?xml version="1.0" encoding="UTF-8"?><m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>1</op><fr>S000000000061474937736</fr><to>/~/middleware/v1_0/ae-device01/cnt-TTV</to><ty>23</ty><rqi>100005</rqi><pc><m2m:sub rn="SDK"><enc><net>3</net></enc><nu>mqtt://sptektest1_device01</nu><nct>1</nct></m2m:sub></pc></m2m:rqp>
+[1970-01-01 00:00:05] [..\Library\oneM2M\src\net\MQTT_handler.c] [294] [INFO]: handleMQTTPublishMessage()
+[1970-01-01 00:00:05] [..\Src\oneM2M\SDKVerification.c] [431] [INFO]: MQTTMessageDelivered
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\net\MQTT_handler.c] [347] [INFO]: handleMQTTYield()
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <409>
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>2001</rsc><rqi>100005</rqi><pc><m2m:sub rn="sub-SDK"><ty>23</ty><ri>SS00000000000000000733</ri><pi>CT00000000000000004229</pi><ct>20170711T081408</ct><lt>20170711T081408</lt><et>99991231T000000</et><enc><net>3</net></enc><nu>mqtt://sptektest1_device01</nu><nct>1</nct></m2m:sub></pc></m2m:rsp>
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: rsc
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: 2001
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [118] [INFO]: ty : 4, op : 1, fr : S000000000061474937736, to : /~/middleware/v1_0/ae-device01/cnt-TTV
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [182] [INFO]: GenerateRequestId : 100006
+
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [301] [INFO]:
+ <payload> <?xml version="1.0" encoding="UTF-8"?><m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>1</op><fr>S000000000061474937736</fr><to>/~/middleware/v1_0/ae-device01/cnt-TTV</to><ty>4</ty><rqi>100006</rqi><pc><m2m:cin><cnf>text</cnf><con>45</con></m2m:cin></pc></m2m:rqp>
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\net\MQTT_handler.c] [294] [INFO]: handleMQTTPublishMessage()
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [431] [INFO]: MQTTMessageDelivered
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <741>
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>1</op><fr>S000000000061474937736</fr><to>sptektest1_device01</to><rqi>156bf374-99e6-4aa0-a267-f6c004e42375</rqi><pc><sgn><nev><rep><cin rn="cin-CI00000000000076988116"><ty>4</ty><ri>CI00000000000076988116</ri><pi>CT00000000000000004229</pi><ct>20170711T081412</ct><lt>20170711T081412</lt><et>20170810T081412</et><st>1</st><cr>S000000000061474937736</cr><cnf>text</cnf><cs>2</cs><con>45</con></cin></rep><om><op>5</op><or>S000000000061474937736</or></om></nev><sur>/~/middleware/v1_0/ae-device01/cnt-TTV/sub-SDK</sur></sgn></pc></m2m:rqp>
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: ri
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: CI00000000000076988116
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [118] [INFO]: ty : 2, op : 3, fr : S000000000061474937736, to : /~/middleware/v1_0/ae-device01
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [182] [INFO]: GenerateRequestId : 100007
+
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [301] [INFO]:
+ <payload> <?xml version="1.0" encoding="UTF-8"?><m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>3</op><fr>S000000000061474937736</fr><to>/~/middleware/v1_0/ae-device01</to><rqi>100007</rqi><pc><m2m:ae><poa>http://</poa><rr>false</rr></m2m:ae></pc></m2m:rqp>
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\net\MQTT_handler.c] [294] [INFO]: handleMQTTPublishMessage()
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <436>
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>2001</rsc><rqi>100006</rqi><pc><m2m:cin rn="cin-CI00000000000076988116"><ty>4</ty><ri>CI00000000000076988116</ri><pi>CT00000000000000004229</pi><ct>20170711T081412</ct><lt>20170711T081412</lt><et>20170810T081412</et><st>1</st><cr>S000000000061474937736</cr><cnf>text</cnf><cs>2</cs><con>45</con></m2m:cin></pc></m2m:rsp>
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: rsc
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: 2001
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [118] [INFO]: ty : 3, op : 3, fr : S000000000061474937736, to : /~/middleware/v1_0/ae-device01/cnt-TTV
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [182] [INFO]: GenerateRequestId : 100008
+
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [301] [INFO]:
+ <payload> <?xml version="1.0" encoding="UTF-8"?><m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>3</op><fr>S000000000061474937736</fr><to>/~/middleware/v1_0/ae-device01/cnt-TTV</to><rqi>100008</rqi><pc><m2m:cnt><lbl>lbl</lbl></m2m:cnt></pc></m2m:rqp>
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\net\MQTT_handler.c] [294] [INFO]: handleMQTTPublishMessage()
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [431] [INFO]: MQTTMessageDelivered
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <624>
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>2004</rsc><rqi>100007</rqi><pc><m2m:ae rn="ae-device01"><ty>2</ty><ri>AE00000000000000000736</ri><pi>CB00000000000000000056</pi><ct>20170711T081408</ct><lt>20170711T081412</lt><acpi>AP00000000000000003983</acpi><et>99991231T000000</et><api>OVpJcnExclNzdThFelBCUitNSU1Rd1lZZlZkTXJyNHdLejRCb0FtNFpSQ1dnRWVYVU52ZVZaT2tvZXNUc2JmYw==</api><aei>S000000000061474937736</aei><poa>http://</poa><rr>false</rr><nl>ND00000000000000002232</nl><ni>device01</ni><mga>mqtt://sptektest1_device01</mga></m2m:ae></pc></m2m:rsp>
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: rsc
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: 2004
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [118] [INFO]: ty : 12, op : 3, fr : S000000000061474937736, to : /~/middleware/v1_0/mgc-device01
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [182] [INFO]: GenerateRequestId : 100009
+
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [301] [INFO]:
+ <payload> <?xml version="1.0" encoding="UTF-8"?><m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>3</op><fr>S000000000061474937736</fr><to>/~/middleware/v1_0/mgc-device01</to><rqi>100009</rqi><pc><m2m:mgc><dc>test</dc></m2m:mgc></pc></m2m:rqp>
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\net\MQTT_handler.c] [294] [INFO]: handleMQTTPublishMessage()
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [431] [INFO]: MQTTMessageDelivered
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <417>
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>2004</rsc><rqi>100008</rqi><pc><m2m:cnt rn="cnt-TTV"><ty>3</ty><ri>CT00000000000000004229</ri><pi>AE00000000000000000736</pi><ct>20170711T081408</ct><lt>20170711T081412</lt><lbl>lbl</lbl><et>99991231T000000</et><st>1</st><cr>S000000000061474937736</cr><cni>0</cni><cbs>0</cbs></m2m:cnt></pc></m2m:rsp>
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: rsc
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: 2004
+[1970-01-01 00:00:08] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+[1970-01-01 00:00:08] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [118] [INFO]: ty : 23, op : 3, fr : S000000000061474937736, to : /~/middleware/v1_0/ae-device01/cnt-TTV/sub-SDK
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [182] [INFO]: GenerateRequestId : 100010
+
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [301] [INFO]:
+ <payload> <?xml version="1.0" encoding="UTF-8"?><m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>3</op><fr>S000000000061474937736</fr><to>/~/middleware/v1_0/ae-device01/cnt-TTV/sub-SDK</to><rqi>100010</rqi><pc><m2m:sub><nct>2</nct></m2m:sub></pc></m2m:rqp>
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\net\MQTT_handler.c] [294] [INFO]: handleMQTTPublishMessage()
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [431] [INFO]: MQTTMessageDelivered
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <418>
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>2004</rsc><rqi>100009</rqi><pc><m2m:mgc rn="mgc-device01"><ty>12</ty><ri>MC00000000000000003828</ri><pi>CB00000000000000000056</pi><ct>20170711T081408</ct><lt>20170711T081412</lt><et>99991231T000000</et><dc>test</dc><cmt>1</cmt><exe>false</exe><ext>ND00000000000000002232</ext></m2m:mgc></pc></m2m:rsp>
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: rsc
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: 2004
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [118] [INFO]: ty : 23, op : 4, fr : S000000000061474937736, to : /~/middleware/v1_0/ae-device01/cnt-TTV/sub-SDK
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [182] [INFO]: GenerateRequestId : 100011
+
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [301] [INFO]:
+ <payload> <?xml version="1.0" encoding="UTF-8"?><m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>4</op><fr>S000000000061474937736</fr><to>/~/middleware/v1_0/ae-device01/cnt-TTV/sub-SDK</to><rqi>100011</rqi></m2m:rqp>
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\net\MQTT_handler.c] [294] [INFO]: handleMQTTPublishMessage()
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [431] [INFO]: MQTTMessageDelivered
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <409>
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>2004</rsc><rqi>100010</rqi><pc><m2m:sub rn="sub-SDK"><ty>23</ty><ri>SS00000000000000000733</ri><pi>CT00000000000000004229</pi><ct>20170711T081408</ct><lt>20170711T081412</lt><et>99991231T000000</et><enc><net>3</net></enc><nu>mqtt://sptektest1_device01</nu><nct>2</nct></m2m:sub></pc></m2m:rsp>
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: rsc
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: 2004
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [118] [INFO]: ty : 4, op : 4, fr : S000000000061474937736, to : /~/middleware/v1_0/ae-device01/cnt-TTV/cin-CI00000000000076988116
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [182] [INFO]: GenerateRequestId : 100012
+
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [301] [INFO]:
+ <payload> <?xml version="1.0" encoding="UTF-8"?><m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>4</op><fr>S000000000061474937736</fr><to>/~/middleware/v1_0/ae-device01/cnt-TTV/cin-CI00000000000076988116</to><rqi>100012</rqi></m2m:rqp>
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\net\MQTT_handler.c] [294] [INFO]: handleMQTTPublishMessage()
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [431] [INFO]: MQTTMessageDelivered
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <153>
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>2002</rsc><rqi>100011</rqi></m2m:rsp>
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: rsc
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: 2002
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [118] [INFO]: ty : 3, op : 4, fr : S000000000061474937736, to : /~/middleware/v1_0/ae-device01/cnt-TTV
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [182] [INFO]: GenerateRequestId : 100013
+
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [301] [INFO]:
+ <payload> <?xml version="1.0" encoding="UTF-8"?><m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>4</op><fr>S000000000061474937736</fr><to>/~/middleware/v1_0/ae-device01/cnt-TTV</to><rqi>100013</rqi></m2m:rqp>
+[1970-01-01 00:00:09] [..\Library\oneM2M\src\net\MQTT_handler.c] [294] [INFO]: handleMQTTPublishMessage()
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [431] [INFO]: MQTTMessageDelivered
+[1970-01-01 00:00:09] [..\Src\oneM2M\SDKVerification.c] [431] [INFO]: MQTTMessageDelivered
+[1970-01-01 00:00:12] [..\Library\oneM2M\src\net\MQTT_handler.c] [347] [INFO]: handleMQTTYield()
+[1970-01-01 00:00:12] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:12] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <153>
+[1970-01-01 00:00:12] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:12] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>2002</rsc><rqi>100013</rqi></m2m:rsp>
+[1970-01-01 00:00:12] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: rsc
+[1970-01-01 00:00:12] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: 2002
+[1970-01-01 00:00:12] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+[1970-01-01 00:00:12] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [118] [INFO]: ty : 12, op : 4, fr : S000000000061474937736, to : /~/middleware/v1_0/mgc-device01
+[1970-01-01 00:00:12] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [182] [INFO]: GenerateRequestId : 100014
+
+[1970-01-01 00:00:12] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [301] [INFO]:
+ <payload> <?xml version="1.0" encoding="UTF-8"?><m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>4</op><fr>S000000000061474937736</fr><to>/~/middleware/v1_0/mgc-device01</to><rqi>100014</rqi></m2m:rqp>
+[1970-01-01 00:00:12] [..\Library\oneM2M\src\net\MQTT_handler.c] [294] [INFO]: handleMQTTPublishMessage()
+[1970-01-01 00:00:12] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:12] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <153>
+[1970-01-01 00:00:12] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:12] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>2002</rsc><rqi>100012</rqi></m2m:rsp>
+[1970-01-01 00:00:12] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: rsc
+[1970-01-01 00:00:12] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: 2002
+[1970-01-01 00:00:12] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+[1970-01-01 00:00:12] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [118] [INFO]: ty : 12, op : 4, fr : S000000000061474937736, to : /~/middleware/v1_0/mgc-device01_firmware
+[1970-01-01 00:00:12] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [182] [INFO]: GenerateRequestId : 100015
+
+[1970-01-01 00:00:12] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [301] [INFO]:
+ <payload> <?xml version="1.0" encoding="UTF-8"?><m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>4</op><fr>S000000000061474937736</fr><to>/~/middleware/v1_0/mgc-device01_firmware</to><rqi>100015</rqi></m2m:rqp>
+[1970-01-01 00:00:12] [..\Library\oneM2M\src\net\MQTT_handler.c] [294] [INFO]: handleMQTTPublishMessage()
+[1970-01-01 00:00:12] [..\Src\oneM2M\SDKVerification.c] [431] [INFO]: MQTTMessageDelivered
+[1970-01-01 00:00:12] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:12] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <153>
+[1970-01-01 00:00:12] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:12] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>2002</rsc><rqi>100014</rqi></m2m:rsp>
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: rsc
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: 2002
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+[1970-01-01 00:00:13] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [118] [INFO]: ty : 2, op : 4, fr : S000000000061474937736, to : /~/middleware/v1_0/ae-device01
+[1970-01-01 00:00:13] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [182] [INFO]: GenerateRequestId : 100016
+
+[1970-01-01 00:00:13] [..\Library\oneM2M\src\oneM2M_V1_14\oneM2M_V1_14.c] [301] [INFO]:
+ <payload> <?xml version="1.0" encoding="UTF-8"?><m2m:rqp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.onem2m.org/xml/protocols CDT-requestPrimitive-v1_0_0.xsd"><op>4</op><fr>S000000000061474937736</fr><to>/~/middleware/v1_0/ae-device01</to><rqi>100016</rqi></m2m:rqp>
+[1970-01-01 00:00:13] [..\Library\oneM2M\src\net\MQTT_handler.c] [294] [INFO]: handleMQTTPublishMessage()
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [431] [INFO]: MQTTMessageDelivered
+[1970-01-01 00:00:13] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <185>
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>4004</rsc><rqi>100015</rqi><RSM>Unregistered MgmtCmd.</RSM></m2m:rsp>
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: rsc
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: 4004
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: RSM
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: Unregistered MgmtCmd.
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [431] [INFO]: MQTTMessageDelivered
+[1970-01-01 00:00:13] [..\Library\oneM2M\src\net\MQTT_handler.c] [55] [INFO]: CallMessageArrivedCallback()
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [435] [INFO]: MQTTMessageArrived <153>
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [439] [INFO]: payload->
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [440] [INFO]: <m2m:rsp xmlns:m2m="http://www.onem2m.org/xml/protocols" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><rsc>2002</rsc><rqi>100016</rqi></m2m:rsp>
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [364] [INFO]: rsc
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [365] [INFO]: 2002
+[1970-01-01 00:00:13] [..\Src\oneM2M\SDKVerification.c] [521] [INFO]: =============================================================================
+
