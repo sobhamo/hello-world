@@ -55,10 +55,10 @@
 # Project build
 
 ## IDE 설정
-
-Atollic TrueSTUDIO for ARM
-	+ http://atollic.com/resources/downloads/
-	+ FreeRTOS homepage에서 추천하고 있음, Eclipse 기반의 embeded 환경 프로그램 개발 tool
+	
+	+ Atollic TrueSTUDIO for ARM
+		+ http://atollic.com/resources/downloads/
+		+ FreeRTOS homepage에서 추천하고 있음, Eclipse 기반의 embeded 환경 프로그램 개발 tool
 
 ## Sample code import
 
