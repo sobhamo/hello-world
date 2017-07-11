@@ -75,6 +75,6 @@
 	
 	(※ sample code의 main.c 파일에서 지정한 bit rate 맞춰 환경설정해야 글자가 깨져 보이지 않음)
 	
-	![serial_log.png](/SDK_V1_14/images/serial_log.png)
+	https://github.com/sobhamo/hello-world/blob/master/SDK_V1_14/FreeRTOS/SDKVerification.log
 
 Copyright (c) 2017 SK Telecom Co., Ltd. All Rights Reserved.
