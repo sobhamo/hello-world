@@ -30,7 +30,7 @@ net | MQTT/TLS 관련 소스 폴더
 
 Library
 ---
-MQTT TLS 지원을 위하여 라이브러리를 사용한다.
+MQTT TLS 지원을 위하여 라이브러리를 사용합니다.
 
 지원 환경 | TLS 지원 | MQTT 라이브러리 | TLS 라이브러리
 ------------ | ------------- | ------------- | -------------
@@ -46,13 +46,13 @@ __FreeRTOS__ |	__O__ | paho | mbed TLS
 
 API Documentation
 ---
-* [Download](https://github.com/sobhamo/hello-world/raw/master/SDK_Simple/linux/docs/ThingPlug_Simple_SDK_API-20171103.pdf)
+* [Download](https://github.com/sobhamo/hello-world/raw/master/SDK_Simple/docs/ThingPlug_Simple_SDK_API-20171103.pdf)
 
 Samples
 ---
-SDK를 사용한 예제들은 다음과 같다.
+SDK를 사용한 예제들은 다음과 같습니다.
 
-* __ThingPlug_Simple_SDK.c__ or __ThingPlug_Simple_SDK.ino__ : ThingPlug Simple SDK 에서 지원하는 API를 모두 테스트해볼 수 있다.
+* __ThingPlug_Simple_SDK.c__ or __ThingPlug_Simple_SDK.ino__ : ThingPlug Simple SDK 에서 지원하는 API를 모두 테스트해볼 수 있습니다.
 	+ __MA__ (미들웨어의 ManagementAgent 역할)
 	+ __SRA__ (미들웨어의 SensorManagementAgent 역할)
 	+ __SMA__ (미들웨어의 ServiceReadyAgent 역할)

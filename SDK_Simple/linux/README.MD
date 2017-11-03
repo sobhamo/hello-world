@@ -1,84 +1,69 @@
-ThingPlug onM2M SDK
+Linux (+TLS)
 ===
-본 챕터는 SKT ThingPlug oneM2M SDK 구조와 API 및 사용법에 대하여 서술한다.
 
-Architect
+지원 사양
 ---
-![](images/sdk_architect.png)
+1. 지원 보드
+	+ Raspberry PI 2/3, BeagleBone-Black, etc 
 
-SDK Source Tree
----
-+ __oneM2M__ (ThingPlug oneM2M SDK root folder)
-	+ __docs__ (Developer guide & API documentation)
-	+ __samples__ (Samples including makefiles for build)
-	+ __lib__ (external libraries - paho, TLS, )
-	+ __include__ (Header files of the ThingPlug oneM2M SDK)
-	+ __src__ (Source files of the ThingPlug oneM2M SDK)
-		+ __oneM2M_V1__ (Source files of the ThingPlug oneM2M v1)
-		+ __oneM2M_V1_12__ (Source files of the ThingPlug oneM2M v1.12)
-		+ __net__ (Source files of the MQTTS)
-			
-Description
----
-Directory | Description
------------- | -------------
-oneM2M | ThingPlug oneM2M SDK 루트 폴더
-docs | 개발 가이드와 API document 폴더
-samples |	SDK 를 이용한 샘플 Application들 폴더
-lib | 외부 라이브러리나 소스들 폴더
-include | 동작에 필요한 header 파일들 폴더
-src | 전체 소스 폴더
-oneM2M_V1 | ThingPlug oneM2M v1 관련 소스 폴더
-oneM2M_V1_12 | ThingPlug oneM2M v1.12 관련 소스 폴더
-net | MQTT/TLS 관련 소스들 폴더
+2. 최소 동작 환경
+	+ CPU : 100MHz
+	+ RAM : 5MB
+	+ Flash memory : 5MB
 
 Library
 ---
-MQTT TLS 지원을 위하여 라이브러리를 사용한다.
+다음 라이브러리들을 사용합니다.
 
-지원 환경 | TLS 지원 | MQTT 라이브러리 | TLS 라이브러리
------------- | ------------- | ------------- | -------------
-__ARM/Linux__ | __O__ | paho | OpenSSL(to be installed.)
-__ARDUINO__ | __X__ | paho |
-__mbed__ |	__O__ | paho | mbed TLS
-__FreeRTOS__ |	__O__ | paho | mbed TLS
+라이브러리 | 용도 | 홈페이지
+------------ | ------------- | -------------
+__cJSON__ | JSON parser | [https://github.com/DaveGamble/cJSON](https://github.com/DaveGamble/cJSON)
 
-* [paho Homepage](https://eclipse.org/paho/)
-* [OpenSSL Homepage](https://www.openssl.org/)
-* [mbedTLS Homepage](https://tls.mbed.org/)
+Sample build
+===
 
-
-API Documentation
+Configuration 설정(oneM2M/samples/Configuration.h)
 ---
-* [Download](https://github.com/sobhamo/hello-world/raw/master/SDK/linux/docs/ThingPlug_oneM2M_SDK_API-20161025.pdf)
+MQTT broker 와의 연결을 위한 정보 및 디바이스 정보를 설정해야 합니다.
+```c
+#define MQTT_HOST                           "223.39.123.140"
+#define MQTT_SECURE_HOST                    "ssl://223.39.123.140"
+#define MQTT_PORT                           1883
+#define MQTT_SECURE_PORT                    8883						
+#define MQTT_KEEP_ALIVE                     120
+#define MQTT_ENABLE_SERVER_CERT_AUTH        0
+#define LOGIN_NAME                          ""
+#define LOGIN_PASSWORD                      ""
+#define SIMPLE_SERVICE_NAME                 ""
+#define SIMPLE_DEVICE_NAME                  ""
+#define SIMPLE_DEVICE_ID                    ""
+```
 
-Samples
+변수 | 값 | 용도 
+------------ | ------------- | -------------
+__LOGIN_NAME__ | ThingPlug 포털을 통해 발급받은 디바이스 토큰 | MQTT 로그인 사용자명으로 사용
+__LOGIN_PASSWORD__ | 빈값 | MQTT 로그인 사용자 비밀번호로 사용
+__SIMPLE_SERVICE_NAME_ | ThingPlug 포털을 통해 등록한 서비스명 | MQTT Topic 에 사용
+__SIMPLE_DEVICE_NAME_ | ThingPlug 포털을 통해 등록한 디바이스명 | MQTT Topic 에 사용
+__SIMPLE_DEVICE_ID_ | ThingPlug 포털을 통해 등록한 디바이스의 UUID | attribute, telemetry 구독에 사용
+
+ThingPlug_Simple_SDK 빌드(samples/ThingPlug_Simple_SDK.c)
 ---
-SDK를 사용한 예제들은 다음과 같다.
+1. 빌드
 
-* __SDKVerification.c__ or __SDKVerification.ino__ : oneM2M API 전체를 검증한다.
+	```
+	# make
+	```
+	
+2. 빌드 클리어
 
-* __ThingPlug_oneM2M_SDK.c__ or __ThingPlug_oneM2M_SDK.ino__ : 좀 더 실질적인 사용예제로 등록작업 위주로 되어있다.
-	+ __MA__ (미들웨어의 ManagementAgent 역할)
-	+ __SRA__ (미들웨어의 SensorManagementAgent 역할)
-	+ __SMA__ (미들웨어의 ServiceReadyAgent 역할)
+	```
+	# make clean
+	```
+	
+3. 실행
 
-
-* __MA__ 
-	* 디바이스 등록부터 해지까지 다음 Sequence Diagram 구조로 동작한다.
-![](images/sdk_ma.png)
-
-* __SRA__ & __SMA__
-	* [SRA](SDK_SRA.md) 
-	* [SMA](SDK_SMA.md)
-
-
-Supported Devices
----
-지원 가능한 디바이스별 자세한 내용은 다음과 같다.
-
-* [ARM/Linux](linux)
-* [ARDUINO](Arduino)
-* [mbed](mbed)
-* [FreeRTOS](FreeRTOS)
-
+	```
+	# output/ThingPlug_Simple_SDK
+	```
+	
