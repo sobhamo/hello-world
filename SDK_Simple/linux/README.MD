@@ -17,7 +17,8 @@ Library
 
 라이브러리 | 용도 | 홈페이지
 ------------ | ------------- | -------------
-__cJSON__ | JSON parser | [https://github.com/DaveGamble/cJSON](https://github.com/DaveGamble/cJSON)
+__cJSON__ | JSON parser | [cJSON Homepage](https://github.com/DaveGamble/cJSON)
+__paho__ | MQTT | [paho Homepage](https://eclipse.org/paho/)
 
 Sample build
 ===
