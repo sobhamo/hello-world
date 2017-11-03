@@ -22,7 +22,7 @@ __cJSON__ | JSON parser | [https://github.com/DaveGamble/cJSON](https://github.c
 Sample build
 ===
 
-Configuration 설정(oneM2M/samples/Configuration.h)
+Configuration 설정(samples/Configuration.h)
 ---
 MQTT broker 와의 연결을 위한 정보 및 디바이스 정보를 설정해야 합니다.
 ```c
