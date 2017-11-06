@@ -9,7 +9,7 @@ Architect
 SDK Source Tree
 ---
 + __Simple__ (ThingPlug Simple SDK root folder)
-	+ __samples__ (Samples including makefiles for build)
+	+ __middleware__ (middleware sample including makefiles for build)
 	+ __lib__ (external libraries - paho, TLS, )
 	+ __include__ (Header files of the ThingPlug Simple SDK)
 	+ __src__ (Source files of the ThingPlug Simple SDK)
@@ -21,7 +21,7 @@ Description
 Directory | Description
 ------------ | -------------
 Simple | ThingPlug Simple SDK 루트 폴더
-samples |	SDK 를 이용한 샘플 Application들 폴더
+middleware |	SDK 를 이용한 미들웨어 샘플 폴더
 lib | 외부 라이브러리나 소스들 폴더
 include | 동작에 필요한 header 파일들 폴더
 src | 전체 소스 폴더
@@ -48,9 +48,9 @@ API Documentation
 ---
 * [Download](https://github.com/sobhamo/hello-world/raw/master/SDK_Simple/docs/ThingPlug_Simple_SDK_API-20171103.pdf)
 
-Samples
+Middleware
 ---
-SDK를 사용한 예제들은 다음과 같습니다.
+SDK를 사용한 미들웨어 예제는 다음과 같습니다.
 
 * __ThingPlug_Simple_SDK.c__ or __ThingPlug_Simple_SDK.ino__ : ThingPlug Simple SDK 에서 지원하는 API를 모두 테스트해볼 수 있습니다.
 	+ __MA__ (미들웨어의 ManagementAgent 역할)
