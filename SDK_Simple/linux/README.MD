@@ -3,11 +3,11 @@ Linux (+TLS)
 
 지원 사양
 ---
-1. 지원 보드
+1. 테스트 환경
 	+ Raspberry PI 2/3, BeagleBone-Black, etc 
 
 2. 최소 동작 환경
-	+ CPU : 100MHz
+	+ CPU : ARM architecture / 100MHz
 	+ RAM : 5MB
 	+ Flash memory : 5MB
 
