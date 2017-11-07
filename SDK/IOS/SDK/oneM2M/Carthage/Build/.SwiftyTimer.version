@@ -1,0 +1,10 @@
+{
+  "xcodeVersion" : "Xcode 8.3.3\nBuild version 8E3004b",
+  "commitish" : "77325e642504ccf1d1dde022da35c384764958e7",
+  "iOS" : [
+    {
+      "hash" : "a2e4f77d65b4522988864baa4bb0cabe058bd05749527690aa6d4e8319928424",
+      "name" : "SwiftyTimer"
+    }
+  ]
+}
