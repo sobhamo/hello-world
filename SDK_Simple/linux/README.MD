@@ -37,7 +37,6 @@ MQTT broker 와의 연결을 위한 정보 및 디바이스 정보를 설정해�
 #define LOGIN_PASSWORD                      ""
 #define SIMPLE_SERVICE_NAME                 ""
 #define SIMPLE_DEVICE_NAME                  ""
-#define SIMPLE_DEVICE_ID                    ""
 ```
 
 변수 | 값 | 용도 
@@ -46,7 +45,6 @@ __LOGIN_NAME__ | ThingPlug 포털을 통해 발급받은 디바이스 토큰 | M
 __LOGIN_PASSWORD__ | 빈값 | MQTT 로그인 사용자 비밀번호로 사용
 __SIMPLE_SERVICE_NAME__ | ThingPlug 포털을 통해 등록한 서비스명 | MQTT Topic 에 사용
 __SIMPLE_DEVICE_NAME__ | ThingPlug 포털을 통해 등록한 디바이스명 | MQTT Topic 에 사용
-__SIMPLE_DEVICE_ID__ | ThingPlug 포털을 통해 등록한 디바이스의 UUID | attribute, telemetry 구독에 사용
 
 ThingPlug_Simple_SDK 빌드(samples/ThingPlug_Simple_SDK.c)
 ---
