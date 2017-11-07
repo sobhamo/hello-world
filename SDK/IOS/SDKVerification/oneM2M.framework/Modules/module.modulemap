@@ -1,0 +1,10 @@
+framework module oneM2M {
+  umbrella header "oneM2M.h"
+
+  export *
+  module * { export * }
+}
+
+module oneM2M.Swift {
+    header "oneM2M-Swift.h"
+}
