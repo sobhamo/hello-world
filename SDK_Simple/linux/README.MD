@@ -61,8 +61,8 @@ __SIMPLE_DEVICE_NAME__ | ThingPlug 포털을 통해 등록한 디바이스명 | 
 
 ```c
 void telemetry() {
-	double temp = 27.05;
-	int humi = 75;
+    double temp = 27.05;
+    int humi = 75;
 
     ArrayElement* arrayElement = calloc(1, sizeof(ArrayElement));    
     arrayElement->capacity = 2;
@@ -86,7 +86,7 @@ void telemetry() {
 }
 
 void attribute() {
-	char *status = "stopped";
+    char *status = "stopped";
 	
     ArrayElement* arrayElement = calloc(1, sizeof(ArrayElement));    
     arrayElement->capacity = 1;
