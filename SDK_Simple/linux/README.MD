@@ -93,7 +93,7 @@ void attribute() {
     arrayElement->element = calloc(1, sizeof(Element) * arrayElement->capacity);
     
     Element* item = arrayElement->element + arrayElement->total;
-    item->type = JSON_TYPE_LONG;
+    item->type = JSON_TYPE_STRING;
     item->name = "control";
     item->value = status;
     arrayElement->total++;
