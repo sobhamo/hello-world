@@ -46,6 +46,65 @@ __LOGIN_PASSWORD__ | 빈값 | MQTT 로그인 사용자 비밀번호로 사용
 __SIMPLE_SERVICE_NAME__ | ThingPlug 포털을 통해 등록한 서비스명 | MQTT Topic 에 사용
 __SIMPLE_DEVICE_NAME__ | ThingPlug 포털을 통해 등록한 디바이스명 | MQTT Topic 에 사용
 
+
+디바이스 디스크립터와 Attribute, Telemetry
+---
+각 디바이스의 고유의 특성을 전달하는 Attribute 변경 통지와 센서를 통해 측정된 값을 전달하는 Telemetry 전송 데이터는 ThingPlug 포털에 등록한 디바이스 디스크립터의 내용과 1:1 매칭되어야 합니다.
+다음은 포털에 등록된 디바이스 디스크립터와 매칭된 소스코드 예시입니다.
+
+```json
+"Airconditioner": {
+     "telemetries": [{"name":"temperature","type":"number"}, {"name":"humidity","type":"int"}],
+     "attribute": [{"name":"control","type":"string"}]
+ }
+```
+
+```c
+void telemetry() {
+	double temp = 27.05;
+	int humi = 75;
+
+    ArrayElement* arrayElement = calloc(1, sizeof(ArrayElement));    
+    arrayElement->capacity = 2;
+    arrayElement->element = calloc(1, sizeof(Element) * arrayElement->capacity);
+
+    Element* item = arrayElement->element + arrayElement->total;
+    item->type = JSON_TYPE_DOUBLE;
+    item->name = "temperature";	
+    item->value = &temp;
+    arrayElement->total++;
+
+    item = arrayElement->element + arrayElement->total;
+    item->type = JSON_TYPE_LONG;
+    item->name = "humidity";
+    item->value = &humi;
+    arrayElement->total++;
+    
+    tpSimpleTelemetry(arrayElement, 0);
+    free(arrayElement->element);
+    free(arrayElement);
+}
+
+void attribute() {
+	char *status = "stopped";
+	
+    ArrayElement* arrayElement = calloc(1, sizeof(ArrayElement));    
+    arrayElement->capacity = 1;
+    arrayElement->element = calloc(1, sizeof(Element) * arrayElement->capacity);
+    
+    Element* item = arrayElement->element + arrayElement->total;
+    item->type = JSON_TYPE_LONG;
+    item->name = "control";
+    item->value = status;
+    arrayElement->total++;
+
+    tpSimpleAttribute(arrayElement);
+    free(arrayElement->element);
+    free(arrayElement);
+}
+
+```
+
 ThingPlug_Simple_SDK 빌드(samples/ThingPlug_Simple_SDK.c)
 ---
 1. 빌드
