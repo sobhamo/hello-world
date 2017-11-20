@@ -1,38 +1,58 @@
-Linux (+TLS)
+Arduino
 ===
 
 지원 사양
 ---
 1. 테스트 환경
-	+ Raspberry PI 2/3, BeagleBone-Black, etc 
+	+ Genuino 101(Arduino 101) 
+	+ CPU : 32MHz Intel Curie
+	+ RAM : 24KB
+	+ Flash memory : 196KB
 
 2. 최소 동작 환경
-	+ CPU : ARM architecture / 100MHz
-	+ RAM : 5MB
-	+ Flash memory : 5MB
+	+ CPU : 32MHz
+	+ RAM : 24KB
+	+ Flash memory : 126KB
+	
+3. Ethernet board
+	+ Arduino Ethernet Shield R3
 
 Library
 ---
 다음 라이브러리들을 사용합니다.
 
-라이브러리 | 용도 | 홈페이지
+일반 라이브러리 | 용도 | 홈페이지
 ------------ | ------------- | -------------
 __cJSON__ | JSON parser | [cJSON Homepage](https://github.com/DaveGamble/cJSON)
-__paho__ | MQTT | [paho Homepage](https://eclipse.org/paho/)
+__paho__ | MQTT Embedded-c | [paho Homepage](https://eclipse.org/paho/)
+
+아두이노 라이브러리 | 용도 
+------------ | -------------
+__Ethernet__ (IDE 설치 시 자동설치) | Ethernet 
+__Time__ | Time
+
+Project build
+===
+
+IDE 설정
+---
+1. IDE 설치하기
+	+ https://www.arduino.cc/
+	+ site -> software(menu) -> Download the Arduino IDE(by OS) -> install
+2. IDE 라이브러리 추가하기
+	+ https://www.arduino.cc/en/Guide/Libraries
+	+ 라이브러리 설치에 대한 자세한 설명은 공식사이트를 참고한다.
 
 Sample build
 ===
 
-Configuration 설정(samples/Configuration.h)
+Configuration 설정(Simple/examples/middleware/src/MA/Configuration.h)
 ---
 MQTT broker 와의 연결을 위한 정보 및 디바이스 정보를 설정해야 합니다.
 ```c
 #define MQTT_HOST                           "218.53.242.111"
-#define MQTT_SECURE_HOST                    "ssl://218.53.242.111"
-#define MQTT_PORT                           1883
-#define MQTT_SECURE_PORT                    8883						
+#define MQTT_PORT                           1883					
 #define MQTT_KEEP_ALIVE                     120
-#define MQTT_ENABLE_SERVER_CERT_AUTH        0
 #define LOGIN_NAME                          ""
 #define SIMPLE_SERVICE_NAME                 ""
 #define SIMPLE_DEVICE_NAME                  ""
@@ -103,12 +123,12 @@ void attribute() {
 
 ```
 
-ThingPlug_Simple_SDK 빌드(samples/ThingPlug_Simple_SDK.c)
+Arduino SimpleAPI example 실행하기
 ---
-1. 빌드
+1. 라이브러리 추가하기 (windows)
 
 	```
-	# make
+	C:\Users\SPTek\Documents\Arduino\libraries에 Simple폴더 및 Time 폴더를 복사한다.
 	```
 	
 2. 빌드 클리어
