@@ -38,7 +38,7 @@ IDE 설정
 ---
 1. IDE 설치하기
 	+ https://www.arduino.cc/
-	+ site -> software(menu) -> Download the Arduino IDE(by OS) -> install
+	+ arduino homepage -> software(menu) -> Download the Arduino IDE(by OS) -> install
 2. IDE 라이브러리 추가하기
 	+ https://www.arduino.cc/en/Guide/Libraries
 	+ 라이브러리 설치에 대한 자세한 설명은 공식사이트를 참고한다.
@@ -128,17 +128,20 @@ Arduino SimpleAPI example 실행하기
 1. 라이브러리 추가하기 (windows)
 
 	```
-	C:\Users\SPTek\Documents\Arduino\libraries에 Simple폴더 및 Time 폴더를 복사한다.
+	C:\Users\{$USER}\Documents\Arduino\libraries에 Simple 폴더 및 Time 폴더를 복사한다.
 	```
 	
-2. 빌드 클리어
+2. 라이브러리 예제 실행하기 (주의 : IDE 재부팅 필수)
 
 	```
-	# make clean
+	Arduino IDE 실행
+	Menu File tab->example(예제)->SimpleSDK->middleware
 	```
 	
-3. 실행
+3. 컴파일 및 실행 
 
 	```
-	# output/ThingPlug_Simple_SDK
+	사전 작업 : Configuration.h 파일 작성필수
+	컴파일 : 메뉴->스케치->컴파일->업로드
+	실행 : 업로드가 완료되면 자동으로 실행됨.
 	```
