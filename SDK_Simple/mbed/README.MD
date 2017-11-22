@@ -131,6 +131,7 @@ ThingPlug_Simple_SDK 빌드
 
 	```
 	다운로드 된 bin파일을 mbed에 복사
+	
 	시리얼을 통해 로그 확인	
 	```
 
