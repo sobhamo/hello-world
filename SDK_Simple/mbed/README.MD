@@ -24,12 +24,14 @@ Library
 라이브러리 | 용도 | 홈페이지
 ------------ | ------------- | -------------
 __cJSON__ | JSON parser | [cJSON Homepage](https://github.com/DaveGamble/cJSON)
-__paho__ | MQTT | [paho Homepage](https://eclipse.org/paho/)
+__paho__ | MQTT Embedded-c | [paho Homepage](https://eclipse.org/paho/)
+__mbedtls__ | Mbed Tls | [mbed tls Homepage](https://tls.mbed.org/)
+__WIZnet_library__ | Ethernet Shield | [WIZnet Homepage](http://www.wiznet.io/ko/product-item/w5500/)
 
 Sample build
 ===
 
-Configuration 설정(samples/Configuration.h)
+Configuration 설정(Library/SimpleAPI/middleware/middleware/Configuration.h)
 ---
 MQTT broker 와의 연결을 위한 정보 및 디바이스 정보를 설정해야 합니다.
 ```c
