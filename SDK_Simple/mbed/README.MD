@@ -111,23 +111,26 @@ void attribute() {
 
 ```
 
-ThingPlug_Simple_SDK 빌드(samples/ThingPlug_Simple_SDK.c)
+ThingPlug_Simple_SDK 빌드
 ---
-1. 빌드
+1. git clone 후 폴더를 압축한다.
+2. web compiler : https://os.mbed.com/compiler
 
 	```
-	# make
+	import -> Upload -> AddFile[파일선택] -> 압축한 파일 선택 -> Import!
 	```
 	
-2. 빌드 클리어
+2. 빌드
 
 	```
-	# make clean
+	Complie 버튼클릭
+	bin 파일 다운로드
 	```
 	
 3. 실행
 
 	```
-	# output/ThingPlug_Simple_SDK
+	다운로드 된 bin파일을 mbed에 복사
+	시리얼을 통해 로그 확인	
 	```
-	
+
