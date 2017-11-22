@@ -4,12 +4,18 @@ MBED (+TLS)
 지원 사양
 ---
 1. 테스트 환경
-	+ NUCLEO-F411RE 
+	+ STMicroelectronics Nucleo-64 F411RE
+	+ CPU : 100MHz ARM 32-bit Cortex-M4 with FPU
+	+ RAM : 128KB
+	+ Flash memory : 512KB
 
 2. 최소 동작 환경
-	+ CPU : ARM architecture / 100MHz
-	+ RAM : 5MB
-	+ Flash memory : 5MB
+	+ CPU : 50MHz 이상
+	+ RAM : 64KB 이상
+	+ Flash memory : 256KB 이상
+
+3. Ethernet board
+	+ WIZnet W5500 
 
 Library
 ---
