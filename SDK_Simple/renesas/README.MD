@@ -131,24 +131,13 @@ void attribute() {
 
 ThingPlug_Simple_SDK 빌드
 ---
-1. git clone 후 폴더를 압축한다.
-2. web compiler : https://os.mbed.com/compiler
-
+1. 빌드
 	```
-	import -> Upload -> AddFile[파일선택] -> 압축한 파일 선택 -> Import!
+	Project -> Build Project
 	```
-	
-2. 빌드
-
+2. 실행
 	```
-	Complie 버튼클릭
-	bin 파일 다운로드
-	```
-	
-3. 실행
-
-	```
-	다운로드 된 bin파일을 mbed에 복사하면 자동 실행
-	시리얼 로그 확인	
+	Run -> Debug -> Renesas GDB Hardware Debugging -> J-Link ARM ->  R7FS7G27G, R7FS7G27H 
+	Run -> Resume
 	```
 
