@@ -167,7 +167,10 @@ ThingPlug_Simple_SDK 빌드
     ![freertos_ide_02.png](../images/freertos_ide_02.png)
 2. 빌드하기
     + 메뉴바 : 프로젝트 -> Build Project
+    ![freertos_ide_03.png](../images/freertos_ide_03.png)
 3. 실행하기
     + 메뉴바 : 실행 -> 디버그
+    ![freertos_ide_04.png](../images/freertos_ide_04.png)
     + 메뉴바 : 실행 -> 재개
+    ![freertos_ide_05.png](../images/freertos_ide_05.png)
 
