@@ -22,10 +22,34 @@ __paho__ | MQTT Embedded-c | [paho Homepage](https://eclipse.org/paho/)
 __mbedtls__ | Mbed Tls | [mbed tls Homepage](https://tls.mbed.org/)
 __WIZnet_library__ | Ethernet Shield | [WIZnet Homepage](http://www.wiznet.io/ko/product-item/w5500/)
 
+IDE 설정
+---
+1. IDE 설치하기
+	+ https://synergygallery.renesas.com/
+	+ Synergy Software Package
+	+ 개발툴 -> e²studio
+	+ 개발툴 -> Renesas SSC
+	+ 라이센스
+	+ https://synergygallery.renesas.com/media/products/1/224/en-US/r01us0315eu0100-synergy-ssp-v130.pdf
+	+ User Manual 확인하여 설치 (Chapter3 Starting Development)
+	
+2. IDE에 프로젝스 import 하기
+	+ 메뉴바 : File -> import -> Existing Projects into Workspace -> git clone 폴더 선택 -> threadX 프로젝트 선택
+	+ configuration.xml 선택 -> Generate Project Content 
+	+ src/synergy_gen/user_thread.c 의 g_sf_comms0_err_callback_internal 소스코드 수정
+	```
+	void g_sf_comms0_err_callback_internal(void * p_instance, void * p_data);
+	extern char gStopConsole;
+	void g_sf_comms0_err_callback_internal(void * p_instance, void * p_data)
+	{
+	    gStopConsole = 1;
+	}
+	```
+	
 Sample build
 ===
 
-Configuration 설정(Library/SimpleAPI/middleware/middleware/Configuration.h)
+Configuration 설정(src/SimpleAPI/middleware/Configuration.h)
 ---
 MQTT broker 와의 연결을 위한 정보 및 디바이스 정보를 설정해야 합니다.
 ```c
