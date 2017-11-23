@@ -163,6 +163,8 @@ ThingPlug_Simple_SDK 빌드
 
 1. IDE에 프로젝스 import 하기
     + 메뉴바 : 파일 -> 가져오기 -> 기존 프로젝트를 작업공간으로 -> git clone 폴더 선택 -> FreeRTOS 프로젝트 선택
+    ![freertos_ide_01.png](../images/freertos_ide_01.png)
+    ![freertos_ide_02.png](../images/freertos_ide_02.png)
 2. 빌드하기
     + 메뉴바 : 프로젝트 -> Build Project
 3. 실행하기
