@@ -1,0 +1,221 @@
+<?xml version="1.0" ?>
+<synergyModuleDescription>
+	<config id="config.framework.sf_wifi_rtl8189em_v2" path="ssp_cfg/framework/sf_wifi_rtl8189em_cfg.h" version="0">
+		<property default="config.framework.sf_wifi_v2.param_checking_enable.bsp" display="Parameter Checking" id="config.framework.sf_wifi_v2.param_checking_enable">
+			<option display="Default (BSP)" id="config.framework.sf_wifi_v2.param_checking_enable.bsp" value="(BSP_CFG_PARAM_CHECKING_ENABLE)"/>
+			<option display="Enabled" id="config.framework.sf_wifi_v2.param_checking_enable.enabled" value="(1)"/>
+			<option display="Disabled" id="config.framework.sf_wifi_v2.param_checking_enable.disabled" value="(0)"/>
+		</property>
+		<property default="config.framework.sf_wifi_v2.debug_uart_support_rtl8189em.disabled" display="Debug on UART Support" id="config.framework.sf_wifi_v2.debug_uart_support_rtl8189em">
+			<option display="Enabled" id="config.framework.sf_wifi_v2.debug_uart_support_rtl8189em.enabled" value="(1)"/>
+			<option display="Disabled" id="config.framework.sf_wifi_v2.debug_uart_support_rtl8189em.disabled" value="(0)"/>
+		</property>
+		<content>
+		#define SF_WIFI_RTL8189EM_CFG_PARAM_CHECKING_ENABLE ${config.framework.sf_wifi_v2.param_checking_enable}
+		#define SF_WIFI_RTL8189EM_CFG_DEBUG_UART_ENABLE  ${config.framework.sf_wifi_v2.debug_uart_support_rtl8189em}
+		</content>
+	</config>
+	<module config="config.framework.sf_wifi_rtl8189em_v2" display="Framework|Networking|Wi-Fi|${module.framework.sf_wifi_v2.name} RTL8189EM Wi-Fi Device Driver on sf_wifi_rtl8189em" id="module.framework.sf_wifi_rtl8189em_v2" version="1">
+		<constraint display="Module instances must have unique names">
+			"${interface.framework.sf_wifi_v2.${module.framework.sf_wifi_v2.name}}" === "1"
+		</constraint>
+		<requires interface="_rtos" />
+		<requires id="module.framework.sf_wifi_v2.requires.spi" interface="interface.driver.spi" display="Add SPI Driver" >
+			<override property="module.driver.spi.bit_order" value= "module.driver.spi.bit_order.bit_order_msb_first"/>
+			<override property="module.driver.spi.clk_phase" value= "module.driver.spi.clk_phase.clk_phase_edge_odd"/>
+            <override property="module.driver.spi.clk_polarity" value= "module.driver.spi.clk_polarity.clk_polarity_low"/>
+            <override property="module.driver.spi.mode_fault" value= "module.driver.spi.mode_fault.mode_fault_error_disable"/>
+			<override property="module.driver.spi.operating_mode" value= "module.driver.spi.operating_mode.mode_master"/>
+			<override property="module.driver.spi.rspi_clksyn" value= "module.driver.spi.rspi_clksyn.spi_operation"/>
+			<override property="module.driver.spi.rspi_comm" value= "module.driver.spi.rspi_comm.full_duplex"/>
+			<override property="module.driver.spi.sslp0" value= "module.driver.spi.sslp0.low"/>
+			<override property="module.driver.spi.sslp1" value= "module.driver.spi.sslp1.high"/>
+			<override property="module.driver.spi.sslp2" value= "module.driver.spi.sslp2.high"/>
+			<override property="module.driver.spi.sslp3" value= "module.driver.spi.sslp3.high"/>
+			<override property="module.driver.spi.looback1" value= "module.driver.spi.looback1.normal"/>
+			<override property="module.driver.spi.looback2" value= "module.driver.spi.looback2.normal"/>
+			<override property="module.driver.spi.mosi_idle_enable" value= "module.driver.spi.mosi_idle_enable.disable"/>
+			<override property="module.driver.spi.mosi_idle_value" value= "module.driver.spi.mosi_idle_value.low"/>
+			<override property="module.driver.spi.parity_enable" value= "module.driver.spi.parity_enable.disable"/>
+			<override property="module.driver.spi.parity_mode" value= "module.driver.spi.parity_mode.odd"/>
+			<override property="module.driver.spi.ssl_select" value= "module.driver.spi.ssl_select.zero"/>
+			<override property="module.driver.spi.ssl_level_keep" value= "module.driver.spi.ssl_level_keep.keep"/>
+			<override property="module.driver.spi.clock_delay_enable" value= "module.driver.spi.clock_delay_enable.enable"/>
+			<override property="module.driver.spi.clock_delay_val" value= "module.driver.spi.clock_delay_val.one"/>
+			<override property="module.driver.spi.rspi_ssl_neg_delay_state" value= "module.driver.spi.rspi_ssl_neg_delay_state.disable"/>
+			<override property="module.driver.spi.rspi_ssl_neg_delay_count" value= "module.driver.spi.rspi_ssl_neg_delay_count.one"/>
+			<override property="module.driver.spi.rspi_next_access_delay_state" value= "module.driver.spi.rspi_next_access_delay_state.disable"/>
+			<override property="module.driver.spi.rspi_next_access_delay_count" value= "module.driver.spi.rspi_next_access_delay_count.one"/>
+			<override property="module.driver.spi.p_callback" value= "rtl8189em_spi_callback"/>
+		</requires>
+        <requires id="module.framework.sf_wifi_v2.requires.external_irq" interface="interface.driver.external_irq" display="Add ICU Driver">
+			<override property="module.driver.external_irq.interrupt_enable" value= "module.driver.external_irq.interrupt_enable.true"/>
+			<override property="module.driver.external_irq.filter_enable" value= "module.driver.external_irq.filter_enable.false"/>
+			<override property="module.driver.external_irq.p_callback" value= "wlan_irq_callback"/>
+			<override property="module.driver.external_irq.pclk_div" value= "module.driver.external_irq.pclk_div.pclk_div_by_64"/>
+			<override property="module.driver.external_irq.trigger" value= "module.driver.external_irq.trigger.trig_falling"/>
+		</requires>
+		<requires id="module.framework.sf_wifi_v2.requires.uart" interface="interface.driver.uart" display="Add UART Driver" >
+		    <override property="module.driver.uart.external_rts_operation" value= "module.driver.uart.external_rts_operation.disabled"/>
+			<override property="module.driver.uart.uart_rx_enable" value= "module.driver.uart.uart_rx_enable.enabled"/>
+            <override property="module.driver.uart.uart_tx_enable" value= "module.driver.uart.uart_tx_enable.enabled"/>
+            <override property="module.driver.uart.baud_rate" value= "9600"/>
+			<override property="module.driver.uart.data_bits" value= "module.driver.uart.data_bits.data_bits_8"/>
+			<override property="module.driver.uart.parity" value= "module.driver.uart.parity.parity_off"/>
+			<override property="module.driver.uart.stop_bits" value= "module.driver.uart.stop_bits.stop_bits_1"/>
+			<override property="module.driver.uart.ctsrts_en" value= "module.driver.uart.ctsrts_en.false"/>
+			<override property="module.driver.uart.callback" value= "user_uart_callback"/>
+			<override property="module.driver.uart.callback.rts_pin_ctrl" value= "NULL"/>
+			<override property="module.driver.uart.clk_src" value= "module.driver.uart.clk_src.int_clk"/>
+			<override property="module.driver.uart.rx_edge_start" value= "module.driver.uart.rx_edge_start.true"/>
+		</requires>
+		<provides interface="interface.framework.sf_wifi_v2" />
+		<provides interface="interface.framework.sf_wifi_rtl8189em_v2"/>
+		<provides interface="interface.framework.sf_wifi_v2.${module.framework.sf_wifi_v2.name}" />
+		<provides interface="interface.framework.sf_wifi_rtl8189em_v2.${module.framework.sf_wifi_v2.name}" />
+		<property default="g_sf_wifi${_instance}" display="Name" id="module.framework.sf_wifi_v2.name">
+			<constraint display="Name must be a valid C symbol">testSymbol("${module.framework.sf_wifi_v2.name}")</constraint>
+		</property>
+		<property default="module.framework.sf_wifi_v2.hw_mode.802_11n" display="Hardware Mode" id="module.framework.sf_wifi_v2.hw_mode">
+			<option display="802.11b" id="module.framework.sf_wifi_v2.hw_mode.802_11b" value="SF_WIFI_INTERFACE_HW_MODE_11B"/>
+			<option display="802.11g" id="module.framework.sf_wifi_v2.hw_mode.802_11g" value="SF_WIFI_INTERFACE_HW_MODE_11G"/>
+			<option display="802.11n" id="module.framework.sf_wifi_v2.hw_mode.802_11n" value="SF_WIFI_INTERFACE_HW_MODE_11N"/>
+		</property>
+		<property default="10" display="Transmit (Tx) Power (Valid Range 1-17)" id="module.framework.sf_wifi_v2.tx_power">
+			<constraint display="Value must be in range 1 to 17">
+                testInteger("${module.framework.sf_wifi_v2.tx_power}") &amp;&amp; ("${module.framework.sf_wifi_v2.tx_power}" &gt; 0) &amp;&amp; ("${module.framework.sf_wifi_v2.tx_power}" &lt; 18)
+            </constraint>
+		</property>
+		<property default="module.framework.sf_wifi_v2.rts.enabled" display="Ready/Clear To Send (RTS/CTS) Flag" id="module.framework.sf_wifi_v2.rts">
+			<option display="Disabled" id="module.framework.sf_wifi_v2.rts.disabled" value="SF_WIFI_RTS_DISABLE"/>
+			<option display="Enabled" id="module.framework.sf_wifi_v2.rts.enabled" value="SF_WIFI_RTS_ENABLE"/>
+		</property>
+		<property default="3" display="Delivery Traffic Indication Message (DTIM) Interval" id="module.framework.sf_wifi_v2.dtim">
+			<constraint display="Value must be in range 1 to 255">
+                testInteger("${module.framework.sf_wifi_v2.dtim}") &amp;&amp; ("${module.framework.sf_wifi_v2.dtim}" &gt; 0)
+				&amp;&amp; ("${module.framework.sf_wifi_v2.dtim}" &lt; 256)
+            </constraint>
+		</property>
+		<property default="module.framework.sf_wifi_v2.ssid_broadcast.enabled" display="Broadcast SSID (AP mode only)" id="module.framework.sf_wifi_v2.ssid_broadcast">
+			<option display="Disabled" id="module.framework.sf_wifi_v2.ssid_broadcast.disabled" value="SF_WIFI_SSID_BROADCAST_DISABLE"/>
+			<option display="Enabled" id="module.framework.sf_wifi_v2.ssid_broadcast.enabled" value="SF_WIFI_SSID_BROADCAST_ENABLE"/>
+		</property>
+		<property default="1024" display="Beacon Interval in Microseconds (AP mode only)" id="module.framework.sf_wifi_v2.beacon">
+			<constraint display="Value must be greater than or equal to 1024">
+                testInteger("${module.framework.sf_wifi_v2.beacon}") &amp;&amp; ("${module.framework.sf_wifi_v2.beacon}" &gt; 1023)
+            </constraint>
+		</property>
+		<property default="100" display="Station Inactivity Time out in Seconds (AP mode only)" id="module.framework.sf_wifi_v2.station_inactivity_timeout">
+		<constraint display="Value must be greater than or equal to 1">
+                testInteger("${module.framework.sf_wifi_v2.station_inactivity_timeout}") &amp;&amp; ("${module.framework.sf_wifi_v2.station_inactivity_timeout}" &gt; 0)
+            </constraint>
+		</property>
+		<property default="module.framework.sf_wifi_v2.req_high_throughput.disabled" display="Requested High Throughput" id="module.framework.sf_wifi_v2.req_high_throughput">
+			<option display="Disabled" id="module.framework.sf_wifi_v2.req_high_throughput.disabled" value="SF_WIFI_MANDATORY_HIGH_THROUGHPUT_DISABLE"/>
+			<option display="Enabled" id="module.framework.sf_wifi_v2.req_high_throughput.enabled" value="SF_WIFI_MANDATORY_HIGH_THROUGHPUT_ENABLE"/>
+		</property>
+		<property default="IOPORT_PORT_04_PIN_00" display="Interrupt Request Pin" id="module.framework.sf_wifi_v2.pin_irq">
+            <constraint display="Name must be a valid C symbol">testSymbol("${module.framework.sf_wifi_v2.pin_irq}")</constraint>
+        </property>
+		<property default="IOPORT_PORT_04_PIN_13" display="Slave Select Pin (SSL)" id="module.framework.sf_wifi_v2.pin_slave_select">
+            <constraint display="Name must be a valid C symbol">testSymbol("${module.framework.sf_wifi_v2.pin_slave_select}")</constraint>
+        </property>
+		<property default="4" display="RTL8189EM Driver Task Thread Priority (Modifying Task Thread Priority may cause Driver to malfunction)." id="module.framework.sf_wifi_v2.driver_task_priority">
+			<constraint display="Numerical priority of thread. Legal values range from 0 through (TX_MAX_PRIORITY-1), where a value of 0 represents the highest priority">		            			
+				testInteger("${module.framework.sf_wifi_v2.driver_task_priority}")
+			</constraint>
+        </property>
+		<!-- <property id="module.framework.sf_wifi.p_callback" display="Callback" default="NULL">
+            <constraint display="Name must be a valid C symbol">testSymbol("${module.framework.sf_wifi.p_callback}")</constraint>
+        </property> -->
+	<!-- 	<property default="module.framework.sf_wifi.support_nx_packet_chaining.enabled" display="Support NetX Packet Chaining" id="module.framework.sf_wifi.support_nx_packet_chaining">
+			<option display="Disabled" id="module.framework.sf_wifi.support_nx_packet_chaining.disabled" value="(0)"/>
+			<option display="Enabled" id="module.framework.sf_wifi.support_nx_packet_chaining.enabled" value="(1)"/>
+		</property>	 -->		
+		<header>
+		/** sf_wifi on RTL8189EM Wi-Fi Driver instance */
+		extern sf_wifi_instance_t ${module.framework.sf_wifi_v2.name};
+		<!-- #ifdef ${module.framework.sf_wifi.p_callback}
+		#define SF_WIFI_ON_WIFI_GT202_CALLBACK_USED_${module.framework.sf_wifi.name} (0)
+		#else
+		#define SF_WIFI_ON_WIFI_GT202_CALLBACK_USED_${module.framework.sf_wifi.name} (1)
+		#endif -->
+		<!-- #if SF_WIFI_ON_WIFI_GT202_CALLBACK_USED_${module.framework.sf_wifi.name}
+		/** Declaration of user callback function. This function MUST be defined in the user application.*/
+		void ${module.framework.sf_wifi.p_callback}(sf_wifi_callback_args_t * p_args);
+		#endif -->
+		</header>
+		<includes>
+		#include &quot;sf_wifi_api.h&quot;
+		#include &quot;sf_wifi_rtl8189em.h&quot;
+		#include &quot;sf_wifi_nsal_api.h&quot;
+		</includes>
+		<declarations>
+
+extern const ioport_instance_t g_ioport;
+static const sf_wifi_on_rtl8189em_cfg_t ${module.framework.sf_wifi_v2.name}_on_rtl8189em_cfg =
+{
+ .p_lower_lvl_spi 		= &amp;${module.framework.sf_wifi_v2.requires.spi::module.driver.spi.name},
+ .p_lower_lvl_icu 		= &amp;${module.framework.sf_wifi_v2.requires.external_irq::module.driver.external_irq.name},
+ .p_lower_lvl_io		= &amp;g_ioport,
+ #if SF_WIFI_RTL8189EM_CFG_DEBUG_UART_ENABLE
+ .p_lower_lvl_debug_port = &amp;${module.framework.sf_wifi_v2.requires.uart::module.driver.uart.name},
+ #endif
+ .pin_interrupt_request = ${module.framework.sf_wifi_v2.pin_irq},
+ .pin_slave_select  	= ${module.framework.sf_wifi_v2.pin_slave_select},
+ .driver_task_priority 	= ${module.framework.sf_wifi_v2.driver_task_priority},
+};
+
+static sf_wifi_ctrl_t ${module.framework.sf_wifi_v2.name}_ctrl;
+static const sf_wifi_cfg_t ${module.framework.sf_wifi_v2.name}_cfg =
+{
+    .mac_addr 		             = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0},
+    .hw_mode                     = ${module.framework.sf_wifi_v2.hw_mode},
+    .tx_power                    = ${module.framework.sf_wifi_v2.tx_power},
+    .rts                         = ${module.framework.sf_wifi_v2.rts},
+    .fragmentation               = 0,
+    .dtim                        = ${module.framework.sf_wifi_v2.dtim},
+    .high_throughput             = SF_WIFI_HIGH_THROUGHPUT_DISABLE,
+    .preamble                    = SF_WIFI_PREAMBLE_LONG,
+    .wmm                         = SF_WIFI_WMM_DISABLE,
+    .max_stations                = 3,
+    .ssid_broadcast              = ${module.framework.sf_wifi_v2.ssid_broadcast},
+    .access_control              = SF_WIFI_ACCESS_CONTROL_DISABLE,
+    .beacon                      = ${module.framework.sf_wifi_v2.beacon},
+    .station_inactivity_timeout  = ${module.framework.sf_wifi_v2.station_inactivity_timeout},
+    .wds                         = SF_WIFI_WDS_DISABLE,
+    .req_high_throughput         = ${module.framework.sf_wifi_v2.req_high_throughput},
+	.p_buffer_pool_rx    		 = NULL,
+    .p_context                   = NULL,
+    .p_extend                    = &amp;${module.framework.sf_wifi_v2.name}_on_rtl8189em_cfg,
+};
+
+/* Instance structure to use this module. */
+sf_wifi_instance_t ${module.framework.sf_wifi_v2.name} = 
+{
+    .p_ctrl        = &amp;${module.framework.sf_wifi_v2.name}_ctrl,
+    .p_cfg         = &amp;${module.framework.sf_wifi_v2.name}_cfg,
+    .p_api         = &amp;g_sf_wifi_on_sf_wifi_rtl8189em
+};
+
+#define SF_WIFI_MAX_MTU (1500)
+
+/** NSAL Zero copy support configuration */
+const sf_wifi_nsal_cfg_t ${module.framework.sf_wifi_v2.name}_nsal_cfg = 
+{
+	.rx_zero_copy = SF_WIFI_NSAL_ZERO_COPY_DISABLE,
+	.tx_zero_copy = SF_WIFI_NSAL_ZERO_COPY_DISABLE,
+	.p_tx_packet_buffer = NULL,
+};
+
+	</declarations>
+	<init>
+		ssp_err_t ssp_err_${module.framework.sf_wifi_v2.name};
+		ssp_err_${module.framework.sf_wifi_v2.name} = ${module.framework.sf_wifi_v2.name}.p_api->open(${module.framework.sf_wifi_v2.name}.p_ctrl, ${module.framework.sf_wifi_v2.name}.p_cfg);
+		if (SSP_SUCCESS != ssp_err_${module.framework.sf_wifi_v2.name})
+		{
+			while (1);
+		}
+    </init>
+	</module>
+</synergyModuleDescription>

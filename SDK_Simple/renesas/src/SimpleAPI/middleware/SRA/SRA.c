@@ -1,0 +1,25 @@
+
+/**
+ * @file SRA.c
+ *
+ * @brief ServiceReadyAgent Process
+ *
+ * Copyright (C) 2016. SKT, All Rights Reserved.
+ * Written 2016,by SKT
+ */
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include <SimpleAPI/middleware/SMA/SMA.h>
+#include <SimpleAPI/middleware/SRA/SRA.h>
+
+
+char* SRAConvertRawData(char *raw)
+{
+    return raw;
+}
+
+
