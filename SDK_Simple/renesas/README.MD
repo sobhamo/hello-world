@@ -34,7 +34,10 @@ IDE 설정
 	
 2. IDE에 프로젝스 import 하기
 	+ 메뉴바 : File -> import -> Existing Projects into Workspace -> git clone 폴더 선택 -> threadX 프로젝트 선택
+	![renesas_ide_01.png](../images/renesas_ide_01.png)
+	![renesas_ide_02.png](../images/renesas_ide_02.png)
 	+ configuration.xml 선택 -> Generate Project Content 
+	![renesas_ide_03.png](../images/renesas_ide_03.png)
 	+ src/synergy_gen/user_thread.c 의 g_sf_comms0_err_callback_internal 소스코드 수정
 	```
 	void g_sf_comms0_err_callback_internal(void * p_instance, void * p_data);
@@ -130,13 +133,25 @@ void attribute() {
 
 ThingPlug_Simple_SDK 빌드
 ---
-1. 빌드
+1. 설정
+	+ wifi 사용시 ssid 및 password 설정 (threadX/src/user_thread_entry.c 파일 수정)
+	+ !!주의!! 5G 지원 하지 않음.
+	```
+	#define MY_SSID_FOR_AP ""    /* Change this to your Wi-Fi AP/Router’s SSID */
+	#define MY_PASSWORD_FOR_AP "" 
+	```
+	
+2. 빌드	
 	```
 	Project -> Build Project
 	```
+	![renesas_ide_04.png](../images/renesas_ide_04.png)
 2. 실행
 	```
 	Run -> Debug -> Renesas GDB Hardware Debugging -> J-Link ARM ->  R7FS7G27G, R7FS7G27H 
 	Run -> Resume
 	```
+	![renesas_ide_05.png](../images/renesas_ide_05.png)
+	![renesas_ide_06.png](../images/renesas_ide_06.png)
+	![renesas_ide_07.png](../images/renesas_ide_07.png)
 
