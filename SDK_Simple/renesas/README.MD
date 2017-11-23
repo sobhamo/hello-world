@@ -20,7 +20,6 @@ Library
 __cJSON__ | JSON parser | [cJSON Homepage](https://github.com/DaveGamble/cJSON)
 __paho__ | MQTT Embedded-c | [paho Homepage](https://eclipse.org/paho/)
 __mbedtls__ | Mbed Tls | [mbed tls Homepage](https://tls.mbed.org/)
-__WIZnet_library__ | Ethernet Shield | [WIZnet Homepage](http://www.wiznet.io/ko/product-item/w5500/)
 
 IDE 설정
 ---
