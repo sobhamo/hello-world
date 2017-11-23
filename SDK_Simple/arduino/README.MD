@@ -137,6 +137,7 @@ Arduino SimpleAPI example 실행하기
 	Arduino IDE 실행
 	Menu File tab->example(예제)->SimpleSDK->middleware
 	```
+	![arduino_ide_01.png](../images/arduino_ide_01.png)
 	
 3. 컴파일 및 실행 
 
@@ -145,3 +146,5 @@ Arduino SimpleAPI example 실행하기
 	컴파일 : 메뉴->스케치->컴파일->업로드
 	실행 : 업로드가 완료되면 자동으로 실행
 	```
+	![arduino_ide_02.png](../images/arduino_ide_02.png)
+	
