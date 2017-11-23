@@ -119,6 +119,7 @@ ThingPlug_Simple_SDK 빌드
 	```
 	import -> Upload -> AddFile[파일선택] -> 압축한 파일 선택 -> Import!
 	```
+	![mbed_ide_01.png](../images/mbed_ide_01.png)
 	
 2. 빌드
 
@@ -126,6 +127,7 @@ ThingPlug_Simple_SDK 빌드
 	Complie 버튼클릭
 	bin 파일 다운로드
 	```
+	![mbed_ide_02.png](../images/mbed_ide_02.png)
 	
 3. 실행
 
