@@ -31,7 +31,7 @@ __WIZnet_library__ | Ethernet Shield | [WIZnet Homepage](http://www.wiznet.io/ko
 Sample build
 ===
 
-Configuration 설정(Library/SimpleAPI/middleware/middleware/Configuration.h)
+Configuration 설정(Library/SimpleAPI/middleware/Configuration.h)
 ---
 MQTT broker 와의 연결을 위한 정보 및 디바이스 정보를 설정해야 합니다.
 ```c
