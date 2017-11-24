@@ -27,8 +27,8 @@ Configuration 설정(samples/Configuration.h)
 ---
 MQTT broker 와의 연결을 위한 정보 및 디바이스 정보를 설정해야 합니다.
 ```c
-#define MQTT_HOST                           "218.53.242.111"
-#define MQTT_SECURE_HOST                    "ssl://218.53.242.111"
+#define MQTT_HOST                           ""
+#define MQTT_SECURE_HOST                    ""
 #define MQTT_PORT                           1883
 #define MQTT_SECURE_PORT                    8883						
 #define MQTT_KEEP_ALIVE                     120
