@@ -32,15 +32,17 @@ static uint8_t const ens210Address = 0x43;
 static AMSiAQCoreData aMSiAQCoreData;
 static ENS210Data ens210Data;
 static TMD3782Data tmd3782Data;
+
+extern unsigned int ntp_time(void);
 #endif
+
 
 void SMAGetData(char *sensorType, char** output, int *len)
 {
 #ifndef __DUMMY_DATA_
     char str[128];
 #else
-    srand(time(NULL));
-    int random_num = rand();
+    int random_num = ntp_time() * ntp_time() % 100000000;
 #endif
 
     if( SMA_STRCMP(sensorType,"batterystate") ) {

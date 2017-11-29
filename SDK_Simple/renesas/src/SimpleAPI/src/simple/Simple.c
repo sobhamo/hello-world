@@ -238,7 +238,8 @@ int tpSimpleSubscribe(DeviceSubscribe* subscribe) {
 
     cJSON_AddStringToObject(jsonObject, CMD, subscribe->cmd);
     cJSON_AddNumberToObject(jsonObject, CMD_ID, subscribe->cmdId);
-    cJSON_AddStringToObject(jsonObject, DEVICE_ID, subscribe->deviceId);
+    cJSON_AddStringToObject(jsonObject, SERVICE_NAME, mServiceID);
+    cJSON_AddStringToObject(jsonObject, DEVICE_NAME, mDeviceID);
     if(subscribe->sensorNodeId) {
         cJSON_AddStringToObject(jsonObject, SENSOR_NODE_ID, subscribe->sensorNodeId);
     }

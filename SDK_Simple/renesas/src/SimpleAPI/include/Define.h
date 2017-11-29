@@ -9,6 +9,91 @@
 #ifndef _DEFINE_H_
 #define _DEFINE_H_
 
+/*
+ ****************************************
+ * RPC Procedure Definition
+ ****************************************
+ */
+#define RPC_RESET                   "tp_reset"
+#define RPC_REBOOT                  "tp_reboot"
+#define RPC_UPLOAD                  "tp_upload"
+#define RPC_DOWNLOAD                "tp_download"
+#define RPC_SOFTWARE_INSTALL        "tp_softwareInstall"
+#define RPC_SOFTWARE_REINSTALL      "tp_softwareReinstall"
+#define RPC_SOFTWARE_UNINSTALL      "tp_softwareUninstall"
+#define RPC_SOFTWARE_UPDATE         "tp_softwareUpdate"
+#define RPC_FIRMWARE_UPGRADE        "tp_firmwareUpgrade"
+#define RPC_CLOCK_SYNC              "tp_clockSync"
+#define RPC_SIGNAL_STATUS_REPORT    "tp_sygnalStatusReport"
+#define RPC_USER                    "tp_user"
+
+/*
+ ****************************************
+ * Definition
+ ****************************************
+ */
+/** subscribe **/
+#define SUBSCRIBE                   "subscribe"
+/** unsubscribe **/
+#define UNSUBSCRIBE                 "unsubscribe"
+/** device **/
+#define DEVICE                      "device"
+/** service name **/
+#define SERVICE_NAME                "serviceName"
+/** device name **/
+#define DEVICE_NAME                 "deviceName"
+
+/** devicesOnline(unsigned char) **/
+#define DEVICES_ONLINE              "devicesOnline"
+/** attributesUploaded(unsigned char) **/
+#define ATTRIBUTES_UPLOADED         "attributesUploaded"
+/** telemetryUploaded(unsigned char) **/
+#define TELEMETRY_UPLOADED          "telemetryUploaded"
+/** timestamp(unsigned long) **/
+#define TIMESTAMP                   "ts"
+
+/** device descriptor(string) **/
+#define DEVICE_DESCRIPTOR           "deviceDescriptor"
+
+/** command(string) **/
+#define CMD                         "cmd"
+/** command ID(int) **/
+#define CMD_ID                      "cmdId"
+/** device ID(string) **/
+#define DEVICE_ID                   "deviceId"
+/** telemetry(string array) **/
+#define TELEMETRY                   "telemetry"
+/** attribute(string array) **/
+#define ATTRIBUTE                   "attribute"
+
+/** sensor node ID(string) **/
+#define SENSOR_NODE_ID              "sensorNodeId"
+/** is target all(boolean) **/
+#define IS_TARGET_ALL               "isTargetAll"
+
+/** RPC response(JSON) **/
+#define RPC_RSP                     "rpcRsp"
+/** JSON RPC version(string) **/
+#define JSONRPC                     "jsonrpc"
+/** Identifier(int) **/
+#define ID                          "id"
+/** method(string) **/
+#define METHOD                      "method"
+/** control result **/
+#define RESULT                      "result"
+/** error(JSON) **/
+#define ERROR                       "error"
+/** error code(int) **/
+#define CODE                        "code"
+/** error message(string) **/
+#define MESSAGE                     "message"
+/** result status(string) **/
+#define STATUS                      "status"
+/** result success(string) **/
+#define SUCCESS                     "success"
+/** result fail(string) **/
+#define FAIL                        "fail"
+
 /* CONNACK : 0 Connection Accepted */
 #define CONNECTION_ACCEPTED 0
 /* CONNACK : 1 Connection Refused, unacceptable protocol version */
@@ -57,7 +142,7 @@
 /* Return code: Parameter is invalid */
 #define TP_SDK_INVALID_PARAMETER -14
  
-/* service id & device id size */
+/* topic size */
 #define SIZE_TOPIC              128
 
 #endif

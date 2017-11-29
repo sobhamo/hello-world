@@ -56,7 +56,7 @@ static char mTopicControlDown[SIZE_TOPIC] = "";
 static char mClientID[SIZE_CLIENT_ID] = "";
 
 static void attribute();
-static void telemetry();
+static int telemetry();
 
 void MQTTConnected(int result) {
     {
@@ -136,34 +136,92 @@ void MQTTMessageArrived(char* topic, char* msg, int msgLen) {
     cJSON* rpcReqObject = cJSON_GetObjectItemCaseSensitive(root, "rpcReq");
     // if RPC control
     if(rpcReqObject) {
+        int rc = -1;
+        cJSON* cmdObject = cJSON_GetObjectItemCaseSensitive(root, "cmd");
         cJSON* rpcObject = cJSON_GetObjectItemCaseSensitive(rpcReqObject, "jsonrpc");
         cJSON* idObject = cJSON_GetObjectItemCaseSensitive(rpcReqObject, "id");
         cJSON* paramsObject = cJSON_GetObjectItemCaseSensitive(rpcReqObject, "params");
         cJSON* methodObject = cJSON_GetObjectItemCaseSensitive(rpcReqObject, "method");
-        if(!idObject || !paramsObject || !methodObject) return;
-        char* rpc = rpcObject->valuestring;        
+        if(!cmdObject || !idObject || !methodObject) return;
+        char* cmd = cmdObject->valuestring;
+        char* rpc = rpcObject->valuestring;
         int id = idObject->valueint;
-        char* method = methodObject->valuestring;
-        cJSON* paramObject = cJSON_GetArrayItem(paramsObject, 0);
-        cJSON* cmdObject = cJSON_GetObjectItemCaseSensitive(paramObject, "act7colorLed");
-        if(!cmdObject) return;
-        int cmd = cmdObject->valueint;
-        {
-            char str[64];
-            snprintf(str,64,"\nrpc : %s,\nid : %d,\ncmd : %d", rpc, id, cmd);
-            SKTDebugPrint(LOG_LEVEL_INFO, str);
+        char* method = methodObject->valuestring;        
+        if(!cmd || !method) return;
+
+        // Reserved Procedure for ThingPlug
+        if(strncmp(method, RPC_RESET, strlen(RPC_RESET)) == 0) {
+            // TODO RESET
+            SKTDebugPrint(LOG_LEVEL_INFO, "RPC_RESET");
+
+        } else if(strncmp(method, RPC_REBOOT, strlen(RPC_REBOOT)) == 0) {
+            // TODO REBOOT
+            SKTDebugPrint(LOG_LEVEL_INFO, "RPC_REBOOT");
+            
+        } else if(strncmp(method, RPC_UPLOAD, strlen(RPC_UPLOAD)) == 0) {
+            // TODO UPLOAD
+            SKTDebugPrint(LOG_LEVEL_INFO, "RPC_UPLOAD");
+            
+        } else if(strncmp(method, RPC_DOWNLOAD, strlen(RPC_DOWNLOAD)) == 0) {
+            // TODO DOWNLOAD
+            SKTDebugPrint(LOG_LEVEL_INFO, "RPC_DOWNLOAD");
+            
+        } else if(strncmp(method, RPC_SOFTWARE_INSTALL, strlen(RPC_SOFTWARE_INSTALL)) == 0) {
+            // TODO SOFTWARE INSTALL
+            SKTDebugPrint(LOG_LEVEL_INFO, "RPC_SOFTWARE_INSTALL");
+            
+        } else if(strncmp(method, RPC_SOFTWARE_REINSTALL, strlen(RPC_SOFTWARE_REINSTALL)) == 0) {
+            // TODO SOFTWARE REINSTALL
+            SKTDebugPrint(LOG_LEVEL_INFO, "RPC_SOFTWARE_REINSTALL");
+            
+        } else if(strncmp(method, RPC_SOFTWARE_UNINSTALL, strlen(RPC_SOFTWARE_UNINSTALL)) == 0) {
+            // TODO SOFTWARE UNINSTALL
+            SKTDebugPrint(LOG_LEVEL_INFO, "RPC_SOFTWARE_UNINSTALL");
+            
+        } else if(strncmp(method, RPC_SOFTWARE_UPDATE, strlen(RPC_SOFTWARE_UPDATE)) == 0) {
+            // TODO SOFTWARE UPDATE
+            SKTDebugPrint(LOG_LEVEL_INFO, "RPC_SOFTWARE_UPDATE");
+            
+        } else if(strncmp(method, RPC_FIRMWARE_UPGRADE, strlen(RPC_FIRMWARE_UPGRADE)) == 0) {
+            // TODO FIRMWARE UPGRADE
+            SKTDebugPrint(LOG_LEVEL_INFO, "RPC_FIRMWARE_UPGRADE");
+            
+        } else if(strncmp(method, RPC_CLOCK_SYNC, strlen(RPC_CLOCK_SYNC)) == 0) {
+            // TODO CLOCK SYNC
+            SKTDebugPrint(LOG_LEVEL_INFO, "RPC_CLOCK_SYNC");
+
+        } else if(strncmp(method, RPC_SIGNAL_STATUS_REPORT, strlen(RPC_SIGNAL_STATUS_REPORT)) == 0) {
+            // TODO SIGNAL STASTUS REPORT
+            SKTDebugPrint(LOG_LEVEL_INFO, "RPC_SIGNAL_STATUS_REPORT");
+
+        } else if(strncmp(method, RPC_USER, strlen(RPC_USER)) == 0) {
+            // USER
+            SKTDebugPrint(LOG_LEVEL_INFO, "RPC_USER");
+            if(!paramsObject) return;
+            cJSON* paramObject = cJSON_GetArrayItem(paramsObject, 0);
+            cJSON* controlObject = cJSON_GetObjectItemCaseSensitive(paramObject, "act7colorLed");
+            if(!controlObject) return;
+            int control = controlObject->valueint;
+            {
+                char str[128];
+                snprintf(str,128,"\r\nrpc : %s,\r\nid : %d,\r\ncmd : %d", rpc, id, control);
+                SKTDebugPrint(LOG_LEVEL_INFO, str);
+            }
+            rc = RGB_LEDControl(control);
         }
-        int rc = RGB_LEDControl(cmd);
         RPCResponse rsp;
         memset(&rsp, 0, sizeof(RPCResponse));
-        rsp.cmd = "rpc_json";
+        rsp.cmd = cmd;
         rsp.cmdId = 1;
         rsp.jsonrpc = rpc;
         rsp.id = id;
         rsp.method = method;
+        // control success
         if(rc == 0) {
             rsp.result = "SUCCESS";
-        } else {
+        } 
+        // control fail
+        else {
             rsp.errorCode = 106;
             rsp.errorMessage = "FAIL";
         }
@@ -217,7 +275,7 @@ long long current_timestamp() {
 
 char *sensor_list[] = { "temp1", "humi1", "light1" };
 
-static void telemetry() {
+static int telemetry() {
     mStep = PROCESS_TELEMETRY;
     // TODO make data
     // int i;
@@ -259,12 +317,13 @@ static void telemetry() {
     item->value = (void *)&time;
     arrayElement->total++;
 
-    tpSimpleTelemetry(arrayElement, 0);
+    int rc = tpSimpleTelemetry(arrayElement, 0);
     free(arrayElement->element);
     free(arrayElement);
     free(temp);
     free(humi);
     free(light);
+    return rc;
 }
 
 static unsigned long getAvailableMemory() {
@@ -468,7 +527,13 @@ int MARun() {
 
     while (mStep < PROCESS_END) {
         if(tpMQTTIsConnected() && mStep == PROCESS_TELEMETRY) {
-            telemetry();
+            int rc = telemetry();
+	    if(rc != 0) {
+		    char str[64];
+		    snprintf(str,64,"send telemetry fail: %d", rc);
+		    SKTDebugPrint(LOG_LEVEL_INFO, str);
+		    break;
+	    }      
         } 
         // reconnect when disconnected
         else if(mConnectionStatus == DISCONNECTED) {

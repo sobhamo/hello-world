@@ -139,7 +139,7 @@ int handleMQTTCreate(char* host, int port, int keepalive, char* userName, char* 
         SKTDebugPrint(LOG_LEVEL_INFO,str);
         snprintf(str,128," userName = %s", userName);
         SKTDebugPrint(LOG_LEVEL_INFO,str);
-        snprintf(str,128," password = %s", password);
+        snprintf(str,128," password = %p", password);
         SKTDebugPrint(LOG_LEVEL_INFO,str);
         snprintf(str,128," enableServerCertAuth = %d", enableServerCertAuth);
         SKTDebugPrint(LOG_LEVEL_INFO,str);
