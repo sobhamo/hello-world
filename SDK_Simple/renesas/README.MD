@@ -1,4 +1,4 @@
-Renesas (+TLS)
+ThreadX (+TLS)
 ===
 
 지원 사양
