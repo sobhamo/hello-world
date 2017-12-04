@@ -173,4 +173,7 @@ ThingPlug_Simple_SDK 빌드
     ![freertos_ide_04.png](../images/freertos_ide_04.png)
     + 메뉴바 : 실행 -> 재개
     ![freertos_ide_05.png](../images/freertos_ide_05.png)
-
+    
+ThingPlug_Simple_SDK 실행
+---
+![FreeRTOSTP.png](../images/FreeRTOSTP.png)
