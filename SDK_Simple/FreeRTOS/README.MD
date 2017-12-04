@@ -176,4 +176,9 @@ ThingPlug_Simple_SDK 빌드
     
 ThingPlug_Simple_SDK 실행
 ---
+1. 실행 로그 확인
+---
+![LOG_FreeRTOS.txt](./LOG_FreeRTOS.txt)
+---
+2. Thingplug SensorData
 ![FreeRTOSTP.png](../images/FreeRTOSTP.png)
