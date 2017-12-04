@@ -1,0 +1,253 @@
+MA Start
+waiting for sync
+Transmit NTP Request
+Receive NTP Response
+15 52 0 15 11 2017
+[2017-11-15 15:52:00] [INFO]: tpMQTTSetCallbacks result : 0
+[2017-11-15 15:52:00] [INFO]: tpSimpleInitialize
+serviceID : middleware, deviceID: bbb02
+[2017-11-15 15:52:00] [INFO]: tpSimpleInitialize : 0
+[2017-11-15 15:52:00] [INFO]: client id : A1:B2:C3:D4:E5:F6
+[2017-11-15 15:52:00] [INFO]: handleMQTTCreate
+[2017-11-15 15:52:00] [INFO]: randNumber : 12957
+[2017-11-15 15:52:00] [INFO]: MQTTConnected result : 0
+[2017-11-15 15:52:00] [INFO]: CONNECTION_STATUS : 2
+[2017-11-15 15:52:00] [INFO]: MQTT Request subscibe topic : v1/dev/middleware/bbb02/down
+OnSubscribe
+[2017-11-15 15:52:00] [INFO]: MQTTSubscribed result : 0
+[2017-11-15 15:52:00] [INFO]: tpSimpleAttribute
+topic : v1/dev/middleware/bbb02/attribute
+[2017-11-15 15:52:00] [INFO]: {
+    "sysAvailableMemory":   3263,
+    "sysBatteryLevel":      100,
+    "sysFirmwareVersion":   "2.0.0",
+    "sysHardwareVersion":  "1.0",
+    "sysSerialNumber":      "400715-1703-003321-1641",
+    "sysErrorCode": 0,
+    "sysNetworkType":       "ethernet",
+    "sysDeviceIpAddress":  "192.168.0.11",
+    "sysGatewayIpAddress":  "192.168.0.1",
+    "sysLocationLatitude":  35.1689766,
+    "sysLocationLongitude": 129.1338524,
+    "act7colorLed": 0
+}
+[2017-11-15 15:52:00] [INFO]: MQTTPublishMessage
+[2017-11-15 15:52:00] [INFO]: payloadlen = 401
+[2017-11-15 15:52:00] [INFO]: MQTT publish topic = v1/dev/middleware/bbb02/attribute
+ len : 441
+[2017-11-15 15:52:00] [INFO]: MQTT publish Success
+[2017-11-15 15:52:00] [INFO]: MQTTMessageDelivered token : 0, step : 0
+[2017-11-15 15:52:00] [INFO]: handleMQTTPublishMessageWithTopic END
+[2017-11-15 15:52:00] [INFO]: tpSDKCreate result : 0
+[2017-11-15 15:52:00] [INFO]: tpSimpleTelemetry
+topic : v1/dev/middleware/bbb02/telemetry
+[2017-11-15 15:52:00] [INFO]: {
+                                "temp1":        20,
+                                                        "humi1":        46,
+                                                                                "light1":       201,
+                                                                                                        "ts":   1510728720
+    }
+[2017-11-15 15:52:00] [INFO]: MQTTPublishMessage
+[2017-11-15 15:52:00] [INFO]: payloadlen = 65
+[2017-11-15 15:52:00] [INFO]: MQTT publish topic = v1/dev/middleware/bbb02/telemetry
+ len : 104
+[2017-11-15 15:52:00] [INFO]: MQTT publish Success
+[2017-11-15 15:52:00] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-11-15 15:52:00] [INFO]: handleMQTTPublishMessageWithTopic END
+MessageArrivedCallback
+[2017-11-15 15:52:04] [INFO]: MQTTMessageArrived topic : v1/dev/middleware/bbb02/down, step :
+[2017-11-15 15:52:04] [INFO]: paylaod->
+[2017-11-15 15:52:04] [INFO]: {"serviceName":"middleware","deviceName":"bbb02","cmdId":-9999,"cmd":"rpc_json","nonBlocking":true,"rpcReq":{"jsonrpc":"2.0","method":"substract","params":[{"act7colorLed":1}],"id":2038138850}}
+[2017-11-15 15:52:04] [INFO]:
+                              rpc : 2.0,
+                                        id : 2038138850,
+                                                        cmd : 1
+[2017-11-15 15:52:04] [INFO]: tpSimpleResult
+                                            topic : v1/dev/middleware/bbb02/up
+                                                                              {
+                                                                                "cmd":  "rp
+[2017-11-15 15:52:04] [INFO]: MQTTPublishMessage
+[2017-11-15 15:52:04] [INFO]: payloadlen = 180
+[2017-11-15 15:52:04] [INFO]: MQTT publish topic = v1/dev/middleware/bbb02/up
+ len : 213
+[2017-11-15 15:52:04] [INFO]: MQTT publish Success
+[2017-11-15 15:52:04] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-11-15 15:52:04] [INFO]: handleMQTTPublishMessageWithTopic END
+[2017-11-15 15:52:05] [INFO]: tpSimpleTelemetry
+topic : v1/dev/middleware/bbb02/telemetry
+[2017-11-15 15:52:05] [INFO]: {
+                                "temp1":        20,
+                                                        "humi1":        49,
+                                                                                "light1":       204,
+                                                                                                        "ts":   1510728725
+    }
+[2017-11-15 15:52:05] [INFO]: MQTTPublishMessage
+[2017-11-15 15:52:05] [INFO]: payloadlen = 65
+[2017-11-15 15:52:05] [INFO]: MQTT publish topic = v1/dev/middleware/bbb02/telemetry
+ len : 104
+[2017-11-15 15:52:05] [INFO]: MQTT publish Success
+[2017-11-15 15:52:05] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-11-15 15:52:05] [INFO]: handleMQTTPublishMessageWithTopic END
+MessageArrivedCallback
+[2017-11-15 15:52:08] [INFO]: MQTTMessageArrived topic : v1/dev/middleware/bbb02/down, step :
+[2017-11-15 15:52:08] [INFO]: paylaod->
+[2017-11-15 15:52:08] [INFO]: {"serviceName":"middleware","deviceName":"bbb02","cmdId":-9999,"cmd":"rpc_json","nonBlocking":true,"rpcReq":{"jsonrpc":"2.0","method":"substract","params":[{"act7colorLed":0}],"id":2038138851}}
+[2017-11-15 15:52:08] [INFO]:
+                              rpc : 2.0,
+                                        id : 2038138851,
+                                                        cmd : 0
+[2017-11-15 15:52:08] [INFO]: tpSimpleResult
+                                            topic : v1/dev/middleware/bbb02/up
+                                                                              {
+                                                                                "cmd":  "rp
+[2017-11-15 15:52:08] [INFO]: MQTTPublishMessage
+[2017-11-15 15:52:08] [INFO]: payloadlen = 180
+[2017-11-15 15:52:08] [INFO]: MQTT publish topic = v1/dev/middleware/bbb02/up
+ len : 213
+[2017-11-15 15:52:08] [INFO]: MQTT publish Success
+[2017-11-15 15:52:08] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-11-15 15:52:09] [INFO]: handleMQTTPublishMessageWithTopic END
+[2017-11-15 15:52:10] [INFO]: tpSimpleTelemetry
+topic : v1/dev/middleware/bbb02/telemetry
+[2017-11-15 15:52:10] [INFO]: {
+                                "temp1":        20,
+                                                        "humi1":        49,
+                                                                                "light1":       197,
+                                                                                                        "ts":   1510728730
+    }
+[2017-11-15 15:52:10] [INFO]: MQTTPublishMessage
+[2017-11-15 15:52:10] [INFO]: payloadlen = 65
+[2017-11-15 15:52:10] [INFO]: MQTT publish topic = v1/dev/middleware/bbb02/telemetry
+ len : 104
+[2017-11-15 15:52:10] [INFO]: MQTT publish Success
+[2017-11-15 15:52:10] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-11-15 15:52:10] [INFO]: handleMQTTPublishMessageWithTopic END
+MessageArrivedCallback
+[2017-11-15 15:52:12] [INFO]: MQTTMessageArrived topic : v1/dev/middleware/bbb02/down, step :
+[2017-11-15 15:52:12] [INFO]: paylaod->
+[2017-11-15 15:52:12] [INFO]: {"deviceId":"696a28d0-bd14-11e7-a0db-6d89295e8723","cmdId":2140786856,"cmd":"set_attr","attribute":{"act7colorLed":0}}
+[2017-11-15 15:52:12] [INFO]: act7colorLed : 0, 2140786856
+[2017-11-15 15:52:12] [INFO]: tpSimpleAttribute
+topic : v1/dev/middleware/bbb02/attribute
+[2017-11-15 15:52:12] [INFO]: {
+                                "act7colorLed": 0
+                                                 }
+[2017-11-15 15:52:12] [INFO]: MQTTPublishMessage
+[2017-11-15 15:52:12] [INFO]: payloadlen = 22
+[2017-11-15 15:52:12] [INFO]: MQTT publish topic = v1/dev/middleware/bbb02/attribute
+ len : 61
+MessageArrivedCallback
+[2017-11-15 15:52:12] [INFO]: MQTTMessageArrived topic : v1/dev/middleware/bbb02/down, step :
+[2017-11-15 15:52:12] [INFO]: paylaod->
+[2017-11-15 15:52:12] [INFO]: {"deviceId":"696a28d0-bd14-11e7-a0db-6d89295e8723","cmdId":1105655124,"cmd":"set_attr","attribute":{"act7colorLed":0}}
+[2017-11-15 15:52:12] [INFO]: act7colorLed : 0, 1105655124
+[2017-11-15 15:52:12] [INFO]: tpSimpleAttribute
+topic : v1/dev/middleware/bbb02/attribute
+[2017-11-15 15:52:12] [INFO]: {
+                                "act7colorLed": 0
+                                                 }
+[2017-11-15 15:52:12] [INFO]: MQTTPublishMessage
+[2017-11-15 15:52:12] [INFO]: payloadlen = 22
+[2017-11-15 15:52:12] [INFO]: MQTT publish topic = v1/dev/middleware/bbb02/attribute
+ len : 61
+[2017-11-15 15:52:12] [INFO]: MQTT publish Success
+[2017-11-15 15:52:12] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-11-15 15:52:12] [INFO]: handleMQTTPublishMessageWithTopic END
+[2017-11-15 15:52:12] [INFO]: MQTT publish Success
+[2017-11-15 15:52:12] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-11-15 15:52:12] [INFO]: handleMQTTPublishMessageWithTopic END
+[2017-11-15 15:52:15] [INFO]: tpSimpleTelemetry
+topic : v1/dev/middleware/bbb02/telemetry
+[2017-11-15 15:52:15] [INFO]: {
+                                "temp1":        20,
+                                                        "humi1":        49,
+                                                                                "light1":       199,
+                                                                                                        "ts":   1510728735
+    }
+[2017-11-15 15:52:15] [INFO]: MQTTPublishMessage
+[2017-11-15 15:52:15] [INFO]: payloadlen = 65
+[2017-11-15 15:52:15] [INFO]: MQTT publish topic = v1/dev/middleware/bbb02/telemetry
+ len : 104
+[2017-11-15 15:52:15] [INFO]: MQTT publish Success
+[2017-11-15 15:52:15] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-11-15 15:52:15] [INFO]: handleMQTTPublishMessageWithTopic END
+MessageArrivedCallback
+[2017-11-15 15:52:15] [INFO]: MQTTMessageArrived topic : v1/dev/middleware/bbb02/down, step :
+[2017-11-15 15:52:15] [INFO]: paylaod->
+[2017-11-15 15:52:15] [INFO]: {"deviceId":"696a28d0-bd14-11e7-a0db-6d89295e8723","cmdId":116956503,"cmd":"set_attr","attribute":{"act7colorLed":1}}
+[2017-11-15 15:52:15] [INFO]: act7colorLed : 1, 116956503
+[2017-11-15 15:52:15] [INFO]: tpSimpleAttribute
+topic : v1/dev/middleware/bbb02/attribute
+[2017-11-15 15:52:16] [INFO]: {
+                                "act7colorLed": 1
+                                                 }
+[2017-11-15 15:52:16] [INFO]: MQTTPublishMessage
+[2017-11-15 15:52:16] [INFO]: payloadlen = 22
+[2017-11-15 15:52:16] [INFO]: MQTT publish topic = v1/dev/middleware/bbb02/attribute
+ len : 61
+MessageArrivedCallback
+[2017-11-15 15:52:16] [INFO]: MQTTMessageArrived topic : v1/dev/middleware/bbb02/down, step :
+[2017-11-15 15:52:16] [INFO]: paylaod->
+[2017-11-15 15:52:16] [INFO]: {"deviceId":"696a28d0-bd14-11e7-a0db-6d89295e8723","cmdId":1490224691,"cmd":"set_attr","attribute":{"act7colorLed":1}}
+[2017-11-15 15:52:16] [INFO]: act7colorLed : 1, 1490224691
+[2017-11-15 15:52:16] [INFO]: tpSimpleAttribute
+topic : v1/dev/middleware/bbb02/attribute
+[2017-11-15 15:52:16] [INFO]: {
+                                "act7colorLed": 1
+                                                 }
+[2017-11-15 15:52:16] [INFO]: MQTTPublishMessage
+[2017-11-15 15:52:16] [INFO]: payloadlen = 22
+[2017-11-15 15:52:16] [INFO]: MQTT publish topic = v1/dev/middleware/bbb02/attribute
+ len : 61
+[2017-11-15 15:52:16] [INFO]: MQTT publish Success
+[2017-11-15 15:52:16] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-11-15 15:52:16] [INFO]: handleMQTTPublishMessageWithTopic END
+[2017-11-15 15:52:16] [INFO]: MQTT publish Success
+[2017-11-15 15:52:16] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-11-15 15:52:16] [INFO]: handleMQTTPublishMessageWithTopic END
+[2017-11-15 15:52:20] [INFO]: tpSimpleTelemetry
+topic : v1/dev/middleware/bbb02/telemetry
+[2017-11-15 15:52:20] [INFO]: {
+                                "temp1":        20,
+                                                        "humi1":        49,
+                                                                                "light1":       202,
+                                                                                                        "ts":   1510728740
+    }
+[2017-11-15 15:52:20] [INFO]: MQTTPublishMessage
+[2017-11-15 15:52:20] [INFO]: payloadlen = 65
+[2017-11-15 15:52:20] [INFO]: MQTT publish topic = v1/dev/middleware/bbb02/telemetry
+ len : 104
+[2017-11-15 15:52:20] [INFO]: MQTT publish Success
+[2017-11-15 15:52:20] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-11-15 15:52:20] [INFO]: handleMQTTPublishMessageWithTopic END
+[2017-11-15 15:52:25] [INFO]: tpSimpleTelemetry
+topic : v1/dev/middleware/bbb02/telemetry
+[2017-11-15 15:52:25] [INFO]: {
+                                "temp1":        20,
+                                                        "humi1":        49,
+                                                                                "light1":       198,
+                                                                                                        "ts":   1510728745
+    }
+[2017-11-15 15:52:25] [INFO]: MQTTPublishMessage
+[2017-11-15 15:52:25] [INFO]: payloadlen = 65
+[2017-11-15 15:52:25] [INFO]: MQTT publish topic = v1/dev/middleware/bbb02/telemetry
+ len : 104
+[2017-11-15 15:52:25] [INFO]: MQTT publish Success
+[2017-11-15 15:52:25] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-11-15 15:52:25] [INFO]: handleMQTTPublishMessageWithTopic END
+[2017-11-15 15:52:30] [INFO]: tpSimpleTelemetry
+topic : v1/dev/middleware/bbb02/telemetry
+[2017-11-15 15:52:30] [INFO]: {
+                                "temp1":        20,
+                                                        "humi1":        46,
+                                                                                "light1":       198,
+                                                                                                        "ts":   1510728750
+    }
+[2017-11-15 15:52:31] [INFO]: MQTTPublishMessage
+[2017-11-15 15:52:31] [INFO]: payloadlen = 65
+[2017-11-15 15:52:31] [INFO]: MQTT publish topic = v1/dev/middleware/bbb02/telemetry
+ len : 104
+[2017-11-15 15:52:31] [INFO]: MQTT publish Success
+[2017-11-15 15:52:31] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-11-15 15:52:31] [INFO]: handleMQTTPublishMessageWithTopic END
+
