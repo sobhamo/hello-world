@@ -148,3 +148,13 @@ Arduino SimpleAPI example 실행하기
 	```
 	![arduino_ide_02.png](../images/arduino_ide_02.png)
 	
+	
+ThingPlug_Simple_SDK 실행
+---
+1. 실행 로그 확인
+---
+![LOG_Arduino.txt](./LOG_Arduino.txt)
+---
+2. Thingplug SensorData
+---
+![ArduinoTP.png](../images/ArduinoTP.png)
