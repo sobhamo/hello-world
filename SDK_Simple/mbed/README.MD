@@ -136,3 +136,12 @@ ThingPlug_Simple_SDK 빌드
 	시리얼 로그 확인	
 	```
 
+ThingPlug_Simple_SDK 실행
+---
+1. 실행 로그 확인
+---
+![LOG_Mbed.txt](./LOG_Mbed.txt)
+---
+2. Thingplug SensorData
+---
+![MbedTP.png](../images/MbedTP.png)
