@@ -1,0 +1,24 @@
+12-05 17:16:07.818 4445-4445/com.skt.thingplug_v2_0_device E/SIMPLE_WORKER: host : tcp://218.53.242.111
+12-05 17:16:07.818 4445-4445/com.skt.thingplug_v2_0_device I/TP_SIMPLE_SDK: userName : ...
+12-05 17:16:08.048 4445-4445/com.skt.thingplug_v2_0_device E/SIMPLE_WORKER: connected
+12-05 17:16:08.068 4445-4445/com.skt.thingplug_v2_0_device I/TP_SIMPLE_SDK: [v1/dev/smartweather/galaxys5/down]
+12-05 17:16:08.068 4445-4445/com.skt.thingplug_v2_0_device E/SIMPLE_WORKER: subscribed
+12-05 17:16:08.148 4445-4445/com.skt.thingplug_v2_0_device I/TP_SIMPLE_SDK: publishTopic : v1/dev/smartweather/galaxys5/attribute
+12-05 17:16:08.148 4445-4445/com.skt.thingplug_v2_0_device I/TP_SIMPLE_SDK: publishMessage : {"sysAvailableMemory":640,"sysFirmwareVersion":"1.0","sysSerialNumber":"710DJC5I10000290","sysErrorCode":0,"sysNetworkType":"LTE","sysDeviceIpAddress":"111.111.111.111","sysThingPlugIpAddress":"218.53.242.111"}
+
+12-05 17:16:18.368 4445-4445/com.skt.thingplug_v2_0_device I/TP_SIMPLE_SDK: publishTopic : v1/dev/smartweather/galaxys5/telemetry
+12-05 17:16:18.368 4445-4445/com.skt.thingplug_v2_0_device I/TP_SIMPLE_SDK: publishMessage : {"temp1":36.5,"humi1":57.18,"light1":675.0,"ts":1512461778}
+
+12-05 17:16:28.658 4445-4445/com.skt.thingplug_v2_0_device I/TP_SIMPLE_SDK: publishTopic : v1/dev/smartweather/galaxys5/telemetry
+12-05 17:16:28.658 4445-4445/com.skt.thingplug_v2_0_device I/TP_SIMPLE_SDK: publishMessage : {"temp1":36.7,"humi1":55.12,"light1":654.0,"ts":1512461788}
+
+12-05 17:16:55.078 4445-4445/com.skt.thingplug_v2_0_device I/TP_SIMPLE_SDK: messageArrived : v1/dev/smartweather/galaxys5/down - {"deviceId":"a05d79f0-d993-11e7-b5bb-e3c8bdb95c0d","cmdId":397428753,"cmd":"set_attr","attribute":{"led":2}}tp.skt.simple.net.mqtt.MQTTClient$1@c901f3e
+12-05 17:16:55.218 4445-4445/com.skt.thingplug_v2_0_device I/TP_SIMPLE_SDK: publishTopic : v1/dev/smartweather/galaxys5/attribute
+12-05 17:16:55.218 4445-4445/com.skt.thingplug_v2_0_device I/TP_SIMPLE_SDK: publishMessage : {"led":2}
+
+12-05 17:16:58.888 4445-4445/com.skt.thingplug_v2_0_device I/TP_SIMPLE_SDK: publishTopic : v1/dev/smartweather/galaxys5/telemetry
+12-05 17:16:58.888 4445-4445/com.skt.thingplug_v2_0_device I/TP_SIMPLE_SDK: publishMessage : {"temp1":37.1,"humi1":56.08,"light1":600.0,"ts":1512461818}
+
+12-05 17:16:59.858 4445-4445/com.skt.thingplug_v2_0_device I/TP_SIMPLE_SDK: messageArrived : v1/dev/smartweather/galaxys5/down - {"deviceId":"a05d79f0-d993-11e7-b5bb-e3c8bdb95c0d","cmdId":72311168,"cmd":"set_attr","attribute":{"led":3}}tp.skt.simple.net.mqtt.MQTTClient$1@c901f3e
+12-05 17:16:59.868 4445-4445/com.skt.thingplug_v2_0_device I/TP_SIMPLE_SDK: publishTopic : v1/dev/smartweather/galaxys5/attribute
+12-05 17:16:59.868 4445-4445/com.skt.thingplug_v2_0_device I/TP_SIMPLE_SDK: publishMessage : {"led":3}
