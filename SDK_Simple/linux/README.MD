@@ -127,7 +127,7 @@ ThingPlug_Simple_SDK 실행
 ---
 1. 실행 로그 확인
 ---
-![LOG_Mbed.txt](./LOG_linux.txt)
+![LOG_linux.txt](./LOG_linux.txt)
 ---
 2. Thingplug SensorData
 ---
