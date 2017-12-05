@@ -1,0 +1,98 @@
+[2017-12-05 14:16:54] [MA/MA.c] [546] [INFO]: ThingPlug_Simple_SDK
+[2017-12-05 14:16:54] [MA/MA.c] [518] [INFO]: tpMQTTSetCallbacks result : 0
+[2017-12-05 14:16:54] [src/simple/Simple.c] [277] [INFO]: tpSimpleInitialize
+serviceID : smartweather, deviceID: bbb01
+[2017-12-05 14:16:54] [MA/MA.c] [521] [INFO]: tpSimpleInitialize : 0
+[2017-12-05 14:16:54] [MA/MA.c] [526] [INFO]: client id : bbb01_78A504F515A4
+[2017-12-05 14:16:54] [src/net/MQTTClient.c] [162] [INFO]: MQTTAsyncCreate()
+[2017-12-05 14:16:54] [MA/MA.c] [541] [INFO]: tpSDKCreate result : 0
+[2017-12-05 14:16:54] [MA/MA.c] [72] [INFO]: MQTTConnected result : 0
+[2017-12-05 14:16:54] [MA/MA.c] [79] [INFO]: CONNECTION_STATUS : 2
+[2017-12-05 14:16:54] [src/net/MQTTClient.c] [54] [INFO]: subscribed topic : v1/dev/smartweather/bbb01/down
+[2017-12-05 14:16:54] [src/net/MQTTClient.c] [66] [INFO]: on connected : connect onSuccess called
+[2017-12-05 14:16:54] [MA/MA.c] [83] [INFO]: MQTTSubscribed result : 0
+[2017-12-05 14:16:54] [src/simple/Simple.c] [164] [INFO]: tpSimpleAttribute
+topic : v1/dev/smartweather/bbb01/attribute
+{
+        "sysAvailableMemory":   151703552,
+        "sysFirmwareVersion":   "2.0.0",
+        "sysHardwareVersion":   "1.0",
+        "sysSerialNumber":      "710DJC5I10000290",
+        "sysErrorCode": 0,
+        "sysNetworkType":       "ethernet",
+        "sysDeviceIpAddress":   "192.168.0.4",
+        "sysThingPlugIpAddress":        "218.53.242.111",
+        "sysLocationLatitude":  35.1689766,
+        "sysLocationLongitude": 129.1338524,
+        "act7colorLed": 0
+}
+[2017-12-05 14:17:04] [src/simple/Simple.c] [129] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/bbb01/telemetry
+{
+        "temp1":        31.94,
+        "humi1":        44,
+        "light1":       244,
+        "ts":   1512451024
+}
+[2017-12-05 14:17:06] [MA/MA.c] [101] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/bbb01/down, step : 2
+[2017-12-05 14:17:06] [MA/MA.c] [108] [INFO]: payload : {"deviceId":"9a790750-d891-11e7-b5bb-e3c8bdb95c0d","cmdId":1192653408,"cmd":"set_attr","attribute":{"act7colorLed":3}}
+[2017-12-05 14:17:06] [MA/MA.c] [243] [INFO]: act7colorLed : 3, 1192653408
+[2017-12-05 14:17:06] [src/simple/Simple.c] [164] [INFO]: tpSimpleAttribute
+topic : v1/dev/smartweather/bbb01/attribute
+{
+        "act7colorLed": 3
+}
+[2017-12-05 14:17:12] [MA/MA.c] [101] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/bbb01/down, step : 2
+[2017-12-05 14:17:12] [MA/MA.c] [108] [INFO]: payload : {"serviceName":"smartweather","deviceName":"bbb01","cmdId":-9999,"cmd":"rpc_json","rpcMode":"oneway","rpcReq":{"jsonrpc":"2.0","method":"tp_user","params":[{"act7colorLed":3}],"id":1622868944}}
+[2017-12-05 14:17:12] [MA/MA.c] [177] [INFO]: RPC_USER
+[2017-12-05 14:17:12] [MA/MA.c] [183] [INFO]:
+rpc : 2.0,
+id : 1622868944,
+cmd : 3
+[2017-12-05 14:17:12] [src/simple/Simple.c] [356] [INFO]: tpSimpleResult
+topic : v1/dev/smartweather/bbb01/up
+{
+        "cmd":  "rpc_json",
+        "cmdId":        1,
+        "result":       "success",
+        "rpcRsp":       {
+                "jsonrpc":      "2.0",
+                "id":   1622868944,
+                "method":       "tp_user",
+                "result":       {"act7colorLed":3}
+        }
+}
+[2017-12-05 14:17:14] [src/simple/Simple.c] [129] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/bbb01/telemetry
+{
+        "temp1":        46.73,
+        "humi1":        43,
+        "light1":       223,
+        "ts":   1512451034
+}
+[2017-12-05 14:17:20] [MA/MA.c] [101] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/bbb01/down, step : 2
+[2017-12-05 14:17:20] [MA/MA.c] [108] [INFO]: payload : {"serviceName":"smartweather","deviceName":"bbb01","cmdId":-9999,"cmd":"rpc_json","rpcMode":"oneway","rpcReq":{"jsonrpc":"2.0","method":"method","params":[{"act7colorLed":3}],"id":1622868945}}
+[2017-12-05 14:17:20] [src/simple/Simple.c] [212] [INFO]: tpSimpleResult
+topic : v1/dev/smartweather/bbb01/up
+{
+        "cmd":  "rpc_json",
+        "cmdId":        1,
+        "result":       "fail",
+        "rpcRsp":       {
+                "jsonrpc":      "2.0",
+                "id":   1622868945,
+                "method":       "method",
+                "error":        {
+                        "code": 106,
+                        "message":      "FAIL"
+                }
+        }
+}
+[2017-12-05 14:17:24] [src/simple/Simple.c] [129] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/bbb01/telemetry
+{
+        "temp1":        58.08,
+        "humi1":        48,
+        "light1":       208,
+        "ts":   1512451044
+}
