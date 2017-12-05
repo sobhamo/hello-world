@@ -1,11 +1,11 @@
-ThingPlug oneM2M v1.14 SDK for Android
+ThingPlug Simple SDK for Android
 ===
 
 ## Overview
-ThingPlug oneM2M SDK for Android는 ThingPlug에 연동하고자 하는 device 개발자 및 application 개발자를 위한 Android기반 SDK입니다. IoT device 및 Application과 ThingPlug서버간의 통신에는 oneM2M 국제표준에 기반한 MQTT 프로토콜을 따르고 있으며, 보안강화를 위해 TLS를 사용할 수 있도록 구성되어 있습니다.
+ThingPlug Simple SDK for Android는 ThingPlug에 연동하고자 하는 device 개발자 및 application 개발자를 위한 Android기반 SDK입니다. IoT device 및 Application과 ThingPlug서버간의 통신에는 Simple 규격에 기반한 MQTT 프로토콜을 따르고 있으며, 보안강화를 위해 TLS를 사용할 수 있도록 구성되어 있습니다.
 
 ## Features
-본 SDK에서 제공되는 API를 사용하면 oneM2M 국제표준의 세부 규격을 모르더라도 손쉽게 ThingPlug와의 통신을 구현할 수 있습니다. SDK뿐만 아니라 기본 기능시험을 위한 Simple Test App과, Android 단말이 IoT Device 역할을 하도록 해주는 Sample Device App, 그리고 Service Application 역할을 하는 Sample Service App을 같이 배포해드리고 있습니다.
+본 SDK에서 제공되는 API를 사용하면 Simple API 세부 규격을 모르더라도 손쉽게 ThingPlug와의 통신을 구현할 수 있습니다. SDK뿐만 아니라 기본 기능시험을 위한 Simple Test App과, Android 단말이 IoT Device 역할을 하도록 해주는 Sample Device App, 그리고 Service Application 역할을 하는 Sample Service App을 같이 배포해드리고 있습니다.
 
 ## Requirements
 * **[AndroidStudio](https://developer.android.com/studio/index.html)**
@@ -20,22 +20,22 @@ defaultConfig {
 
 ### Library
 본 SDK에서의 ThingPlug와의 통신은 모두 MQTT를 통해서 이루어기에 MQTT client가 필요합니다.
-Android SDK에서는 오픈소스 프로젝트인 paho를 사용하고 있으며, XML Serialization과 Parsing을 위하여 Simple XML을 사용합니다. 각 오픈소스 프로젝트에 대해서는 아래 링크를 참고하시기 바랍니다.
+Android SDK에서는 오픈소스 프로젝트인 paho를 사용하고 있습니다. paho 프로젝트에 대해서는 아래 링크를 참고하시기 바랍니다.
 
 라이브러리 | 기능 | 홈페이지
 ------------ | ------------- | -------------
 __paho__ | MQTT | **[paho Homepage](https://eclipse.org/paho/)**
-__Simple XML__ | XML Serialization & Parsing | **[Simple XML Homepage](http://simple.sourceforge.net/)**
+
 
 ## Getting Started
-ThingPlug oneM2M SDK는 소스코드 형태로 제공되며 Application에서의 사용을 위해서는 다음과 같이 import하여 사용하면 됩니다.
+ThingPlug Simple SDK는 소스코드 형태로 제공되며 Application에서의 사용을 위해서는 다음과 같이 import하여 사용하면 됩니다.
 보다 자세한 사용 예시는 **[Simple Test App](SDK)** 소스코드를 참고하시기 바랍니다.
 
-### Project에 oneM2M SDK 연결
+### Project에 Simple SDK 연결
 신규 Project에 oneM2M SDK를 추가하고자 할 경우, 아래와 같이 추가하시기 바랍니다.
 여기서 제공되는 Sample App 프로젝트들에는 이미 SDK가 포함되어 있습니다.
 
-1. Project에 oneM2M 모듈 추가
+1. Project에 Simple 모듈 추가
 	- `Menu > File > Project Structure` 선택
 	<br/><img src="images/oneM2M_import.png"/>
 	- 좌상단의 '+' 버튼 클릭
@@ -69,25 +69,14 @@ ThingPlug oneM2M SDK는 소스코드 형태로 제공되며 Application에서의
     compile 'com.android.support:support-annotations:23.0.0'
 	```	
 
-### oneM2M SDK import
+### Simple SDK import
 
-    import tp.skt.onem2m_v1_14.api.IMQTT;
-    import tp.skt.onem2m_v1_14.api.MQTTProcessor;
-    import tp.skt.onem2m_v1_14.api.oneM2MAPI_V1_14;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.Binder;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.Definitions;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.push.execInstanceControl;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.push.notification;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.AE;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.request.mgmtCmd;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.AEResponse;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.containerResponse;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.contentInstanceResponse;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.execInstanceResponse;
-    import tp.skt.onem2m_v1_14.binder.mqtt_v1_14.response.mgmtCmdResponse;
-    import tp.skt.onem2m_v1_14.net.mqtt.MQTTCallback;
-    import tp.skt.onem2m_v1_14.net.mqtt.MQTTClient;
-    import tp.skt.onem2m_v1_14.net.mqtt.MQTTConfiguration;
+    import tp.skt.simple.api.Simple;
+	import tp.skt.simple.element.ArrayElement;
+	import tp.skt.simple.net.mqtt.SimpleCallback;
+	import tp.skt.simple.net.mqtt.SimpleConfiguration;
+	import tp.skt.simple.net.mqtt.SimpleListener;
+
 
 ### Setting for MQTT connection
 MQTT server 와의 연결을 위한 정보를 MQTTClient를 통해 설정해야 합니다.
