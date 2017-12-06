@@ -46,7 +46,7 @@ __FreeRTOS__ |	__O__ | paho | mbed TLS
 
 API Documentation
 ---
-* [Download](https://github.com/sobhamo/hello-world/raw/master/SDK_Simple/docs/ThingPlug_Simple_SDK_API-20171103.pdf)
+* [Download](https://github.com/sobhamo/hello-world/raw/master/SDK_Simple/docs/ThingPlug_Simple_SDK_API-20171206.pdf)
 
 Middleware
 ---
