@@ -1,4 +1,5 @@
 ThreadX START!!
+ThreadX START!!
 DHCP Get IP
 192.168.0.11
 192.168.0.1
@@ -6,355 +7,421 @@ NTP Socket Create ok
 NTP Socket Bind ok
 NTP Time Request ok
 NTP Time Receive ok
-[2017-12-04 18:02:57] [INFO]: handleMQTTSetCallbacks()
-[2017-12-04 18:02:57] [INFO]: tpMQTTSetCallbacks result : 0
-[2017-12-04 18:02:57] [INFO]: tpSimpleInitialize
-serviceID : smartweather, deviceID: sptekRe
-[2017-12-04 18:02:57] [INFO]: tpSimpleInitialize : 0
-[2017-12-04 18:02:57] [INFO]: client id : A1:B2:C3:D4:E5:F6
-[2017-12-04 18:02:57] [INFO]: handleMQTTCreate()
-[2017-12-04 18:02:57] [INFO]:  host = 
-[2017-12-04 18:02:57] [INFO]:  port = 1883
-[2017-12-04 18:02:57] [INFO]:  keepalive = 120
-[2017-12-04 18:02:57] [INFO]:  userName = 
-[2017-12-04 18:02:57] [INFO]:  password = 0
-[2017-12-04 18:02:57] [INFO]:  enableServerCertAuth = 0
-[2017-12-04 18:02:57] [INFO]:  subscribeTopic = v1/dev/smartweather/sptekRenesas/down
-[2017-12-04 18:02:57] [INFO]:  subscribeTopicCnt = 1
-[2017-12-04 18:02:57] [INFO]:  publishTopic = 0
-[2017-12-04 18:02:57] [INFO]:  enabledCipherSuites = 0
-[2017-12-04 18:02:57] [INFO]:  cleanSession = 1
-[2017-12-04 18:02:57] [INFO]:  clientID = A1:B2:C3:D4:E5:F6
-[2017-12-04 18:02:57] [INFO]: Use normal socket
-[2017-12-04 18:02:58] [INFO]: clientID =>
-[2017-12-04 18:02:58] [INFO]: A1:B2:C3:D4:E5:F6
-[2017-12-04 18:02:58] [INFO]: MQTT Connected
-[2017-12-04 18:02:58] [INFO]: MQTTConnected result : 0
-[2017-12-04 18:02:58] [INFO]: CONNECTION_STATUS : 2
-[2017-12-04 18:02:58] [INFO]: MQTT Request Subscribe topic =>
-[2017-12-04 18:02:58] [INFO]: v1/dev/smartweather/sptekRenesas/down
-[2017-12-04 18:02:58] [INFO]: MQTTSubscribed result : 0
-[2017-12-04 18:02:58] [INFO]: tpSimpleAttribute
-topic : v1/dev/smartweather/sptekRenesas/att
-[2017-12-04 18:02:58] [INFO]: {
-    "sysAvailableMemory":   3263,
-    "sysBatteryLevel":      100,
-    "sysFirmwareVersion":   "2.0.0",
-    "sysHardwareVersion":  "1.0",
-    "sysSerialNumber":      "400715-1703-003321-1641",
-    "sysErrorCode": 0,
-    "sysNetworkType":       "ethernet",
-    "sysDeviceIpAddress":  "192.168.0.11",
-    "sysGatewayIpAddress":  "192.168.0.1",
-    "sysLocationLatitude":  35.1689766,
-    "sysLocationLongitude": 129.1338524,
-    "act7colorLed": 0
-}
-[2017-12-04 18:02:58] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-12-04 18:02:58] [DEBUG]: MQTT publish call.
-[2017-12-04 18:02:58] [DEBUG]: topic : v1/dev/smartweather/sptekRenesas/attribute
-[2017-12-04 18:02:58] [DEBUG]: {
-    "sysAvailableMemory":   3263,
-    "sysBatteryLevel":      100,
-    "sysFirmwareVersion":   "2.0.0",
-    "sysHardwareVersion":  "1.0",
-    "sysSerialNumber":      "400715-1703-003321-1641",
-    "sysErrorCode": 0,
-    "sysNetworkType":       "ethernet",
-    "sysDeviceIpAddress":  "192.168.0.11",
-    "sysGatewayIpAddress":  "192.168.0.1",
-    "sysLocationLatitude":  35.1689766,
-    "sysLocationLongitude": 129.1338524,
-    "act7colorLed": 0
-}
-[2017-12-04 18:02:58] [DEBUG]: payloadlen : 432
-[2017-12-04 18:02:58] [DEBUG]: qos : 1
-[2017-12-04 18:02:58] [DEBUG]: retained : 0
-[2017-12-04 18:02:58] [DEBUG]: dup : 0
-[2017-12-04 18:02:58] [INFO]: MQTTMessageDelivered token : 0, step : 0
-[2017-12-04 18:02:58] [INFO]: tpSDKCreate result : 0
-[2017-12-04 18:02:58] [INFO]: handleMQTTIsConnected()
-[2017-12-04 18:02:58] [INFO]: tpSimpleTelemetry
-topic : v1/dev/smartweather/sptekRenesas/tel
-[2017-12-04 18:02:58] [INFO]: {
-                                "temp1":        20.16,
-                                                        "humi1":        46,
-                                                                                "light1":       216,
-                                                                                                        "ts":   1512378178
+[2017-12-08 16:41:07] [INFO]: handleMQTTSetCallbacks()
+[2017-12-08 16:41:07] [INFO]: tpMQTTSetCallbacks result : 0
+[2017-12-08 16:41:07] [INFO]: tpSimpleInitialize
+serviceID : smartweather, deviceID: synergy
+[2017-12-08 16:41:07] [INFO]: tpSimpleInitialize : 0
+[2017-12-08 16:41:07] [INFO]: client id : A1:B2:C3:D4:E5:F6
+[2017-12-08 16:41:07] [INFO]: handleMQTTCreate()
+[2017-12-08 16:41:07] [INFO]:  host = 
+[2017-12-08 16:41:07] [INFO]:  port = 1883
+[2017-12-08 16:41:07] [INFO]:  keepalive = 120
+[2017-12-08 16:41:07] [INFO]:  userName = baa3d9e0dbea11e7b542
+[2017-12-08 16:41:07] [INFO]:  password = 0
+[2017-12-08 16:41:07] [INFO]:  enableServerCertAuth = 0
+[2017-12-08 16:41:07] [INFO]:  subscribeTopic = v1/dev/smartweather/synergy/down
+[2017-12-08 16:41:07] [INFO]:  subscribeTopicCnt = 1
+[2017-12-08 16:41:07] [INFO]:  publishTopic = 0
+[2017-12-08 16:41:07] [INFO]:  enabledCipherSuites = 0
+[2017-12-08 16:41:07] [INFO]:  cleanSession = 1
+[2017-12-08 16:41:07] [INFO]:  clientID = A1:B2:C3:D4:E5:F6
+[2017-12-08 16:41:07] [INFO]: Use normal socket
+[2017-12-08 16:41:08] [INFO]: clientID =>
+[2017-12-08 16:41:08] [INFO]: A1:B2:C3:D4:E5:F6
+[2017-12-08 16:41:08] [INFO]: MQTT Connected
+[2017-12-08 16:41:08] [INFO]: MQTTConnected result : 0
+[2017-12-08 16:41:08] [INFO]: CONNECTION_STATUS : 2
+[2017-12-08 16:41:08] [INFO]: MQTT Request Subscribe topic =>
+[2017-12-08 16:41:08] [INFO]: v1/dev/smartweather/synergy/down
+[2017-12-08 16:41:08] [INFO]: MQTTSubscribed result : 0
+[2017-12-08 16:41:08] [INFO]: tpSimpleAttribute
+topic : v1/dev/smartweather/synergy/attribut
+[2017-12-08 16:41:08] [INFO]: {
+                                "sysAvailableMemory":   3263,
+                                                                "sysBatteryLevel":      100,
+                                                                                                "sysFirmwareVersion":   "2.0.0",
+                                                                                                                                        "sysHardwareVersion":  "1.0",
+                "sysSerialNumber":      "400715-1703-003321-1641",
+                                                                        "sysErrorCode": 0,
+                                                                                                "sysNetworkType":       "ethernet",
+                                                                                                                                        "sysDeviceIpAddress":  "192.168.0.11",
+                        "sysGatewayIpAddress":  "192.168.0.1",
+                                                                "sysThingPlugIpAddress":        "",
+                                                                                                                        "sysLocationLatitude":  35.1689766,
+        "sysLocationLongitude": 129.1338524,
+                                                "act7colorLed": 0
+                                                                 }
+[2017-12-08 16:41:08] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 16:41:08] [DEBUG]: MQTT publish call.
+[2017-12-08 16:41:08] [DEBUG]: topic : v1/dev/smartweather/synergy/attribute
+[2017-12-08 16:41:08] [DEBUG]: {
+                                        "sysAvailableMemory":   3263,
+                                                                        "sysBatteryLevel":      100,
+                                                                                                        "sysFirmwareVersion":   "2.0.0",
+                                                                                                                                                "sysHardwareVersion":  "1.0",
+                        "sysSerialNumber":      "400715-1703-003321-1641",
+                                                                                "sysErrorCode": 0,
+                                                                                                        "sysNetworkType":       "ethernet",
+                                                                                                                                                "sysDeviceIpAddress":  "192.168.0.11",
+                                "sysGatewayIpAddress":  "192.168.0.1",
+                                                                        "sysThingPlugIpAddress":        "",
+                                                                                                                                "sysLocationLatitude": 35.1689766,
+                "sysLocationLongitude": 129.1338524,
+                                                        "act7colorLed": 0
+                                                                         }
+[2017-12-08 16:41:08] [DEBUG]: payloadlen : 432
+[2017-12-08 16:41:08] [DEBUG]: qos : 1
+[2017-12-08 16:41:08] [DEBUG]: retained : 0
+[2017-12-08 16:41:08] [DEBUG]: dup : 0
+[2017-12-08 16:41:08] [INFO]: MQTTMessageDelivered token : 0, step : 0
+[2017-12-08 16:41:08] [INFO]: tpSDKCreate result : 0
+[2017-12-08 16:41:08] [INFO]: handleMQTTIsConnected()
+[2017-12-08 16:41:08] [INFO]: tpSimpleTelemetry                        
+topic : v1/dev/smartweather/synergy/telemetr
+[2017-12-08 16:42:58] [INFO]: {
+                                "temp1":        59.24,
+                                                        "humi1":        44,
+                                                                                "light1":       224,
+                                                                                                        "ts":   1512718978
                                                                                                                           }
-[2017-12-04 18:02:58] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-12-04 18:02:58] [DEBUG]: MQTT publish call.
-[2017-12-04 18:02:58] [DEBUG]: topic : v1/dev/smartweather/sptekRenesas/telemetry
-[2017-12-04 18:02:58] [DEBUG]: {
-                                        "temp1":        20.16,
-                                                                "humi1":        46,
-                                                                                        "light1":       216,
-                                                                                                                "ts":   1512378178
+[2017-12-08 16:42:58] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 16:42:58] [DEBUG]: MQTT publish call.
+[2017-12-08 16:42:58] [DEBUG]: topic : v1/dev/smartweather/synergy/telemetry
+[2017-12-08 16:42:58] [DEBUG]: {
+                                        "temp1":        59.24,
+                                                                "humi1":        44,
+                                                                                        "light1":       224,
+                                                                                                                "ts":   1512718978
                                                                                                                                   }
-[2017-12-04 18:02:58] [DEBUG]: payloadlen : 68
-[2017-12-04 18:02:58] [DEBUG]: qos : 1
-[2017-12-04 18:02:58] [DEBUG]: retained : 0
-[2017-12-04 18:02:58] [DEBUG]: dup : 0
-[2017-12-04 18:02:58] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-12-04 18:02:58] [INFO]: handleMQTTYield()
-[2017-12-04 18:03:03] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/sptekRenesas/dow
-[2017-12-04 18:03:03] [INFO]: paylaod->
-[2017-12-04 18:03:03] [INFO]: {"deviceId":"1341f770-d890-11e7-b5bb-e3c8bdb95c0d","cmdId":2073378491,"cmd":"set_attr","attribute":{"act7colorLed":2}}
-[2017-12-04 18:03:03] [INFO]: act7colorLed : 2, 2073378491
-[2017-12-04 18:03:03] [INFO]: tpSimpleAttribute
-topic : v1/dev/smartweather/sptekRenesas/att
-[2017-12-04 18:03:03] [INFO]: {
-                                "act7colorLed": 2
-                                                 }
-[2017-12-04 18:03:03] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-12-04 18:03:03] [DEBUG]: MQTT publish call.
-[2017-12-04 18:03:03] [DEBUG]: topic : v1/dev/smartweather/sptekRenesas/attribute
-[2017-12-04 18:03:03] [DEBUG]: {
-                                        "act7colorLed": 2
-                                                         }
-[2017-12-04 18:03:03] [DEBUG]: payloadlen : 22
-[2017-12-04 18:03:03] [DEBUG]: qos : 1
-[2017-12-04 18:03:03] [DEBUG]: retained : 0
-[2017-12-04 18:03:03] [DEBUG]: dup : 0
-[2017-12-04 18:03:03] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-12-04 18:03:03] [INFO]: handleMQTTIsConnected()
-[2017-12-04 18:03:03] [INFO]: tpSimpleTelemetry
-topic : v1/dev/smartweather/sptekRenesas/tel
-[2017-12-04 18:03:03] [INFO]: {
-                                "temp1":        20.81,
-                                                        "humi1":        41,
-                                                                                "light1":       231,
-                                                                                                        "ts":   1512378183
+[2017-12-08 16:42:58] [DEBUG]: payloadlen : 68
+[2017-12-08 16:42:58] [DEBUG]: qos : 1
+[2017-12-08 16:42:58] [DEBUG]: retained : 0
+[2017-12-08 16:42:58] [DEBUG]: dup : 0
+[2017-12-08 16:42:58] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 16:42:58] [INFO]: handleMQTTYield()
+[2017-12-08 16:43:08] [INFO]: handleMQTTIsConnected()
+[2017-12-08 16:43:08] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/synergy/telemetr
+[2017-12-08 16:43:08] [INFO]: {
+                                "temp1":        33.84,
+                                                        "humi1":        44,
+                                                                                "light1":       234,
+                                                                                                        "ts":   1512718988
                                                                                                                           }
-[2017-12-04 18:03:03] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-12-04 18:03:03] [DEBUG]: MQTT publish call.
-[2017-12-04 18:03:03] [DEBUG]: topic : v1/dev/smartweather/sptekRenesas/telemetry
-[2017-12-04 18:03:03] [DEBUG]: {
-                                        "temp1":        20.81,
-                                                                "humi1":        41,
-                                                                                        "light1":       231,
-                                                                                                                "ts":   1512378183
+[2017-12-08 16:43:08] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 16:43:08] [DEBUG]: MQTT publish call.
+[2017-12-08 16:43:08] [DEBUG]: topic : v1/dev/smartweather/synergy/telemetry
+[2017-12-08 16:43:08] [DEBUG]: {
+                                        "temp1":        33.84,
+                                                                "humi1":        44,
+                                                                                        "light1":       234,
+                                                                                                                "ts":   1512718988
                                                                                                                                   }
-[2017-12-04 18:03:03] [DEBUG]: payloadlen : 68
-[2017-12-04 18:03:03] [DEBUG]: qos : 1
-[2017-12-04 18:03:03] [DEBUG]: retained : 0
-[2017-12-04 18:03:03] [DEBUG]: dup : 0
-[2017-12-04 18:03:03] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-12-04 18:03:03] [INFO]: handleMQTTYield()
-[2017-12-04 18:03:04] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/sptekRenesas/dow
-[2017-12-04 18:03:04] [INFO]: paylaod->
-[2017-12-04 18:03:04] [INFO]: {"deviceId":"1341f770-d890-11e7-b5bb-e3c8bdb95c0d","cmdId":837912107,"cmd":"set_attr","attribute":{"act7colorLed":2}}
-[2017-12-04 18:03:04] [INFO]: act7colorLed : 2, 837912107
-[2017-12-04 18:03:04] [INFO]: tpSimpleAttribute
-topic : v1/dev/smartweather/sptekRenesas/att
-[2017-12-04 18:03:04] [INFO]: {
-                                "act7colorLed": 2
-                                                 }
-[2017-12-04 18:03:04] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-12-04 18:03:04] [DEBUG]: MQTT publish call.
-[2017-12-04 18:03:04] [DEBUG]: topic : v1/dev/smartweather/sptekRenesas/attribute
-[2017-12-04 18:03:04] [DEBUG]: {
-                                        "act7colorLed": 2
-                                                         }
-[2017-12-04 18:03:04] [DEBUG]: payloadlen : 22
-[2017-12-04 18:03:04] [DEBUG]: qos : 1
-[2017-12-04 18:03:04] [DEBUG]: retained : 0
-[2017-12-04 18:03:04] [DEBUG]: dup : 0
-[2017-12-04 18:03:04] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-12-04 18:03:04] [INFO]: handleMQTTIsConnected()
-[2017-12-04 18:03:04] [INFO]: tpSimpleTelemetry
-topic : v1/dev/smartweather/sptekRenesas/tel
-[2017-12-04 18:03:04] [INFO]: {
-                                "temp1":        21.00,
-                                                        "humi1":        40,
-                                                                                "light1":       200,
-                                                                                                        "ts":   1512378184
-                                                                                                                          }
-[2017-12-04 18:03:04] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-12-04 18:03:04] [DEBUG]: MQTT publish call.
-[2017-12-04 18:03:04] [DEBUG]: topic : v1/dev/smartweather/sptekRenesas/telemetry
-[2017-12-04 18:03:04] [DEBUG]: {
-                                        "temp1":        21.00,
-                                                                "humi1":        40,
-                                                                                        "light1":       200,
-                                                                                                                "ts":   1512378184
-                                                                                                                                  }
-[2017-12-04 18:03:04] [DEBUG]: payloadlen : 68
-[2017-12-04 18:03:04] [DEBUG]: qos : 1
-[2017-12-04 18:03:04] [DEBUG]: retained : 0
-[2017-12-04 18:03:04] [DEBUG]: dup : 0
-[2017-12-04 18:03:04] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-12-04 18:03:04] [INFO]: handleMQTTYield()
-[2017-12-04 18:03:06] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/sptekRenesas/dow
-[2017-12-04 18:03:06] [INFO]: paylaod->
-[2017-12-04 18:03:06] [INFO]: {"deviceId":"1341f770-d890-11e7-b5bb-e3c8bdb95c0d","cmdId":659787388,"cmd":"set_attr","attribute":{"act7colorLed":2}}
-[2017-12-04 18:03:06] [INFO]: act7colorLed : 2, 659787388
-[2017-12-04 18:03:06] [INFO]: tpSimpleAttribute
-topic : v1/dev/smartweather/sptekRenesas/att
-[2017-12-04 18:03:06] [INFO]: {
-                                "act7colorLed": 2
-                                                 }
-[2017-12-04 18:03:06] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-12-04 18:03:06] [DEBUG]: MQTT publish call.
-[2017-12-04 18:03:06] [DEBUG]: topic : v1/dev/smartweather/sptekRenesas/attribute
-[2017-12-04 18:03:06] [DEBUG]: {
-                                        "act7colorLed": 2
-                                                         }
-[2017-12-04 18:03:06] [DEBUG]: payloadlen : 22
-[2017-12-04 18:03:06] [DEBUG]: qos : 1
-[2017-12-04 18:03:06] [DEBUG]: retained : 0
-[2017-12-04 18:03:06] [DEBUG]: dup : 0
-[2017-12-04 18:03:06] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-12-04 18:03:06] [INFO]: handleMQTTIsConnected()
-[2017-12-04 18:03:06] [INFO]: tpSimpleTelemetry
-topic : v1/dev/smartweather/sptekRenesas/tel
-[2017-12-04 18:03:06] [INFO]: {
-                                "temp1":        21.44,
+[2017-12-08 16:43:08] [DEBUG]: payloadlen : 68
+[2017-12-08 16:43:08] [DEBUG]: qos : 1
+[2017-12-08 16:43:08] [DEBUG]: retained : 0
+[2017-12-08 16:43:08] [DEBUG]: dup : 0
+[2017-12-08 16:43:08] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 16:43:08] [INFO]: handleMQTTYield()
+[2017-12-08 16:43:18] [INFO]: handleMQTTIsConnected()
+[2017-12-08 16:43:18] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/synergy/telemetr
+[2017-12-08 16:43:18] [INFO]: {
+                                "temp1":        60.44,
                                                         "humi1":        44,
                                                                                 "light1":       244,
-                                                                                                        "ts":   1512378186
+                                                                                                        "ts":   1512718998
                                                                                                                           }
-[2017-12-04 18:03:06] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-12-04 18:03:06] [DEBUG]: MQTT publish call.
-[2017-12-04 18:03:06] [DEBUG]: topic : v1/dev/smartweather/sptekRenesas/telemetry
-[2017-12-04 18:03:06] [DEBUG]: {
-                                        "temp1":        21.44,
+[2017-12-08 16:43:18] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 16:43:18] [DEBUG]: MQTT publish call.
+[2017-12-08 16:43:18] [DEBUG]: topic : v1/dev/smartweather/synergy/telemetry
+[2017-12-08 16:43:18] [DEBUG]: {
+                                        "temp1":        60.44,
                                                                 "humi1":        44,
                                                                                         "light1":       244,
-                                                                                                                "ts":   1512378186
+                                                                                                                "ts":   1512718998
                                                                                                                                   }
-[2017-12-04 18:03:06] [DEBUG]: payloadlen : 68
-[2017-12-04 18:03:06] [DEBUG]: qos : 1
-[2017-12-04 18:03:06] [DEBUG]: retained : 0
-[2017-12-04 18:03:06] [DEBUG]: dup : 0
-[2017-12-04 18:03:06] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-12-04 18:03:06] [INFO]: handleMQTTYield()
-[2017-12-04 18:03:07] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/sptekRenesas/dow
-[2017-12-04 18:03:07] [INFO]: paylaod->
-[2017-12-04 18:03:07] [INFO]: {"deviceId":"1341f770-d890-11e7-b5bb-e3c8bdb95c0d","cmdId":373237691,"cmd":"set_attr","attribute":{"act7colorLed":2}}
-[2017-12-04 18:03:07] [INFO]: act7colorLed : 2, 373237691
-[2017-12-04 18:03:07] [INFO]: tpSimpleAttribute
-topic : v1/dev/smartweather/sptekRenesas/att
-[2017-12-04 18:03:07] [INFO]: {
+[2017-12-08 16:43:18] [DEBUG]: payloadlen : 68
+[2017-12-08 16:43:18] [DEBUG]: qos : 1
+[2017-12-08 16:43:18] [DEBUG]: retained : 0
+[2017-12-08 16:43:18] [DEBUG]: dup : 0
+[2017-12-08 16:43:18] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 16:43:18] [INFO]: handleMQTTYield()
+[2017-12-08 16:43:28] [INFO]: handleMQTTIsConnected()
+[2017-12-08 16:43:28] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/synergy/telemetr
+[2017-12-08 16:43:28] [INFO]: {
+                                "temp1":        39.04,
+                                                        "humi1":        44,
+                                                                                "light1":       204,
+                                                                                                        "ts":   1512719008
+                                                                                                                          }
+[2017-12-08 16:43:28] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 16:43:28] [DEBUG]: MQTT publish call.
+[2017-12-08 16:43:28] [DEBUG]: topic : v1/dev/smartweather/synergy/telemetry
+[2017-12-08 16:43:28] [DEBUG]: {
+                                        "temp1":        39.04,
+                                                                "humi1":        44,
+                                                                                        "light1":       204,
+                                                                                                                "ts":   1512719008
+                                                                                                                                  }
+[2017-12-08 16:43:28] [DEBUG]: payloadlen : 68
+[2017-12-08 16:43:28] [DEBUG]: qos : 1
+[2017-12-08 16:43:28] [DEBUG]: retained : 0
+[2017-12-08 16:43:28] [DEBUG]: dup : 0
+[2017-12-08 16:43:28] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 16:43:28] [INFO]: handleMQTTYield()
+[2017-12-08 16:43:38] [INFO]: handleMQTTIsConnected()
+[2017-12-08 16:43:38] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/synergy/telemetr
+[2017-12-08 16:43:38] [INFO]: {
+                                "temp1":        69.64,
+                                                        "humi1":        44,
+                                                                                "light1":       214,
+                                                                                                        "ts":   1512719018
+                                                                                                                          }
+[2017-12-08 16:43:38] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 16:43:38] [DEBUG]: MQTT publish call.
+[2017-12-08 16:43:38] [DEBUG]: topic : v1/dev/smartweather/synergy/telemetry
+[2017-12-08 16:43:38] [DEBUG]: {
+                                        "temp1":        69.64,
+                                                                "humi1":        44,
+                                                                                        "light1":       214,
+                                                                                                                "ts":   1512719018
+                                                                                                                                  }
+[2017-12-08 16:43:38] [DEBUG]: payloadlen : 68
+[2017-12-08 16:43:38] [DEBUG]: qos : 1
+[2017-12-08 16:43:38] [DEBUG]: retained : 0
+[2017-12-08 16:43:38] [DEBUG]: dup : 0
+[2017-12-08 16:43:38] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 16:43:38] [INFO]: handleMQTTYield()
+[2017-12-08 16:43:48] [INFO]: handleMQTTIsConnected()
+[2017-12-08 16:43:48] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/synergy/telemetr
+[2017-12-08 16:43:48] [INFO]: {
+                                "temp1":        52.24,
+                                                        "humi1":        44,
+                                                                                "light1":       224,
+                                                                                                        "ts":   1512719028
+                                                                                                                          }
+[2017-12-08 16:43:48] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 16:43:48] [DEBUG]: MQTT publish call.
+[2017-12-08 16:43:48] [DEBUG]: topic : v1/dev/smartweather/synergy/telemetry
+[2017-12-08 16:43:48] [DEBUG]: {
+                                        "temp1":        52.24,
+                                                                "humi1":        44,
+                                                                                        "light1":       224,
+                                                                                                                "ts":   1512719028
+                                                                                                                                  }
+[2017-12-08 16:43:48] [DEBUG]: payloadlen : 68
+[2017-12-08 16:43:48] [DEBUG]: qos : 1
+[2017-12-08 16:43:48] [DEBUG]: retained : 0
+[2017-12-08 16:43:48] [DEBUG]: dup : 0
+[2017-12-08 16:43:48] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 16:43:48] [INFO]: handleMQTTYield()
+[2017-12-08 16:43:50] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/synergy/down, st
+[2017-12-08 16:43:50] [INFO]: paylaod->
+[2017-12-08 16:43:50] [INFO]: {"deviceId":"baa3b2d0-dbea-11e7-b542-6b538329976c","cmdId":1798718904,"cmd":"set_attr","attribute":{"act7colorLed":2}}
+[2017-12-08 16:43:50] [INFO]: act7colorLed : 2, 1798718904
+[2017-12-08 16:43:50] [INFO]: tpSimpleAttribute
+topic : v1/dev/smartweather/synergy/attribut
+[2017-12-08 16:43:50] [INFO]: {
                                 "act7colorLed": 2
                                                  }
-[2017-12-04 18:03:07] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-12-04 18:03:07] [DEBUG]: MQTT publish call.
-[2017-12-04 18:03:07] [DEBUG]: topic : v1/dev/smartweather/sptekRenesas/attribute
-[2017-12-04 18:03:07] [DEBUG]: {
+[2017-12-08 16:43:50] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 16:43:50] [DEBUG]: MQTT publish call.
+[2017-12-08 16:43:50] [DEBUG]: topic : v1/dev/smartweather/synergy/attribute
+[2017-12-08 16:43:50] [DEBUG]: {
                                         "act7colorLed": 2
                                                          }
-[2017-12-04 18:03:07] [DEBUG]: payloadlen : 22
-[2017-12-04 18:03:07] [DEBUG]: qos : 1
-[2017-12-04 18:03:07] [DEBUG]: retained : 0
-[2017-12-04 18:03:07] [DEBUG]: dup : 0
-[2017-12-04 18:03:07] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-12-04 18:03:07] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/sptekRenesas/dow
-[2017-12-04 18:03:07] [INFO]: paylaod->
-[2017-12-04 18:03:07] [INFO]: {"deviceId":"1341f770-d890-11e7-b5bb-e3c8bdb95c0d","cmdId":1545371168,"cmd":"set_attr","attribute":{"act7colorLed":2}}
-[2017-12-04 18:03:07] [INFO]: act7colorLed : 2, 1545371168
-[2017-12-04 18:03:07] [INFO]: tpSimpleAttribute
-topic : v1/dev/smartweather/sptekRenesas/att
-[2017-12-04 18:03:07] [INFO]: {
-                                "act7colorLed": 2
-                                                 }
-[2017-12-04 18:03:07] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-12-04 18:03:07] [DEBUG]: MQTT publish call.
-[2017-12-04 18:03:07] [DEBUG]: topic : v1/dev/smartweather/sptekRenesas/attribute
-[2017-12-04 18:03:07] [DEBUG]: {
-                                        "act7colorLed": 2
-                                                         }
-[2017-12-04 18:03:07] [DEBUG]: payloadlen : 22
-[2017-12-04 18:03:07] [DEBUG]: qos : 1
-[2017-12-04 18:03:07] [DEBUG]: retained : 0
-[2017-12-04 18:03:07] [DEBUG]: dup : 0
-[2017-12-04 18:03:07] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-12-04 18:03:08] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/sptekRenesas/dow
-[2017-12-04 18:03:08] [INFO]: paylaod->
-[2017-12-04 18:03:08] [INFO]: {"deviceId":"1341f770-d890-11e7-b5bb-e3c8bdb95c0d","cmdId":679135038,"cmd":"set_attr","attribute":{"act7colorLed":1}}
-[2017-12-04 18:03:08] [INFO]: act7colorLed : 1, 679135038
-[2017-12-04 18:03:08] [INFO]: tpSimpleAttribute
-topic : v1/dev/smartweather/sptekRenesas/att
-[2017-12-04 18:03:08] [INFO]: {
-                                "act7colorLed": 1
-                                                 }
-[2017-12-04 18:03:08] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-12-04 18:03:08] [DEBUG]: MQTT publish call.
-[2017-12-04 18:03:08] [DEBUG]: topic : v1/dev/smartweather/sptekRenesas/attribute
-[2017-12-04 18:03:08] [DEBUG]: {
-                                        "act7colorLed": 1
-                                                         }
-[2017-12-04 18:03:08] [DEBUG]: payloadlen : 22
-[2017-12-04 18:03:08] [DEBUG]: qos : 1
-[2017-12-04 18:03:08] [DEBUG]: retained : 0
-[2017-12-04 18:03:08] [DEBUG]: dup : 0
-[2017-12-04 18:03:08] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-12-04 18:03:08] [INFO]: handleMQTTIsConnected()
-[2017-12-04 18:03:08] [INFO]: tpSimpleTelemetry
-topic : v1/dev/smartweather/sptekRenesas/tel
-[2017-12-04 18:03:08] [INFO]: {
-                                "temp1":        21.96,
-                                                        "humi1":        46,
-                                                                                "light1":       246,
-                                                                                                        "ts":   1512378188
+[2017-12-08 16:43:50] [DEBUG]: payloadlen : 22
+[2017-12-08 16:43:50] [DEBUG]: qos : 1
+[2017-12-08 16:43:50] [DEBUG]: retained : 0
+[2017-12-08 16:43:50] [DEBUG]: dup : 0
+[2017-12-08 16:43:50] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 16:43:50] [INFO]: handleMQTTIsConnected()
+[2017-12-08 16:43:50] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/synergy/telemetr
+[2017-12-08 16:43:50] [INFO]: {
+                                "temp1":        59.00,
+                                                        "humi1":        40,
+                                                                                "light1":       200,
+                                                                                                        "ts":   1512719030
                                                                                                                           }
-[2017-12-04 18:03:08] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-12-04 18:03:08] [DEBUG]: MQTT publish call.
-[2017-12-04 18:03:08] [DEBUG]: topic : v1/dev/smartweather/sptekRenesas/telemetry
-[2017-12-04 18:03:08] [DEBUG]: {
-                                        "temp1":        21.96,
-                                                                "humi1":        46,
-                                                                                        "light1":       246,
-                                                                                                                "ts":   1512378188
+[2017-12-08 16:43:50] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 16:43:50] [DEBUG]: MQTT publish call.
+[2017-12-08 16:43:50] [DEBUG]: topic : v1/dev/smartweather/synergy/telemetry
+[2017-12-08 16:43:50] [DEBUG]: {
+                                        "temp1":        59.00,
+                                                                "humi1":        40,
+                                                                                        "light1":       200,
+                                                                                                                "ts":   1512719030
                                                                                                                                   }
-[2017-12-04 18:03:08] [DEBUG]: payloadlen : 68
-[2017-12-04 18:03:08] [DEBUG]: qos : 1
-[2017-12-04 18:03:08] [DEBUG]: retained : 0
-[2017-12-04 18:03:08] [DEBUG]: dup : 0
-[2017-12-04 18:03:08] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-12-04 18:03:08] [INFO]: handleMQTTYield()
-[2017-12-04 18:03:11] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/sptekRenesas/dow
-[2017-12-04 18:03:11] [INFO]: paylaod->
-[2017-12-04 18:03:11] [INFO]: {"deviceId":"1341f770-d890-11e7-b5bb-e3c8bdb95c0d","cmdId":150000466,"cmd":"set_attr","attribute":{"act7colorLed":1}}
-[2017-12-04 18:03:11] [INFO]: act7colorLed : 1, 150000466
-[2017-12-04 18:03:11] [INFO]: tpSimpleAttribute
-topic : v1/dev/smartweather/sptekRenesas/att
-[2017-12-04 18:03:11] [INFO]: {
-                                "act7colorLed": 1
-                                                 }
-[2017-12-04 18:03:11] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-12-04 18:03:11] [DEBUG]: MQTT publish call.
-[2017-12-04 18:03:11] [DEBUG]: topic : v1/dev/smartweather/sptekRenesas/attribute
-[2017-12-04 18:03:11] [DEBUG]: {
-                                        "act7colorLed": 1
-                                                         }
-[2017-12-04 18:03:11] [DEBUG]: payloadlen : 22
-[2017-12-04 18:03:11] [DEBUG]: qos : 1
-[2017-12-04 18:03:11] [DEBUG]: retained : 0
-[2017-12-04 18:03:11] [DEBUG]: dup : 0
-[2017-12-04 18:03:11] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-12-04 18:03:11] [INFO]: handleMQTTIsConnected()
-[2017-12-04 18:03:11] [INFO]: tpSimpleTelemetry
-topic : v1/dev/smartweather/sptekRenesas/tel
-[2017-12-04 18:03:11] [INFO]: {
-                                "temp1":        22.89,
-                                                        "humi1":        49,
-                                                                                "light1":       239,
-                                                                                                        "ts":   1512378191
+[2017-12-08 16:43:50] [DEBUG]: payloadlen : 68
+[2017-12-08 16:43:50] [DEBUG]: qos : 1
+[2017-12-08 16:43:50] [DEBUG]: retained : 0
+[2017-12-08 16:43:50] [DEBUG]: dup : 0
+[2017-12-08 16:43:50] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 16:43:50] [INFO]: handleMQTTYield()
+[2017-12-08 16:44:00] [INFO]: handleMQTTIsConnected()
+[2017-12-08 16:44:00] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/synergy/telemetr
+[2017-12-08 16:44:00] [INFO]: {
+                                "temp1":        44.00,
+                                                        "humi1":        40,
+                                                                                "light1":       200,
+                                                                                                        "ts":   1512719040
                                                                                                                           }
-[2017-12-04 18:03:11] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-12-04 18:03:11] [DEBUG]: MQTT publish call.
-[2017-12-04 18:03:11] [DEBUG]: topic : v1/dev/smartweather/sptekRenesas/telemetry
-[2017-12-04 18:03:11] [DEBUG]: {
-                                        "temp1":        22.89,
-                                                                "humi1":        49,
-                                                                                        "light1":       239,
-                                                                                                                "ts":   1512378191
+[2017-12-08 16:44:00] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 16:44:00] [DEBUG]: MQTT publish call.
+[2017-12-08 16:44:00] [DEBUG]: topic : v1/dev/smartweather/synergy/telemetry
+[2017-12-08 16:44:00] [DEBUG]: {
+                                        "temp1":        44.00,
+                                                                "humi1":        40,
+                                                                                        "light1":       200,
+                                                                                                                "ts":   1512719040
                                                                                                                                   }
-[2017-12-04 18:03:11] [DEBUG]: payloadlen : 68
-[2017-12-04 18:03:11] [DEBUG]: qos : 1
-[2017-12-04 18:03:11] [DEBUG]: retained : 0
-[2017-12-04 18:03:11] [DEBUG]: dup : 0
-[2017-12-04 18:03:11] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-12-04 18:03:11] [INFO]: handleMQTTYield()
+[2017-12-08 16:44:00] [DEBUG]: payloadlen : 68
+[2017-12-08 16:44:00] [DEBUG]: qos : 1
+[2017-12-08 16:44:00] [DEBUG]: retained : 0
+[2017-12-08 16:44:00] [DEBUG]: dup : 0
+[2017-12-08 16:44:00] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 16:44:00] [INFO]: handleMQTTYield()
+[2017-12-08 16:44:10] [INFO]: handleMQTTIsConnected()
+[2017-12-08 16:44:10] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/synergy/telemetr
+[2017-12-08 16:44:10] [INFO]: {
+                                "temp1":        31.00,
+                                                        "humi1":        40,
+                                                                                "light1":       200,
+                                                                                                        "ts":   1512719050
+                                                                                                                          }
+[2017-12-08 16:44:10] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 16:44:10] [DEBUG]: MQTT publish call.
+[2017-12-08 16:44:10] [DEBUG]: topic : v1/dev/smartweather/synergy/telemetry
+[2017-12-08 16:44:10] [DEBUG]: {
+                                        "temp1":        31.00,
+                                                                "humi1":        40,
+                                                                                        "light1":       200,
+                                                                                                                "ts":   1512719050
+                                                                                                                                  }
+[2017-12-08 16:44:10] [DEBUG]: payloadlen : 68
+[2017-12-08 16:44:10] [DEBUG]: qos : 1
+[2017-12-08 16:44:10] [DEBUG]: retained : 0
+[2017-12-08 16:44:10] [DEBUG]: dup : 0
+[2017-12-08 16:44:10] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 16:44:10] [INFO]: handleMQTTYield()
+[2017-12-08 16:44:20] [INFO]: handleMQTTIsConnected()
+[2017-12-08 16:44:20] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/synergy/telemetr
+[2017-12-08 16:44:20] [INFO]: {
+                                "temp1":        20.00,
+                                                        "humi1":        40,
+                                                                                "light1":       200,
+                                                                                                        "ts":   1512719060
+                                                                                                                          }
+[2017-12-08 16:44:20] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 16:44:20] [DEBUG]: MQTT publish call.
+[2017-12-08 16:44:20] [DEBUG]: topic : v1/dev/smartweather/synergy/telemetry
+[2017-12-08 16:44:20] [DEBUG]: {
+                                        "temp1":        20.00,
+                                                                "humi1":        40,
+                                                                                        "light1":       200,
+                                                                                                                "ts":   1512719060
+                                                                                                                                  }
+[2017-12-08 16:44:20] [DEBUG]: payloadlen : 68
+[2017-12-08 16:44:20] [DEBUG]: qos : 1
+[2017-12-08 16:44:20] [DEBUG]: retained : 0
+[2017-12-08 16:44:20] [DEBUG]: dup : 0
+[2017-12-08 16:44:20] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 16:44:20] [INFO]: handleMQTTYield()
+[2017-12-08 16:44:30] [INFO]: handleMQTTIsConnected()
+[2017-12-08 16:44:30] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/synergy/telemetr
+[2017-12-08 16:44:30] [INFO]: {
+                                "temp1":        61.00,
+                                                        "humi1":        40,
+                                                                                "light1":       200,
+                                                                                                        "ts":   1512719070
+                                                                                                                          }
+[2017-12-08 16:44:30] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 16:44:30] [DEBUG]: MQTT publish call.
+[2017-12-08 16:44:30] [DEBUG]: topic : v1/dev/smartweather/synergy/telemetry
+[2017-12-08 16:44:30] [DEBUG]: {
+                                        "temp1":        61.00,
+                                                                "humi1":        40,
+                                                                                        "light1":       200,
+                                                                                                                "ts":   1512719070
+                                                                                                                                  }
+[2017-12-08 16:44:30] [DEBUG]: payloadlen : 68
+[2017-12-08 16:44:30] [DEBUG]: qos : 1
+[2017-12-08 16:44:30] [DEBUG]: retained : 0
+[2017-12-08 16:44:30] [DEBUG]: dup : 0
+[2017-12-08 16:44:30] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 16:44:30] [INFO]: handleMQTTYield()
+[2017-12-08 16:44:40] [INFO]: handleMQTTIsConnected()
+[2017-12-08 16:44:40] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/synergy/telemetr
+[2017-12-08 16:44:40] [INFO]: {
+                                "temp1":        54.00,
+                                                        "humi1":        40,
+                                                                                "light1":       200,
+                                                                                                        "ts":   1512719080
+                                                                                                                          }
+[2017-12-08 16:44:40] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 16:44:40] [DEBUG]: MQTT publish call.
+[2017-12-08 16:44:40] [DEBUG]: topic : v1/dev/smartweather/synergy/telemetry
+[2017-12-08 16:44:40] [DEBUG]: {
+                                        "temp1":        54.00,
+                                                                "humi1":        40,
+                                                                                        "light1":       200,
+                                                                                                                "ts":   1512719080
+                                                                                                                                  }
+[2017-12-08 16:44:40] [DEBUG]: payloadlen : 68
+[2017-12-08 16:44:40] [DEBUG]: qos : 1
+[2017-12-08 16:44:40] [DEBUG]: retained : 0
+[2017-12-08 16:44:40] [DEBUG]: dup : 0
+[2017-12-08 16:44:40] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 16:44:40] [INFO]: handleMQTTYield()
+[2017-12-08 16:44:49] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/synergy/down, st
+[2017-12-08 16:44:49] [INFO]: paylaod->
+[2017-12-08 16:44:49] [INFO]: {"serviceName":"smartweather","deviceName":"synergy","cmdId":-9999,"cmd":"rpc_json","rpcMode":"oneway","rpcReq":{"jsonrpc":"2.0","method":"substract","params":[{"act7colorLed":2}],"id":1216223628}}
+[2017-12-08 16:44:49] [INFO]: tpSimpleResult
+                                            topic : v1/dev/smartweather/synergy/up
+[2017-12-08 16:44:49] [INFO]: {
+                                "cmd":  "rpc_json",
+                                                        "cmdId":        1,
+                                                                                "result":       "fail",
+                                                                                                        "rpcRsp":       {
+                                                                                                                                        "jsonrpc":     "2.0",
+                "id":   1216223628,
+                                                "method":       "substract",
+                                                                                        "error":        {
+                                                                                                                                "code": 106,
+                                                                                                                                                               "message":      "FAIL"
+                                        }
+                                                }
+                                                 }
+[2017-12-08 16:44:49] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 16:44:49] [DEBUG]: MQTT publish call.
+[2017-12-08 16:44:49] [DEBUG]: topic : v1/dev/smartweather/synergy/up
+[2017-12-08 16:44:49] [DEBUG]: {
+                                        "cmd":  "rpc_json",
+                                                                "cmdId":        1,
+                                                                                        "result":       "fail",
+                                                                                                                "rpcRsp":       {
+                                                                                                                                                "jsonrpc":     "2.0",
+                        "id":   1216223628,
+                                                        "method":       "substract",
+                                                                                                "error":        {
+                                                                                                                                        "code": 106,
+                                                                                                                                                                       "message":      "FAIL"
+                                                }
+                                                        }
+                                                         }
+[2017-12-08 16:44:49] [DEBUG]: payloadlen : 190
+[2017-12-08 16:44:49] [DEBUG]: qos : 1
+[2017-12-08 16:44:49] [DEBUG]: retained : 0
+[2017-12-08 16:44:49] [DEBUG]: dup : 0
 

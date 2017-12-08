@@ -1,126 +1,231 @@
  MBED START!
-Time is set to (GMT+9): Thu Nov 16 17:34:37 2017
+Time is set to (GMT+9): Fri Dec  8 17:21:49 2017
 
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [114] [INFO]: handleMQTTSetCallbacks()
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/middleware/MA/MA.c] [427] [INFO]: tpMQTTSetCallbacks result : 0
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/simple/Simple.c] [280] [INFO]: tpSimpleInitialize
-serviceID : middleware, deviceID: bbb02
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/middleware/MA/MA.c] [434] [INFO]: tpSimpleInitialize : 0
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/middleware/MA/MA.c] [443] [INFO]: client id : A1:B2:C3:D4:E5:F6
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [150] [INFO]: handleMQTTCreate()
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [151] [INFO]: Use normal socket, host:, port:1883
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [189] [INFO]: IP address is 192.168.0.14
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [190] [INFO]: MAC address is 90:A2:DA:10:30:DF
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [191] [INFO]: Gateway address is 192.168.0.1
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [192] [INFO]: Subnet Mask address is 255.255.255.0
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [251] [INFO]: MQTT Connected
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/middleware/MA/MA.c] [68] [INFO]: MQTTConnected result : 0
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/middleware/MA/MA.c] [80] [INFO]: CONNECTION_STATUS : 2
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [262] [INFO]: MQTT Request Subscribe topic : v1/dev/middleware/bbb02/down
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/middleware/MA/MA.c] [88] [INFO]: MQTTSubscribed result : 0
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/simple/Simple.c] [163] [INFO]: tpSimpleAttribute
-topic : v1/dev/middleware/bbb02/attribute
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/simple/Simple.c] [164] [INFO]: {
-    "sysAvailableMemory":   3263,
-    "sysBatteryLevel":      100,
-    "sysFirmwareVersion":   "2.0.0",
-    "sysHardwareVersion":  "1.0",
-    "sysSerialNumber":      "400715-1703-003321-1641",
-    "sysErrorCode": 0,
-    "sysNetworkType":       "ethernet",
-    "sysDeviceIpAddress":  "192.168.0.11",
-    "sysGatewayIpAddress":  "192.168.0.1",
-    "sysLocationLatitude":  35.1689766,
-    "sysLocationLongitude": 129.1338524,
-    "act7colorLed": 0
-}
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [357] [INFO]: handleMQTTPublishMessage()
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 0
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/middleware/MA/MA.c] [461] [INFO]: tpMQTTCreate result : 0
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [419] [INFO]: handleMQTTIsConnected()
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/simple/Simple.c] [127] [INFO]: tpSimpleTelemetry
-topic : v1/dev/middleware/bbb02/telemetry
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/simple/Simple.c] [128] [INFO]: {
-                                                                                        "temp1":      55.14,
-                "humi1":        44,
-                                        "light1":       214,
-                                                                "ts":   1510821279
-                                                                                  }
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [357] [INFO]: handleMQTTPublishMessage()
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-11-16 17:34:39] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [402] [INFO]: handleMQTTYield()
-[2017-11-16 17:34:49] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [419] [INFO]: handleMQTTIsConnected()
-[2017-11-16 17:34:49] [/src/Library/SimpleAPI/src/simple/Simple.c] [127] [INFO]: tpSimpleTelemetry
-topic : v1/dev/middleware/bbb02/telemetry
-[2017-11-16 17:34:49] [/src/Library/SimpleAPI/src/simple/Simple.c] [128] [INFO]: {
-                                                                                        "temp1":      32.48,
-                "humi1":        48,
-                                        "light1":       248,
-                                                                "ts":   1510821289
-                                                                                  }
-[2017-11-16 17:34:49] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [357] [INFO]: handleMQTTPublishMessage()
-[2017-11-16 17:34:49] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-11-16 17:34:49] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [402] [INFO]: handleMQTTYield()
-[2017-11-16 17:34:56] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [82] [INFO]: CallMessageArrivedCallback()
-[2017-11-16 17:34:56] [/src/Library/SimpleAPI/middleware/MA/MA.c] [123] [INFO]: MQTTMessageArrived topic : v1/dev/middleware/bbb02/down, step :
-[2017-11-16 17:34:57] [/src/Library/SimpleAPI/middleware/MA/MA.c] [132] [INFO]: paylaod->
-[2017-11-16 17:34:57] [/src/Library/SimpleAPI/middleware/MA/MA.c] [133] [INFO]: {"deviceId":"696a28d0-bd14-11e7-a0db-6d89295e8723","cmdId":1473067425,"cmd":"set_attr","attribute":{"act7colorLed":1}}
-[2017-11-16 17:34:57] [/src/Library/SimpleAPI/middleware/MA/MA.c] [191] [INFO]: act7colorLed : 1, 1473067425
-[2017-11-16 17:34:57] [/src/Library/SimpleAPI/src/simple/Simple.c] [163] [INFO]: tpSimpleAttribute
-topic : v1/dev/middleware/bbb02/attribute
-[2017-11-16 17:34:57] [/src/Library/SimpleAPI/src/simple/Simple.c] [164] [INFO]: {
-                                                                                        "act7colorLed":       1
-                 }
-[2017-11-16 17:34:57] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [357] [INFO]: handleMQTTPublishMessage()
-[2017-11-16 17:34:57] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [82] [INFO]: CallMessageArrivedCallback()
-[2017-11-16 17:34:57] [/src/Library/SimpleAPI/middleware/MA/MA.c] [123] [INFO]: MQTTMessageArrived topic : v1/dev/middleware/bbb02/down, step :
-[2017-11-16 17:34:57] [/src/Library/SimpleAPI/middleware/MA/MA.c] [132] [INFO]: paylaod->
-[2017-11-16 17:34:57] [/src/Library/SimpleAPI/middleware/MA/MA.c] [133] [INFO]: {"deviceId":"696a28d0-bd14-11e7-a0db-6d89295e8723","cmdId":954172604,"cmd":"set_attr","attribute":{"act7colorLed":1}}
-[2017-11-16 17:34:57] [/src/Library/SimpleAPI/middleware/MA/MA.c] [191] [INFO]: act7colorLed : 1, 954172604
-[2017-11-16 17:34:57] [/src/Library/SimpleAPI/src/simple/Simple.c] [163] [INFO]: tpSimpleAttribute
-topic : v1/dev/middleware/bbb02/attribute
-[2017-11-16 17:34:57] [/src/Library/SimpleAPI/src/simple/Simple.c] [164] [INFO]: {
-                                                                                        "act7colorLed":       1
-                 }
-[2017-11-16 17:34:57] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [357] [INFO]: handleMQTTPublishMessage()
-[2017-11-16 17:34:57] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-11-16 17:34:57] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-11-16 17:34:59] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [419] [INFO]: handleMQTTIsConnected()
-[2017-11-16 17:34:59] [/src/Library/SimpleAPI/src/simple/Simple.c] [127] [INFO]: tpSimpleTelemetry
-topic : v1/dev/middleware/bbb02/telemetry
-[2017-11-16 17:34:59] [/src/Library/SimpleAPI/src/simple/Simple.c] [128] [INFO]: {
-                                                                                        "temp1":      59.83,
-                "humi1":        43,
-                                        "light1":       233,
-                                                                "ts":   1510821299
-                                                                                  }
-[2017-11-16 17:34:59] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [357] [INFO]: handleMQTTPublishMessage()
-[2017-11-16 17:34:59] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-11-16 17:34:59] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [402] [INFO]: handleMQTTYield()
-[2017-11-16 17:35:02] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [82] [INFO]: CallMessageArrivedCallback()
-[2017-11-16 17:35:02] [/src/Library/SimpleAPI/middleware/MA/MA.c] [123] [INFO]: MQTTMessageArrived topic : v1/dev/middleware/bbb02/down, step :
-[2017-11-16 17:35:02] [/src/Library/SimpleAPI/middleware/MA/MA.c] [132] [INFO]: paylaod->
-[2017-11-16 17:35:02] [/src/Library/SimpleAPI/middleware/MA/MA.c] [133] [INFO]: {"serviceName":"middleware","deviceName":"bbb02","cmdId":-9999,"cmd":"rpc_json","nonBlocking":true,"rpcReq":{"jsonrpc":"2.0","method":"substract","params":[{"act7colorLed":0}],"id":510131486}}
-[2017-11-16 17:35:02] [/src/Library/SimpleAPI/middleware/MA/MA.c] [157] [INFO]:
-                                                                                rpc : 2.0,
-                                                                                          id : 510131486,
-           cmd : 0
-[2017-11-16 17:35:02] [/src/Library/SimpleAPI/src/simple/Simple.c] [216] [INFO]: tpSimpleResult
- topic : v1/dev/middleware/bbb02/up
-                                   {
-                                        "cmd":  "rp
-[2017-11-16 17:35:02] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [357] [INFO]: handleMQTTPublishMessage()
-[2017-11-16 17:35:02] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-11-16 17:35:09] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [419] [INFO]: handleMQTTIsConnected()
-[2017-11-16 17:35:09] [/src/Library/SimpleAPI/src/simple/Simple.c] [127] [INFO]: tpSimpleTelemetry
-topic : v1/dev/middleware/bbb02/telemetry
-[2017-11-16 17:35:09] [/src/Library/SimpleAPI/src/simple/Simple.c] [128] [INFO]: {
-                                                                                        "temp1":      50.70,
-                "humi1":        40,
-                                        "light1":       220,
-                                                                "ts":   1510821309
-                                                                                  }
-[2017-11-16 17:35:09] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [357] [INFO]: handleMQTTPublishMessage()
-[2017-11-16 17:35:10] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-11-16 17:35:10] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [402] [INFO]: handleMQTTYield()
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [114] [INFO]: handleMQTTSetCallbacks()
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/middleware/MA/MA.c] [585] [INFO]: tpMQTTSetCallbacks result : 0
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/simple/Simple.c] [279] [INFO]: tpSimpleInitialize
+serviceID : smartweather, deviceID: nucleoMbed
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/middleware/MA/MA.c] [592] [INFO]: tpSimpleInitialize : 0
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/middleware/MA/MA.c] [601] [INFO]: client id : A1:B2:C3:D4:E5:F6
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [150] [INFO]: handleMQTTCreate()
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [151] [INFO]: Use normal socket, host:, port:1883
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [190] [INFO]: IP address is 192.168.0.14
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [191] [INFO]: MAC address is 90:A2:DA:10:30:DF
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [192] [INFO]: Gateway address is 192.168.0.1
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [193] [INFO]: Subnet Mask address is 255.255.255.0
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [252] [INFO]: MQTT Connected
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/middleware/MA/MA.c] [68] [INFO]: MQTTConnected result : 0
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/middleware/MA/MA.c] [80] [INFO]: CONNECTION_STATUS : 2
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [263] [INFO]: MQTT Request Subscribe topic : v1/dev/smartweather/nucleoMbed/down
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/middleware/MA/MA.c] [88] [INFO]: MQTTSubscribed result : 0
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/simple/Simple.c] [163] [INFO]: tpSimpleAttribute
+topic : v1/dev/smartweather/nucleoMbed/attri
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/simple/Simple.c] [164] [INFO]: {
+                                                                                        "sysAvailableMemory":   512000,
+                                                                                                                        "sysBatteryLevel":      100,
+                                                                                                                                                      "sysFirmwareVersion":   "2.0.0",
+                                        "sysHardwareVersion":   "1.0",
+                                                                        "sysSerialNumber":      "2160900865",
+                                                                                                                "sysErrorCode": 0,
+                                                                                                                                        "sysNetworkType":     "ethernet",
+                        "sysDeviceIpAddress":   "192.168.0.14",
+                                                                "sysGatewayIpAddress":  "192.168.0.1",
+                                                                                                        "sysThingPlugIpAddress":        "",
+        "sysLocationLatitude":  35.1689766,
+                                                "sysLocationLongitude": 129.1338524,
+                                                                                        "act7colorLed": 0
+                                                                                                         }
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [358] [INFO]: handleMQTTPublishMessage()
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 0
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/middleware/MA/MA.c] [619] [INFO]: tpMQTTCreate result : 0
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [420] [INFO]: handleMQTTIsConnected()
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/simple/Simple.c] [127] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/nucleoMbed/telem
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/simple/Simple.c] [128] [INFO]: {
+                                                                                        "temp1":        44.06,
+                                                                                                                "humi1":        46,
+                                                                                                                                        "light1":     206,
+        "ts":   1512721311
+                          }
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [358] [INFO]: handleMQTTPublishMessage()
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:21:51] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [403] [INFO]: handleMQTTYield()
+[2017-12-08 17:22:01] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [420] [INFO]: handleMQTTIsConnected()
+[2017-12-08 17:22:01] [/src/Library/SimpleAPI/src/simple/Simple.c] [127] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/nucleoMbed/telem
+[2017-12-08 17:22:01] [/src/Library/SimpleAPI/src/simple/Simple.c] [128] [INFO]: {
+                                                                                        "temp1":        21.40,
+                                                                                                                "humi1":        40,
+                                                                                                                                        "light1":     240,
+        "ts":   1512721321
+                          }
+[2017-12-08 17:22:01] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [358] [INFO]: handleMQTTPublishMessage()
+[2017-12-08 17:22:01] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:22:01] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [403] [INFO]: handleMQTTYield()
+[2017-12-08 17:22:11] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [420] [INFO]: handleMQTTIsConnected()
+[2017-12-08 17:22:11] [/src/Library/SimpleAPI/src/simple/Simple.c] [127] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/nucleoMbed/telem
+[2017-12-08 17:22:11] [/src/Library/SimpleAPI/src/simple/Simple.c] [128] [INFO]: {
+                                                                                        "temp1":        48.75,
+                                                                                                                "humi1":        45,
+                                                                                                                                        "light1":     225,
+        "ts":   1512721331
+                          }
+[2017-12-08 17:22:11] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [358] [INFO]: handleMQTTPublishMessage()
+[2017-12-08 17:22:11] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:22:11] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [403] [INFO]: handleMQTTYield()
+[2017-12-08 17:22:21] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [420] [INFO]: handleMQTTIsConnected()
+[2017-12-08 17:22:21] [/src/Library/SimpleAPI/src/simple/Simple.c] [127] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/nucleoMbed/telem
+[2017-12-08 17:22:22] [/src/Library/SimpleAPI/src/simple/Simple.c] [128] [INFO]: {
+                                                                                        "temp1":        39.62,
+                                                                                                                "humi1":        42,
+                                                                                                                                        "light1":     212,
+        "ts":   1512721341
+                          }
+[2017-12-08 17:22:22] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [358] [INFO]: handleMQTTPublishMessage()
+[2017-12-08 17:22:22] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:22:22] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [403] [INFO]: handleMQTTYield()
+[2017-12-08 17:22:32] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [420] [INFO]: handleMQTTIsConnected()
+[2017-12-08 17:22:32] [/src/Library/SimpleAPI/src/simple/Simple.c] [127] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/nucleoMbed/telem
+[2017-12-08 17:22:32] [/src/Library/SimpleAPI/src/simple/Simple.c] [128] [INFO]: {
+                                                                                        "temp1":        59.85,
+                                                                                                                "humi1":        45,
+                                                                                                                                        "light1":     235,
+        "ts":   1512721352
+                          }
+[2017-12-08 17:22:32] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [358] [INFO]: handleMQTTPublishMessage()
+[2017-12-08 17:22:32] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:22:32] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [403] [INFO]: handleMQTTYield()
+[2017-12-08 17:22:42] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [420] [INFO]: handleMQTTIsConnected()
+[2017-12-08 17:22:42] [/src/Library/SimpleAPI/src/simple/Simple.c] [127] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/nucleoMbed/telem
+[2017-12-08 17:22:42] [/src/Library/SimpleAPI/src/simple/Simple.c] [128] [INFO]: {
+                                                                                        "temp1":        50.71,
+                                                                                                                "humi1":        41,
+                                                                                                                                        "light1":     221,
+        "ts":   1512721362
+                          }
+[2017-12-08 17:22:42] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [358] [INFO]: handleMQTTPublishMessage()
+[2017-12-08 17:22:42] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:22:42] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [403] [INFO]: handleMQTTYield()
+[2017-12-08 17:22:52] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [420] [INFO]: handleMQTTIsConnected()
+[2017-12-08 17:22:52] [/src/Library/SimpleAPI/src/simple/Simple.c] [127] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/nucleoMbed/telem
+[2017-12-08 17:22:52] [/src/Library/SimpleAPI/src/simple/Simple.c] [128] [INFO]: {
+                                                                                        "temp1":        28.06,
+                                                                                                                "humi1":        46,
+                                                                                                                                        "light1":     206,
+        "ts":   1512721372
+                          }
+[2017-12-08 17:22:52] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [358] [INFO]: handleMQTTPublishMessage()
+[2017-12-08 17:22:52] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:22:52] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [403] [INFO]: handleMQTTYield()
+[2017-12-08 17:23:02] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [420] [INFO]: handleMQTTIsConnected()
+[2017-12-08 17:23:02] [/src/Library/SimpleAPI/src/simple/Simple.c] [127] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/nucleoMbed/telem
+[2017-12-08 17:23:02] [/src/Library/SimpleAPI/src/simple/Simple.c] [128] [INFO]: {
+                                                                                        "temp1":        55.41,
+                                                                                                                "humi1":        41,
+                                                                                                                                        "light1":     241,
+        "ts":   1512721382
+                          }
+[2017-12-08 17:23:02] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [358] [INFO]: handleMQTTPublishMessage()
+[2017-12-08 17:23:02] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:23:02] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [403] [INFO]: handleMQTTYield()
+[2017-12-08 17:23:03] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [82] [INFO]: CallMessageArrivedCallback()
+[2017-12-08 17:23:03] [/src/Library/SimpleAPI/middleware/MA/MA.c] [123] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/nucleoMbed/down,
+[2017-12-08 17:23:03] [/src/Library/SimpleAPI/middleware/MA/MA.c] [132] [INFO]: paylaod->
+[2017-12-08 17:23:03] [/src/Library/SimpleAPI/middleware/MA/MA.c] [133] [INFO]: {"deviceId":"a4e23d90-dbea-11e7-b542-6b538329976c","cmdId":468553121,"cmd":"set_attr","attribute":{"act7colorLed":2}}
+[2017-12-08 17:23:03] [/src/Library/SimpleAPI/middleware/MA/MA.c] [276] [INFO]: act7colorLed : 2, 468553121
+[2017-12-08 17:23:03] [/src/Library/SimpleAPI/src/simple/Simple.c] [163] [INFO]: tpSimpleAttribute
+topic : v1/dev/smartweather/nucleoMbed/attri
+[2017-12-08 17:23:03] [/src/Library/SimpleAPI/src/simple/Simple.c] [164] [INFO]: {
+                                                                                        "act7colorLed": 2
+                                                                                                         }
+[2017-12-08 17:23:03] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [358] [INFO]: handleMQTTPublishMessage()
+[2017-12-08 17:23:03] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [82] [INFO]: CallMessageArrivedCallback()
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/middleware/MA/MA.c] [123] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/nucleoMbed/down,
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/middleware/MA/MA.c] [132] [INFO]: paylaod->
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/middleware/MA/MA.c] [133] [INFO]: {"deviceId":"a4e23d90-dbea-11e7-b542-6b538329976c","cmdId":719388881,"cmd":"set_attr","attribute":{"act7colorLed":3}}
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/middleware/MA/MA.c] [276] [INFO]: act7colorLed : 3, 719388881
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/src/simple/Simple.c] [163] [INFO]: tpSimpleAttribute
+topic : v1/dev/smartweather/nucleoMbed/attri
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/src/simple/Simple.c] [164] [INFO]: {
+                                                                                        "act7colorLed": 3
+                                                                                                         }
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [358] [INFO]: handleMQTTPublishMessage()
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [82] [INFO]: CallMessageArrivedCallback()
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/middleware/MA/MA.c] [123] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/nucleoMbed/down,
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/middleware/MA/MA.c] [132] [INFO]: paylaod->
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/middleware/MA/MA.c] [133] [INFO]: {"deviceId":"a4e23d90-dbea-11e7-b542-6b538329976c","cmdId":1676946218,"cmd":"set_attr","attribute":{"act7colorLed":2}}
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/middleware/MA/MA.c] [276] [INFO]: act7colorLed : 2, 1676946218
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/src/simple/Simple.c] [163] [INFO]: tpSimpleAttribute
+topic : v1/dev/smartweather/nucleoMbed/attri
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/src/simple/Simple.c] [164] [INFO]: {
+                                                                                        "act7colorLed": 2
+                                                                                                         }
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [358] [INFO]: handleMQTTPublishMessage()
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:23:04] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:23:10] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [82] [INFO]: CallMessageArrivedCallback()
+[2017-12-08 17:23:10] [/src/Library/SimpleAPI/middleware/MA/MA.c] [123] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/nucleoMbed/down,
+[2017-12-08 17:23:10] [/src/Library/SimpleAPI/middleware/MA/MA.c] [132] [INFO]: paylaod->
+[2017-12-08 17:23:10] [/src/Library/SimpleAPI/middleware/MA/MA.c] [133] [INFO]: {"serviceName":"smartweather","deviceName":"nucleoMbed","cmdId":-9999,"cmd":"rpc_json","rpcMode":"oneway","rpcReq":{"jsonrpc":"2.0","method":"substract","params":[{"act7colorLed":0}],"id":196713244}}
+[2017-12-08 17:23:10] [/src/Library/SimpleAPI/src/simple/Simple.c] [212] [INFO]: tpSimpleResult
+                                                                                               topic : v1/dev/smartweather/nucleoMbed/up
+[2017-12-08 17:23:10] [/src/Library/SimpleAPI/src/simple/Simple.c] [213] [INFO]: {
+                                                                                        "cmd":  "rpc_json",
+                                                                                                                "cmdId":        1,
+                                                                                                                                        "result":     "fail",
+        "rpcRsp":       {
+                                        "jsonrpc":      "2.0",
+                                                                        "id":   196713244,
+                                                                                                        "method":       "substract",
+                                                                                                                                                "error":      {
+                                "code": 106,
+                                                                "message":      "FAIL"
+                                                                                                }
+                                                                                                        }
+                                                                                                         }
+[2017-12-08 17:23:10] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [358] [INFO]: handleMQTTPublishMessage()
+[2017-12-08 17:23:10] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:23:12] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [420] [INFO]: handleMQTTIsConnected()
+[2017-12-08 17:23:12] [/src/Library/SimpleAPI/src/simple/Simple.c] [127] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/nucleoMbed/telem
+[2017-12-08 17:23:12] [/src/Library/SimpleAPI/src/simple/Simple.c] [128] [INFO]: {
+                                                                                        "temp1":        40.92,
+                                                                                                                "humi1":        42,
+                                                                                                                                        "light1":     242,
+        "ts":   1512721392
+                          }
+[2017-12-08 17:23:12] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [358] [INFO]: handleMQTTPublishMessage()
+[2017-12-08 17:23:12] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:23:12] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [403] [INFO]: handleMQTTYield()
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [82] [INFO]: CallMessageArrivedCallback()
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/middleware/MA/MA.c] [123] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/nucleoMbed/down,
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/middleware/MA/MA.c] [132] [INFO]: paylaod->
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/middleware/MA/MA.c] [133] [INFO]: {"deviceId":"a4e23d90-dbea-11e7-b542-6b538329976c","cmdId":832917229,"cmd":"set_attr","attribute":{"act7colorLed":2}}
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/middleware/MA/MA.c] [276] [INFO]: act7colorLed : 2, 832917229
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/src/simple/Simple.c] [163] [INFO]: tpSimpleAttribute
+topic : v1/dev/smartweather/nucleoMbed/attri
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/src/simple/Simple.c] [164] [INFO]: {
+                                                                                        "act7colorLed": 2
+                                                                                                         }
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [358] [INFO]: handleMQTTPublishMessage()
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [82] [INFO]: CallMessageArrivedCallback()
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/middleware/MA/MA.c] [123] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/nucleoMbed/down,
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/middleware/MA/MA.c] [132] [INFO]: paylaod->
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/middleware/MA/MA.c] [133] [INFO]: {"deviceId":"a4e23d90-dbea-11e7-b542-6b538329976c","cmdId":2071034776,"cmd":"set_attr","attribute":{"act7colorLed":3}}
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/middleware/MA/MA.c] [276] [INFO]: act7colorLed : 3, 2071034776
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/src/simple/Simple.c] [163] [INFO]: tpSimpleAttribute
+topic : v1/dev/smartweather/nucleoMbed/attri
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/src/simple/Simple.c] [164] [INFO]: {
+                                                                                        "act7colorLed": 3
+                                                                                                         }
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/src/net/MQTT_handler.cpp] [358] [INFO]: handleMQTTPublishMessage()
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:23:15] [/src/Library/SimpleAPI/middleware/MA/MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
 

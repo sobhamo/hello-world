@@ -1,341 +1,352 @@
-[2017-11-16 17:30:42] [..\Library\SimpleAPI\middleware\MA\MA.c] [475] [VERBOSE]: ThingPlug_Simple_SDK
-[2017-11-16 17:30:42] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [100] [INFO]: handleMQTTSetCallbacks()
-[2017-11-16 17:30:42] [..\Library\SimpleAPI\middleware\MA\MA.c] [434] [INFO]: tpMQTTSetCallbacks result : 0
-[2017-11-16 17:30:42] [..\Library\SimpleAPI\src\simple\Simple.c] [280] [INFO]: tpSimpleInitialize
-serviceID : middleware, deviceID: bbb02
-[2017-11-16 17:30:42] [..\Library\SimpleAPI\middleware\MA\MA.c] [441] [INFO]: tpSimpleInitialize : 0
-[2017-11-16 17:30:42] [..\Library\SimpleAPI\middleware\MA\MA.c] [413] [INFO]: IP address is 192.168.0.29
-[2017-11-16 17:30:42] [..\Library\SimpleAPI\middleware\MA\MA.c] [414] [INFO]: MAC address is 00 08 DC 1E CC F2
-[2017-11-16 17:30:42] [..\Library\SimpleAPI\middleware\MA\MA.c] [416] [INFO]: Gateway address is 192.168.0.1
-[2017-11-16 17:30:42] [..\Library\SimpleAPI\middleware\MA\MA.c] [417] [INFO]: Subnet Mask is 255.255.255.0
-[2017-11-16 17:30:42] [..\Library\SimpleAPI\middleware\MA\MA.c] [418] [INFO]: DNS Server is 8.8.8.8
-[2017-11-16 17:30:42] [..\Library\SimpleAPI\middleware\MA\MA.c] [450] [INFO]: client id : 00 08 DC 1E CC F2
-[2017-11-16 17:30:42] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [136] [INFO]: handleMQTTCreate()
-[2017-11-16 17:30:42] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [137] [INFO]: Use normal socket, host:, port:1883
-[2017-11-16 17:30:44] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [175] [INFO]: IP address is 192.168.0.29
-[2017-11-16 17:30:44] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [176] [INFO]: MAC address is 00 08 DC 1E CC F2
-[2017-11-16 17:30:44] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [177] [INFO]: Gateway address is 192.168.0.1
-[2017-11-16 17:30:44] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [178] [INFO]: Subnet Mask is 255.255.255.0
-[2017-11-16 17:30:44] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [179] [INFO]: DNS Server is 8.8.8.8
-[2017-11-16 17:30:44] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [221] [DEBUG]: clientID = 00 08 DC 1E CC F2
-[2017-11-16 17:30:44] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [252] [INFO]: MQTT Connected
-[2017-11-16 17:30:44] [..\Library\SimpleAPI\middleware\MA\MA.c] [68] [INFO]: MQTTConnected result : 0
-[2017-11-16 17:30:44] [..\Library\SimpleAPI\middleware\MA\MA.c] [80] [INFO]: CONNECTION_STATUS : 2
-[2017-11-16 17:30:44] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [263] [INFO]: MQTT Request Subscribe topic : v1/dev/middleware/bbb02/down
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\middleware\MA\MA.c] [88] [INFO]: MQTTSubscribed result : 0
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\simple\Simple.c] [163] [INFO]: tpSimpleAttribute
-topic : v1/dev/middleware/bbb02/attribute
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\simple\Simple.c] [164] [INFO]: {
-    "sysAvailableMemory":   3263,
-    "sysBatteryLevel":      100,
-    "sysFirmwareVersion":   "2.0.0",
-    "sysHardwareVersion":  "1.0",
-    "sysSerialNumber":      "400715-1703-003321-1641",
-    "sysErrorCode": 0,
-    "sysNetworkType":       "ethernet",
-    "sysDeviceIpAddress":  "192.168.0.11",
-    "sysGatewayIpAddress":  "192.168.0.1",
-    "sysLocationLatitude":  35.1689766,
-    "sysLocationLongitude": 129.1338524,
-    "act7colorLed": 0
-}
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/middleware/bbb02/attribute
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
-    "sysAvailableMemory":   3263,
-    "sysBatteryLevel":      100,
-    "sysFirmwareVersion":   "2.0.0",
-    "sysHardwareVersion":  "1.0",
-    "sysSerialNumber":      "400715-1703-003321-1641",
-    "sysErrorCode": 0,
-    "sysNetworkType":       "ethernet",
-    "sysDeviceIpAddress":  "192.168.0.11",
-    "sysGatewayIpAddress":  "192.168.0.1",
-    "sysLocationLatitude":  35.1689766,
-    "sysLocationLongitude": 129.1338524,
-    "act7colorLed": 0
-}
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 397
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
-[2017-11-16 17:30:45] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
-[2017-11-16 17:30:45] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 0
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\middleware\MA\MA.c] [468] [INFO]: tpSDKCreate result : 0
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [418] [INFO]: handleMQTTIsConnected()
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\simple\Simple.c] [127] [INFO]: tpSimpleTelemetry
-topic : v1/dev/middleware/bbb02/telemetry
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\simple\Simple.c] [128] [INFO]: {
-                                                                                        "temp1":      30.07,
-                "humi1":        47,
-                                        "light1":       207,
-                                                                "ts":   1510821045
-                                                                                  }
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/middleware/bbb02/telemetry
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
-                                                                                                      "temp1":        30.07,
-                                "humi1":        47,
-                                                        "light1":       207,
-                                                                                "ts":   1510821045
-    }
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 68
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
-[2017-11-16 17:30:45] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
-[2017-11-16 17:30:45] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-11-16 17:30:45] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [401] [INFO]: handleMQTTYield()
-[2017-11-16 17:30:46] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:30:47] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:30:48] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:30:49] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:30:50] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:30:50] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [418] [INFO]: handleMQTTIsConnected()
-[2017-11-16 17:30:50] [..\Library\SimpleAPI\src\simple\Simple.c] [127] [INFO]: tpSimpleTelemetry
-topic : v1/dev/middleware/bbb02/telemetry
-[2017-11-16 17:30:50] [..\Library\SimpleAPI\src\simple\Simple.c] [128] [INFO]: {
-                                                                                        "temp1":      67.30,
-                "humi1":        40,
-                                        "light1":       230,
-                                                                "ts":   1510821050
-                                                                                  }
-[2017-11-16 17:30:50] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-11-16 17:30:50] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
-[2017-11-16 17:30:50] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/middleware/bbb02/telemetry
-[2017-11-16 17:30:50] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
-                                                                                                      "temp1":        67.30,
-                                "humi1":        40,
-                                                        "light1":       230,
-                                                                                "ts":   1510821050
-    }
-[2017-11-16 17:30:50] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 68
-[2017-11-16 17:30:50] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
-[2017-11-16 17:30:50] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
-[2017-11-16 17:30:50] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
-[2017-11-16 17:30:50] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
-[2017-11-16 17:30:50] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
-[2017-11-16 17:30:50] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
-[2017-11-16 17:30:50] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-11-16 17:30:50] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [401] [INFO]: handleMQTTYield()
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [68] [INFO]: CallMessageArrivedCallback()
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\middleware\MA\MA.c] [123] [INFO]: MQTTMessageArrived topic : v1/dev/middleware/bbb02/down, step :
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\middleware\MA\MA.c] [132] [INFO]: paylaod->
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\middleware\MA\MA.c] [133] [INFO]: {"deviceId":"696a28d0-bd14-11e7-a0db-6d89295e8723","cmdId":349624355,"cmd":"set_attr","attribute":{"act7colorLed":2}}
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\middleware\MA\MA.c] [191] [INFO]: act7colorLed : 2, 349624355
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\src\simple\Simple.c] [163] [INFO]: tpSimpleAttribute
-topic : v1/dev/middleware/bbb02/attribute
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\src\simple\Simple.c] [164] [INFO]: {
-                                                                                        "act7colorLed":       2
-                 }
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/middleware/bbb02/attribute
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
-                                                                                                      "act7colorLed": 2
-                         }
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 22
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
-[2017-11-16 17:30:51] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
-[2017-11-16 17:30:51] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
-[2017-11-16 17:30:51] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-11-16 17:30:52] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [68] [INFO]: CallMessageArrivedCallback()
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\middleware\MA\MA.c] [123] [INFO]: MQTTMessageArrived topic : v1/dev/middleware/bbb02/down, step :
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\middleware\MA\MA.c] [132] [INFO]: paylaod->
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\middleware\MA\MA.c] [133] [INFO]: {"deviceId":"696a28d0-bd14-11e7-a0db-6d89295e8723","cmdId":316492970,"cmd":"set_attr","attribute":{"act7colorLed":0}}
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\middleware\MA\MA.c] [191] [INFO]: act7colorLed : 0, 316492970
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\src\simple\Simple.c] [163] [INFO]: tpSimpleAttribute
-topic : v1/dev/middleware/bbb02/attribute
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\src\simple\Simple.c] [164] [INFO]: {
-                                                                                        "act7colorLed":       0
-                 }
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/middleware/bbb02/attribute
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
-                                                                                                      "act7colorLed": 0
-                         }
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 22
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
-[2017-11-16 17:30:53] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
-[2017-11-16 17:30:53] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
-[2017-11-16 17:30:53] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-11-16 17:30:54] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:30:55] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:30:56] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:30:56] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [418] [INFO]: handleMQTTIsConnected()
-[2017-11-16 17:30:56] [..\Library\SimpleAPI\src\simple\Simple.c] [127] [INFO]: tpSimpleTelemetry
-topic : v1/dev/middleware/bbb02/telemetry
-[2017-11-16 17:30:56] [..\Library\SimpleAPI\src\simple\Simple.c] [128] [INFO]: {
-                                                                                        "temp1":      27.38,
-                "humi1":        48,
-                                        "light1":       238,
-                                                                "ts":   1510821056
-                                                                                  }
-[2017-11-16 17:30:56] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-11-16 17:30:56] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
-[2017-11-16 17:30:56] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/middleware/bbb02/telemetry
-[2017-11-16 17:30:56] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
-                                                                                                      "temp1":        27.38,
-                                "humi1":        48,
-                                                        "light1":       238,
-                                                                                "ts":   1510821056
-    }
-[2017-11-16 17:30:56] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 68
-[2017-11-16 17:30:56] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
-[2017-11-16 17:30:56] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
-[2017-11-16 17:30:56] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
-[2017-11-16 17:30:56] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
-[2017-11-16 17:30:56] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
-[2017-11-16 17:30:56] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
-[2017-11-16 17:30:56] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-11-16 17:30:56] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [401] [INFO]: handleMQTTYield()
-[2017-11-16 17:30:57] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:30:58] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:30:59] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [68] [INFO]: CallMessageArrivedCallback()
-[2017-11-16 17:30:59] [..\Library\SimpleAPI\middleware\MA\MA.c] [123] [INFO]: MQTTMessageArrived topic : v1/dev/middleware/bbb02/down, step :
-[2017-11-16 17:30:59] [..\Library\SimpleAPI\middleware\MA\MA.c] [132] [INFO]: paylaod->
-[2017-11-16 17:30:59] [..\Library\SimpleAPI\middleware\MA\MA.c] [133] [INFO]: {"serviceName":"middleware","deviceName":"bbb02","cmdId":-9999,"cmd":"rpc_json","nonBlocking":true,"rpcReq":{"jsonrpc":"2.0","method":"substract","params":[{"act7colorLed":1}],"id":1726419038}}
-[2017-11-16 17:30:59] [..\Library\SimpleAPI\middleware\MA\MA.c] [157] [INFO]:
-                                                                              rpc : 2.0,
-                                                                                        id : 1726419038,
-          cmd : 1
-[2017-11-16 17:30:59] [..\Library\SimpleAPI\src\simple\Simple.c] [216] [INFO]: tpSimpleResult
-                                                                                             topic : v1/dev/middleware/bbb02/up
-                                 {
-                                        "cmd":  "rp
-[2017-11-16 17:30:59] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-11-16 17:30:59] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
-[2017-11-16 17:30:59] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/middleware/bbb02/up
-[2017-11-16 17:30:59] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
-                                                                                                      "cmd":  "rpc_json",
-                                "cmdId":        1,
-                                                        "result":       "success",
-                                                                                        "rpcRsp":     {
-                        "jsonrpc":      "2.0",
-                                                        "id":   1726419038,
-                                                                                        "method":     "substract",
-                                "result":       {
-                                                                        "status":       "SUCCESS"
-                }
-                        }
-                         }
-[2017-11-16 17:30:59] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 180
-[2017-11-16 17:30:59] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
-[2017-11-16 17:30:59] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
-[2017-11-16 17:30:59] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
-[2017-11-16 17:30:59] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
-[2017-11-16 17:30:59] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
-[2017-11-16 17:30:59] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
-[2017-11-16 17:30:59] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-11-16 17:31:00] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:31:01] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:31:01] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [418] [INFO]: handleMQTTIsConnected()
-[2017-11-16 17:31:01] [..\Library\SimpleAPI\src\simple\Simple.c] [127] [INFO]: tpSimpleTelemetry
-topic : v1/dev/middleware/bbb02/telemetry
-[2017-11-16 17:31:01] [..\Library\SimpleAPI\src\simple\Simple.c] [128] [INFO]: {
-                                                                                        "temp1":      28.12,
-                "humi1":        42,
-                                        "light1":       212,
-                                                                "ts":   1510821061
-                                                                                  }
-[2017-11-16 17:31:01] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-11-16 17:31:01] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
-[2017-11-16 17:31:02] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/middleware/bbb02/telemetry
-[2017-11-16 17:31:02] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
-                                                                                                      "temp1":        28.12,
-                                "humi1":        42,
-                                                        "light1":       212,
-                                                                                "ts":   1510821061
-    }
-[2017-11-16 17:31:02] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 68
-[2017-11-16 17:31:02] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
-[2017-11-16 17:31:02] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
-[2017-11-16 17:31:02] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
-[2017-11-16 17:31:02] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
-[2017-11-16 17:31:02] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
-[2017-11-16 17:31:02] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
-[2017-11-16 17:31:02] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-11-16 17:31:02] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [401] [INFO]: handleMQTTYield()
-[2017-11-16 17:31:03] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:31:04] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:31:05] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:31:05] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [68] [INFO]: CallMessageArrivedCallback()
-[2017-11-16 17:31:05] [..\Library\SimpleAPI\middleware\MA\MA.c] [123] [INFO]: MQTTMessageArrived topic : v1/dev/middleware/bbb02/down, step :
-[2017-11-16 17:31:05] [..\Library\SimpleAPI\middleware\MA\MA.c] [132] [INFO]: paylaod->
-[2017-11-16 17:31:05] [..\Library\SimpleAPI\middleware\MA\MA.c] [133] [INFO]: {"serviceName":"middleware","deviceName":"bbb02","cmdId":-9999,"cmd":"rpc_json","nonBlocking":true,"rpcReq":{"jsonrpc":"2.0","method":"substract","params":[{"act7colorLed":0}],"id":1726419039}}
-[2017-11-16 17:31:05] [..\Library\SimpleAPI\middleware\MA\MA.c] [157] [INFO]:
-                                                                              rpc : 2.0,
-                                                                                        id : 1726419039,
-          cmd : 0
-[2017-11-16 17:31:05] [..\Library\SimpleAPI\src\simple\Simple.c] [216] [INFO]: tpSimpleResult
-                                                                                             topic : v1/dev/middleware/bbb02/up
-                                 {
-                                        "cmd":  "rp
-[2017-11-16 17:31:05] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-11-16 17:31:05] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
-[2017-11-16 17:31:05] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/middleware/bbb02/up
-[2017-11-16 17:31:05] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
-                                                                                                      "cmd":  "rpc_json",
-                                "cmdId":        1,
-                                                        "result":       "success",
-                                                                                        "rpcRsp":     {
-                        "jsonrpc":      "2.0",
-                                                        "id":   1726419039,
-                                                                                        "method":     "substract",
-                                "result":       {
-                                                                        "status":       "SUCCESS"
-                }
-                        }
-                         }
-[2017-11-16 17:31:05] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 180
-[2017-11-16 17:31:05] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
-[2017-11-16 17:31:05] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
-[2017-11-16 17:31:05] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
-[2017-11-16 17:31:05] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
-[2017-11-16 17:31:05] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
-[2017-11-16 17:31:05] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
-[2017-11-16 17:31:05] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-11-16 17:31:06] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:31:07] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
-[2017-11-16 17:31:07] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [418] [INFO]: handleMQTTIsConnected()
-[2017-11-16 17:31:07] [..\Library\SimpleAPI\src\simple\Simple.c] [127] [INFO]: tpSimpleTelemetry
-topic : v1/dev/middleware/bbb02/telemetry
-[2017-11-16 17:31:07] [..\Library\SimpleAPI\src\simple\Simple.c] [128] [INFO]: {
-                                                                                        "temp1":      38.20,
-                "humi1":        40,
-                                        "light1":       220,
-                                                                "ts":   1510821067
-                                                                                  }
-[2017-11-16 17:31:07] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
-[2017-11-16 17:31:07] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
-[2017-11-16 17:31:07] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/middleware/bbb02/telemetry
-[2017-11-16 17:31:07] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
-                                                                                                      "temp1":        38.20,
-                                "humi1":        40,
-                                                        "light1":       220,
-                                                                                "ts":   1510821067
-    }
-[2017-11-16 17:31:07] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 68
-[2017-11-16 17:31:07] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
-[2017-11-16 17:31:07] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
-[2017-11-16 17:31:07] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
-[2017-11-16 17:31:07] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
-[2017-11-16 17:31:07] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
-[2017-11-16 17:31:07] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
-[2017-11-16 17:31:07] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
-[2017-11-16 17:31:07] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [401] [INFO]: handleMQTTYield()
+[2017-12-08 17:11:00] [..\Library\SimpleAPI\middleware\MA\MA.c] [647] [VERBOSE]: ThingPlug_Simple_SDK
+[2017-12-08 17:11:00] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [100] [INFO]: handleMQTTSetCallbacks()
+[2017-12-08 17:11:00] [..\Library\SimpleAPI\middleware\MA\MA.c] [605] [INFO]: tpMQTTSetCallbacks result : 0
+[2017-12-08 17:11:00] [..\Library\SimpleAPI\src\simple\Simple.c] [279] [INFO]: tpSimpleInitialize
+serviceID : smartweather, deviceID: nucleoFreertos
+[2017-12-08 17:11:00] [..\Library\SimpleAPI\middleware\MA\MA.c] [612] [INFO]: tpSimpleInitialize : 0
+[2017-12-08 17:11:00] [..\Library\SimpleAPI\middleware\MA\MA.c] [580] [INFO]: IP address is 192.168.0.29
+[2017-12-08 17:11:00] [..\Library\SimpleAPI\middleware\MA\MA.c] [582] [INFO]: MAC address is 00 08 DC 1E CC F2
+[2017-12-08 17:11:00] [..\Library\SimpleAPI\middleware\MA\MA.c] [584] [INFO]: Gateway address is 192.168.0.1
+[2017-12-08 17:11:00] [..\Library\SimpleAPI\middleware\MA\MA.c] [586] [INFO]: Subnet Mask is 255.255.255.0
+[2017-12-08 17:11:00] [..\Library\SimpleAPI\middleware\MA\MA.c] [587] [INFO]: DNS Server is 8.8.8.8
+[2017-12-08 17:11:00] [..\Library\SimpleAPI\middleware\MA\MA.c] [621] [INFO]: client id : 00 08 DC 1E CC F2
+[2017-12-08 17:11:00] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [136] [INFO]: handleMQTTCreate()
+[2017-12-08 17:11:00] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [137] [INFO]: Use normal socket, host:, port:1883
+[2017-12-08 17:11:02] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [175] [INFO]: IP address is 192.168.0.29
+[2017-12-08 17:11:02] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [176] [INFO]: MAC address is 00 08 DC 1E CC F2
+[2017-12-08 17:11:02] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [177] [INFO]: Gateway address is 192.168.0.1
+[2017-12-08 17:11:02] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [178] [INFO]: Subnet Mask is 255.255.255.0
+[2017-12-08 17:11:02] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [179] [INFO]: DNS Server is 8.8.8.8
+[2017-12-08 17:11:02] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [221] [DEBUG]: clientID = 00 08 DC 1E CC F2
+[2017-12-08 17:11:02] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [252] [INFO]: MQTT Connected
+[2017-12-08 17:11:02] [..\Library\SimpleAPI\middleware\MA\MA.c] [68] [INFO]: MQTTConnected result : 0
+[2017-12-08 17:11:02] [..\Library\SimpleAPI\middleware\MA\MA.c] [80] [INFO]: CONNECTION_STATUS : 2
+[2017-12-08 17:11:02] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [263] [INFO]: MQTT Request Subscribe topic : v1/dev/smartweather/nucleoFreertos/down
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\middleware\MA\MA.c] [88] [INFO]: MQTTSubscribed result : 0
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\simple\Simple.c] [163] [INFO]: tpSimpleAttribute
+topic : v1/dev/smartweather/nucleoFreertos/a
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\simple\Simple.c] [164] [INFO]: {
+                                                                                        "sysAvailableMemory":   10248,
+                                                                                                                        "sysBatteryLevel":      100,
+                                                                                                                                                      "sysFirmwareVersion":   "2.0.0",
+                                        "sysHardwareVersion":   "1.0",
+                                                                        "sysSerialNumber":      "2160900865",
+                                                                                                                "sysErrorCode": 0,
+                                                                                                                                        "sysNetworkType":     "ethernet",
+                        "sysDeviceIpAddress":   "192.168.0.29",
+                                                                "sysGatewayIpAddress":  "192.168.0.1",
+                                                                                                        "sysThingPlugIpAddress":        "",
+        "sysLocationLatitude":  35.1689766,
+                                                "sysLocationLongitude": 129.1338524,
+                                                                                        "act7colorLed": 0
+                                                                                                         }
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/smartweather/nucleoFreertos/attribute
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
+                                                                                                "sysAvailableMemory":   10248,
+                                                                                                                                "sysBatteryLevel":    100,
+        "sysFirmwareVersion":   "2.0.0",
+                                                "sysHardwareVersion":   "1.0",
+                                                                                "sysSerialNumber":      "2160900865",
+                                                                                                                        "sysErrorCode": 0,
+                                                                                                                                                "sysNetworkType":     "ethernet",
+                                "sysDeviceIpAddress":   "192.168.0.29",
+                                                                        "sysGatewayIpAddress":  "192.168.0.1",
+                                                                                                                "sysThingPlugIpAddress":        "",
+                "sysLocationLatitude":  35.1689766,
+                                                        "sysLocationLongitude": 129.1338524,
+                                                                                                "act7colorLed": 0
+                                                                                                                 }
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 420
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
+[2017-12-08 17:11:03] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
+[2017-12-08 17:11:03] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 0
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\middleware\MA\MA.c] [639] [INFO]: tpSDKCreate result : 0
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [418] [INFO]: handleMQTTIsConnected()
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\simple\Simple.c] [127] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/nucleoFreertos/t
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\simple\Simple.c] [128] [INFO]: {
+                                                                                        "temp1":        30.07,
+                                                                                                                "humi1":        47,
+                                                                                                                                        "light1":     207,
+        "ts":   1512720663
+                          }
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/smartweather/nucleoFreertos/telemetry
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
+                                                                                                "temp1":        30.07,
+                                                                                                                        "humi1":        47,
+                                                                                                                                                "light1":     207,
+                "ts":   1512720663
+                                  }
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 68
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
+[2017-12-08 17:11:03] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
+[2017-12-08 17:11:03] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:11:03] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [401] [INFO]: handleMQTTYield()
+[2017-12-08 17:11:04] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:12:23] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:12:24] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:12:25] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:12:26] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:12:26] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [418] [INFO]: handleMQTTIsConnected()
+[2017-12-08 17:12:26] [..\Library\SimpleAPI\src\simple\Simple.c] [127] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/nucleoFreertos/t
+[2017-12-08 17:12:26] [..\Library\SimpleAPI\src\simple\Simple.c] [128] [INFO]: {
+                                                                                        "temp1":        25.35,
+                                                                                                                "humi1":        45,
+                                                                                                                                        "light1":     235,
+        "ts":   1512720746
+                          }
+[2017-12-08 17:12:26] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 17:12:26] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
+[2017-12-08 17:12:26] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/smartweather/nucleoFreertos/telemetry
+[2017-12-08 17:12:26] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
+                                                                                                "temp1":        25.35,
+                                                                                                                        "humi1":        45,
+                                                                                                                                                "light1":     235,
+                "ts":   1512720746
+                                  }
+[2017-12-08 17:12:26] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 68
+[2017-12-08 17:12:26] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
+[2017-12-08 17:12:26] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
+[2017-12-08 17:12:26] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
+[2017-12-08 17:12:26] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
+[2017-12-08 17:12:26] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
+[2017-12-08 17:12:26] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
+[2017-12-08 17:12:26] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:12:26] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [401] [INFO]: handleMQTTYield()
+[2017-12-08 17:12:27] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:12:28] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:12:29] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [68] [INFO]: CallMessageArrivedCallback()
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\middleware\MA\MA.c] [123] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/nucleoFreertos/d
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\middleware\MA\MA.c] [132] [INFO]: paylaod->
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\middleware\MA\MA.c] [133] [INFO]: {"deviceId":"acae1710-dbea-11e7-b542-6b538329976c","cmdId":142228566,"cmd":"set_attr","attribute":{"act7colorLed":2}}
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\middleware\MA\MA.c] [276] [INFO]: act7colorLed : 2, 142228566
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\src\simple\Simple.c] [163] [INFO]: tpSimpleAttribute
+topic : v1/dev/smartweather/nucleoFreertos/a
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\src\simple\Simple.c] [164] [INFO]: {
+                                                                                        "act7colorLed": 2
+                                                                                                         }
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/smartweather/nucleoFreertos/attribute
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
+                                                                                                "act7colorLed": 2
+                                                                                                                 }
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 22
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
+[2017-12-08 17:12:30] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
+[2017-12-08 17:12:30] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
+[2017-12-08 17:12:30] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:12:31] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [68] [INFO]: CallMessageArrivedCallback()
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\middleware\MA\MA.c] [123] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/nucleoFreertos/d
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\middleware\MA\MA.c] [132] [INFO]: paylaod->
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\middleware\MA\MA.c] [133] [INFO]: {"deviceId":"acae1710-dbea-11e7-b542-6b538329976c","cmdId":13176070,"cmd":"set_attr","attribute":{"act7colorLed":3}}
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\middleware\MA\MA.c] [276] [INFO]: act7colorLed : 3, 13176070
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\simple\Simple.c] [163] [INFO]: tpSimpleAttribute
+topic : v1/dev/smartweather/nucleoFreertos/a
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\simple\Simple.c] [164] [INFO]: {
+                                                                                        "act7colorLed": 3
+                                                                                                         }
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/smartweather/nucleoFreertos/attribute
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
+                                                                                                "act7colorLed": 3
+                                                                                                                 }
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 22
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
+[2017-12-08 17:12:32] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
+[2017-12-08 17:12:32] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [418] [INFO]: handleMQTTIsConnected()
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\simple\Simple.c] [127] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/nucleoFreertos/t
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\simple\Simple.c] [128] [INFO]: {
+                                                                                        "temp1":        35.43,
+                                                                                                                "humi1":        43,
+                                                                                                                                        "light1":     243,
+        "ts":   1512720752
+                          }
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/smartweather/nucleoFreertos/telemetry
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
+                                                                                                "temp1":        35.43,
+                                                                                                                        "humi1":        43,
+                                                                                                                                                "light1":     243,
+                "ts":   1512720752
+                                  }
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 68
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
+[2017-12-08 17:12:32] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
+[2017-12-08 17:12:32] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:12:32] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [401] [INFO]: handleMQTTYield()
+[2017-12-08 17:12:33] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:14:55] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:14:56] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:14:57] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:14:58] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:14:58] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [418] [INFO]: handleMQTTIsConnected()
+[2017-12-08 17:14:58] [..\Library\SimpleAPI\src\simple\Simple.c] [127] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/nucleoFreertos/t
+[2017-12-08 17:14:58] [..\Library\SimpleAPI\src\simple\Simple.c] [128] [INFO]: {
+                                                                                        "temp1":        63.57,
+                                                                                                                "humi1":        47,
+                                                                                                                                        "light1":     207,
+        "ts":   1512720898
+                          }
+[2017-12-08 17:14:58] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 17:14:58] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
+[2017-12-08 17:14:58] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/smartweather/nucleoFreertos/telemetry
+[2017-12-08 17:14:58] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
+                                                                                                "temp1":        63.57,
+                                                                                                                        "humi1":        47,
+                                                                                                                                                "light1":     207,
+                "ts":   1512720898
+                                  }
+[2017-12-08 17:14:58] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 68
+[2017-12-08 17:14:58] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
+[2017-12-08 17:14:58] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
+[2017-12-08 17:14:58] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
+[2017-12-08 17:14:58] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
+[2017-12-08 17:14:58] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
+[2017-12-08 17:14:58] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
+[2017-12-08 17:14:58] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:14:58] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [401] [INFO]: handleMQTTYield()
+[2017-12-08 17:14:59] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:15:00] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:15:01] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [68] [INFO]: CallMessageArrivedCallback()
+[2017-12-08 17:15:01] [..\Library\SimpleAPI\middleware\MA\MA.c] [123] [INFO]: MQTTMessageArrived topic : v1/dev/smartweather/nucleoFreertos/d
+[2017-12-08 17:15:01] [..\Library\SimpleAPI\middleware\MA\MA.c] [132] [INFO]: paylaod->
+[2017-12-08 17:15:01] [..\Library\SimpleAPI\middleware\MA\MA.c] [133] [INFO]: {"serviceName":"smartweather","deviceName":"nucleoFreertos","cmdId":-9999,"cmd":"rpc_json","rpcMode":"oneway","rpcReq":{"jsonrpc":"2.0","method":"substract","params":[{"act7colorLed":0}],"id":1336770102}}
+[2017-12-08 17:15:01] [..\Library\SimpleAPI\src\simple\Simple.c] [212] [INFO]: tpSimpleResult
+                                                                                             topic : v1/dev/smartweather/nucleoFreertos/up
+[2017-12-08 17:15:01] [..\Library\SimpleAPI\src\simple\Simple.c] [213] [INFO]: {
+                                                                                        "cmd":  "rpc_json",
+                                                                                                                "cmdId":        1,
+                                                                                                                                        "result":     "fail",
+        "rpcRsp":       {
+                                        "jsonrpc":      "2.0",
+                                                                        "id":   1336770102,
+                                                                                                        "method":       "substract",
+                                                                                                                                                "error":      {
+                                "code": 106,
+                                                                "message":      "FAIL"
+                                                                                                }
+                                                                                                        }
+                                                                                                         }
+[2017-12-08 17:15:01] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 17:15:01] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
+[2017-12-08 17:15:01] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/smartweather/nucleoFreertos/up
+[2017-12-08 17:15:01] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
+                                                                                                "cmd":  "rpc_json",
+                                                                                                                        "cmdId":        1,
+                                                                                                                                                "result":     "fail",
+                "rpcRsp":       {
+                                                "jsonrpc":      "2.0",
+                                                                                "id":   1336770102,
+                                                                                                                "method":       "substract",
+                                                                                                                                                      "error":        {
+                                        "code": 106,
+                                                                        "message":      "FAIL"
+                                                                                                        }
+                                                                                                                }
+                                                                                                                 }
+[2017-12-08 17:15:01] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 190
+[2017-12-08 17:15:01] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
+[2017-12-08 17:15:01] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
+[2017-12-08 17:15:01] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
+[2017-12-08 17:15:01] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
+[2017-12-08 17:15:01] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
+[2017-12-08 17:15:01] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
+[2017-12-08 17:15:01] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:15:02] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:15:03] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:15:04] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:15:04] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [418] [INFO]: handleMQTTIsConnected()
+[2017-12-08 17:15:04] [..\Library\SimpleAPI\src\simple\Simple.c] [127] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/nucleoFreertos/t
+[2017-12-08 17:15:04] [..\Library\SimpleAPI\src\simple\Simple.c] [128] [INFO]: {
+                                                                                        "temp1":        23.64,
+                                                                                                                "humi1":        44,
+                                                                                                                                        "light1":     214,
+        "ts":   1512720904
+                          }
+[2017-12-08 17:15:04] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 17:15:04] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
+[2017-12-08 17:15:04] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/smartweather/nucleoFreertos/telemetry
+[2017-12-08 17:15:04] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
+                                                                                                "temp1":        23.64,
+                                                                                                                        "humi1":        44,
+                                                                                                                                                "light1":     214,
+                "ts":   1512720904
+                                  }
+[2017-12-08 17:15:04] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 68
+[2017-12-08 17:15:04] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
+[2017-12-08 17:15:04] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
+[2017-12-08 17:15:04] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
+[2017-12-08 17:15:04] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
+[2017-12-08 17:15:04] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
+[2017-12-08 17:15:04] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
+[2017-12-08 17:15:04] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:15:04] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [401] [INFO]: handleMQTTYield()
+[2017-12-08 17:15:05] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:15:06] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:15:07] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:15:08] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:15:09] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:15:09] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [418] [INFO]: handleMQTTIsConnected()
+[2017-12-08 17:15:09] [..\Library\SimpleAPI\src\simple\Simple.c] [127] [INFO]: tpSimpleTelemetry
+topic : v1/dev/smartweather/nucleoFreertos/t
+[2017-12-08 17:15:09] [..\Library\SimpleAPI\src\simple\Simple.c] [128] [INFO]: {
+                                                                                        "temp1":        60.87,
+                                                                                                                "humi1":        47,
+                                                                                                                                        "light1":     237,
+        "ts":   1512720909
+                          }
+[2017-12-08 17:15:09] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [357] [INFO]: handleMQTTPublishMessageWithTopic()
+[2017-12-08 17:15:09] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [376] [DEBUG]: MQTT publish call.
+[2017-12-08 17:15:09] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [377] [DEBUG]: topic : v1/dev/smartweather/nucleoFreertos/telemetry
+[2017-12-08 17:15:09] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [378] [DEBUG]: payload : {
+                                                                                                "temp1":        60.87,
+                                                                                                                        "humi1":        47,
+                                                                                                                                                "light1":     237,
+                "ts":   1512720909
+                                  }
+[2017-12-08 17:15:09] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [379] [DEBUG]: payloadlen : 68
+[2017-12-08 17:15:09] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [380] [DEBUG]: qos : 1
+[2017-12-08 17:15:09] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [381] [DEBUG]: retained : 0
+[2017-12-08 17:15:09] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [382] [DEBUG]: dup : 0
+[2017-12-08 17:15:09] [..\Library\Mqtt_Paho\MQTTClient.c] [534] [DEBUG]: sendPacket rc = 0
+[2017-12-08 17:15:09] [..\Library\Mqtt_Paho\MQTTClient.c] [541] [DEBUG]: waitfor
+[2017-12-08 17:15:09] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [391] [DEBUG]: MQTT publish Success.
+[2017-12-08 17:15:10] [..\Library\SimpleAPI\middleware\MA\MA.c] [115] [INFO]: MQTTMessageDelivered token : 0, step : 2
+[2017-12-08 17:15:10] [..\Library\SimpleAPI\src\net\MQTT_handler.c] [401] [INFO]: handleMQTTYield()
+[2017-12-08 17:15:11] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:15:12] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
+[2017-12-08 17:15:13] [..\Library\Ethernet_WIZNet\Ethernet\socket.c] [417] [DEBUG]: recv waiting!!
 
