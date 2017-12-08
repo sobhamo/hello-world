@@ -133,15 +133,7 @@ void attribute() {
 
 ThingPlug_Simple_SDK 빌드
 ---
-1. 설정
-	+ wifi 사용시 ssid 및 password 설정 (threadX/src/user_thread_entry.c 파일 수정)
-	+ !!주의!! 5G 지원 하지 않음.
-	```
-	#define MY_SSID_FOR_AP ""    /* Change this to your Wi-Fi AP/Router’s SSID */
-	#define MY_PASSWORD_FOR_AP "" 
-	```
-	
-2. 빌드	
+1. 빌드	
 	```
 	Project -> Build Project
 	```
