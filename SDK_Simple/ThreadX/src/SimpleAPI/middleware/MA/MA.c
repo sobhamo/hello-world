@@ -25,7 +25,7 @@
 #define TOPIC_SUBSCRIBE_SIZE                1
 #define SIZE_RESPONSE_CODE                  10
 #define SIZE_RESPONSE_MESSAGE               128
-#define SIZE_TOPIC                          128
+// #define SIZE_TOPIC                          128
 #define SIZE_PAYLOAD                        2048
 #define SIZE_CLIENT_ID                      24
 
@@ -55,8 +55,8 @@ typedef struct
 static char mTopicControlDown[SIZE_TOPIC] = "";
 static char mClientID[SIZE_CLIENT_ID] = "";
 
-static void attribute();
-static int telemetry();
+static void attribute(void);
+static int telemetry(void);
 
 void MQTTConnected(int result) {
     {
@@ -136,17 +136,18 @@ void MQTTMessageArrived(char* topic, char* msg, int msgLen) {
     cJSON* rpcReqObject = cJSON_GetObjectItemCaseSensitive(root, "rpcReq");
     // if RPC control
     if(rpcReqObject) {
-        int rc = -1;
+        int control, rc = -1;
         cJSON* cmdObject = cJSON_GetObjectItemCaseSensitive(root, "cmd");
         cJSON* rpcObject = cJSON_GetObjectItemCaseSensitive(rpcReqObject, "jsonrpc");
         cJSON* idObject = cJSON_GetObjectItemCaseSensitive(rpcReqObject, "id");
         cJSON* paramsObject = cJSON_GetObjectItemCaseSensitive(rpcReqObject, "params");
         cJSON* methodObject = cJSON_GetObjectItemCaseSensitive(rpcReqObject, "method");
+        cJSON* controlObject;
         if(!cmdObject || !idObject || !methodObject) return;
         char* cmd = cmdObject->valuestring;
         char* rpc = rpcObject->valuestring;
         int id = idObject->valueint;
-        char* method = methodObject->valuestring;        
+        char* method = methodObject->valuestring;
         if(!cmd || !method) return;
 
         // Reserved Procedure for ThingPlug
@@ -199,9 +200,9 @@ void MQTTMessageArrived(char* topic, char* msg, int msgLen) {
             SKTDebugPrint(LOG_LEVEL_INFO, "RPC_USER");
             if(!paramsObject) return;
             cJSON* paramObject = cJSON_GetArrayItem(paramsObject, 0);
-            cJSON* controlObject = cJSON_GetObjectItemCaseSensitive(paramObject, "act7colorLed");
+            controlObject = cJSON_GetObjectItemCaseSensitive(paramObject, "act7colorLed");
             if(!controlObject) return;
-            int control = controlObject->valueint;
+            control = controlObject->valueint;
             {
                 char str[128];
                 snprintf(str,128,"\r\nrpc : %s,\r\nid : %d,\r\ncmd : %d", rpc, id, control);
@@ -216,16 +217,42 @@ void MQTTMessageArrived(char* topic, char* msg, int msgLen) {
         rsp.jsonrpc = rpc;
         rsp.id = id;
         rsp.method = method;
+        rsp.fail = rc;
         // control success
         if(rc == 0) {
-            rsp.result = "SUCCESS";
-        } 
+            char body[128] = "";
+            snprintf(body, sizeof(body), "{\"%s\":%d}", controlObject->string, control);
+            rsp.resultBody = body;
+            rsp.result = "success";
+            tpSimpleRawResult(&rsp);
+        }
         // control fail
         else {
-            rsp.errorCode = 106;
-            rsp.errorMessage = "FAIL";
+            ArrayElement* resultArray = calloc(1, sizeof(ArrayElement));
+            resultArray->capacity = 2;
+            resultArray->element = calloc(1, sizeof(Element) * resultArray->capacity);
+            int errorCode = 106;
+
+            Element* item = resultArray->element + resultArray->total;
+            item->type = JSON_TYPE_LONG;
+            item->name = "code";
+            item->value = &errorCode;
+            resultArray->total++;
+
+            item = resultArray->element + resultArray->total;
+            item->type = JSON_TYPE_STRING;
+            item->name = "message";
+            item->value = "FAIL";
+            resultArray->total++;
+            
+            rsp.resultArray = resultArray;
+            rsp.result = "fail";
+
+            tpSimpleResult(&rsp);
+            free(resultArray->element);
+            free(resultArray);
         }
-        tpSimpleResult(&rsp);
+        
     } else {
         cJSON* cmdObject = cJSON_GetObjectItemCaseSensitive(root, "cmd");
         cJSON* cmdIdObject = cJSON_GetObjectItemCaseSensitive(root, "cmdId");
@@ -268,14 +295,15 @@ void MQTTMessageArrived(char* topic, char* msg, int msgLen) {
 
 long long current_timestamp() {
     time_t timer;
-    timer = ntp_time();
-    timer = timer + get_npt_offset();
+    timer = ntp_time() + get_npt_offset();
     return timer;
 }
 
 char *sensor_list[] = { "temp1", "humi1", "light1" };
 
-static int telemetry() {
+static int telemetry(void) {
+
+#ifdef JSON_TELEMETRY
     mStep = PROCESS_TELEMETRY;
     // TODO make data
     // int i;
@@ -323,7 +351,37 @@ static int telemetry() {
     free(temp);
     free(humi);
     free(light);
+
     return rc;
+#endif
+#ifdef CSV_TELEMETRY
+    char *temp, *humi, *light;
+    char time[16];
+    int len,total_len,rc;
+
+    unsigned long curr_time = current_timestamp();
+    snprintf(time, 16, "%lu", curr_time);
+    total_len = (strlen(time) + 1);
+    SMAGetData(sensor_list[0], &temp, &len);
+    total_len += (strlen(temp) + 1);
+    SMAGetData(sensor_list[1], &humi, &len);
+    total_len += (strlen(humi) + 1);
+    SMAGetData(sensor_list[2], &light, &len);
+    total_len += (strlen(light) + 1);
+
+    char* csv_data = (char *) calloc(total_len + 1, sizeof(char));
+    SRAConvertCSVData( csv_data, time);
+    SRAConvertCSVData( csv_data, temp);
+    SRAConvertCSVData( csv_data, humi);
+    SRAConvertCSVData( csv_data, light);
+    rc = tpSimpleRawTelemetry(csv_data, FORMAT_CSV);
+    free(csv_data);
+    free(temp);
+    free(humi);
+    free(light);
+
+    return rc;
+#endif
 }
 
 static unsigned long getAvailableMemory() {
@@ -349,8 +407,9 @@ static int getNetworkInfo(NetworkInfo* info, char* interface) {
     return 0;
 }
 
-static void attribute() {
+static void attribute(void) {
 
+#ifdef JSON_TELEMETRY
     ArrayElement* arrayElement = calloc(1, sizeof(ArrayElement));
 
     arrayElement->capacity = 13;
@@ -459,6 +518,45 @@ static void attribute() {
     free(arrayElement);
 
     mStep = PROCESS_TELEMETRY;
+#endif
+#ifdef CSV_TELEMETRY
+    char csv_attr[256] = "";
+    unsigned long availableMemory = getAvailableMemory();
+    char tmp[64];
+    snprintf( tmp, 64, "%lu", availableMemory );
+    // Memory 
+    SRAConvertCSVData( csv_attr, tmp);
+    // SW Version
+    SRAConvertCSVData( csv_attr, "2.0.0");
+    // HW Version
+    SRAConvertCSVData( csv_attr, "1.0");
+    //Serial
+    SRAConvertCSVData( csv_attr, "710DJC5I10000290");
+    int errorCode = 0;
+    snprintf( tmp, 64, "%d", errorCode);
+    //Error code
+    SRAConvertCSVData( csv_attr, tmp);
+    //NetworkType
+    SRAConvertCSVData( csv_attr, "ethernet");
+    NetworkInfo info;
+    memset(&info, 0, sizeof(NetworkInfo));
+    getNetworkInfo(&info, "eth0");
+    //IPAddr
+    SRAConvertCSVData( csv_attr, info.deviceIpAddress);
+    //ServerIPAddr
+    SRAConvertCSVData( csv_attr, MQTT_HOST); 
+    //Latitude
+    SRAConvertCSVData( csv_attr, "35.1689766"); 
+    //Longitude
+    SRAConvertCSVData( csv_attr, "129.1338524"); 
+    //Led
+    int act7colorLed = 0;
+    snprintf( tmp, 64, "%d", act7colorLed );
+    SRAConvertCSVData( csv_attr, tmp);
+    tpSimpleRawAttribute(csv_attr, FORMAT_CSV);
+    
+    mStep = PROCESS_TELEMETRY;
+#endif
 }
 
 /**
@@ -470,7 +568,7 @@ char* GetMacAddressWithoutColon() {
 }
 
 
-void start() {
+int start() {
     int rc;
 
     mConnectionStatus = CONNECTING;
@@ -518,14 +616,16 @@ void start() {
         snprintf(str,64,"tpSDKCreate result : %d", rc);
         SKTDebugPrint(LOG_LEVEL_INFO, str);
     }
+    return rc;
 }
 
 int MARun() {
+    int rc;
     SKTDebugInit(1, LOG_LEVEL_INFO);
     SKTDebugPrint(LOG_LEVEL_VERBOSE, "ThingPlug_Simple_SDK");
-    start();
+    rc = start();
 
-    while (mStep < PROCESS_END) {
+    while (rc == 0 && mStep < PROCESS_END) {
         if(tpMQTTIsConnected() && mStep == PROCESS_TELEMETRY) {
             int rc = telemetry();
 	    if(rc != 0) {

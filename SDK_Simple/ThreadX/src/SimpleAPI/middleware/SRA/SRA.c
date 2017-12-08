@@ -22,4 +22,10 @@ char* SRAConvertRawData(char *raw)
     return raw;
 }
 
+void SRAConvertCSVData(char *merge, char *data)
+{
+    if( strlen(merge) != 0 )
+        strncat(merge,",",strlen(","));
+    strncat(merge,data,strlen(data));
+}
 

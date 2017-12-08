@@ -94,6 +94,16 @@
 /** result fail(string) **/
 #define FAIL                        "fail"
 
+#define TOPIC_TELEMETRY             "v1/dev/%s/%s/telemetry"
+#define TOPIC_TELEMETRY_CSV         "v1/dev/%s/%s/telemetry/csv"
+#define TOPIC_TELEMETRY_OFFSET      "v1/dev/%s/%s/telemetry/offset"
+
+#define TOPIC_ATTRIBUTE             "v1/dev/%s/%s/attribute"
+#define TOPIC_ATTRIBUTE_CSV         "v1/dev/%s/%s/attribute/csv"
+#define TOPIC_ATTRIBUTE_OFFSET      "v1/dev/%s/%s/attribute/offset"
+
+#define TOPIC_UP                    "v1/dev/%s/%s/up"
+
 /* CONNACK : 0 Connection Accepted */
 #define CONNECTION_ACCEPTED 0
 /* CONNACK : 1 Connection Refused, unacceptable protocol version */

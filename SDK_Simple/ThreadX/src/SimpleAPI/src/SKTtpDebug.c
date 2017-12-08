@@ -20,7 +20,7 @@ BOOLEAN_TYPE_E  gSKTtpDebugEnable   = False;
 LOG_LEVEL_E     gSKTtpDebugLogLevel = (LOG_LEVEL_E)LOG_LEVEL_NONE;
 extern const sf_comms_instance_t g_sf_comms0;
 extern unsigned int ntp_time(void);
-char gStopConsole;
+char gStopConsole  = 0;
 
 /*
  * SKTtpDebugLogLevelString

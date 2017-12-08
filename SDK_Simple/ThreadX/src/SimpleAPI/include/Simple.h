@@ -26,6 +26,12 @@
     JSON_TYPE_BOOLEAN         // int 0(false) or other(true)
 } DATA_TYPE;
 
+typedef enum data_format {
+    FORMAT_JSON = 0,          // json format
+    FORMAT_CSV,               // csv format
+    FORMAT_OFFSET             // offset format
+} DATA_FORMAT;
+
 /*
  ****************************************
  * Structure Definition
@@ -65,10 +71,12 @@
      char* method;
      /** control result(string) **/
      char* result;
-     /** error code(int) **/
-     int errorCode;
-     /** error message(string) **/
-     char* errorMessage;
+     /** fail flag - if 0 SUCCESS(unsigned char) **/
+     unsigned char fail;
+     /** result body(ArrayElement) **/
+     ArrayElement* resultArray;
+     /** result body(string) **/
+     char* resultBody;
  } RPCResponse;
  
  typedef struct
@@ -105,4 +113,10 @@ int tpSimpleAttribute(ArrayElement* attribute);
 int tpSimpleResult(RPCResponse* response);
 
 int tpSimpleSubscribe(DeviceSubscribe* subscribe);
+
+int tpSimpleRawTelemetry(char* telemetry, DATA_FORMAT format);
+
+int tpSimpleRawAttribute(char* attribute, DATA_FORMAT format);
+
+int tpSimpleRawResult(RPCResponse* response);
 #endif

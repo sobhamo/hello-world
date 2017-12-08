@@ -17,6 +17,9 @@
 #define MQTT_KEEP_ALIVE                     120
 #define MQTT_ENABLE_SERVER_CERT_AUTH        0
 
+#define JSON_TELEMETRY
+//#define CSV_TELEMETRY
+
 #define LOGIN_NAME                          "(TBD)"
 
 #define SIMPLE_SERVICE_NAME                 "(TBD)"

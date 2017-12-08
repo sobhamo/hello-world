@@ -155,7 +155,7 @@ int ConnectNetwork(Network* n, char* addr, unsigned int port)
       sscanf(addr,"%d.%d.%d.%d",&ip1,&ip2,&ip3,&ip4);
       n->byte_ip = IP_ADDRESS(ip1,ip2,ip3,ip4);
   }
-  status =  nx_tcp_client_socket_connect(&n->my_socket, IP_ADDRESS( 218,53,242,111), port, 2000);
+  status =  nx_tcp_client_socket_connect(&n->my_socket, n->byte_ip, port, 2000);
   if (status)error_count++;
   if (error_count != 0)
 	  return -1;

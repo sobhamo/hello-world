@@ -42,7 +42,7 @@ void SMAGetData(char *sensorType, char** output, int *len)
 #ifndef __DUMMY_DATA_
     char str[128];
 #else
-    int random_num = ntp_time() * ntp_time() % 100000000;
+    unsigned int random_num = ntp_time() * ntp_time() % 100000000;
 #endif
 
     if( SMA_STRCMP(sensorType,"batterystate") ) {

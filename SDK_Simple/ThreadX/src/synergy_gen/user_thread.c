@@ -106,14 +106,10 @@ VOID ux_cdc_device0_instance_deactivate(VOID *cdc_instance)
  * @param[in]  p_instance arguments used to identify which instance caused the error and p_data Callback arguments used to identify what error caused the callback.
  **********************************************************************************************************************/
 void g_sf_comms0_err_callback_internal(void * p_instance, void * p_data);
+extern char gStopConsole;
 void g_sf_comms0_err_callback_internal(void * p_instance, void * p_data)
 {
-    /** Suppress compiler warning for not using parameters. */
-    SSP_PARAMETER_NOT_USED (p_instance);
-    SSP_PARAMETER_NOT_USED (p_data);
-
-    /** An error has occurred. Please check function arguments for more information. */
-    BSP_CFG_HANDLE_UNRECOVERABLE_ERROR (0);
+    gStopConsole = 1;
 }
 /*******************************************************************************************************************//**
  * @brief     This is sf comms initialization function. User Can call this function in the application if required with the below mentioned prototype.
