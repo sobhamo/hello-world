@@ -125,7 +125,7 @@ ThingPlug 와의 Protocol 은 oneM2M 과 GMMP 두가지 방식을 지원한다.
 	```
 
 #### 9. 기기 등록
-* [ThingPlug Device 미들웨어 기기 등록 가이드](Simple_Guide.MD)
+* [ThingPlug Device 미들웨어 기기 등록 가이드](Simple_Guide.md)
 
 #### 10. 센서
 * [센서 연동 가이드](Sensor_Guide.md)
