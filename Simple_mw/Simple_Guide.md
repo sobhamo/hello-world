@@ -11,8 +11,8 @@
 *  먼저 로그인을 진행해야 서비스이름과 디바이스 디스크립터를 선택할 수 있다.
 *  서비스 이름을 선택한다.
 *  디바이스 디스크립터를 선택한다.
-*  등록할 디바이스 이름은 ThingPlug Portal > ? 로 설정한다.
-*  디바이스 토큰은 ThingPlug Portal > ? 로 설정한다.
+*  등록할 디바이스 이름과 토큰은 ThingPlug Portal 에 등록한 정보로 설정한다.
+
 
 ![](images/registerDevice.png)
 
@@ -22,6 +22,6 @@
 
 ![](images/registerCompleted.png)
 
-* 등록이 성공한 기기는 ThingPlug Portal `Develop > 디바이스 연동 > 디바이스 관리` 메뉴에서 아래와 같이 확인이 가능하다.
+* 등록이 성공한 기기는 ThingPlug Portal `Service > 대시보드` 메뉴에서 위젯을 추가하면 아래와 같이 확인이 가능하다.
 
 ![](images/checkResult.png)
