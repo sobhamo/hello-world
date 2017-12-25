@@ -5,7 +5,7 @@ ThingPlug Simple SDK for Android
 ThingPlug Simple SDK for Android는 ThingPlug에 연동하고자 하는 device 개발자 및 application 개발자를 위한 Android기반 SDK입니다. IoT device 및 Application과 ThingPlug서버간의 통신에는 Simple 규격에 기반한 MQTT 프로토콜을 따르고 있으며, 보안강화를 위해 TLS를 사용할 수 있도록 구성되어 있습니다
 
 ## Features
-본 SDK에서 제공되는 API를 사용하면 oneM2M 국제표준의 세부 규격을 모르더라도 손쉽게 ThingPlug와의 통신을 구현할 수 있습니다. SDK뿐만 아니라 기본 기능시험을 위한 Simple Test App과, Android 단말이 IoT Device 역할을 하도록 해주는 Sample Device App, 그리고 Service Application 역할을 하는 Sample Service App을 같이 배포해드리고 있습니다.
+SDK뿐만 아니라 기본 기능시험을 위한 Simple Test App과, Android 단말이 IoT Device 역할을 하도록 해주는 Sample Device App, 그리고 Service Application 역할을 하는 Sample Service App을 같이 배포해드리고 있습니다.
 
 ## Requirements
 * **[AndroidStudio](https://developer.android.com/studio/index.html)**
@@ -128,7 +128,7 @@ tcp://thingplug.net
 loginName 과 loginPassword 는 디바이스로 동작할 경우와 애플리케이션으로 동작할 경우에 설정값이 아래와 같습니다.
 
 파라미터 | 디바이스 | 애플리케이션
------------- | -------------
+------------ | ------------- | -------------
 __loginName__ | 디바이스 토큰 | ThingPlug 계정 ID
 __loginPassword__ | null | ThingPlug 계정 Password
 
@@ -185,12 +185,6 @@ SimpleListener simpleListener = new SimpleListener() {
     }
 );
 ```
-파라미터 | 설명
------------- | -------------
-__IMQTT.class__ | MQTT 서비스 객체
-__config__ | 생성된 `MQTTConfiguration` 객체
-__Binder__ | 메시지 바인딩을 위한 `Binder` 객체
-__MQTTProcessor.MQTTListener__ | MQTT 이벤트 리스너
 
 ### Simple API 
 SKT ThingPlug 서버와 Simple 통신을 위한 API 는 `tp.skt.simple.api.Simple.java` 파일에 정의되어 있습니다.
