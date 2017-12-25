@@ -211,7 +211,7 @@ Sample Device App 실행
 ---
 1. 실행 로그 확인
 ---
-![LOG_android.txt](./LOG_android.txt)
+[LOG_android.txt](./LOG_android.txt)
 ---
 2. Thingplug SensorData
 ---
