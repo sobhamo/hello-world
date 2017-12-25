@@ -2,10 +2,10 @@ ThingPlug Simple SDK for Android
 ===
 
 ## Overview
-ThingPlug Simple SDK for Android는 ThingPlug에 연동하고자 하는 device 개발자 및 application 개발자를 위한 Android기반 SDK입니다. IoT device 및 Application과 ThingPlug서버간의 통신에는 Simple 규격에 기반한 MQTT 프로토콜을 따르고 있으며, 보안강화를 위해 TLS를 사용할 수 있도록 구성되어 있습니다.
+ThingPlug Simple SDK for Android는 ThingPlug에 연동하고자 하는 device 개발자 및 application 개발자를 위한 Android기반 SDK입니다. IoT device 및 Application과 ThingPlug서버간의 통신에는 Simple 규격에 기반한 MQTT 프로토콜을 따르고 있으며, 보안강화를 위해 TLS를 사용할 수 있도록 구성되어 있습니다
 
 ## Features
-본 SDK에서 제공되는 API를 사용하면 Simple API 세부 규격을 모르더라도 손쉽게 ThingPlug와의 통신을 구현할 수 있습니다. SDK뿐만 아니라 기본 기능시험을 위한 Simple Test App과, Android 단말이 IoT Device 역할을 하도록 해주는 Sample Device App, 그리고 Service Application 역할을 하는 Sample Service App을 같이 배포해드리고 있습니다.
+본 SDK에서 제공되는 API를 사용하면 oneM2M 국제표준의 세부 규격을 모르더라도 손쉽게 ThingPlug와의 통신을 구현할 수 있습니다. SDK뿐만 아니라 기본 기능시험을 위한 Simple Test App과, Android 단말이 IoT Device 역할을 하도록 해주는 Sample Device App, 그리고 Service Application 역할을 하는 Sample Service App을 같이 배포해드리고 있습니다.
 
 ## Requirements
 * **[AndroidStudio](https://developer.android.com/studio/index.html)**
@@ -32,36 +32,29 @@ ThingPlug Simple SDK는 소스코드 형태로 제공되며 Application에서의
 보다 자세한 사용 예시는 **[Simple Test App](SDK)** 소스코드를 참고하시기 바랍니다.
 
 ### Project에 Simple SDK 연결
-신규 Project에 oneM2M SDK를 추가하고자 할 경우, 아래와 같이 추가하시기 바랍니다.
-여기서 제공되는 Sample App 프로젝트들에는 이미 SDK가 포함되어 있습니다.
+신규 Project에 Simple SDK를 추가하고자 할 경우, 아래와 같이 추가하시기 바랍니다. 여기서 제공되는 Sample App 프로젝트들에는 이미 SDK가 포함되어 있습니다.
 
 1. Project에 Simple 모듈 추가
 	- `Menu > File > Project Structure` 선택
-	<br/><img src="images/oneM2M_import.png"/>
+	<br/><img src="images/Simple_import.png"/>
 	- 좌상단의 '+' 버튼 클릭
-	<br/><img src="images/oneM2M_import1.png"/>
+	<br/><img src="images/Simple_import1.png"/>
 	- `Import .JAR/.AAR Package` 선택
-	<br/><img src="images/oneM2M_import2.png"/>
-	- `SDK-release.aar` 파일 선택 후 `Finish` 
-	<br/><img src="images/oneM2M_import3.png"/>
-2. SDK 를 사용할 모듈에 oneM2M SDK 모듈 연결
+	<br/><img src="images/Simple_import2.png"/>
+	- `simple_sdk-release.aar` 파일 선택 후 `Finish` 
+	<br/><img src="images/Simple_import3.png"/>
+2. SDK 를 사용할 모듈에 Simple SDK 모듈 연결
 	- `build.gradle(Module: app)` 선택
-	<br/><img src="images/oneM2M_import4.png"/>
+	<br/><img src="images/Simple_import4.png"/>
 	- `dependencies` 에 아래 내용을 추가
 	
 	```
-	// oneM2M-SDK
-    compile project(':SDK-release')
+	// Simple SDK
+    compile project(':simple_sdk-release')
     // mqtt
     compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.0.2'
     compile('org.eclipse.paho:org.eclipse.paho.android.service:1.0.2') {
         exclude module: 'support-v4'
-    }
-    // xml
-    compile('org.simpleframework:simple-xml:2.7.+') {
-        exclude module: 'stax'
-        exclude module: 'stax-api'
-        exclude module: 'xpp3'
     }
     // json
     compile 'com.google.code.gson:gson:2.7'
@@ -78,27 +71,48 @@ ThingPlug Simple SDK는 소스코드 형태로 제공되며 Application에서의
 	import tp.skt.simple.net.mqtt.SimpleListener;
 
 
-### Setting for MQTT connection
-MQTT server 와의 연결을 위한 정보를 MQTTClient를 통해 설정해야 합니다.
+## Simple API 생성
+Simple API 를 사용하기 위해서는 Simple 객체를 생성해야 합니다.
 
 ```java
-MQTTClient.Builder builder = new MQTTClient.Builder(context)
-	.baseUrl(server)
-	.clientId(id)
-	.userName(user)
-	.password(pass)
-	.setLog(true);
-MQTTClient mqttClient = builder.build();
+Simple simple = new Simple(
+	Context context, 
+	String serviceName, 
+	String deviceName, 
+	String userName, 
+	SimpleConfiguration simpleConfiguration, 
+	SimpleListener simpleListener, 
+	boolean logEnabled);
 ```
-함수 | 파라미터
+파라미터 | 설명
 ------------ | -------------
-__baseUrl__ | MQTT broker 주소
-__clientId__ | MQTT 연결 clientID
-__userName__ | MQTT 연결 username
-__password__ | MQTT 연결 password
-__setLog__ | 디버깅을 위한 로그 Enable or Disable
+__context__ | 앱 context
+__serviceName__ | 서비스 이름
+__deviceName__ | 디바이스 이름
+__userName__ | ThingPlug 계정 ID
+__simpleConfigration__ | MQTT 연결을 위한 값들 세팅
+__simpleListener__ | 각종 이벤트 Listener
+__logEnabled__ | 디버깅을 위한 로그 Enable or Disable
 
-TLS 사용을 위해서는 MQTT broker 주소앞에 `ssl://` 을 포함하면 됩니다. 포트번호가 `8883`인 경우 생략 가능합니다.
+### SimpleConfiguration 생성
+Simple 객체 생성을 위해서 SimpleConfiguration 객체 생성해야 합니다.
+
+```java
+Simple simple = new SimpleConfiguration(
+	String mqttServerAddress, 
+	String clientID, 
+	String loginName, 
+	String loginPassword);
+```
+
+파라미터 | 설명
+------------ | -------------
+__mqttServerAddress__ | ThingPlug Server 주소
+__clientId__ | MQTT 연결을 위한 Client-ID 
+__loginName__ | MQTT 연결을 위한 ID
+__loginPassword__ | MQTT 연결을 위한 Password
+
+mqttServerAddress 값의 경우 TLS 사용을 위해서는 MQTT broker 주소앞에 `ssl://` 을 포함하면 됩니다. 포트번호가 `8883`인 경우 생략 가능합니다.
 
 TLS 사용 시, ThingPlug의 MQTT broker 주소는 다음과 같습니다.
 ```
@@ -111,38 +125,22 @@ TLS 미사용 시, ThingPlug의 MQTT broker 주소는 다음과 같습니다.
 tcp://thingplug.net
 ```
 
+loginName 과 loginPassword 는 디바이스로 동작할 경우와 애플리케이션으로 동작할 경우에 설정값이 아래와 같습니다.
 
-### Configuration for MQTT Message
-MQTT 메시지에 사용되어질 정보를 MQTTConfiguration을 통해 설정해야 합니다.
-
-```java
-config = new MQTTConfiguration(serviceId,
-                deviceId,
-                accountId,
-                credentialId,
-                clientId);
-```
-파라미터 | 설명
+파라미터 | 디바이스 | 애플리케이션
 ------------ | -------------
-__serviceId__ | 서비스 ID
-__deviceId__ | 디바이스 ID
-__accountId__ | thingplug 계정 ID 
-__credentialId__ | thingplug 계정 Credential-ID 
-__clientId__ | MQTT 연결을 위한 Client-ID 
+__loginName__ | 디바이스 토큰 | ThingPlug 계정 ID
+__loginPassword__ | null | ThingPlug 계정 Password
 
-### Connects to an MQTT server
-MQTT 서버에 연결 후, 각종 이벤트 처리를 위한 MQTTProcessor.MQTTListener를 등록해야 합니다.
+
+### SimpleListener 사용
+MQTT 서버에 연결 후, 각종 이벤트 처리를 위하여 SimpleListener를 등록해야 합니다.
 
 ```java
-IMQTT mqttService = mqttClient.connect(IMQTT.class, config, new Binder(), new MQTTProcessor.MQTTListener() {
+SimpleListener simpleListener = new SimpleListener() {
         @Override
-        public void onPush(execInstanceControl control) {
-            Log.e(TAG, "push control!");
-        }
-
-        @Override
-        public void onPush(notification sensorInfo) {
-            Log.e(TAG, "push notificatioin!");
+        public void onPush(String message) {
+            Log.e(TAG, "push message : " + message);
         }
 
         @Override
@@ -194,216 +192,22 @@ __config__ | 생성된 `MQTTConfiguration` 객체
 __Binder__ | 메시지 바인딩을 위한 `Binder` 객체
 __MQTTProcessor.MQTTListener__ | MQTT 이벤트 리스너
 
-### oneM2M API 
-SKT ThingPlug 서버와 oneM2M 통신을 위한 API 는 `tp.skt.onem2m_v1_14.api.oneM2MAPI_V1_14.java` 파일에 주로 정의되어 있습니다.
-해당 클래스는 Java Singletone 패턴으로 되어있어서 `oneM2MAPI_V1_14.getInstance()` 형태로 객체를 가져와 사용하면 됩니다.
+### Simple API 
+SKT ThingPlug 서버와 Simple 통신을 위한 API 는 `tp.skt.simple.api.Simple.java` 파일에 정의되어 있습니다.
 
-함수 | 설명
+주요 함수 | 설명
 ------------ | -------------
-__getInstance()__ | Singletone 객체를 가져온다.
-__tpRegisterDevice__ | 장치를 등록한다. (AE 를 등록한다.)
-__tpRegisterContainer__ | 센서를 등록한다. (container 를 등록한다.)
-__tpRegisterMgmtCmd__ | 제어명령을 등록한다. (mgmtCmd 를 등록한다.)
-__tpAddData__ | 센서정보를 추가한다. (contentInstance 의 content(con) 에 담을 정보를 추가한다.)
-__tpReport__ | 센서정보를 등록한다. (contentInstance 를 등록한다.)
-__tpResult__ | 제어결과를 업데이트한다. (execInstance 를 업데이트한다.)
-__tpRegisterContainerSubscription__ | 센서정보 노티를 등록한다. (subscription 을 등록한다.)
-> 각 함수별 파라미터 설명은 `tp.skt.onem2m.api.oneM2MAPI_V1_14.java`에서 확인
+__tpSimpleInitialize__ | 서비스이름, 디바이스 이름, ThingPlug 계정 ID를 세팅한다.
+__tpSimpleConnect__ | 서버에 Connection 한다.
+__tpSimpleDisconnect__ | 서버에 Disconnection 한다.
+__tpSimpleDestroy__ | MQTT 연결 및 리소스들을 해제한다.
+__tpSimpleIsConnected__ | MQTT 연결상태를 확인한다.
+__tpSimpleTelemetry__ | 센서정보를 전달한다.
+__tpSimpleAttribute__ | 디바이스 정보를 전달한다.
+__tpSimpleResult__ | RPC 제어결과를 전달한다.
+__tpSimpleSubscribe__ | 디바이스정보를 모니터링 한다.
+> 각 함수별 파라미터 설명은 `tp.skt.simple.api.Simple.java`에서 확인
 
-### 기기 등록
-기기등록을 위한 `tpRegisterDevice` 함수의 사용예시는 다음과 같으며, 성공 실패 여부는 `MQTTCallback`에 등록된 `onResponse` 와 `onFailure` 이벤트 함수로 확인할 수 있습니다.
-
-```java
-/**
- * register device
- *
- * @param deviceId           :	device ID
- * @param requestRechability :  requestRechability
- */
-public void registerDevice(String deviceId, String requestRechability) {
-	oneM2MAPI_V1_14.getInstance().tpRegisterDevice(mqttService, deviceId, 
-			requestRechability, new MQTTCallback<AEResponse>() {
-				@Override
-				public void onResponse(AEResponse response) {
-					Log.e(TAG, "AE CREATE success!");
-				}
-
-				@Override
-				public void onFailure(int errorCode, String message) {
-					Log.e(TAG, "fail!");
-				}
-			});
-}
-```
-
-### 센서 등록
-센서등록을 위한 `tpRegisterContainer` 함수의 사용예시는 다음과 같습니다.
-
-```java
-/**
- * register sensor
- * 
- * @param aei           : AE-ID
- * @param containerName : container name
- */
-private void registerSensor(String aei, String containerName) {
-	oneM2MAPI_V1_14.getInstance().tpRegisterContainer(mqttService, aei, 
-			containerName, new MQTTCallback<containerResponse>() {
-				@Override
-				public void onResponse(containerResponse response) {
-					Log.e(TAG, "success!");
-				}
-
-				@Override
-				public void onFailure(int errorCode, String message) {
-					Log.e(TAG, "fail!");
-				}
-			});
-}	
-```
-
-### 액츄에이터 등록
-제어가 가능한 액츄에이터등록을 위한 `tpRegisterMgmtCmd` 함수의 사용예시는 다음과 같습니다.
-
-```java
-/**
- * register control
- * 
- * @param aei           : AE-ID
- * @param mgmtCmdName   : mgmtCmd name
- * @param cmdType       : cmdType			
- * @param execTarget    : node link 
- */
-private void registerControl(String aei, String mgmtCmdName, String cmdType, String execTarget) {
-	oneM2MAPI_V1_14.getInstance().tpRegisterMgmtCmd(mqttService, aei, mgmtCmdName,
-			cmdType, execTarget, new MQTTCallback<mgmtCmdResponse>() {
-				@Override
-				public void onResponse(mgmtCmdResponse response) {
-					Log.e(TAG, "success!");
-				}
-
-				@Override
-				public void onFailure(int errorCode, String message) {
-					Log.e(TAG, "fail!");
-				}
-			});
-}
-```
-
-### 센서 상태 보고
-센서 상태 보고를 위한 `tpAddData`와 `tpReport` 함수의 사용예시는 다음과 같습니다.
-
-```java
-/**
- * conent value add
- * 
- * @param value : sensor status
- */
-private void addStatus(String value) {
-	oneM2MAPI_V1_14.getInstance().tpAddData(value);
-}
-
-/**
- * report conent values
- * 
- * @param aei           : AE-ID
- * @param containerName : container Name
- * @param contentInfo   : content type
- * @param content       : content
- * @param useAddedData  : use Added data flag
- */
-private void report(String aei, String containerName, String contentInfo, String content, boolean useAddedData) {
-	oneM2MAPI_V1_14.getInstance().tpReport(mqttService, aei, containerName,
-			contentInfo, content, useAddedData, new MQTTCallback<contentInstanceResponse>() {
-				@Override
-				public void onResponse(contentInstanceResponse response) {
-					Log.e(TAG, "success!");
-				}
-
-				@Override
-				public void onFailure(int errorCode, String message) {
-					Log.e(TAG, "fail!");
-				}
-			});
-}
-```
-> `tpAddData` 함수를 통하여 여러 센서의 정보를 수집할 수 있습니다.
-> 이 경우 `tpReport` 함수의 useAddedData 파라미터를 true 로 설정하고, content 파라미터를 null 로 설정하면 그동안 `tpAddData` 함수를 통하여 수집된 content 정보가 서버로 전달됩니다.
-> `tpAddData` 함수를 사용하지 않을 경우 useAddedData 파라미터를 false 로 설정하고, content 파라미터에 값을 입력하면 됩니다.
-
-### 제어 결과 보고
-제어 결과 보고를 위한 `tpResult` 함수의 사용예시는 다음과 같습니다.
-
-```java
-/**
- * control result
- * 
- * @param aei           : AE-ID
- * @param mgmtCmdName   : mgmtCmd Name
- * @param resourceId    : execInstance resource Id
- * @param execResult    : execute result code
- */
-public void controlResult(String aei, String mgmtCmdName, String resourceId, String execResult) {
-	oneM2MAPI_V1_14.getInstance().tpResult(mqttService, aei, mgmtCmdName,
-			resourceId, execResult, new MQTTCallback<execInstanceResponse>() {
-				@Override
-				public void onResponse(execInstanceResponse response) {
-					Log.e(TAG, "success!");
-				}
-
-				@Override
-				public void onFailure(int errorCode, String message) {
-					Log.e(TAG, "fail!");
-				}
-			});
-}
-```
-> execResult 와 execStatus 코드는 **[ThingPlug_API_Document_v1_61.pdf](https://lora.sktiot.com/api/common/file/download?fileId=00ENAMSVLO3W67609B4D)** 문서 6.5.3 절에서 확인 가능합니다.
-
-### Error Code
-`MQTTCallback`을 통해 발생한 응답의 성공 실패 여부를 확인하는 코드는 `tp.skt.onem2m.binder.mqtt_v1_1.Definitions.java`에 정의되어 있으며 다음과 같습니다.
-
-서버와의 통신관련 오류는 paho 라이브러리내 **[`org.eclipse.paho.client.mqttv3.MqttException.java`](https://www.eclipse.org/paho/files/javadoc/org/eclipse/paho/client/mqttv3/MqttException.html)** 에 정의되어 있습니다.
-```java
-public @interface ResponseStatusCode {
-	int ACCEPTED = 1000;
-	int OK = 2000;
-	int CREATED = 2001;
-	int DELETED = 2002;
-	int CHANGED = 2004;
-	int BAD_REQUEST = 4000;
-	int NOT_FOUND = 4004;
-	int OPERATION_NOT_ALLOWED = 4005;
-	int REQUEST_TIMEOUT = 4008;
-	int SUBSCRIPTION_CREATOR_HAS_NO_PRIVILEGE = 4101;
-	int CONTENTS_UNACCEPTABLE = 4102;
-	int ACCESS_DENIED = 4103;
-	int GROUP_REQUEST_IDENTIFIER_EXISTS = 4104;
-	int CONFLICT = 4105;
-	int INTERNAL_SERVER_ERROR = 5000;
-	int NOT_IMPLEMENTED = 5001;
-	int TARGET_NOT_REACHABLE = 5103;
-	int NO_PRIVILEGE = 5105;
-	int ALREADY_EXISTS = 5106;
-	int TARGET_NOT_SUBSCRIBABLE = 5203;
-	int SUBSCRIPTION_VERIFICATION_INITIATION_FAILED = 5204;
-	int SUBSCRIPTION_HOST_HAS_NO_PRIVILEGE = 5205;
-	int NON_BLOCKING_REQUEST_NOT_SUPPORTED = 5206;
-	int EXTENAL_OBJECT_NOT_REACHABLE = 6003;
-	int EXTENAL_OBJECT_NOT_FOUND = 6005;
-	int MAX_NUMBERF_OF_MEMBER_EXCEEDED = 6010;
-	int MEMBER_TYPE_INCONSISTENT = 6011;
-	int MGMT_SESSION_CANNOT_BE_ESTABLISHED = 6020;
-	int MGMT_SESSION_ESTABLISHMENT_TIMEOUT = 6021;
-	int INVALID_CMDTYPE = 6022;
-	int INSUFFICIENT_ARGUMENTS = 6023;
-	int MGMT_CONVERSION_ERROR = 6024;
-	int MGMT_CANCELATION_FAILURE = 6025;
-	int ALREADY_COMPLETE = 6028;
-	int COMMAND_NOT_CANCELLABLE = 6029;
-	int INTERNAL_SDK_ERROR = 9999;
-}
-```
 ## Sample Application(s)
 * **[Simple Test App](SDK)** - oneM2M SDK 사용 Test App
 * **[Sample Device App](com.skt.androidSDK_device)** - Android 단말을 IoT Device로 동작하게 하는 App 
