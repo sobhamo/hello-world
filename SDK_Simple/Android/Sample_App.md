@@ -1,6 +1,6 @@
 Device App & Service App Guide
 ===
-SKT ThingPlug Android oneM2M v1.14 SDK를 활용하여 개발되어진 Device App과 Service App에 대한 설명입니다.
+SKT ThingPlug Android Simple SDK를 활용하여 개발되어진 Device App과 Service App에 대한 설명입니다.
 
 ## Overview
 ![](images/Android_SDK_overview.png)
