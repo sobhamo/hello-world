@@ -204,8 +204,8 @@ __tpSimpleSubscribe__ | 디바이스정보를 모니터링 한다.
 
 ## Sample Application(s)
 * **[Simple Test App](SDK)** - oneM2M SDK 사용 Test App
-* **[Sample Device App](com.skt.androidSDK_device)** - Android 단말을 IoT Device로 동작하게 하는 App 
-* **[Sample Service App](com.skt.androidSDK_service)** - IoT Device의 원격 상태조회, 제어가 가능한 Service용 App
+* **[Sample Device App](Device)** - Android 단말을 IoT Device로 동작하게 하는 App 
+* **[Sample Service App](Service)** - IoT Device의 원격 상태조회, 제어가 가능한 Service용 App
 
 Sample Device App 실행
 ---
