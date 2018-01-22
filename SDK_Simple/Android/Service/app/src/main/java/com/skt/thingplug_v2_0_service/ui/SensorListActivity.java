@@ -40,11 +40,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -155,6 +153,8 @@ public class SensorListActivity extends AppCompatActivity {
 //                    createSensorList();
                     break;
                 case SETTING_RESULT_LOGOUT:
+                    Subscribe sub = new Subscribe("delist", userInfo.getServiceName(), userInfo.getDeviceName(), null, false, new ArrayList<String>(Arrays.asList("*")), new ArrayList<String>(Arrays.asList("*")), 1);
+                    simpleWorker.subscribe(sub);
                     userInfo.clear(false);
                     startActivity(new Intent(this, LoginActivity.class));
                     finish();
@@ -204,20 +204,33 @@ public class SensorListActivity extends AppCompatActivity {
      * create sensor list
      */
     private void createSensorList() {
-        // add sensor item
-        for (SensorType sensorType : SensorType.values()) {
-            if (sensorType != SensorType.NONE && sensorType != SensorType.DEVICE) {
-                SensorInfo sensorInfo = new SensorInfo(sensorType);
-//                sensorInfo.setActivated(false);
-                sensorInfos.add(sensorInfo);
+        // deal with support sensor
+        String supportSensor = userInfo.getSupportSensor();
+        JSONObject sensorListObject;
+        try {
+            Log.e(TAG, "support sensor : " + supportSensor);
+            sensorListObject = new JSONObject(supportSensor);
+
+            // add sensor item
+            for (SensorType sensorType : SensorType.values()) {
+                if (sensorType != SensorType.NONE && sensorType != SensorType.DEVICE) {
+                    String nick = sensorType.getNickname();
+                    if(sensorListObject.getJSONArray(nick).getInt(1) == 0) continue;
+
+                    SensorInfo sensorInfo = new SensorInfo(sensorType);
+  //                sensorInfo.setActivated(false);
+                    sensorInfos.add(sensorInfo);
+                }
             }
+
+            // add to listview
+            listView.setAdapter(new SensorListAdapter(this, sensorInfos));
+            Subscribe sub = new Subscribe(Define.ENLIST, userInfo.getServiceName(), userInfo.getDeviceName(), null, false, new ArrayList<String>(Arrays.asList("*")), new ArrayList<String>(Arrays.asList("*")), 1);
+            simpleWorker.subscribe(sub);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return;
         }
-
-        // add to listview
-        listView.setAdapter(new SensorListAdapter(this, sensorInfos));
-        Subscribe sub = new Subscribe(Define.ENLIST, userInfo.getServiceName(), userInfo.getDeviceName(), null, false, new ArrayList<String>(Arrays.asList("*")), new ArrayList<String>(Arrays.asList("*")), 1);
-        simpleWorker.subscribe(sub);
-
 //        if(userInfo.loadShowContent() == true) {
 //            if(listView.getHeaderViewsCount() == 0) {
 //                contentView = getLayoutInflater().inflate(R.layout.listview_header, null, false);
@@ -468,28 +481,44 @@ public class SensorListActivity extends AppCompatActivity {
         sensorInfo.setCmdId(cmdId);
         // setAttribute if actuator
         if(sensorInfo.getType().getCategory() == SensorType.Category.ACTUATOR) {
-            simpleWorker.setAttribute(cmdId, element, new SimpleCallback() {
-                @Override
-                public void onResponse(Object o) {
-                    Log.i(TAG, "setAttribute success");
-                    final Handler handler = new Handler();
-                    final Runnable statusChecker = new Runnable() {
-                        @Override
-                        public void run() {
-                            if (sensorInfo.getCmdId() > 0) {
-                                onFailure(cmdId, "fail set_attr");
-                            }
-                        }
-                    };
-                    handler.postDelayed(statusChecker, Const.SENSOR_CONTROL_CHECK_DELAY);
-                }
 
-                @Override
-                public void onFailure(int errorCode, String message) {
-                    Log.e(TAG, errorCode + " : " + message);
-                    resultControlDevice(false, R.string.control_fail, sensorInfo);
-                }
-            });
+            if(sensorInfo.getType() == SensorType.CAMERA) {
+                simpleWorker.takePhoto(element, cmdId, new SimpleCallback() {
+                    @Override
+                    public void onResponse(Object o) {
+                        Log.i(TAG, "send takePhoto success");
+                    }
+
+                    @Override
+                    public void onFailure(int errorCode, String message) {
+                        Log.e(TAG, errorCode + " : " + message);
+                    }
+                });
+
+            } else {
+                simpleWorker.setAttribute(cmdId, element, new SimpleCallback() {
+                    @Override
+                    public void onResponse(Object o) {
+                        Log.i(TAG, "setAttribute success");
+                        final Handler handler = new Handler();
+                        final Runnable statusChecker = new Runnable() {
+                            @Override
+                            public void run() {
+                                if (sensorInfo.getCmdId() > 0) {
+                                    onFailure(cmdId, "fail set_attr");
+                                }
+                            }
+                        };
+                        handler.postDelayed(statusChecker, Const.SENSOR_CONTROL_CHECK_DELAY);
+                    }
+
+                    @Override
+                    public void onFailure(int errorCode, String message) {
+                        Log.e(TAG, errorCode + " : " + message);
+                        resultControlDevice(false, R.string.control_fail, sensorInfo);
+                    }
+                });
+            }
         }
         // jsonRpcReq
         else {
@@ -734,19 +763,33 @@ public class SensorListActivity extends AppCompatActivity {
                 String[] names;
                 String name;
                 int length;
-                if(json.has("photo")) {
-                    JSONArray photoArray = json.getJSONArray("photo");
-                    String base64Image = photoArray.getString(1);
-                    showImageViewDialog(base64Image);
-                } else if (json.has("cmd") == true) {
+
+                if (json.has(Define.CMD) == true) {
                     int cmdId = json.getInt("cmdId");
                     String result = json.getString("result");
                     for (SensorInfo sensorInfo : sensorInfos) {
                         if(sensorInfo.getCmdId() == cmdId) {
-                            if (result.equals("success")) {
-                                resultControlDevice(true, R.string.control_success, sensorInfo);
+                            if(sensorInfo.getType() == SensorType.CAMERA) {
+                                JSONObject rpcRspObject = json.getJSONObject(Define.RPC_RSP);
+                                if (rpcRspObject.has(Define.RESULT)) {
+                                    JSONObject resultObject = rpcRspObject.getJSONObject(Define.RESULT);
+                                    String base64Image = resultObject.getString("photo");
+                                    showImageViewDialog(base64Image);
+                                } else {
+                                    JSONObject errorObject = rpcRspObject.getJSONObject(Define.ERROR);
+                                    String errorMessage = errorObject.getString("errorMessage");
+                                    Toast.makeText(SensorListActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                                }
+                                sensorInfo.setCmdId(0);
+                                if (listView != null) {
+                                    listView.invalidateViews();
+                                }
                             } else {
-                                resultControlDevice(false, R.string.control_fail, sensorInfo);
+                                if (result.equals("success")) {
+                                    resultControlDevice(true, R.string.control_success, sensorInfo);
+                                } else {
+                                    resultControlDevice(false, R.string.control_fail, sensorInfo);
+                                }
                             }
                             break;
                         }
@@ -765,7 +808,6 @@ public class SensorListActivity extends AppCompatActivity {
                                 } else {
                                     sensorInfo.setActivated(false);
                                 }
-
 //                                if (sensorInfo.getType().getCategory() == SensorType.Category.ACTUATOR) {
 //                                    resultControlDevice(true, R.string.control_success, sensorInfo);
 //                                }

@@ -28,25 +28,17 @@ public class RPCResponse {
      **/
     private NumberElement id;
     /**
-     * method
-     **/
-    private StringElement method;
-    /**
      * control result
      **/
     private StringElement result;
     /**
-     * fail flag
+     * isSuccess flag
      **/
-    private boolean fail;
+    private boolean isSuccess;
     /**
      * result body(ArrayElement)
      **/
     private ArrayElement resultArray;
-    /**
-     * result body(String)
-     **/
-    private String resultBody;
 
     /**
      *
@@ -60,21 +52,18 @@ public class RPCResponse {
      * @param cmdId
      * @param jsonrpc
      * @param id
-     * @param method
      * @param result
+     * @param success
      * @param resultArray
-     * @param resultBody
      */
-    public RPCResponse(String cmd, int cmdId, String jsonrpc, long id, String method, String result, boolean fail, ArrayElement resultArray, String resultBody) {
+    public RPCResponse(String cmd, int cmdId, String jsonrpc, long id, String result, boolean success, ArrayElement resultArray) {
         this.setCmd(cmd);
         this.setCmdId(cmdId);
         this.setJsonrpc(jsonrpc);
         this.setId(id);
-        this.setMethod(method);
         this.setResult(result);
-        this.setFail(fail);
+        this.setSuccess(success);
         this.setResultArray(resultArray);
-        this.setResultBody(resultBody);
     }
 
     /**
@@ -140,22 +129,6 @@ public class RPCResponse {
     /**
      * @return
      */
-    public StringElement getMethod() {
-        return method;
-    }
-
-    /**
-     * @param method
-     */
-    public void setMethod(String method) {
-        if (TextUtils.isEmpty(method) == false) {
-            this.method = new StringElement(Define.METHOD, method);
-        }
-    }
-
-    /**
-     * @return
-     */
     public StringElement getResult() {
         return result;
     }
@@ -170,21 +143,21 @@ public class RPCResponse {
     }
 
     /**
-     * is control fail
+     * is control success
      *
-     * @return fail flag
+     * @return success flag
      */
-    public boolean isFail() {
-        return fail;
+    public boolean isSuccess() {
+        return isSuccess;
     }
 
     /**
-     * set control fail flag
+     * set control isSuccess flag
      *
-     * @param fail true if fail
+     * @param success true if isSuccess
      */
-    public void setFail(boolean fail) {
-        this.fail = fail;
+    public void setSuccess(boolean success) {
+        this.isSuccess = success;
     }
 
     /**
@@ -205,21 +178,4 @@ public class RPCResponse {
         this.resultArray = resultArray;
     }
 
-    /**
-     * get result body string
-     *
-     * @return result body string
-     */
-    public String getResultBody() {
-        return resultBody;
-    }
-
-    /**
-     * set result body string
-     *
-     * @param resultBody result body string
-     */
-    public void setResultBody(String resultBody) {
-        this.resultBody = resultBody;
-    }
 }

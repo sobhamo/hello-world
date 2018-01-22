@@ -10,7 +10,6 @@ import android.view.View;
 
 import tp.skt.simple.api.Simple;
 import tp.skt.simple.element.ArrayElement;
-import tp.skt.simple.element.RPCResponse;
 import tp.skt.simple.net.mqtt.SimpleCallback;
 import tp.skt.simple.net.mqtt.SimpleConfiguration;
 import tp.skt.simple.net.mqtt.SimpleListener;
@@ -35,8 +34,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        SimpleConfiguration configuration = new SimpleConfiguration(Configuration.MQTT_SECURE_HOST, Configuration.SIMPLE_DEVICE_TOKEN, Configuration.SIMPLE_DEVICE_TOKEN, null);
+        configuration.setEnableSecure(false);
+
         simple = new Simple(this, Configuration.SIMPLE_SERVICE_NAME, Configuration.SIMPLE_DEVICE_NAME, null,
-                new SimpleConfiguration(Configuration.MQTT_HOST, Configuration.SIMPLE_DEVICE_TOKEN, Configuration.SIMPLE_DEVICE_TOKEN, null),
+                configuration,
                 simpleListener, true);
         simple.tpSimpleConnect();
     }

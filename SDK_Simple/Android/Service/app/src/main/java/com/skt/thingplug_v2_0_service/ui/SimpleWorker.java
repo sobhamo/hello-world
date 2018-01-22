@@ -14,6 +14,7 @@ import tp.skt.simple.common.Define;
 import tp.skt.simple.element.ArrayElement;
 import tp.skt.simple.element.Subscribe;
 import tp.skt.simple.net.mqtt.SimpleCallback;
+import tp.skt.simple.net.mqtt.SimpleConfiguration;
 import tp.skt.simple.net.mqtt.SimpleListener;
 
 /**
@@ -113,8 +114,12 @@ public class SimpleWorker {
             }
             return;
         }
-        simple = new Simple(this.context, serviceName, deviceName, userName,
-                new tp.skt.simple.net.mqtt.SimpleConfiguration(host, clientId, userName, userPassword),
+
+        SimpleConfiguration simpleConfiguration = new SimpleConfiguration(host, clientId, userName, userPassword);
+        if(userInfo.getUseTLS()) {
+            simpleConfiguration.setEnableSecure(false);
+        }
+        simple = new Simple(this.context, serviceName, deviceName, userName, simpleConfiguration,
                 simpleListener, true);
         simple.tpSimpleConnect();
     }
@@ -182,6 +187,23 @@ public class SimpleWorker {
             return;
         }
         simple.tpSimpleJsonRpcReq(controlParams, "tp_user", cmdId, false, callback);
+    }
+
+    /**
+     * take photo
+     *
+     * @param controlParams
+     * @param cmdId
+     * @param callback
+     */
+    public void takePhoto(ArrayElement controlParams, int cmdId, SimpleCallback callback) {
+        if (simple == null || simple.tpSimpleIsConnected() == false) {
+            if(reportMessageDelivered == false) {
+                Log.e(TAG, "not delivered!");
+            }
+            return;
+        }
+        simple.tpSimpleJsonRpcReq(controlParams, "tp_user", cmdId, true, callback);
     }
 
     /**

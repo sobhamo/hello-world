@@ -10,14 +10,16 @@ import java.math.RoundingMode;
  * Written 2017, by SK Telecom
  */
 public class SensorInfo {
-    private SensorType  type;           // sensor type
-    private float[]     values;         // sensor values
-    private String[]    stringValues;   // sensor string values
-    private boolean     enable;         // sensor enable or disable
-    private boolean     activated;      // sensor activated or deactivated
+    private SensorType  type;                   // sensor type
+    private float[]     values;                 // sensor values
+    private String[]    stringValues;           // sensor string values
+    private boolean     enable;                 // sensor enable or disable
+    private boolean     activated;              // sensor activated or deactivated
 
-    private boolean     suspend;        // sensor suspending state
-    private boolean     controlling;    // sensor controlling state
+    private boolean     suspend;                // sensor suspending state
+    private boolean     controlling;            // sensor controlling state
+
+    private boolean     isSupported = false;    // sensor support
 
     /**
      * constructor
@@ -47,7 +49,9 @@ public class SensorInfo {
      * get sensor type
      * @return type
      */
-    public SensorType getType() { return type; }
+    public SensorType getType() {
+        return type;
+    }
 
     /**
      * get sensor values
@@ -164,6 +168,24 @@ public class SensorInfo {
      * @param controlling    controlling state
      */
     public void setControlling(boolean controlling) { this.controlling = controlling; }
+
+    /**
+     * support flag
+     *
+     * @return
+     */
+    public boolean isSupported() {
+        return isSupported;
+    }
+
+    /**
+     * set support flag
+     *
+     * @param supported
+     */
+    public void setSupported(boolean supported) {
+        isSupported = supported;
+    }
 
     /**
      * get sensor value string

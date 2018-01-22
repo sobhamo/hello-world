@@ -69,4 +69,5 @@
     <string name="fail_device">Import device list failed or there is no device list.</string>
     <string name="fail_token">Import device token failed.</string>
     <string name="fail_register">Insufficient information or Failed to connect to server.</string>
+    <string name="fail_support_sensor">Please run Device Application.</string>
 </resources>

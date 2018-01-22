@@ -10,7 +10,9 @@ import com.skt.thingplug_v2_0_device.data.Utils;
 
 import tp.skt.simple.api.Simple;
 import tp.skt.simple.element.ArrayElement;
+import tp.skt.simple.element.RPCResponse;
 import tp.skt.simple.element.Subscribe;
+import tp.skt.simple.net.mqtt.SimpleConfiguration;
 import tp.skt.simple.net.mqtt.SimpleListener;
 
 /**
@@ -28,6 +30,8 @@ public class SimpleWorker {
 
     private final boolean USE_REPORT_DELIVERED_CHECK = false;
     private boolean reportMessageDelivered = true;
+
+    private int cmdId = 1;
 
     private Simple simple;
 
@@ -107,8 +111,11 @@ public class SimpleWorker {
             }
             return;
         }
-        simple = new Simple(this.context, serviceName, deviceName, null,
-                new tp.skt.simple.net.mqtt.SimpleConfiguration(host, clientId, deviceToken, null),
+        SimpleConfiguration simpleConfiguration = new SimpleConfiguration(host, clientId, deviceToken, null);
+        if(userInfo.getUseTLS()) {
+            simpleConfiguration.setEnableSecure(false);
+        }
+        simple = new Simple(this.context, serviceName, deviceName, null, simpleConfiguration,
                 simpleListener, true);
         simple.tpSimpleConnect();
     }
@@ -197,36 +204,33 @@ public class SimpleWorker {
         });
     }
 
+    public int getCmdId() {
+        if(cmdId > Integer.MAX_VALUE) {
+            cmdId = 2;
+        } else {
+            cmdId++;
+        }
+        return cmdId;
+    }
+
     /**
      * control result
      */
-    public void controlResult(String mgmtCmdName, String resourceName, boolean isSuccess) {
-//        if (mqttService == null || MQTTClient == null || MQTTClient.isMQTTConnected() == false) {
-//            return;
-//        }
-//        String aeID = "";//UserInfo.getInstance(context).loadAEID();
-//        if (TextUtils.isEmpty(aeID) == true) {
-//            return;
-//        }
-//        String exr = Const.EXECRESULT_SUCCESS;
-//        if (isSuccess == false) {
-//            exr = Const.EXECRESULT_DENIED;
-//        }
-//
-//        oneM2MAPI_V1_14.getInstance().tpResult(mqttService, aeID, mgmtCmdName,
-//                resourceName, exr, new MQTTCallback<execInstanceResponse>() {
-//
-//                    @Override
-//                    public void onResponse(execInstanceResponse response) {
-////                        showResponseMessage("execInstance UPDATE", response);
-//                    }
-//
-//                    @Override
-//                    public void onFailure(int errorCode, String message) {
-//                        Log.e(TAG, errorCode + " : " + message);
-////                        showToast("fail - " + errorCode + ":" + message, Toast.LENGTH_LONG);
-//                    }
-//                });
+    public void controlResult(String cmd, String jsonrpc, long id, boolean isSuccess, ArrayElement resultArray) {
+
+        RPCResponse rpcRsp = new RPCResponse(cmd, getCmdId(), jsonrpc, id, isSuccess ? "success":"fail", isSuccess, resultArray);
+
+        simple.tpSimpleResult(rpcRsp, new tp.skt.simple.net.mqtt.SimpleCallback() {
+            @Override
+            public void onResponse(Object o) {
+                Log.i(TAG, "controlResult success");
+            }
+
+            @Override
+            public void onFailure(int errorCode, String message) {
+                Log.e(TAG, errorCode + " : " + message);
+            }
+        });
     }
 
     SimpleListener simpleListener = new SimpleListener() {

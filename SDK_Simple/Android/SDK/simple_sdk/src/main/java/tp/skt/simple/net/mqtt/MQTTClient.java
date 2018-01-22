@@ -11,8 +11,26 @@ import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.MqttSecurityException;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.Arrays;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
 
 import tp.skt.simple.common.Define;
 import tp.skt.simple.common.Util;
@@ -33,6 +51,7 @@ public class MQTTClient {
     private String userName;
     private String password;
     private String version;
+    private boolean enableSecure;
 
     /**
      * MqttAndroidClient
@@ -57,7 +76,7 @@ public class MQTTClient {
      * @param password
      * @param version  if value is null, default value is 1.0
      */
-    MQTTClient(Context context, String baseUrl, String clientID, String userName, String password, String version, String[] subscribeTopics) {
+    MQTTClient(Context context, String baseUrl, String clientID, String userName, String password, String version, String[] subscribeTopics, boolean enableSecure) {
         this.context = context.getApplicationContext();
         this.baseUrl = baseUrl;
         this.clientID = clientID;
@@ -65,6 +84,7 @@ public class MQTTClient {
         this.password = password;
         this.version = (version == null ? Define.VERSION : version);
         this.subscribeTopics = subscribeTopics;
+        this.enableSecure = enableSecure;
     }
 
     /**
@@ -140,20 +160,48 @@ public class MQTTClient {
         });
 
 
-        final MqttConnectOptions mqttConnectOptions = new MqttConnectOptions();
-        mqttConnectOptions.setCleanSession(false);
-        mqttConnectOptions.setAutomaticReconnect(true);
 
-        if (this.userName != null) {
-            Util.log("userName : " + this.userName);
-            mqttConnectOptions.setUserName(this.userName);
-        }
-        if (this.password != null) {
-            Util.log("password : " + this.password);
-            mqttConnectOptions.setPassword(this.password.toCharArray());
-        }
+
+
 
         try {
+
+
+            final MqttConnectOptions mqttConnectOptions = new MqttConnectOptions();
+            mqttConnectOptions.setCleanSession(false);
+            mqttConnectOptions.setAutomaticReconnect(true);
+
+            if(false == enableSecure){
+                TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
+                    public X509Certificate[] getAcceptedIssuers() {
+                        return null;
+                    }
+
+                    @Override
+                    public void checkClientTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {
+                        // Not implemented
+                    }
+
+                    @Override
+                    public void checkServerTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {
+                        // Not implemented
+                    }
+                } };
+
+                SSLContext sc = SSLContext.getInstance("TLS");
+                sc.init(null, trustAllCerts, new java.security.SecureRandom());
+                mqttConnectOptions.setSocketFactory(sc.getSocketFactory());
+            }
+
+            if (this.userName != null) {
+                Util.log("userName : " + this.userName);
+                mqttConnectOptions.setUserName(this.userName);
+            }
+            if (this.password != null) {
+                Util.log("password : " + this.password);
+                mqttConnectOptions.setPassword(this.password.toCharArray());
+            }
+
             mqttAndroidClient.connect(mqttConnectOptions, null, new IMqttActionListener() {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
@@ -172,6 +220,10 @@ public class MQTTClient {
         } catch (MqttException e) {
             e.printStackTrace();
             simpleListener.onConnectFailure();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (KeyManagementException e) {
+            e.printStackTrace();
         }
     }
 
@@ -271,6 +323,7 @@ public class MQTTClient {
         private String password;
         private String version;
         private String[] subscribeTopics;
+        private boolean enableSecure = true;
         private Context context;
 
 
@@ -359,11 +412,22 @@ public class MQTTClient {
         }
 
         /**
+         * set enable secure
+         *
+         * @param enableSecure
+         * @return Builder
+         */
+        public Builder setEnableSecure(boolean enableSecure) {
+            this.enableSecure = enableSecure;
+            return this;
+        }
+
+        /**
          * @return
          */
         public MQTTClient build() {
             Util.checkNull(baseUrl, "baseUrl = null");
-            return new MQTTClient(context, baseUrl, clientId, userName, password, version, subscribeTopics);
+            return new MQTTClient(context, baseUrl, clientId, userName, password, version, subscribeTopics, enableSecure);
         }
     }
 }

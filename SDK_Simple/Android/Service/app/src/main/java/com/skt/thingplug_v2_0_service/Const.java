@@ -21,6 +21,7 @@ public class Const {
     public static final String URL_GET_SERVICE_LIST_DEFAULT = "%s/api/v1/users/%s/services?limit=" + GET_LENGTH_MAX;
     public static final String URL_GET_DEVICE_LIST_DEFAULT = "%s/api/v1/services/%s/devices?limit=" + GET_LENGTH_MAX;
     public static final String URL_GET_DEVICE_TOKEN_DEFAULT = "%s/api/v1/services/%s/devices/%s/credential";
+    public static final String URL_GET_ATTRIBUTE_CHECK_DEFAULT = "%s/api/v1/dev/%s/%s/attribute";
 
     public static final boolean USE_TLS_DEFAULT = false;
     // read time delay (msec)

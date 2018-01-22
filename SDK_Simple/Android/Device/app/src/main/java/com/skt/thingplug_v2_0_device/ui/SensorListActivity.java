@@ -52,6 +52,7 @@ import java.util.TimerTask;
 
 import tp.skt.simple.common.Define;
 import tp.skt.simple.element.ArrayElement;
+import tp.skt.simple.element.RPCResponse;
 
 /**
  * activity for sensor list
@@ -101,13 +102,11 @@ public class SensorListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.e(TAG, "onCreate");
         setContentView(R.layout.activity_sensor_list);
-
+        sensorListener = new SensorListener(this, sensorInfos);
         userInfo = UserInfo.getInstance(this);
 
         ActionBar bar = getSupportActionBar();
         bar.setTitle(getString(R.string.actionbar_list) + " (" + userInfo.getDeviceName() + ")");
-
-        sensorListener = new SensorListener(this, sensorInfos);
 
         simpleWorker = SimpleWorker.getInstance();
         simpleWorker.setStateListener(new SimpleListener());
@@ -115,26 +114,26 @@ public class SensorListActivity extends AppCompatActivity {
 //        googleDriveHandler = new GoogleDriveHandler(this, new GoogleDriveCommandListener());
 //        googleDriveHandler.connect();
 
-        sendDeviceInfo();
+//        sendDeviceInfo();
         // create sensor list
         createSensorList();
     }
 
-    private void sendDeviceInfo() {
-        ArrayElement deviceInfo = new ArrayElement();
-        deviceInfo.addNumberElement("sysAvailableMemory", 640);
-        deviceInfo.addStringElement("sysFirmwareVersion", "1.0");
-        deviceInfo.addStringElement("sysSerialNumber", "710DJC5I10000290");
-        deviceInfo.addNumberElement("sysErrorCode", 0);
-        deviceInfo.addStringElement("sysNetworkType", "LTE");
-        deviceInfo.addStringElement("sysDeviceIpAddress", "111.111.111.111");
-        deviceInfo.addStringElement("sysThingPlugIpAddress", userInfo.getServer());
+//    private void sendDeviceInfo() {
+//        ArrayElement deviceInfo = new ArrayElement();
+//        deviceInfo.addNumberElement("sysAvailableMemory", 640);
+//        deviceInfo.addStringElement("sysFirmwareVersion", "1.0");
+//        deviceInfo.addStringElement("sysSerialNumber", "710DJC5I10000290");
+//        deviceInfo.addNumberElement("sysErrorCode", 0);
+//        deviceInfo.addStringElement("sysNetworkType", "LTE");
+//        deviceInfo.addStringElement("sysDeviceIpAddress", "111.111.111.111");
+//        deviceInfo.addStringElement("sysThingPlugIpAddress", userInfo.getServer());
+//
+//        simpleWorker.sendAttribute(deviceInfo);
+//    }
 
-        simpleWorker.sendAttribute(deviceInfo);
-    }
-
-    private void attribute() {
-    }
+//    private void attribute() {
+//    }
 
 
     @Override
@@ -167,8 +166,6 @@ public class SensorListActivity extends AppCompatActivity {
                     createSensorList();
                     break;
                 case SETTING_RESULT_LOGOUT:
-//                    clearSensorList();
-//                    simpleWorker.disconnect();
                     userInfo.clear(false);
                     startActivity(new Intent(this, LoginActivity.class));
                     finish();
@@ -180,7 +177,6 @@ public class SensorListActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         simpleWorker.disconnect();
-//        googleDriveHandler.disconnect();
         // clear sensor list
         clearSensorList();
         Log.e(TAG, "onDestroy");
@@ -191,19 +187,23 @@ public class SensorListActivity extends AppCompatActivity {
      * create sensor list
      */
     private void createSensorList() {
-        // temp
-//        Subscribe sub = new Subscribe(Define.SUBSCRIBE, null, false, null, new ArrayList<String>(Arrays.asList("temp1")), 1);
-//        simpleWorker.subscribe(sub);
+        ArrayElement deviceInfo = new ArrayElement();
 
         // add sensor item
         for (SensorType sensorType : SensorType.values()) {
-            if (sensorType != SensorType.NONE && sensorType != SensorType.DEVICE && setSensorListener(sensorType, true)) {
-                SensorInfo sensorInfo = new SensorInfo(sensorType);
-                if (!userInfo.getSensorStatus(sensorType)) {
-                    sensorInfo.setEnable(false);
-                    setSensorListener(sensorType, false);
+            if (sensorType != SensorType.NONE && sensorType != SensorType.DEVICE) {
+                if (setSensorListener(sensorType, true)) {
+                    SensorInfo sensorInfo = new SensorInfo(sensorType);
+                    if (!userInfo.getSensorStatus(sensorType)) {
+                        sensorInfo.setEnable(false);
+                        setSensorListener(sensorType, false);
+                    }
+                    sensorInfos.add(sensorInfo);
+                    deviceInfo.addNumberElement(sensorType.getNickname(), 1);
+                } else {
+                    Log.e(TAG, sensorType.getNickname() + " is not supported!");
+                    deviceInfo.addNumberElement(sensorType.getNickname(), 0);
                 }
-                sensorInfos.add(sensorInfo);
             }
         }
 
@@ -230,16 +230,7 @@ public class SensorListActivity extends AppCompatActivity {
         };
         timer.schedule(viewTask, 0, userInfo.getListInterval());
 
-        // create timer for sendTelemetry
-//        if(userInfo.getRegisterState() == true) {
-//            TimerTask reportTask = new TimerTask() {
-//                public void run() {
-//                    reportSensorInfo();
-//                }
-//            };
-//            timer.schedule(reportTask, 0, userInfo.loadTransferInterval());
-//        }
-
+        simpleWorker.sendAttribute(deviceInfo);
         startReportCycle();
     }
 
@@ -347,13 +338,6 @@ public class SensorListActivity extends AppCompatActivity {
                     if (supportGPS || supportNetwork) {
                         if (ActivityCompat.checkSelfPermission(SensorListActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                                 && ActivityCompat.checkSelfPermission(SensorListActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                            // TODO: Consider calling
-                            //    ActivityCompat#requestPermissions
-                            // here to request the missing permissions, and then overriding
-                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                            //                                          int[] grantResults)
-                            // to handle the case where the user grants the permission. See the documentation
-                            // for ActivityCompat#requestPermissions for more details.
                             return isSetted;
                         }
 
@@ -423,46 +407,16 @@ public class SensorListActivity extends AppCompatActivity {
      */
     private void reportSensorInfo() {
         boolean isAllSensorOff = true;
-        String reportContent = "";
         ArrayElement reportContents = null;
-//        if (userInfo.getUseTLS()) {
-//            final TLVBuilder builder = new TLVBuilder();
-//            for (SensorInfo sensorInfo : sensorInfos) {
-//                if (sensorInfo.isActivated()) {
-//                    builder.addSensorData(sensorInfo);
-//                    isAllSensorOff = false;
-//                }
-//            }
-//
-//            Date nowDate = new Date(); // ISO8601-based Time
-//            builder.addSensorDate(nowDate);
-//
-//            if (isAllSensorOff) {
-//                builder.add(0x00, 0, 0);
-//            }
-//            reportContent = builder.build();
-//        } else {
         final TTVBuilder builder = new TTVBuilder();
         for (SensorInfo sensorInfo : sensorInfos) {
-
-//                if(sensorInfo.getType() != SensorType.LIGHT &&
-//                        sensorInfo.getType() != SensorType.PRESSURE) { // ||
-//                        sensorInfo.getType() == SensorType.LIGHT) {
-//            if (sensorInfo.isActivated()) {
                 builder.addSensorData(sensorInfo);
                 isAllSensorOff = false;
-//            }
-//                }
         }
 
         long nowMillis = System.currentTimeMillis();
         builder.addSensorTime(nowMillis);
-
-//            if (isAllSensorOff) {
-//                builder.add(0x00, TTVBuilder.ValueType.NONE, 0);
-//            }
         reportContents = builder.build();
-//        }
 
         if (reportContents.elements.size() > 0) {
             simpleWorker.sendTelemetry(reportContents);
@@ -577,16 +531,12 @@ public class SensorListActivity extends AppCompatActivity {
      */
     private class SimpleListener implements SimpleWorker.StateListener {
         @Override
-        public void onConnected(boolean result) { //}, String accountID, String accountPassword, String uKey) {
+        public void onConnected(boolean result) {
         }
 
         @Override
         public void onDisconnected(boolean result) {
         }
-
-//        @Override
-//        public void onRegistered(boolean result, String aeID, String nodeLink) {
-//        }
 
         @Override
         public void onUnregistered(boolean result) {
@@ -600,7 +550,7 @@ public class SensorListActivity extends AppCompatActivity {
             int control = 0;
             try {
                 JSONObject messageObject = new JSONObject(message);
-                String cmd = messageObject.getString(Define.CMD);
+                final String cmd = messageObject.getString(Define.CMD);
 
                 if (TextUtils.isEmpty(cmd) == false && cmd.equals(Define.SET_ATTRIBUTE)) {
                     JSONObject controlObject = messageObject.getJSONObject(Define.ATTRIBUTE);
@@ -714,26 +664,81 @@ public class SensorListActivity extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(cmd) == false && cmd.equals(Define.JSON_RPC)) {
                     JSONObject rpcReqObject = messageObject.getJSONObject("rpcReq");
                     String method = rpcReqObject.getString("method");
+                    final String jsonRpc = rpcReqObject.getString("jsonrpc");
+                    final long id = rpcReqObject.getLong("id");
 
                     if (method.equals("tp_user")) {
                         JSONArray params = rpcReqObject.getJSONArray("params");
                         JSONObject param = params.getJSONObject(0);
-                        key = (String) param.keys().next();
+                        key = param.keys().next();
                         control = param.getInt(key);
                         Log.e(TAG, key + ":" + control);
                         String[] names;
                         String name;
-                        int length;
+//                        int length;
+                        if(key.equals("camera")) {
+                            if(getSensorInfo(SensorType.CAMERA).isEnable() == false) {
+                                ArrayElement error = new ArrayElement();
+                                error.addStringElement("errorMessage", "Camera disabled.");
+                                simpleWorker.controlResult(cmd, jsonRpc, id, false, error);
+                                return RESULT.FAIL;
+                            }
 
-                        for (SensorInfo sensorInfo : sensorInfos) {
-                            names = sensorInfo.getType().getName();
-                            length = names.length;
-                            name = names[0];
-                            Log.e(TAG, name);
-                            if (key.equals(name)) {
-                                sensorInfo.setActivated(control == 1 ? true : false);
-                                setSensorListener(sensorInfo.getType(), sensorInfo.isActivated());
-                                break;
+                            // under LOLLIPOP exception handling
+                            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP && isFront == false) {
+                                ArrayElement error = new ArrayElement();
+                                error.addStringElement("errorMessage", "Device Application is not foreground.");
+                                simpleWorker.controlResult(cmd, jsonRpc, id, false, error);
+                                controlResult = RESULT.FAIL;
+                            } else {
+                                Camera.TYPE cameraType = Camera.TYPE.NONE;
+                                switch (control) {
+                                    case 0:
+                                        cameraType = Camera.TYPE.BACK;
+                                        break;
+                                    case 1:
+                                        cameraType = Camera.TYPE.FRONT;
+                                        break;
+                                }
+
+                                Camera camera = new Camera(SensorListActivity.this, new Camera.CapturedListener() {
+                                    @Override
+                                    public void onCaptured(byte[] image) {
+                                        String base64Image = Base64.encodeToString(image, Base64.NO_WRAP);
+                                        Log.e(TAG, "onCaptured : " + base64Image.length());
+                                        ArrayElement photo = new ArrayElement();
+                                        photo.addStringElement("photo", base64Image);
+//                                        int nowSecond = (int) (System.currentTimeMillis()/1000);
+                                        simpleWorker.controlResult(cmd, jsonRpc, id, true, photo);
+//                                        telemetry.addNumberElement("ts", nowSecond);
+//                                        simpleWorker.sendTelemetry(telemetry);
+                                    }
+
+                                    @Override
+                                    public void onCaptureFailed() {
+                                        Log.i(TAG, "onCaptureFailed");
+                                        ArrayElement error = new ArrayElement();
+                                        error.addStringElement("errorMessage", "Camera capture failed.");
+//                                        int nowSecond = (int) (System.currentTimeMillis()/1000);
+//                                        telemetry.addNumberElement("ts", nowSecond);
+//                                        simpleWorker.sendTelemetry(telemetry);
+                                        simpleWorker.controlResult(cmd, jsonRpc, id, false, error);
+                                    }
+                                });
+                                camera.notifyCommand(cameraType, (FrameLayout) findViewById(R.id.camera_preview));
+                            }
+
+                        } else {
+                            for (SensorInfo sensorInfo : sensorInfos) {
+                                names = sensorInfo.getType().getName();
+//                            length = names.length;
+                                name = names[0];
+                                Log.e(TAG, name);
+                                if (key.equals(name)) {
+                                    sensorInfo.setActivated(control == 1 ? true : false);
+                                    setSensorListener(sensorInfo.getType(), sensorInfo.isActivated());
+                                    break;
+                                }
                             }
                         }
                     }
@@ -741,11 +746,11 @@ public class SensorListActivity extends AppCompatActivity {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (controlResult != RESULT.SUSPEND) {
-                ArrayElement attr = new ArrayElement();
-                attr.addNumberElement(key, control);
-                simpleWorker.sendAttribute(attr);
-            }
+//            if (controlResult != RESULT.SUSPEND) {
+//                ArrayElement attr = new ArrayElement();
+//                attr.addNumberElement(key, control);
+//                simpleWorker.sendAttribute(attr);
+//            }
             return controlResult;
         }
     }

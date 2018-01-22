@@ -75,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
     private final String STEP_LOGIN_AND_GET_SERVICES = "1";
     private final String STEP_GET_DEVICES = "2";
     private final String STEP_GET_DEVICE_TOKEN = "3";
+    private final String STEP_GET_ATTRIBUTE_STATUS = "4";
 
     private String serviceName = "";
     private String deviceName = "";
@@ -170,10 +171,7 @@ public class LoginActivity extends AppCompatActivity {
                         TextUtils.isEmpty(deviceToken)) {
                     showToast(getResources().getString(R.string.fail_register));
                 } else {
-                    userInfo.setServiceName(serviceName);
-                    userInfo.setDeviceName(deviceName);
-                    userInfo.setDeviceToken(deviceToken);
-                    simpleWorker.connect(LoginActivity.this);
+                    new RestAPI().execute(STEP_GET_ATTRIBUTE_STATUS);
                 }
             }
         });
@@ -351,6 +349,8 @@ public class LoginActivity extends AppCompatActivity {
             } else if (mode.equals(STEP_GET_DEVICE_TOKEN)) {
                 deviceName = params[1];
                 result = getDeviceToken(serviceName, deviceName, accessToken);
+            } else if (mode.equals(STEP_GET_ATTRIBUTE_STATUS)) {
+                result = getAtrributeStatus(serviceName, deviceName, accessToken);
             }
             return result;
         }
@@ -381,6 +381,17 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 if (TextUtils.isEmpty(deviceToken) == true) {
                     showToast(getResources().getString(R.string.fail_token));
+                }
+            } else if (mode.equals(STEP_GET_ATTRIBUTE_STATUS)) {
+                if(result != null) {
+                    userInfo.setSupportSensor(result.get(0));
+                    userInfo.setServiceName(serviceName);
+                    userInfo.setDeviceName(deviceName);
+                    userInfo.setDeviceToken(deviceToken);
+                    simpleWorker.connect(LoginActivity.this);
+                    return;
+                } else {
+                    showToast(getResources().getString(R.string.fail_support_sensor));
                 }
             }
             showProgress(false);
@@ -543,6 +554,48 @@ public class LoginActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return token;
+    }
+
+    private List<String> getAtrributeStatus(String service, String device, String accessToken) {
+        List<String> result = null;
+        try {
+            // get evice list
+            URL url = new URL(String.format(Const.URL_GET_ATTRIBUTE_CHECK_DEFAULT, userInfo.getPortal(), service, device));
+            HttpURLConnection request = (HttpURLConnection) url.openConnection();
+            request.setRequestMethod("GET");
+            request.setRequestProperty("X-Authorization", accessToken);
+
+            int responseCode = request.getResponseCode();
+            Log.i(TAG, "[" + url.toString() + "]" + "responseCode : " + responseCode);
+
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                InputStream is = request.getInputStream();
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                byte[] byteBuffer = new byte[1024];
+                int nLength = 0;
+                while ((nLength = is.read(byteBuffer, 0, byteBuffer.length)) != -1) {
+                    baos.write(byteBuffer, 0, nLength);
+                }
+                Log.i(TAG, "response : " + baos.toString());
+                JSONObject tokenResponse = new JSONObject(baos.toString());
+                JSONObject rowsObject = tokenResponse.getJSONObject("rows");
+                String batteryStatus = rowsObject.getString("Battery");
+                if(TextUtils.isEmpty(batteryStatus) == false) {
+                    Log.i(TAG, "batteryStatus : " + batteryStatus);
+                    result = new ArrayList<>();
+                    result.add(rowsObject.toString());
+                }
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (ProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     /**

@@ -36,6 +36,8 @@ public class UserInfo {
     private static final String KEY_USER_NAME = "userName";
     private static final String KEY_USER_PASSWORD = "userPassword";
 
+    private static final String KEY_SUPPORT_SENSOR = "supportSensor";
+
     private static SharedPreferences sharedPreference;
     private SharedPreferences.Editor editor;
 
@@ -372,6 +374,25 @@ public class UserInfo {
     }
 
     /**
+     * get support sensor
+     *
+     * @return support sensor
+     */
+    public String getSupportSensor() {
+        return sharedPreference.getString(KEY_SUPPORT_SENSOR, "");
+    }
+
+    /**
+     * save support sensor
+     *
+     * @param supportSensor user password
+     */
+    public void setSupportSensor(String supportSensor) {
+        editor.putString(KEY_SUPPORT_SENSOR, supportSensor);
+        editor.commit();
+    }
+
+    /**
      * clear
      *
      * @param withServerInfo
@@ -390,6 +411,7 @@ public class UserInfo {
         editor.remove(KEY_AGREE_TERMS);
         editor.remove(KEY_USER_NAME);
         editor.remove(KEY_USER_PASSWORD);
+        editor.remove(KEY_SUPPORT_SENSOR);
 
         if (withServerInfo == true) {
             editor.remove(KEY_PORTAL);

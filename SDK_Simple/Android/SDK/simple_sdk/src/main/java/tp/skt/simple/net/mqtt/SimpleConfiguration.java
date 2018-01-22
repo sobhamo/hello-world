@@ -26,6 +26,11 @@ public class SimpleConfiguration {
     private String loginPassword;
 
     /**
+     * enable secure ( default true )
+     */
+    private boolean enableSecure = true;
+
+    /**
      *
      *
      */
@@ -101,5 +106,13 @@ public class SimpleConfiguration {
      */
     public void setLoginPassword(String loginPassword) {
         this.loginPassword = loginPassword;
+    }
+
+    public boolean isEnableSecure() {
+        return enableSecure;
+    }
+
+    public void setEnableSecure(boolean enableSecure) {
+        this.enableSecure = enableSecure;
     }
 }

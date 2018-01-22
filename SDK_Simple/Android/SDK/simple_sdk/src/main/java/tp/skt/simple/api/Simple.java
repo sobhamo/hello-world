@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,6 +84,7 @@ public class Simple {
                 .userName(simpleConfiguration.getLoginName())
                 .password(simpleConfiguration.getLoginPassword())
                 .setSubscribeTopics(subscribeTopics)
+                .setEnableSecure(simpleConfiguration.isEnableSecure())
                 .setLog(logEnabled).build();
         this.simpleListener = simpleListener;
     }
@@ -250,7 +250,6 @@ public class Simple {
 
             addElement(rpcRspObject, response.getJsonrpc());
             addElement(rpcRspObject, response.getId());
-            addElement(rpcRspObject, response.getMethod());
 
             for (Object element : response.getResultArray().elements) {
                 boolean result = addElement(resultObject, element);
@@ -258,10 +257,10 @@ public class Simple {
                     throw new Exception("Bad element!");
                 }
             }
-            if (response.isFail() == true) {
-                rpcRspObject.add(Define.ERROR, resultObject);
-            } else {
+            if (response.isSuccess() == true) {
                 rpcRspObject.add(Define.RESULT, resultObject);
+            } else {
+                rpcRspObject.add(Define.ERROR, resultObject);
             }
             jsonObject.add(Define.RPC_RSP, rpcRspObject);
             String payload = jsonObject.toString();
@@ -362,47 +361,12 @@ public class Simple {
     }
 
     /**
-     * device RPC control result using raw data
-     *
-     * @param response
-     * @param callback
-     */
-    public void tpSimpleRawResult(RPCResponse response, final SimpleCallback callback) {
-        try {
-            String topic = String.format(Define.TOPIC_UP, serviceName, deviceName);
-            JsonObject jsonObject = new JsonObject();
-            JsonObject rpcRspObject = new JsonObject();
-            JsonObject resultObject = new JsonParser().parse(response.getResultBody()).getAsJsonObject();
-
-            addElement(jsonObject, response.getCmd());
-            addElement(jsonObject, response.getCmdId());
-            addElement(jsonObject, response.getResult());
-
-            addElement(rpcRspObject, response.getJsonrpc());
-            addElement(rpcRspObject, response.getId());
-            addElement(rpcRspObject, response.getMethod());
-
-            if (response.isFail() == true) {
-                rpcRspObject.add(Define.ERROR, resultObject);
-            } else {
-                rpcRspObject.add(Define.RESULT, resultObject);
-            }
-            jsonObject.add(Define.RPC_RSP, rpcRspObject);
-            String payload = jsonObject.toString();
-            mqttClient.publish(topic, payload, callback);
-        } catch (Exception e) {
-            e.printStackTrace();
-            callback.onFailure(Define.INTERNAL_SDK_ERROR, e.getMessage());
-        }
-    }
-
-    /**
      * send RPC control result using all raw data
      *
      * @param result
      * @param callback
      */
-    public void tpSimpleRawResult2(String result, final SimpleCallback callback) {
+    public void tpSimpleRawResult(String result, final SimpleCallback callback) {
         try {
             String topic = String.format(Define.TOPIC_UP, serviceName, deviceName);
             mqttClient.publish(topic, result, callback);
