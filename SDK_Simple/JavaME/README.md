@@ -225,8 +225,15 @@ __tpSimpleSubscribe__ | 디바이스정보를 모니터링 한다.
     simple.tpSimpleRawAttribute(data, DataFormat.FORMAT_JSON, callback);
     ```  
 
-### 실행 화면
-<br/><img src="images/javame_emulator.png"/>
+### 빌드 및 실행
+- 빌드할 프로젝트 선택
+    > 프로젝트를 선택하지 않으면, 현재 수정하고 있는 파일의 프로젝트가 빌드가 됩니다. 
+  <br/><img src="images/javame_select_project.png"/>
+- `Menu > Run > Run Project({프로젝트 명})`를 선택하여 빌드하여 실행합니다.
+  > `Project Properties` 의 `Category > Platform > Device`에 설정된 Device로 실행이 됩니다. 
+  <br/><img src="images/javame_run.png"/>
+- Emulator 실행화면
+    <br/><img src="images/javame_emulator.png"/>
 
 Copyright (c) 2017 SK Telecom Co., Ltd. All Rights Reserved.
 Distributed under Apache License Version 2.0.
