@@ -221,7 +221,7 @@ Sample Device App 실행
 ![androidTP.png](./images/androidTP.png)
 
 ## Resources
-* **[API Documentation](./images/ThingPlug_Simple_SDK_API_Document_20171225.zip)** - SDK API 다큐먼트
+* **[API Documentation](./images/ThingPlug_Simple_SDK_API_Document_20180124.zip)** - SDK API 다큐먼트
 * **[Sample Device/Service App Guide](Sample_App.md)** - Device & Service App 설명
 
 Copyright (c) 2017 SK Telecom Co., Ltd. All Rights Reserved.
