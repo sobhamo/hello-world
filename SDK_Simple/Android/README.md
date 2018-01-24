@@ -206,13 +206,13 @@ __tpSimpleSubscribe__ | 디바이스정보를 모니터링 한다.
 > 각 함수별 파라미터 설명은 `tp.skt.simple.api.Simple.java`에서 확인
 
 ## Sample Application(s)
-* **[Simple Test App](SDK)** - oneM2M SDK 사용 Test App
+* **[Simple Test App](SDK)** - Simple SDK 사용 Test App
 * **[Sample Device App](Device)** - Android 단말을 IoT Device로 동작하게 하는 App 
 * **[Sample Service App](Service)** - IoT Device의 원격 상태조회, 제어가 가능한 Service용 App
 
 Sample Device App 실행
 ---
-1. 실행 로그 확인
+1. 실행 로그 
 ---
 [LOG_android.txt](./LOG_android.txt)
 ---
