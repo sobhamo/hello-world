@@ -197,8 +197,11 @@ __tpSimpleDisconnect__ | 서버에 Disconnection 한다.
 __tpSimpleDestroy__ | MQTT 연결 및 리소스들을 해제한다.
 __tpSimpleIsConnected__ | MQTT 연결상태를 확인한다.
 __tpSimpleTelemetry__ | 센서정보를 전달한다.
+__tpSimpleRawTelemetry__ | 센서정보를 전달한다.(RAW data)
 __tpSimpleAttribute__ | 디바이스 정보를 전달한다.
+__tpSimpleRawAttribute__ | 디바이스 정보를 전달한다.(RAW data)
 __tpSimpleResult__ | RPC 제어결과를 전달한다.
+__tpSimpleRawResult__ | RPC 제어결과를 전달한다.(RAW data)
 __tpSimpleSubscribe__ | 디바이스정보를 모니터링 한다.
 > 각 함수별 파라미터 설명은 `tp.skt.simple.api.Simple.java`에서 확인
 
