@@ -777,7 +777,7 @@ public class SensorListActivity extends AppCompatActivity {
                                     showImageViewDialog(base64Image);
                                 } else {
                                     JSONObject errorObject = rpcRspObject.getJSONObject(Define.ERROR);
-                                    String errorMessage = errorObject.getString("errorMessage");
+                                    String errorMessage = errorObject.getString("message");
                                     Toast.makeText(SensorListActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
                                 }
                                 sensorInfo.setCmdId(0);
