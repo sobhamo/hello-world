@@ -52,7 +52,6 @@ import java.util.TimerTask;
 
 import tp.skt.simple.common.Define;
 import tp.skt.simple.element.ArrayElement;
-import tp.skt.simple.element.RPCResponse;
 
 /**
  * activity for sensor list
@@ -79,7 +78,6 @@ public class SensorListActivity extends AppCompatActivity {
     private Timer timer;
     private Handler transferHandler;
     private Runnable transferTask;
-    private boolean sendedOffAll;
 
     private MediaRecorder mediaRecorder;
 
@@ -111,30 +109,8 @@ public class SensorListActivity extends AppCompatActivity {
         simpleWorker = SimpleWorker.getInstance();
         simpleWorker.setStateListener(new SimpleListener());
 
-//        googleDriveHandler = new GoogleDriveHandler(this, new GoogleDriveCommandListener());
-//        googleDriveHandler.connect();
-
-//        sendDeviceInfo();
-        // create sensor list
         createSensorList();
     }
-
-//    private void sendDeviceInfo() {
-//        ArrayElement deviceInfo = new ArrayElement();
-//        deviceInfo.addNumberElement("sysAvailableMemory", 640);
-//        deviceInfo.addStringElement("sysFirmwareVersion", "1.0");
-//        deviceInfo.addStringElement("sysSerialNumber", "710DJC5I10000290");
-//        deviceInfo.addNumberElement("sysErrorCode", 0);
-//        deviceInfo.addStringElement("sysNetworkType", "LTE");
-//        deviceInfo.addStringElement("sysDeviceIpAddress", "111.111.111.111");
-//        deviceInfo.addStringElement("sysThingPlugIpAddress", userInfo.getServer());
-//
-//        simpleWorker.sendAttribute(deviceInfo);
-//    }
-
-//    private void attribute() {
-//    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -213,7 +189,6 @@ public class SensorListActivity extends AppCompatActivity {
         listView.setAdapter(new SensorListAdapter(this, sensorInfos));
 
         timer = new Timer();
-        sendedOffAll = false;
 
         // create timer for view
         final Handler handler = new Handler();
@@ -420,7 +395,6 @@ public class SensorListActivity extends AppCompatActivity {
 
         if (reportContents.elements.size() > 0) {
             simpleWorker.sendTelemetry(reportContents);
-            sendedOffAll = isAllSensorOff;
         }
     }
 
@@ -539,13 +513,8 @@ public class SensorListActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onUnregistered(boolean result) {
-        }
-
-        @Override
-        public RESULT onReceiveCommand(String message) {
+        public void onReceiveCommand(String message) {
             Log.i(TAG, "onReceiveCommand");
-            RESULT controlResult = RESULT.SUSPEND;
             String key = "";
             int control = 0;
             try {
@@ -559,11 +528,11 @@ public class SensorListActivity extends AppCompatActivity {
 
                     if (key.equals("camera")) {
 
-                        if(getSensorInfo(SensorType.CAMERA).isEnable() == false) return RESULT.FAIL;
+                        if(getSensorInfo(SensorType.CAMERA).isEnable() == false) return;
 
                         // under LOLLIPOP exception handling
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP && isFront == false) {
-                            controlResult = RESULT.FAIL;
+                            return;
                         } else {
                             Camera.TYPE cameraType = Camera.TYPE.NONE;
                             switch (control) {
@@ -600,7 +569,7 @@ public class SensorListActivity extends AppCompatActivity {
                             camera.notifyCommand(cameraType, (FrameLayout) findViewById(R.id.camera_preview));
                         }
                     } else if (key.equals("buzzer")) {
-                        if(getSensorInfo(SensorType.BUZZER).isEnable() == false) return RESULT.FAIL;
+                        if(getSensorInfo(SensorType.BUZZER).isEnable() == false) return;
                         Buzzer.TYPE type = Buzzer.TYPE.NONE;
                         switch (control) {
                             case 0:
@@ -617,14 +586,9 @@ public class SensorListActivity extends AppCompatActivity {
                                 break;
                         }
                         Buzzer buzzer = new Buzzer(SensorListActivity.this);
-                        if (buzzer.notifyCommand(type)) {
-                            controlResult = RESULT.SUCCESS;
-                        } else {
-                            control = 0;
-                            controlResult = RESULT.FAIL;
-                        }
+                        buzzer.notifyCommand(type);
                     } else if (key.equals("led")) {
-                        if(getSensorInfo(SensorType.LED).isEnable() == false) return RESULT.FAIL;
+                        if(getSensorInfo(SensorType.LED).isEnable() == false) return;
 
                         Led.COLOR color = Led.COLOR.NONE;
                         switch (control) {
@@ -654,12 +618,7 @@ public class SensorListActivity extends AppCompatActivity {
                                 break;
                         }
                         Led led = new Led(SensorListActivity.this);
-                        if (led.notifyCommand(color)) {
-                            controlResult = RESULT.SUCCESS;
-                        } else {
-                            control = 0;
-                            controlResult = RESULT.FAIL;
-                        }
+                        led.notifyCommand(color);
                     }
                 } else if (TextUtils.isEmpty(cmd) == false && cmd.equals(Define.JSON_RPC)) {
                     JSONObject rpcReqObject = messageObject.getJSONObject("rpcReq");
@@ -675,21 +634,21 @@ public class SensorListActivity extends AppCompatActivity {
                         Log.e(TAG, key + ":" + control);
                         String[] names;
                         String name;
-//                        int length;
                         if(key.equals("camera")) {
                             if(getSensorInfo(SensorType.CAMERA).isEnable() == false) {
                                 ArrayElement error = new ArrayElement();
-                                error.addStringElement("errorMessage", "Camera disabled.");
+                                error.addNumberElement("code", 102);
+                                error.addStringElement("message", "Camera disabled.");
                                 simpleWorker.controlResult(cmd, jsonRpc, id, false, error);
-                                return RESULT.FAIL;
+                                return;
                             }
 
                             // under LOLLIPOP exception handling
                             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP && isFront == false) {
                                 ArrayElement error = new ArrayElement();
-                                error.addStringElement("errorMessage", "Device Application is not foreground.");
+                                error.addNumberElement("code", 106);
+                                error.addStringElement("message", "Device Application is not foreground.");
                                 simpleWorker.controlResult(cmd, jsonRpc, id, false, error);
-                                controlResult = RESULT.FAIL;
                             } else {
                                 Camera.TYPE cameraType = Camera.TYPE.NONE;
                                 switch (control) {
@@ -708,20 +667,15 @@ public class SensorListActivity extends AppCompatActivity {
                                         Log.e(TAG, "onCaptured : " + base64Image.length());
                                         ArrayElement photo = new ArrayElement();
                                         photo.addStringElement("photo", base64Image);
-//                                        int nowSecond = (int) (System.currentTimeMillis()/1000);
                                         simpleWorker.controlResult(cmd, jsonRpc, id, true, photo);
-//                                        telemetry.addNumberElement("ts", nowSecond);
-//                                        simpleWorker.sendTelemetry(telemetry);
                                     }
 
                                     @Override
                                     public void onCaptureFailed() {
                                         Log.i(TAG, "onCaptureFailed");
                                         ArrayElement error = new ArrayElement();
-                                        error.addStringElement("errorMessage", "Camera capture failed.");
-//                                        int nowSecond = (int) (System.currentTimeMillis()/1000);
-//                                        telemetry.addNumberElement("ts", nowSecond);
-//                                        simpleWorker.sendTelemetry(telemetry);
+                                        error.addNumberElement("code", 106);
+                                        error.addStringElement("message", "Camera capture failed.");
                                         simpleWorker.controlResult(cmd, jsonRpc, id, false, error);
                                     }
                                 });
@@ -731,27 +685,22 @@ public class SensorListActivity extends AppCompatActivity {
                         } else {
                             for (SensorInfo sensorInfo : sensorInfos) {
                                 names = sensorInfo.getType().getName();
-//                            length = names.length;
                                 name = names[0];
                                 Log.e(TAG, name);
                                 if (key.equals(name)) {
                                     sensorInfo.setActivated(control == 1 ? true : false);
                                     setSensorListener(sensorInfo.getType(), sensorInfo.isActivated());
-                                    break;
+                                    simpleWorker.controlResult(cmd, jsonRpc, id, true, null);
+                                    return;
                                 }
                             }
+                            simpleWorker.controlResult(cmd, jsonRpc, id, false, null);
                         }
                     }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-//            if (controlResult != RESULT.SUSPEND) {
-//                ArrayElement attr = new ArrayElement();
-//                attr.addNumberElement(key, control);
-//                simpleWorker.sendAttribute(attr);
-//            }
-            return controlResult;
         }
     }
 

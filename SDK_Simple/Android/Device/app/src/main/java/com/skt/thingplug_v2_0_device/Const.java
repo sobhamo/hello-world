@@ -13,7 +13,7 @@ public class Const {
     private static final int GET_LENGTH_MAX = 10;
     public static final int MAX_CLIENT_ID_LENGTH = 24;
 
-    public static final String HOST_THINGPLUG_PORTAL_DEFAULT = "http://(TBD)";
+    public static final String HOST_THINGPLUG_PORTAL_DEFAULT = "http://(TBD):9000";
     public static final String HOST_THINGPLUG_SERVER_DEFAULT = "(TBD)";
 
     public static final String URL_JOIN_THINGPLUG = "%s/join";

@@ -1,17 +1,13 @@
 package com.skt.thingplug_v2_0_device.data;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Formatter;
 import java.util.List;
-import java.util.Date;
-import java.text.DateFormat;
 
 import tp.skt.simple.element.ArrayElement;
-import tp.skt.simple.element.NumberElement;
 
 import static com.skt.thingplug_v2_0_device.data.SensorType.BUZZER;
 import static com.skt.thingplug_v2_0_device.data.SensorType.CAMERA;
@@ -160,21 +156,22 @@ public class TTVBuilder {
         switch (type.getValueType()) {
             case NUMBER:
                 for(int i = 0; i < size; i++) {
-//                    if(name[i].equals("batteryGuage")) continue;
                     if(info.isEnable() && info.isActivated()) {
                         arrayElement.addNumberElement(name[i], values[i]);
-                    } else {
-                        arrayElement.addNumberElement(name[i], -9999);
                     }
+//                    else {
+//                        arrayElement.addNumberElement(name[i], -9999);
+//                    }
                 }
                 break;
             case STRING:
                 for(int i = 0; i < size; i++) {
                     if(info.isEnable() && info.isActivated()) {
                         arrayElement.addStringElement(name[i], stringValues[i]);
-                    } else {
-                        arrayElement.addStringElement(name[i], "");
                     }
+//                    else {
+//                        arrayElement.addStringElement(name[i], "");
+//                    }
                 }
                 break;
         }
@@ -189,18 +186,6 @@ public class TTVBuilder {
     public TTVBuilder addSensorTime(long nowMillis) {
         int nowSecond = (int) (nowMillis/1000);
         arrayElement.addNumberElement("ts", nowSecond);
-//        Log.e("TTVBuilder", "Current Time is:"+ nowMillis +"msec ("+ nowSecond +" sec)= "+ DateFormat.getDateTimeInstance().format(new Date(nowMillis)) );
-//
-//        // Time
-//        formatter.format("03"); // write type
-//        formatter.format("%02x", ValueType.TIME.getCode()); // write datatype
-//        formatter.format("%08x", nowSecond); // write value
-
-//        // Precise Time
-//        formatter.format("02"); // write type
-//        formatter.format("%02x", ValueType.PRECISETIME.getCode()); // write datatype
-//        formatter.format("%016x", nowMillis); // write value
-
         return this;
     }
 

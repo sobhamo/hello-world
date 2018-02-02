@@ -28,7 +28,6 @@ public class SimpleWorker {
     private Context context;
     private StateListener stateListener;
 
-    private final boolean USE_REPORT_DELIVERED_CHECK = false;
     private boolean reportMessageDelivered = true;
 
     private int cmdId = 1;
@@ -39,17 +38,9 @@ public class SimpleWorker {
      * working state listener
      */
     public interface StateListener {
-        enum RESULT {
-            FAIL,
-            SUCCESS,
-            SUSPEND,
-        }
-
         void onConnected(boolean result);
         void onDisconnected(boolean result);
-//        void onRegistered(boolean result);
-        void onUnregistered(boolean result);
-        RESULT onReceiveCommand(String message);
+        void onReceiveCommand(String message);
     }
 
     /**
@@ -238,7 +229,8 @@ public class SimpleWorker {
         public void onPush(String message) {
             Log.e(TAG, "onPush : " + message);
             if(stateListener != null) {
-                StateListener.RESULT controlResult = stateListener.onReceiveCommand(message);
+                stateListener.onReceiveCommand(message);
+//                StateListener.RESULT controlResult = stateListener.onReceiveCommand(message);
 //                if (controlResult != StateListener.RESULT.SUSPEND) {
 //                    simpleWorker.controlResult(control.getNm(), control.getRi(), controlResult == StateListener.RESULT.SUCCESS);
 //                }

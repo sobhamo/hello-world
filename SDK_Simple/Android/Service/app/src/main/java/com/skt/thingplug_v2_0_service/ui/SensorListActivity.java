@@ -36,7 +36,6 @@ import com.skt.thingplug_v2_0_service.data.SensorInfo;
 import com.skt.thingplug_v2_0_service.data.SensorType;
 import com.skt.thingplug_v2_0_service.data.UserInfo;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -372,11 +371,6 @@ public class SensorListActivity extends AppCompatActivity {
             SensorInfo sensorInfo = (SensorInfo) view.getTag();
             Button button = (Button) view;
 
-//            if (!sensorInfo.isActivated()) {
-//                Toast.makeText(SensorListActivity.this, R.string.actuator_disabled, Toast.LENGTH_SHORT).show();
-//                return;
-//            }
-
             switch (sensorInfo.getType()) {
                 case BUZZER:
                     showBuzzerControlDialog(sensorInfo, button);
@@ -474,12 +468,11 @@ public class SensorListActivity extends AppCompatActivity {
      */
     private void controlDevice(final SensorInfo sensorInfo, int command, final Button button) {
         button.setEnabled(false);
-//        sensorInfo.setActivated(!sensorInfo.isActivated());
         ArrayElement element = new ArrayElement();
         element.addNumberElement(sensorInfo.getType().getName()[0], command);
         final int cmdId = simpleWorker.getCmdId();
         sensorInfo.setCmdId(cmdId);
-        // setAttribute if actuator
+        // setAttribute
         if(sensorInfo.getType().getCategory() == SensorType.Category.ACTUATOR) {
 
             if(sensorInfo.getType() == SensorType.CAMERA) {
@@ -737,10 +730,6 @@ public class SensorListActivity extends AppCompatActivity {
         public void onDisconnected(boolean result) {
         }
 
-//        @Override
-//        public void onRegistered(boolean result, String dKey, String nodeLink) {
-//        }
-
         @Override
         public void onUnregistered(boolean result) {
         }
@@ -802,15 +791,11 @@ public class SensorListActivity extends AppCompatActivity {
                             name = names[i];
                             if (json.has(name)) {
                                 float value = (float) json.getJSONArray(name).getDouble(1);
-                                if(value != -9999) {
+                                // pass while control
+                                if(sensorInfo.getCmdId() == 0) {
                                     sensorInfo.setActivated(true);
-                                    sensorInfo.setValue(i, value);
-                                } else {
-                                    sensorInfo.setActivated(false);
                                 }
-//                                if (sensorInfo.getType().getCategory() == SensorType.Category.ACTUATOR) {
-//                                    resultControlDevice(true, R.string.control_success, sensorInfo);
-//                                }
+                                sensorInfo.setValue(i, value);
                                 break;
                             }
                         }

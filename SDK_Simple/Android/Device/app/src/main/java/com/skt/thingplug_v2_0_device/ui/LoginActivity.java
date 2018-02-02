@@ -563,12 +563,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onUnregistered(boolean result) {
-        }
-
-        @Override
-        public RESULT onReceiveCommand(String message) {
-            return RESULT.SUSPEND;
+        public void onReceiveCommand(String message) {
         }
     }
 }
