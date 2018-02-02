@@ -19,6 +19,7 @@
         android:layout_marginBottom="8dp"
         android:visibility="gone" />
 
+
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
@@ -86,7 +87,8 @@
                 android:layout_height="wrap_content"
 
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -121,6 +123,19 @@
                     android:layout_height="wrap_content"
                     android:text="Register" />
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_height="1dp"
+                    android:background="#ccc" />
+
+
+                <Button
+                    android:id="@+id/append"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Append Device" />
 
             </LinearLayout>
 

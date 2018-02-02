@@ -74,7 +74,7 @@ public class UserInfo {
      *
      * @param context context
      */
-    public UserInfo(Context context) {
+    private UserInfo(Context context) {
         sharedPreference = context.getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
         editor = sharedPreference.edit();
     }

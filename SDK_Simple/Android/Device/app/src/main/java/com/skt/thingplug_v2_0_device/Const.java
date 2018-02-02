@@ -10,7 +10,7 @@ import android.hardware.Sensor;
  */
 public class Const {
     // ThingPlug URLs
-    private static final int GET_LENGTH_MAX = 10;
+    private static final int GET_LENGTH_MAX = 100;
     public static final int MAX_CLIENT_ID_LENGTH = 24;
 
     public static final String HOST_THINGPLUG_PORTAL_DEFAULT = "http://(TBD):9000";
@@ -21,6 +21,9 @@ public class Const {
     public static final String URL_GET_SERVICE_LIST_DEFAULT = "%s/api/v1/users/%s/services?limit=" + GET_LENGTH_MAX;
     public static final String URL_GET_DEVICE_LIST_DEFAULT = "%s/api/v1/services/%s/devices?limit=" + GET_LENGTH_MAX;
     public static final String URL_GET_DEVICE_TOKEN_DEFAULT = "%s/api/v1/services/%s/devices/%s/credential";
+
+    public static final String URL_GET_DEVICE_DESCRIPTIONS = "%s/api/v1/services/%s/device-descriptors?limit=" + GET_LENGTH_MAX;
+    public static final String URL_REGIST_DEVICE = "%s/api/v1/services/%s/devices";
 
     public static final boolean USE_TLS_DEFAULT = false;
     // read time delay (msec)

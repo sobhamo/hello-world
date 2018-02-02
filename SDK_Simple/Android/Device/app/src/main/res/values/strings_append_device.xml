@@ -1,0 +1,10 @@
+<resources>
+    <string name="append_device_service_name">Service Name</string>
+    <string name="append_device_device_id">Device id</string>
+    <string name="append_device_device_name">Device Name</string>
+
+
+    <string name="append_device_not_exist_dd">Not found Device descriptos</string>
+    <string name="append_device_regist_fail">Registration failure</string>
+
+</resources>

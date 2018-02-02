@@ -58,6 +58,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private final int PERMISSION_POPUP = 1000;
 
+    private final int REQUEST_APPEND_DEVICE = 1;
+
     // UI references.
     private AutoCompleteTextView textviewId;
     private EditText textviewPassword;
@@ -175,6 +177,18 @@ public class LoginActivity extends AppCompatActivity {
                     userInfo.setDeviceToken(deviceToken);
                     simpleWorker.connect(LoginActivity.this);
                 }
+            }
+        });
+
+        Button appendButton = (Button) findViewById(R.id.append);
+        appendButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, AppendDeviceActivity.class);
+                intent.putExtra(AppendDeviceActivity.EXTRA_SERVICE_NAME, serviceName);
+                intent.putExtra(AppendDeviceActivity.EXTRA_ACCESS_TOKEN, accessToken);
+                startActivityForResult(intent, REQUEST_APPEND_DEVICE);
+
             }
         });
 
@@ -565,5 +579,23 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         public void onReceiveCommand(String message) {
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == REQUEST_APPEND_DEVICE){
+            if(resultCode == RESULT_OK){
+                deviceName = data.getStringExtra(AppendDeviceActivity.RESULT_DEVICE_NAME);
+                deviceToken = data.getStringExtra(AppendDeviceActivity.RESULT_DEVICE_TOKEN);
+//                String serviceId = data.getStringExtra(AppendDeviceActivity.RESULT_SERVICE_ID);
+
+                userInfo.setServiceName(serviceName);
+                userInfo.setDeviceName(deviceName);
+                userInfo.setDeviceToken(deviceToken);
+                simpleWorker.connect(LoginActivity.this);
+
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
