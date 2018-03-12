@@ -15,7 +15,7 @@
 * **Gateway Portal** 은 관리자/개발자가 미들웨어 시스템을 제어하고, 각종 정보를 조회할 수 있는 사용자 인터페이스이며, Node.js 기반의 어플리케이션으로 구현되어 있다.
 
 #### 2. ThingPlug 와의 연동 구조
-ThingPlug 와의 Protocol 은 SimpleAPI 지원한다.
+ThingPlug 와의 Protocol 은 SimpleAPI를 지원한다.
 ![](images/v1_overview.png)
 
 #### 3. 지원 사양 및 하드웨어
