@@ -60,7 +60,7 @@ ThingPlug 와의 Protocol 은 SimpleAPI를 지원한다.
 0. 데비안 패키지 파일을 다운로드 한다.
 
 	```
-	# wget https://github.com/sobhamo/hello-world/raw/master/Simple_mw/pkg/thingplug_dmw_ARM_2.0.0_1712221030.deb
+	# wget https://github.com/sobhamo/hello-world/raw/master/SDK_Simple/Middleware/pkg/thingplug_dmw_ARM_2.0.1_1803061640.deb
 	```
 
 1. 데비안 패키지를 설치한다.(반드시 root 계정을 이용해야 한다.)	
