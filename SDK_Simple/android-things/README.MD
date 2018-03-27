@@ -1,26 +1,25 @@
-ThingPlug Simple SDK for Android
+ThingPlug Simple SDK Sample for Android Things
 ===
 
 ## Overview
-ThingPlug Simple SDK for Android는 ThingPlug에 연동하고자 하는 device 개발자 및 application 개발자를 위한 Android기반 SDK입니다. IoT device 및 Application과 ThingPlug서버간의 통신에는 Simple 규격에 기반한 MQTT 프로토콜을 따르고 있으며, 보안강화를 위해 TLS를 사용할 수 있도록 구성되어 있습니다
+ThingPlug Simple SDK for Android를 Android Things에 응용한 예제 프로젝트 입니다.
+* **[ThingPlug Simple SDK for Android](https://github.com/SKT-ThingPlug2/device-sdk-android)**
 
-## Features
-SDK뿐만 아니라 기본 기능시험을 위한 Simple Test App과, Android 단말이 IoT Device 역할을 하도록 해주는 Sample Device App, 그리고 Service Application 역할을 하는 Sample Service App을 같이 배포해드리고 있습니다.
 
 ## Requirements
-* **[AndroidStudio](https://developer.android.com/studio/index.html)**
+* **[AndroidStudio 3.x](https://developer.android.com/studio/index.html)**
 * **[API Level](https://developer.android.com/guide/topics/manifest/uses-sdk-element.html)**
 
 ```
 defaultConfig {
-	minSdkVersion 15
-	targetSdkVersion 24
+	minSdkVersion 24
+	targetSdkVersion 26
 }
 ```
 
 ### Library
-본 SDK에서의 ThingPlug와의 통신은 모두 MQTT를 통해서 이루어기에 MQTT client가 필요합니다.
-Android SDK에서는 오픈소스 프로젝트인 paho를 사용하고 있습니다. paho 프로젝트에 대해서는 아래 링크를 참고하시기 바랍니다.
+Android Simple SDK를 사용하기 위해서 MQTT client가 필요합니다.
+Android Simple SDK에서는 오픈소스 프로젝트인 paho를 사용하고 있습니다. paho 프로젝트에 대해서는 아래 링크를 참고하시기 바랍니다.
 
 라이브러리 | 기능 | 홈페이지
 ------------ | ------------- | -------------
@@ -28,8 +27,8 @@ __paho__ | MQTT | **[paho Homepage](https://eclipse.org/paho/)**
 
 
 ## Getting Started
-ThingPlug Simple SDK는 소스코드 형태로 제공되며 Application에서의 사용을 위해서는 다음과 같이 import하여 사용하면 됩니다.
-보다 자세한 사용 예시는 **[Simple Test App](SDK)** 소스코드를 참고하시기 바랍니다.
+Android Simple SDK는 소스코드 형태로 제공되며 Application에서의 사용을 위해서는 다음과 같이 import하여 사용하면 됩니다.
+보다 자세한 사용 예시는 소스코드를 참고하시기 바랍니다.
 
 ### Project에 Simple SDK 연결
 신규 Project에 Simple SDK를 추가하고자 할 경우, 아래와 같이 추가하시기 바랍니다. 여기서 제공되는 Sample App 프로젝트들에는 이미 SDK가 포함되어 있습니다.
@@ -52,23 +51,25 @@ ThingPlug Simple SDK는 소스코드 형태로 제공되며 Application에서의
 	// Simple SDK
     compile project(':simple_sdk-release')
     // mqtt
-    compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.0.2'
-    compile('org.eclipse.paho:org.eclipse.paho.android.service:1.0.2') {
+    compile 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
+    compile('org.eclipse.paho:org.eclipse.paho.android.service:1.1.1') {
         exclude module: 'support-v4'
     }
     // json
     compile 'com.google.code.gson:gson:2.7'
     // annotation
-    compile 'com.android.support:support-annotations:23.0.0'
+    compile 'com.android.support:support-annotations:27.1.0'
 	```	
 
 ### Simple SDK import
 
     import tp.skt.simple.api.Simple;
-	import tp.skt.simple.element.ArrayElement;
-	import tp.skt.simple.net.mqtt.SimpleCallback;
-	import tp.skt.simple.net.mqtt.SimpleConfiguration;
-	import tp.skt.simple.net.mqtt.SimpleListener;
+    import tp.skt.simple.common.Define.DATA_FORMAT;
+    import tp.skt.simple.element.ArrayElement;
+    import tp.skt.simple.element.RPCResponse;
+    import tp.skt.simple.net.mqtt.SimpleCallback;
+    import tp.skt.simple.net.mqtt.SimpleConfiguration;
+    import tp.skt.simple.net.mqtt.SimpleListener;
 
 
 ## Simple API 생성
@@ -77,8 +78,8 @@ Simple API 를 사용하기 위해서는 Simple 객체를 생성해야 합니다
 ```java
 Simple simple = new Simple(
 	Context context, 
-	String serviceName, 
-	String deviceName, 
+	String serviceId, 
+	String deviceId, 
 	String userName, 
 	SimpleConfiguration simpleConfiguration, 
 	SimpleListener simpleListener, 
@@ -87,8 +88,8 @@ Simple simple = new Simple(
 파라미터 | 설명
 ------------ | -------------
 __context__ | 앱 context
-__serviceName__ | 서비스 이름
-__deviceName__ | 디바이스 이름
+__serviceId__ | 서비스 ID
+__deviceId__ | 디바이스 ID
 __userName__ | ThingPlug 계정 ID
 __simpleConfigration__ | MQTT 연결을 위한 값들 세팅
 __simpleListener__ | 각종 이벤트 Listener
@@ -105,32 +106,26 @@ Simple simple = new SimpleConfiguration(
 	String loginPassword);
 ```
 
-파라미터 | 설명
------------- | -------------
-__mqttServerAddress__ | ThingPlug Server 주소
-__clientId__ | MQTT 연결을 위한 Client-ID 
-__loginName__ | MQTT 연결을 위한 ID
-__loginPassword__ | MQTT 연결을 위한 Password
+파라미터 | 설명 |  예시
+------------ | ------------- | -------------
+__mqttServerAddress__ | ThingPlug Server 주소 | TLS사용 : `ssl://xx.xx.xx.xx`, 미사용 : `tcp://xx.xx.xx.xx`
+__clientID__ | ThingPlug 연결을 위한 Client-ID | 디바이스 토큰 : `78a3b1a....`
+__loginName__ | ThingPlug 연결을 위한 ID | 디바이스 토큰 : `78a3b1a....`
+__loginPassword__ | ThingPlug 연결을 위한 Password | `null`
+
 
 mqttServerAddress 값의 경우 TLS 사용을 위해서는 MQTT broker 주소앞에 `ssl://` 을 포함하면 됩니다. 포트번호가 `8883`인 경우 생략 가능합니다.
 
 TLS 사용 시, ThingPlug의 MQTT broker 주소는 다음과 같습니다.
 ```
-ssl://thingplug.net
+ssl://api.sktiot.com
 ```
 TLS를 사용하지 않을 경우, MQTT broker 주소앞에 `tcp://` 를 포함하면 됩니다. 포트번호가 `1883`인 경우 생략 가능합니다.
 
 TLS 미사용 시, ThingPlug의 MQTT broker 주소는 다음과 같습니다.
 ```
-tcp://thingplug.net
+tcp://api.sktiot.com
 ```
-
-loginName 과 loginPassword 는 디바이스로 동작할 경우와 애플리케이션으로 동작할 경우에 설정값이 아래와 같습니다.
-
-파라미터 | 디바이스 | 애플리케이션
------------- | ------------- | -------------
-__loginName__ | 디바이스 토큰 | ThingPlug 계정 ID
-__loginPassword__ | null | ThingPlug 계정 Password
 
 
 ### SimpleListener 사용
@@ -214,7 +209,7 @@ Sample Device App 실행
 ---
 1. 실행 로그 
 ---
-[LOG_android.txt](./LOG_android.txt)
+[Android_Things.log](./Android_Things.log)
 ---
 2. Thingplug SensorData
 ---
