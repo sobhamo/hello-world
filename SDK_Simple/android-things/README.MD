@@ -200,23 +200,17 @@ __tpSimpleRawResult__ | RPC 제어결과를 전달한다.(RAW data)
 __tpSimpleSubscribe__ | 디바이스정보를 모니터링 한다.
 > 각 함수별 파라미터 설명은 `tp.skt.simple.api.Simple.java`에서 확인
 
-## Sample Application(s)
-* **[Simple Test App](SDK)** - Simple SDK 사용 Test App
-* **[Sample Device App](Device)** - Android 단말을 IoT Device로 동작하게 하는 App 
-* **[Sample Service App](Service)** - IoT Device의 원격 상태조회, 제어가 가능한 Service용 App
 
 Sample Device App 실행
 ---
 1. 실행 로그 
 ---
-[Android_Things.log](./Android_Things.log)
+[AndroidThings.log](./log/AndroidThings.log)
 ---
 2. Thingplug SensorData
 ---
 ![androidTP.png](./images/androidTP.png)
 
-## Resources
-* **[Sample Device/Service App Guide](Sample_App.md)** - Device & Service App 설명
 
 Copyright (c) 2018 SK telecom Co., Ltd. All Rights Reserved.
 Distributed under Apache License Version 2.0. See LICENSE for details.
