@@ -1,0 +1,60 @@
+I: Late-enabling -Xcheck:jni
+W: Using default instruction set features for ARM CPU variant (generic) using conservative defaults
+I: Ignoring second debugger -- accepting and dropping
+I: starting instant run server: is main process
+I: Ignoring second debugger -- accepting and dropping
+I: Connecting to camera service
+D: Using camera id 0
+D: Opened camera.
+I: userName : a65f0f502d8811e8af47
+I: Do partial code cache collection, code=4KB, data=26KB
+I: After code cache collection, code=4KB, data=26KB
+I: Increasing code cache capacity to 128KB
+I: Ignoring second debugger -- accepting and dropping
+D: No Network Security Config specified, using platform default
+I: Skipped 33 frames!  The application may be doing too much work on its main thread.
+D: Loading /vendor/lib/hw/android.hardware.graphics.mapper@2.0-impl.so from current namespace instead of sphal namespace.
+D: Register alarmreceiver to MqttServiceMqttService.pingSender.a65f0f502d8811e8af47
+D: Schedule next alarm at 1522116636761
+D: Alarm scheule using setExactAndAllowWhileIdle, next: 60000
+I: onConnected
+I: publishTopic : v1/dev/serviceId/deviceId/attribute
+I: {"Temperature":true,"Humidity":true,"Light":true,"Camera":true}
+I: message publish success
+I: onResponse
+I: message delivered
+I: onDelivered
+I: [v1/dev/serviceId/deviceId/down]
+I: onSubscribed
+I: messageArrived : v1/dev/serviceId/deviceId/down - {"serviceName":"serviceId","deviceName":"deviceId","cmdId":10,"cmd":"jsonRpc","rpcReq":{"jsonrpc":"2.0","method":"tp_user","params":[{"led":6}],"id":1363564107}}tp.skt.simple.net.mqtt.MQTTClient$1@eb821ab
+I: onMessageReceived : {"serviceName":"serviceId","deviceName":"deviceId","cmdId":10,"cmd":"jsonRpc","rpcReq":{"jsonrpc":"2.0","method":"tp_user","params":[{"led":6}],"id":1363564107}}
+I: RPC_USER
+I: rpc : 2.0, id : 1363564107cmd : 6
+I: publishTopic : v1/dev/serviceId/deviceId/up
+I: {"cmd":"jsonRpc","cmdId":1,"result":"success","rpcRsp":{"jsonrpc":"2.0","id":1363564107,"result":{"led":6}}}
+I: message publish success
+I: onResponse
+I: message delivered
+I: onDelivered
+I: messageArrived : v1/dev/serviceId/deviceId/down - {"serviceName":"serviceId","deviceName":"deviceId","cmdId":11,"cmd":"jsonRpc","rpcReq":{"jsonrpc":"2.0","method":"tp_user","params":[{"led":11}],"id":1363564108}}tp.skt.simple.net.mqtt.MQTTClient$1@eb821ab
+I: onMessageReceived : {"serviceName":"serviceId","deviceName":"deviceId","cmdId":11,"cmd":"jsonRpc","rpcReq":{"jsonrpc":"2.0","method":"tp_user","params":[{"led":11}],"id":1363564108}}
+I: RPC_USER
+I: rpc : 2.0, id : 1363564108cmd : 11
+I: publishTopic : v1/dev/serviceId/deviceId/up
+I: {"cmd":"jsonRpc","cmdId":1,"result":"fail","rpcRsp":{"jsonrpc":"2.0","id":1363564108,"error":{"code":111,"message":"wrong parameters"}}}
+I: message publish success
+I: onResponse
+I: message delivered
+I: onDelivered
+I: messageArrived : v1/dev/serviceId/deviceId/down - {"deviceId":"a65ff9b0-2d88-11e8-af47-f35953165867","cmdId":2133130656,"cmd":"setAttribute","attribute":{"led":6}}tp.skt.simple.net.mqtt.MQTTClient$1@eb821ab
+I: onMessageReceived : {"deviceId":"a65ff9b0-2d88-11e8-af47-f35953165867","cmdId":2133130656,"cmd":"setAttribute","attribute":{"led":6}}
+I: led :6, 2133130656
+I: publishTopic : v1/dev/serviceId/deviceId/attribute
+I: {"led":6}
+I: message publish success
+I: onResponse
+I: message delivered
+I: onDelivered
+D: Sending Ping at:1522116636763
+D: Schedule next alarm at 1522116686772
+D: Alarm scheule using setExactAndAllowWhileIdle, next: 50007
